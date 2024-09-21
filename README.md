@@ -1,5 +1,7 @@
 # Vika Keikka (One Last Job)
 An atmospheric first person adventure game about a robot doing one last delivery before the end of the world.
+![image](https://github.com/user-attachments/assets/86b4deee-079a-4724-8584-20419e3d9a20)
+
 
 ## Core Mechanics
 - Striding
