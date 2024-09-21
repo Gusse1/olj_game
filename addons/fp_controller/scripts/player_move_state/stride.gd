@@ -9,27 +9,35 @@ var stride_accumulation: float = 6.69
 var stride_decay: float = 4
 var stride_speed: float = 0
 var brake_strength: float = 6.9
+var stride_jump_height: float = 5
+
+var stride_growth_exponent: float = 1.33
+var stride_decay_exponent: float = 0.9
 
 func enter(msg := {}) -> void:
 	pass
 
 
 func handle_input(_event: InputEvent) -> void:
-	pass
-	
-	
+	if Input.is_action_just_pressed("jump"):
+			print_debug("Stride jump")
+			player.velocity.y = stride_jump_height
+
+
 func physics_update(_delta: float) -> void:
 	# TODO: Add exponent to make the lowering faster and raise more gradual
 	if Input.is_action_just_pressed("stride_left"):
-		print_debug("Stride Left")
-		stride_speed += stride_accumulation
+		if last_stride != 0:
+			stride_speed += pow(stride_accumulation, stride_growth_exponent)
+			last_stride = 0
 	if Input.is_action_just_pressed("stride_right"):
-		print_debug("Stride Right")
-		stride_speed += stride_accumulation
+		if last_stride != 1:
+			stride_speed += pow(stride_accumulation, stride_growth_exponent)
+			last_stride = 1
 	if Input.is_action_pressed("brake"):
 		stride_speed -= brake_strength*_delta
 	
-	stride_speed -= stride_decay*_delta
+	stride_speed -= pow(stride_decay*_delta, stride_decay_exponent)
 	
 	if stride_speed < 0:
 		stride_speed = 0

@@ -105,4 +105,3 @@ func process_mouse_input(event : InputEvent) -> void:
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				self.camera_zoom += camera_zoom_step
 	
-
