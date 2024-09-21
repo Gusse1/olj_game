@@ -6,6 +6,14 @@ class_name SmoothCamera extends Camera3D
 var fov_target: float = 80
 var fov_transition_strength: float = 7
 
+# TODO: Add a heavier camera when the player is striding and disable it when the
+# player is not striding
+var stride_speed: float = 22
+var original_speed: float
+
+func _ready() -> void:
+	original_speed = speed
+
 func _physics_process(delta: float) -> void:
 	var weight: float = clamp(speed * delta, 0.0, 1.0)
 	
@@ -21,3 +29,4 @@ func _physics_process(delta: float) -> void:
 func _on_stride_striding(stride_speed: float, stride_max_speed: float) -> void:
 	var fov_addition = (stride_fov_max * (stride_speed/stride_max_speed))
 	fov_target = fov_addition + normal_fov
+	#speed = stride_speed
