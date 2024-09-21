@@ -42,6 +42,7 @@ _shader_parameters = {
 }
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uaul6"]
+sky_top_color = Color(0.980392, 0.835294, 0.65098, 1)
 
 [sub_resource type="Sky" id="Sky_bw1n1"]
 sky_material = SubResource("ProceduralSkyMaterial_uaul6")
@@ -52,14 +53,21 @@ sky = SubResource("Sky_bw1n1")
 ambient_light_source = 2
 ambient_light_color = Color(0.980392, 0.839216, 0.647059, 1)
 ambient_light_energy = 0.1
+reflected_light_source = 2
 ssao_enabled = true
 ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_y_scale = 0
+sdfgi_energy = 0.1
+glow_enabled = true
 fog_light_color = Color(0.980392, 0.839216, 0.647059, 1)
 fog_density = 0.001
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0125
 volumetric_fog_albedo = Color(0.980392, 0.839216, 0.647059, 1)
 volumetric_fog_emission = Color(0.980392, 0.839216, 0.647059, 1)
+volumetric_fog_length = 128.0
+volumetric_fog_sky_affect = 0.2
 
 [node name="Node3D" type="Node3D"]
 
@@ -69,8 +77,9 @@ material = SubResource("Terrain3DMaterial_od84v")
 assets = ExtResource("2_sbfna")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.0485186, 0, 0.998822, 0, 1, 0, -0.998822, 0, -0.0485186, 0, 76.1472, -0.818436)
+transform = Transform3D(-0.322924, -0.0148869, 0.946308, -0.00480794, 0.999889, 0.0140892, -0.946413, -5.65831e-08, -0.32296, -118.677, 77.0693, -248.492)
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
+light_volumetric_fog_energy = 75.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
@@ -83,5 +92,8 @@ sprint_speed = 10.0
 crouch_speed = 3.5
 
 [node name="Tree01" parent="." instance=ExtResource("4_iwf70")]
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(-0.322924, -0.0148869, 0.946308, -0.00480794, 0.999889, 0.0140892, -0.946413, -5.65831e-08, -0.32296, -149.186, 77.0693, -241.367)
 
 [editable path="Player"]

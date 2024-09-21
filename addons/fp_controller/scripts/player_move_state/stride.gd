@@ -2,11 +2,11 @@ class_name Stride extends PlayerState
 
 ## Variable for storing the state prior to striding
 var init_state: int
-var last_stride: int # Cycle between strides
+var last_stride: int = -1 # Cycle between strides -1 = Idle, 0 = Left, 1 = Right
 
-var stride_max_speed: float = 25
+var stride_max_speed: float = 20
 var stride_accumulation: float = 6.69
-var stride_decay: float = 4
+var stride_decay: float = 2
 var stride_speed: float = 0
 var brake_strength: float = 16
 var stride_jump_height: float = 7
@@ -53,15 +53,19 @@ func physics_update(_delta: float) -> void:
 	player.velocity.x = direction.x * stride_speed + (direction.normalized().x)
 	player.velocity.z = direction.z * stride_speed + (direction.normalized().z)
 
+	# Player hit wall 
+	# TODO: Add damage effect
 	if player.is_on_wall() && stride_speed > 0.5:
-		# TODO: Add damage effect
+		last_stride = -1
 		stride_speed = 0
 		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])
-	
+
 	if player.velocity.y < 0:
+		last_stride = -1
 		state_machine.transition_to(
 			state_machine.movement_state[state_machine.FALL],
 			{ state_machine.TO : state_machine.STRIDE }
 		)
 	if stride_speed < 0.5:
+		last_stride = -1
 		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])
