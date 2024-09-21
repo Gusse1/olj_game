@@ -385,4 +385,5 @@ layout_mode = 2
 mouse_filter = 2
 
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
+[connection signal="striding" from="StateMachine/Stride" to="CameraPivot/SmoothCamera" method="_on_stride_striding"]
 [connection signal="draw" from="UserInterface/CrosshairContainer/Crosshair" to="UserInterface" method="_on_crosshair_draw"]

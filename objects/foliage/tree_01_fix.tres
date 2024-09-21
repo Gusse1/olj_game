@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c2sdt1m0jtjp2"]
+
+[ext_resource type="Texture2D" uid="uid://b42lbyj3vuj4f" path="res://assets/models/retro_nature_pack/textures/trees/tree01_fall.png" id="1_nfkq8"]
+
+[resource]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_nfkq8")

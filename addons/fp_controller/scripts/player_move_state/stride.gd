@@ -8,11 +8,13 @@ var stride_max_speed: float = 25
 var stride_accumulation: float = 6.69
 var stride_decay: float = 4
 var stride_speed: float = 0
-var brake_strength: float = 6.9
+var brake_strength: float = 16
 var stride_jump_height: float = 5
 
 var stride_growth_exponent: float = 1.33
 var stride_decay_exponent: float = 0.9
+
+signal striding(stride_speed: float, stride_max_speed: float)
 
 func enter(msg := {}) -> void:
 	pass
@@ -36,6 +38,8 @@ func physics_update(_delta: float) -> void:
 			last_stride = 1
 	if Input.is_action_pressed("brake"):
 		stride_speed -= brake_strength*_delta
+		
+	striding.emit(stride_speed, stride_max_speed)
 	
 	stride_speed -= pow(stride_decay*_delta, stride_decay_exponent)
 	

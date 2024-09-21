@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=12 format=3 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://c5b2b3hwpcvie" path="res://terrain3d_storages/test_terrain_storage.res" id="1_hkj1p"]
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_tglu4"]
+[ext_resource type="PackedScene" uid="uid://dvrbxgnv7l867" path="res://objects/foliage/tree_01.tscn" id="4_iwf70"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -40,18 +41,25 @@ _shader_parameters = {
 "vertex_normals_distance": 128.0
 }
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uaul6"]
+
+[sub_resource type="Sky" id="Sky_bw1n1"]
+sky_material = SubResource("ProceduralSkyMaterial_uaul6")
+
 [sub_resource type="Environment" id="Environment_8abke"]
-background_color = Color(0.980392, 0.839216, 0.647059, 1)
+background_mode = 2
+sky = SubResource("Sky_bw1n1")
 ambient_light_source = 2
 ambient_light_color = Color(0.980392, 0.839216, 0.647059, 1)
 ambient_light_energy = 0.1
 ssao_enabled = true
 ssil_enabled = true
 fog_light_color = Color(0.980392, 0.839216, 0.647059, 1)
-fog_light_energy = 0.52
-fog_height_density = -0.3169
-volumetric_fog_density = 0.024
-volumetric_fog_length = 1024.0
+fog_density = 0.001
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0125
+volumetric_fog_albedo = Color(0.980392, 0.839216, 0.647059, 1)
+volumetric_fog_emission = Color(0.980392, 0.839216, 0.647059, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -69,6 +77,11 @@ shadow_enabled = true
 environment = SubResource("Environment_8abke")
 
 [node name="Player" parent="." instance=ExtResource("3_tglu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.932, 98.273, -153.355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.134, 70.9061, -153.355)
+walk_speed = 5.0
+sprint_speed = 10.0
+crouch_speed = 3.5
+
+[node name="Tree01" parent="." instance=ExtResource("4_iwf70")]
 
 [editable path="Player"]
