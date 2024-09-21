@@ -14,6 +14,10 @@ config/name="puzzle"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Mirror/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
+
 [input]
 
 stride_left={
@@ -35,3 +39,7 @@ brake={
 [physics]
 
 common/physics_interpolation=true
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=2

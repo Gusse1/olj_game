@@ -4,7 +4,7 @@ class_name Stride extends PlayerState
 var init_state: int
 var last_stride: int # Cycle between strides
 
-var stride_max_speed: float = 15
+var stride_max_speed: float = 25
 var stride_accumulation: float = 6.69
 var stride_decay: float = 4
 var stride_speed: float = 0
