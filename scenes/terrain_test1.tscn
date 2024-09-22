@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=25 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://c5b2b3hwpcvie" path="res://terrain3d_storages/test_terrain_storage.res" id="1_hkj1p"]
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_tglu4"]
 [ext_resource type="PackedScene" uid="uid://dvrbxgnv7l867" path="res://objects/foliage/tree_01.tscn" id="4_iwf70"]
+[ext_resource type="PackedScene" uid="uid://b8pax5fya6ekc" path="res://objects/buildings/church.tscn" id="5_ldo4v"]
+[ext_resource type="Texture2D" uid="uid://blwllofju4tvs" path="res://assets/models/Models pack psx/Models/Concrete_01.jpg" id="6_0gkq2"]
+[ext_resource type="Texture2D" uid="uid://cvfbu6djrwgh6" path="res://assets/models/Models pack psx/Models/Wire.png" id="7_o43v3"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -69,6 +72,122 @@ volumetric_fog_emission = Color(0.980392, 0.839216, 0.647059, 1)
 volumetric_fog_length = 128.0
 volumetric_fog_sky_affect = 0.2
 
+[sub_resource type="FogMaterial" id="FogMaterial_6dy28"]
+density = 0.008
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8y2e"]
+resource_name = "Concrete_01"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("6_0gkq2")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihuwa"]
+resource_name = "Wire"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("7_o43v3")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fj3fm"]
+_surfaces = [{
+"aabb": AABB(0.00868854, -0.00103439, -0.0115151, 0.00183344, 0.00183344, 0.0263495),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAwAFAAQABgAEAAUABQAHAAYAAQAGAAcABwACAAEAAQAAAAQABAAGAAEA"),
+"name": "Concrete_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("ZmQsPHuUh7q/C3M8ZmQsPAp3UTq/C3M8ZmQsPAp3UTrmqTy8ZmQsPHuUh7rmqTy8ZloOPHuUh7q/C3M8ZloOPHuUh7rmqTy8ZloOPAp3UTq/C3M8ZloOPAp3UTrmqTy8")
+}, {
+"aabb": AABB(-0.0130503, 2.32315e-05, -0.0115248, 0.0223047, 1e-05, 0.0223047),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQA"),
+"name": "Wire",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("zdBVvEjhwjdEnjA8zdBVvEjhwjd20jy87J8XPEjhwjd20jy87J8XPEjhwjdEnjA8pNBVvEjhwjdEnjA8FKAXPEjhwjdEnjA8FKAXPEjhwjd20jy8pNBVvEjhwjd20jy8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_webfj"]
+resource_name = "Cube_288"
+_surfaces = [{
+"aabb": AABB(0.00868854, -0.00103439, -0.0115151, 0.00183344, 0.00183344, 0.0263495),
+"attribute_data": PackedByteArray("cnIwPwAAAADmNyM/AAAAAOY3Iz8AAIA/cnIwPwAAgD8OiME+AAAAAPgSpz4AAAAA+BKnPgAAgD8OiME+AACAP3bF8j4AAAAADojBPgAAAAAOiME+AACAP3bF8j4AAIA/5jcjPwAAAABGnQY/AAAAAEadBj8AAIA/5jcjPwAAgD8BQuY+fNsJPwFC5j4wUeQ+LOcEPzBR5D4s5wQ/fNsJPw=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAA"),
+"material": SubResource("StandardMaterial3D_f8y2e"),
+"name": "Concrete_01",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("ZmQsPHuUh7q/C3M8ZmQsPAp3UTq/C3M8ZmQsPAp3UTrmqTy8ZmQsPHuUh7rmqTy8ZloOPHuUh7q/C3M8ZmQsPHuUh7q/C3M8ZmQsPHuUh7rmqTy8ZloOPHuUh7rmqTy8ZloOPAp3UTq/C3M8ZloOPHuUh7q/C3M8ZloOPHuUh7rmqTy8ZloOPAp3UTrmqTy8ZmQsPAp3UTq/C3M8ZloOPAp3UTq/C3M8ZloOPAp3UTrmqTy8ZmQsPAp3UTrmqTy8ZmQsPAp3UTq/C3M8ZmQsPHuUh7q/C3M8ZloOPHuUh7q/C3M8ZloOPAp3UTq/C3M8////f/9//n////9//3/+f////3//f/5/////f/9//n//fwAAAAD/P/9/AAAAAP8//38AAAAA/z//fwAAAAD/PwAA/3//fwAAAAD/f/9/AAAAAP9//38AAAAA/3//fwAA/3///////z//f///////P/9///////8//3///////z//f/9/AAD/v/9//38AAP+//3//fwAA/7//f/9/AAD/vw==")
+}, {
+"aabb": AABB(-0.0130503, 2.32315e-05, -0.0115248, 0.0223047, 1e-05, 0.0223047),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPw=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQA"),
+"material": SubResource("StandardMaterial3D_ihuwa"),
+"name": "Wire",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("zdBVvEjhwjdEnjA8zdBVvEjhwjd20jy87J8XPEjhwjd20jy87J8XPEjhwjdEnjA8pNBVvEjhwjdEnjA8FKAXPEjhwjdEnjA8FKAXPEjhwjd20jy8pNBVvEjhwjd20jy8/3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//fwAAAAD/P/9/AAAAAP8//38AAAAA/z//fwAAAAD/Pw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fj3fm")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tx7uc"]
+data = PackedVector3Array(0.0105, -0.001, 0.0148, 0.0105, 0.0008, 0.0148, 0.0105, 0.0008, -0.0115, 0.0105, 0.0008, -0.0115, 0.0105, -0.001, -0.0115, 0.0105, -0.001, 0.0148, 0.0087, -0.001, 0.0148, 0.0105, -0.001, 0.0148, 0.0105, -0.001, -0.0115, 0.0105, -0.001, -0.0115, 0.0087, -0.001, -0.0115, 0.0087, -0.001, 0.0148, 0.0087, 0.0008, 0.0148, 0.0087, -0.001, 0.0148, 0.0087, -0.001, -0.0115, 0.0087, -0.001, -0.0115, 0.0087, 0.0008, -0.0115, 0.0087, 0.0008, 0.0148, 0.0105, 0.0008, 0.0148, 0.0087, 0.0008, 0.0148, 0.0087, 0.0008, -0.0115, 0.0087, 0.0008, -0.0115, 0.0105, 0.0008, -0.0115, 0.0105, 0.0008, 0.0148, 0.0105, 0.0008, 0.0148, 0.0105, -0.001, 0.0148, 0.0087, -0.001, 0.0148, 0.0087, -0.001, 0.0148, 0.0087, 0.0008, 0.0148, 0.0105, 0.0008, 0.0148, -0.0131, 0, 0.0108, -0.0131, 0, -0.0115, 0.0093, 0, -0.0115, 0.0093, 0, -0.0115, 0.0093, 0, 0.0108, -0.0131, 0, 0.0108, -0.0131, 0, 0.0108, 0.0093, 0, 0.0108, 0.0093, 0, -0.0115, 0.0093, 0, -0.0115, -0.0131, 0, -0.0115, -0.0131, 0, 0.0108)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jir8h"]
+_surfaces = [{
+"aabb": AABB(-0.0111524, -1.90735e-08, -0.0111524, 0.0223048, 1e-05, 0.0223047),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQA"),
+"name": "Wire",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("cbg2vArXo7JduDY8cbg2vArXo7JduDa8Urg2PArXo7JduDa8Urg2PArXo7JduDY8SLg2vArXo7JduDY8e7g2PArXo7JduDY8e7g2PArXo7JduDa8SLg2vArXo7JduDa8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_y3ndm"]
+resource_name = "Plane_006"
+_surfaces = [{
+"aabb": AABB(-0.0111524, -1.90735e-08, -0.0111524, 0.0223048, 1e-05, 0.0223047),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPw=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQA"),
+"material": SubResource("StandardMaterial3D_ihuwa"),
+"name": "Wire",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("cbg2vArXo7JduDY8cbg2vArXo7JduDa8Urg2PArXo7JduDa8Urg2PArXo7JduDY8SLg2vArXo7JduDY8e7g2PArXo7JduDY8e7g2PArXo7JduDa8SLg2vArXo7JduDa8/3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//fwAAAAD/P/9/AAAAAP8//38AAAAA/z//fwAAAAD/Pw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jir8h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfn8n"]
+transparency = 1
+albedo_texture = ExtResource("7_o43v3")
+uv1_scale = Vector3(8, 1, 1)
+uv2_scale = Vector3(4, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pclcs"]
+data = PackedVector3Array(-0.0112, 0, 0.0112, -0.0112, 0, -0.0112, 0.0112, 0, -0.0112, 0.0112, 0, -0.0112, 0.0112, 0, 0.0112, -0.0112, 0, 0.0112, -0.0112, 0, 0.0112, 0.0112, 0, 0.0112, 0.0112, 0, -0.0112, 0.0112, 0, -0.0112, -0.0112, 0, -0.0112, -0.0112, 0, 0.0112)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
@@ -86,7 +205,7 @@ shadow_enabled = true
 environment = SubResource("Environment_8abke")
 
 [node name="Player" parent="." instance=ExtResource("3_tglu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.134, 70.9061, -153.355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -644.703, 70.9061, -667.494)
 walk_speed = 5.0
 sprint_speed = 10.0
 crouch_speed = 3.5
@@ -95,5 +214,104 @@ crouch_speed = 3.5
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(-0.322924, -0.0148869, 0.946308, -0.00480794, 0.999889, 0.0140892, -0.946413, -5.65831e-08, -0.32296, -149.186, 77.0693, -241.367)
+
+[node name="church2" parent="." instance=ExtResource("5_ldo4v")]
+transform = Transform3D(-2.83761, 0, -0.973634, 0, 3, 0, 0.973634, 0, -2.83761, -681.141, 38.5231, -717.918)
+
+[node name="FogVolume" type="FogVolume" parent="church2"]
+transform = Transform3D(1.00001, 0, 3.69549e-06, 0, 1, 0, -3.69549e-06, 0, 1.00001, -0.0283203, 1.46085, 0)
+size = Vector3(6.07779, 2.16553, 2)
+material = SubResource("FogMaterial_6dy28")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="church2/FogVolume"]
+transform = Transform3D(-0.00940597, 0, -0.333196, 0, 0.333333, 0, 0.333196, 0, -0.00940597, -7.32828, 0, -0.0592346)
+light_color = Color(0.980392, 0.839216, 0.647059, 1)
+light_energy = 9.533
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 120.0
+spot_range = 46.5315
+spot_angle = 12.361
+
+[node name="OmniLight3D" type="OmniLight3D" parent="church2"]
+transform = Transform3D(0.2, 0, 1.49012e-08, 0, 0.2, 0, -1.49012e-08, 0, 0.2, -2.91592, -0.913507, 0.100708)
+light_color = Color(0.980392, 0.839216, 0.647059, 1)
+light_energy = 2.371
+light_indirect_energy = 4.505
+omni_range = 28.783
+
+[node name="Church_fence" type="Node3D" parent="."]
+
+[node name="V2" type="MeshInstance3D" parent="Church_fence"]
+transform = Transform3D(-141.604, 264.478, 3.15282e-05, 0, -3.57628e-05, 300, 264.478, 141.604, 1.68805e-05, -704.019, 36.7532, -724.189)
+mesh = SubResource("ArrayMesh_webfj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Church_fence/V2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_fence/V2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tx7uc")
+
+[node name="Wire" type="MeshInstance3D" parent="Church_fence"]
+transform = Transform3D(3474.28, -148.669, -6.49855e-06, 0, -1.31134e-05, 300, -1982.26, -260.571, -1.13899e-05, -663.676, 36.6362, -749.616)
+mesh = SubResource("ArrayMesh_y3ndm")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_hfn8n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Church_fence/Wire"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_fence/Wire/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pclcs")
+
+[node name="V3" type="MeshInstance3D" parent="Church_fence"]
+transform = Transform3D(299.225, -21.5432, -2.56814e-06, 0, -3.57628e-05, 300, -21.5431, -299.225, -3.56705e-05, -620.982, 36.7532, -772.101)
+mesh = SubResource("ArrayMesh_webfj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Church_fence/V3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_fence/V3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tx7uc")
+
+[node name="Wire2" type="MeshInstance3D" parent="Church_fence"]
+transform = Transform3D(1602.04, 274.888, 1.20157e-05, -8.70833e-13, -1.31134e-05, 300, 3665.17, -120.153, -5.25204e-06, -687.49, 36.6362, -680.561)
+mesh = SubResource("ArrayMesh_y3ndm")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_hfn8n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Church_fence/Wire2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_fence/Wire2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pclcs")
+
+[node name="V4" type="MeshInstance3D" parent="Church_fence"]
+transform = Transform3D(-292.315, 67.4699, 8.04303e-06, -1.53073e-13, -3.57628e-05, 300, 67.4699, 292.315, 3.48466e-05, -666.635, 36.7532, -640.136)
+mesh = SubResource("ArrayMesh_webfj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Church_fence/V4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_fence/V4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tx7uc")
+
+[node name="Wire3" type="MeshInstance3D" parent="Church_fence"]
+transform = Transform3D(3199.79, -180.021, -7.86898e-06, -8.70832e-13, -1.31134e-05, 300, -2400.28, -239.984, -1.049e-05, -627.157, 36.6362, -667.821)
+mesh = SubResource("ArrayMesh_y3ndm")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_hfn8n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Church_fence/Wire3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_fence/Wire3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pclcs")
+
+[node name="V5" type="MeshInstance3D" parent="Church_fence"]
+transform = Transform3D(129.39, -270.663, -3.22655e-05, -6.72328e-13, -3.57628e-05, 300, -270.663, -129.39, -1.54245e-05, -589.681, 36.7719, -698.225)
+mesh = SubResource("ArrayMesh_webfj")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Church_fence/V5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_fence/V5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tx7uc")
 
 [editable path="Player"]

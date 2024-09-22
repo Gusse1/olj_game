@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpravjgm6k7ke"]
+
+[ext_resource type="PackedScene" uid="uid://j7u5025tgb5d" path="res://assets/models/Models pack psx/Models/models.fbx" id="1_fswhw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="models" parent="." instance=ExtResource("1_fswhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0170217, 1.19209e-07, -0.0425286)
+
+[editable path="models"]
