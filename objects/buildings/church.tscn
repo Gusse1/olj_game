@@ -35,15 +35,3 @@ surface_material_override/0 = ExtResource("8_islur")
 
 [node name="Cube_003" parent="." index="3"]
 surface_material_override/0 = ExtResource("5_xdy7i")
-
-[node name="Cube_004" parent="." index="4"]
-surface_material_override/0 = ExtResource("5_xdy7i")
-
-[node name="Cube_005" parent="." index="5"]
-surface_material_override/0 = ExtResource("5_xdy7i")
-
-[node name="Cube_006" parent="." index="6"]
-surface_material_override/0 = ExtResource("5_xdy7i")
-
-[node name="Cube_007" parent="." index="7"]
-surface_material_override/0 = ExtResource("5_xdy7i")
