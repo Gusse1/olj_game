@@ -11,6 +11,9 @@ var stride_speed: float = 0
 var brake_strength: float = 16
 var stride_jump_height: float = 7
 
+var stride_cooldown_max: float = 1.5
+var stride_cooldown: float = 0
+
 var stride_growth_exponent: float = 1.33
 var stride_decay_exponent: float = 0.9
 
@@ -28,12 +31,17 @@ func handle_input(_event: InputEvent) -> void:
 
 
 func physics_update(_delta: float) -> void:
-	if Input.is_action_just_pressed("stride_left"):
+	if stride_cooldown > 0:
+		stride_cooldown -= _delta
+
+	if Input.is_action_just_pressed("stride_left") && stride_cooldown <= 0:
 		if last_stride != 0:
+			stride_cooldown = stride_cooldown_max
 			stride_speed += pow(stride_accumulation, stride_growth_exponent)
 			last_stride = 0
-	if Input.is_action_just_pressed("stride_right"):
+	if Input.is_action_just_pressed("stride_right") && stride_cooldown <= 0:
 		if last_stride != 1:
+			stride_cooldown = stride_cooldown_max
 			stride_speed += pow(stride_accumulation, stride_growth_exponent)
 			last_stride = 1
 	if Input.is_action_pressed("brake"):

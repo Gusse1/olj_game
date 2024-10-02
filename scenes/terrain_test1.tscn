@@ -1088,7 +1088,7 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.322924, -0.0148869, 0.946308, -0.00480794, 0.999889, 0.0140892, -0.946413, -5.65831e-08, -0.32296, -118.677, 77.0693, -248.492)
+transform = Transform3D(-0.332035, -0.529071, 0.78092, -0.415117, 0.825367, 0.382684, -0.847013, -0.197109, -0.493677, -118.677, 98.5589, -248.492)
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
 light_volumetric_fog_energy = 75.0
 shadow_enabled = true
@@ -1125,10 +1125,10 @@ material = SubResource("FogMaterial_6dy28")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Church_area/church2"]
 transform = Transform3D(0.2, 0, 1.49012e-08, 0, 0.2, 0, -1.49012e-08, 0, 0.2, -2.91592, -0.913507, 0.100708)
+visible = false
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
 light_energy = 2.371
 light_indirect_energy = 4.505
-shadow_enabled = true
 omni_range = 28.783
 
 [node name="Auto_002" type="MeshInstance3D" parent="Church_area/church2"]

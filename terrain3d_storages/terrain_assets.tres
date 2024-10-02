@@ -27,6 +27,8 @@ name = "dirt_17"
 id = 1
 albedo_texture = ExtResource("2_xapb2")
 normal_texture = ExtResource("5_k07ne")
+uv_scale = 0.3
+detiling = 0.1
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_sq4j3"]
 name = "Dirt_16-128x128"
@@ -39,6 +41,7 @@ name = "Dirt_20-128x128"
 id = 3
 albedo_texture = ExtResource("5_q0x3p")
 normal_texture = ExtResource("9_j5jb6")
+uv_scale = 0.3
 
 [resource]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_10ppv")])
