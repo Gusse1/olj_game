@@ -18,6 +18,8 @@ var stride_growth_exponent: float = 1.33
 var stride_decay_exponent: float = 0.9
 
 signal striding(stride_speed: float, stride_max_speed: float)
+signal stride_on_cooldown()
+signal stride_off_cooldown()
 
 func enter(msg := {}) -> void:
 	pass
@@ -33,6 +35,9 @@ func handle_input(_event: InputEvent) -> void:
 func physics_update(_delta: float) -> void:
 	if stride_cooldown > 0:
 		stride_cooldown -= _delta
+		stride_on_cooldown.emit()
+	else:
+		stride_off_cooldown.emit()
 
 	if Input.is_action_just_pressed("stride_left") && stride_cooldown <= 0:
 		if last_stride != 0:
