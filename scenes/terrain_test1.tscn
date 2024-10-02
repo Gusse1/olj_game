@@ -85,7 +85,6 @@ volumetric_fog_sky_affect = 0.2
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_mp0bi"]
 auto_exposure_enabled = true
-auto_exposure_scale = 1.0
 dof_blur_far_distance = 256.0
 dof_blur_far_transition = 64.0
 dof_blur_near_enabled = true
