@@ -7,29 +7,36 @@ extends EditorPlugin
 const UI: Script = preload("res://addons/terrain_3d/src/ui.gd")
 const RegionGizmo: Script = preload("res://addons/terrain_3d/src/region_gizmo.gd")
 const ASSET_DOCK: String = "res://addons/terrain_3d/src/asset_dock.tscn"
-const PS_DOCK_POSITION: String = "terrain3d/config/dock_position"
-const PS_DOCK_PINNED: String = "terrain3d/config/dock_pinned"
 
 var terrain: Terrain3D
 var _last_terrain: Terrain3D
 var nav_region: NavigationRegion3D
 
 var editor: Terrain3DEditor
+var editor_settings: EditorSettings
 var ui: Node # Terrain3DUI see Godot #75388
 var asset_dock: PanelContainer
 var region_gizmo: RegionGizmo
-var visible: bool
 var current_region_position: Vector2
 var mouse_global_position: Vector3 = Vector3.ZERO
+var godot_editor_window: Window # The Godot Editor window
 
-# Track negative input (CTRL)
-var _negative_input: bool = false
-# Track state prior to pressing CTRL: -1 not tracked, 0 false, 1 true
-var _prev_enable_state: int = -1
+# Compatibility decals, indices; 0 = main brush, 1 = slope point A, 2 = slope point B
+var editor_decal_position: Array[Vector2]
+var editor_decal_rotation: Array[float]
+var editor_decal_size: Array[float]
+var editor_decal_color: Array[Color]
+var editor_decal_visible: Array[bool]
 
 
+func _init() -> void:
+	# Get the Godot Editor window. Structure is root:Window/EditorNode/Base Control
+	godot_editor_window = get_editor_interface().get_base_control().get_parent().get_parent()
+
+	
 func _enter_tree() -> void:
 	editor = Terrain3DEditor.new()
+	editor_settings = EditorInterface.get_editor_settings()
 	ui = UI.new()
 	ui.plugin = self
 	add_child(ui)
@@ -40,8 +47,14 @@ func _enter_tree() -> void:
 
 	asset_dock = load(ASSET_DOCK).instantiate()
 	asset_dock.initialize(self)
-
 	
+	editor_decal_position.resize(3)
+	editor_decal_rotation.resize(3)
+	editor_decal_size.resize(3)
+	editor_decal_color.resize(3)
+	editor_decal_visible.resize(3)
+
+
 func _exit_tree() -> void:
 	asset_dock.remove_dock(true)
 	asset_dock.queue_free()
@@ -51,21 +64,36 @@ func _exit_tree() -> void:
 	scene_changed.disconnect(_on_scene_changed)
 
 
+## EditorPlugin selection function chain isn't consistent. Here's the map of calls:
+## Assume we handle Terrain3D and NavigationRegion3D  
+# Click Terrain3D: 					_handles(Terrain3D), _make_visible(true), _edit(Terrain3D)
+# Delect:							_make_visible(false), _edit(null)
+# Click other node:					_handles(OtherNode)
+# Click NavRegion3D:				_handles(NavReg3D), _make_visible(true), _edit(NavReg3D)
+# Click NavRegion3D, Terrain3D:		_handles(Terrain3D), _edit(Terrain3D)
+# Click Terrain3D, NavRegion3D:		_handles(NavReg3D), _edit(NavReg3D)
 func _handles(p_object: Object) -> bool:
 	if p_object is Terrain3D:
+		return true
+	elif p_object is NavigationRegion3D and is_instance_valid(_last_terrain):
 		return true
 	
 	# Terrain3DObjects requires access to EditorUndoRedoManager. The only way to make sure it
 	# always has it, is to pass it in here. _edit is NOT called if the node is cut and pasted.
-	if p_object is Terrain3DObjects:
+	elif p_object is Terrain3DObjects:
 		p_object.editor_setup(self)
 	elif p_object is Node3D and p_object.get_parent() is Terrain3DObjects:
 		p_object.get_parent().editor_setup(self)
 	
-	if is_instance_valid(_last_terrain) and _last_terrain.is_inside_tree() and p_object is NavigationRegion3D:
-		return true
-	
 	return false
+
+
+func _make_visible(p_visible: bool, p_redraw: bool = false) -> void:
+	if p_visible and is_selected():
+		ui.set_visible(true)
+		asset_dock.update_dock()
+	else:
+		ui.set_visible(false)
 
 
 func _edit(p_object: Object) -> void:
@@ -81,35 +109,43 @@ func _edit(p_object: Object) -> void:
 		region_gizmo.set_node_3d(terrain)
 		terrain.add_gizmo(region_gizmo)
 		terrain.set_plugin(self)
+		terrain.set_editor(editor)
+		ui.set_visible(true)
+		terrain.set_meta("_edit_lock_", true)
 		
-		# Connect to new Assets resource
+		if terrain.is_compatibility_mode():
+			ui.decal_timer.timeout.connect(func():
+				var mat_rid: RID = terrain.material.get_material_rid()
+				editor_decal_visible[0] = false
+				RenderingServer.material_set_param(mat_rid, "_editor_decal_visible", editor_decal_visible)
+				)
+
+		if terrain.storage:
+			ui.terrain_menu.directory_setup.directory_setup_popup()
+		
+		# Get alerted when a new asset list is loaded
 		if not terrain.assets_changed.is_connected(asset_dock.update_assets):
 			terrain.assets_changed.connect(asset_dock.update_assets)
 		asset_dock.update_assets()
-		# Connect to new Storage resource
-		if not terrain.storage_changed.is_connected(_load_storage):
-			terrain.storage_changed.connect(_load_storage)
-		_load_storage()
+		# Get alerted when the region map changes
+		if not terrain.data.region_map_changed.is_connected(update_region_grid):
+			terrain.data.region_map_changed.connect(update_region_grid)
+		update_region_grid()
 	else:
 		_clear()
 
-	if is_instance_valid(_last_terrain) and _last_terrain.is_inside_tree():
+	if is_terrain_valid(_last_terrain):
 		if p_object is NavigationRegion3D:
+			ui.set_visible(true, true)
 			nav_region = p_object
 		else:
 			nav_region = null
 
-
-func _make_visible(p_visible: bool, p_redraw: bool = false) -> void:
-	visible = p_visible
-	ui.set_visible(visible)
-	update_region_grid()
-	asset_dock.update_dock(visible)
-
-
+	
 func _clear() -> void:
 	if is_terrain_valid():
-		terrain.storage_changed.disconnect(_load_storage)
+		if terrain.data.region_map_changed.is_connected(update_region_grid):
+			terrain.data.region_map_changed.disconnect(update_region_grid)
 		
 		terrain.clear_gizmos()
 		terrain = null
@@ -124,26 +160,13 @@ func _forward_3d_gui_input(p_viewport_camera: Camera3D, p_event: InputEvent) -> 
 	if not is_terrain_valid():
 		return AFTER_GUI_INPUT_PASS
 	
-	## Track negative input (CTRL)
-	if p_event is InputEventKey and not p_event.echo and p_event.keycode == KEY_CTRL:
-		if p_event.is_pressed():
-			_negative_input = true
-			_prev_enable_state = int(ui.toolbar_settings.get_setting("enable"))
-			ui.toolbar_settings.set_setting("enable", false)
-		else:
-			_negative_input = false
-			ui.toolbar_settings.set_setting("enable", bool(_prev_enable_state))
-			_prev_enable_state = -1
+	if p_event is InputEventKey:
+		ui.update_modifiers()
 	
 	## Handle mouse movement
 	if p_event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 			return AFTER_GUI_INPUT_PASS
-
-		if _prev_enable_state >= 0 and not Input.is_key_pressed(KEY_CTRL):
-			_negative_input = false
-			ui.toolbar_settings.set_setting("enable", bool(_prev_enable_state))
-			_prev_enable_state = -1
 
 		## Setup for active camera & viewport
 		
@@ -169,31 +192,69 @@ func _forward_3d_gui_input(p_viewport_camera: Camera3D, p_event: InputEvent) -> 
 		else:			
 			# Else look for intersection with terrain
 			var intersection_point: Vector3 = terrain.get_intersection(camera_pos, camera_dir)
-			if intersection_point.z > 3.4e38 or is_nan(intersection_point.z): # max double or nan
+			if intersection_point.z > 3.4e38 or is_nan(intersection_point.y): # max double or nan
 				return AFTER_GUI_INPUT_STOP
 			mouse_global_position = intersection_point
 		
 		## Update decal
 		ui.decal.global_position = mouse_global_position
-		ui.decal.albedo_mix = 1.0
-		if ui.decal_timer.is_stopped():
-			ui.update_decal()
-		else:
-			ui.decal_timer.start()
-
+		ui.update_decal()
+		
+		## Compatibility "Decal"
+		if terrain.is_compatibility_mode():
+			var mat_rid: RID = terrain.material.get_material_rid()
+			if ui.decal.visible:
+				editor_decal_position[0] = Vector2(mouse_global_position.x,mouse_global_position.z)
+				editor_decal_rotation[0] = ui.decal.rotation.y
+				editor_decal_size[0] = ui.brush_data.get("size")
+				editor_decal_color[0] = ui.decal.modulate
+				editor_decal_visible[0] = ui.decal.visible
+				RenderingServer.material_set_param(
+					mat_rid, "_editor_decal_0", ui.decal.texture_albedo.get_rid()
+					)
+			if ui.gradient_decals.size() >= 1:
+				editor_decal_position[1] = Vector2(ui.gradient_decals[0].global_position.x,
+					ui.gradient_decals[0].global_position.z)
+				editor_decal_rotation[1] = ui.gradient_decals[0].rotation.y
+				editor_decal_size[1] = 10.0
+				editor_decal_color[1] = ui.gradient_decals[0].modulate
+				editor_decal_visible[1] = ui.gradient_decals[0].visible
+				RenderingServer.material_set_param(
+					mat_rid, "_editor_decal_1", ui.gradient_decals[0].texture_albedo.get_rid()
+					)
+			if ui.gradient_decals.size() >= 2:
+				editor_decal_position[2] = Vector2(ui.gradient_decals[1].global_position.x,
+					ui.gradient_decals[1].global_position.z)
+				editor_decal_rotation[2] = ui.gradient_decals[1].rotation.y
+				editor_decal_size[2] = 10.0
+				editor_decal_color[2] = ui.gradient_decals[1].modulate
+				editor_decal_visible[2] = ui.gradient_decals[1].visible
+				RenderingServer.material_set_param(
+					mat_rid, "_editor_decal_2", ui.gradient_decals[1].texture_albedo.get_rid()
+					)
+			RenderingServer.material_set_param(mat_rid, "_editor_decal_position", editor_decal_position)
+			RenderingServer.material_set_param(mat_rid, "_editor_decal_rotation", editor_decal_rotation)
+			RenderingServer.material_set_param(mat_rid, "_editor_decal_size", editor_decal_size)
+			RenderingServer.material_set_param(mat_rid, "_editor_decal_color", editor_decal_color)
+			RenderingServer.material_set_param(mat_rid, "_editor_decal_visible", editor_decal_visible)
+	
 		## Update region highlight
-		var region_size = terrain.get_storage().get_region_size()
 		var region_position: Vector2 = ( Vector2(mouse_global_position.x, mouse_global_position.z) \
-			/ (region_size * terrain.get_mesh_vertex_spacing()) ).floor()
+			/ (terrain.get_region_size() * terrain.get_vertex_spacing()) ).floor()
 		if current_region_position != region_position:
 			current_region_position = region_position
 			update_region_grid()
 			
+		# Inject pressure - Relies on C++ set_brush_data() using same dictionary instance
+		ui.brush_data["mouse_pressure"] = p_event.pressure
+		
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and editor.is_operating():
 			editor.operate(mouse_global_position, p_viewport_camera.rotation.y)
 			return AFTER_GUI_INPUT_STOP
 
 	elif p_event is InputEventMouseButton:
+		if p_event.get_button_index() == MOUSE_BUTTON_RIGHT and p_event.is_released():
+			ui.last_rmb_time = Time.get_ticks_msec()
 		ui.update_decal()
 			
 		if p_event.get_button_index() == MOUSE_BUTTON_LEFT:
@@ -210,7 +271,7 @@ func _forward_3d_gui_input(p_viewport_camera: Camera3D, p_event: InputEvent) -> 
 				# If adjusting regions
 				if editor.get_tool() == Terrain3DEditor.REGION:
 					# Skip regions that already exist or don't
-					var has_region: bool = terrain.get_storage().has_region(mouse_global_position)
+					var has_region: bool = terrain.data.has_regionp(mouse_global_position)
 					var op: int = editor.get_operation()
 					if	( has_region and op == Terrain3DEditor.ADD) or \
 						( not has_region and op == Terrain3DEditor.SUBTRACT ):
@@ -230,27 +291,21 @@ func _forward_3d_gui_input(p_viewport_camera: Camera3D, p_event: InputEvent) -> 
 				# Mouse released, save undo data
 				editor.stop_operation()
 				return AFTER_GUI_INPUT_STOP
-	
-	return AFTER_GUI_INPUT_PASS
 
-	
-func _load_storage() -> void:
-	if terrain:
-		update_region_grid()
+	return AFTER_GUI_INPUT_PASS
 
 
 func update_region_grid() -> void:
 	if not region_gizmo:
 		return
+	region_gizmo.set_hidden(not ui.visible)
 
-	region_gizmo.set_hidden(not visible)
-	
 	if is_terrain_valid():
 		region_gizmo.show_rect = editor.get_tool() == Terrain3DEditor.REGION
 		region_gizmo.use_secondary_color = editor.get_operation() == Terrain3DEditor.SUBTRACT
 		region_gizmo.region_position = current_region_position
-		region_gizmo.region_size = terrain.get_storage().get_region_size() * terrain.get_mesh_vertex_spacing()
-		region_gizmo.grid = terrain.get_storage().get_region_offsets()
+		region_gizmo.region_size = terrain.get_region_size() * terrain.get_vertex_spacing()
+		region_gizmo.grid = terrain.get_data().get_region_locations()
 		
 		terrain.update_gizmos()
 		return
@@ -278,7 +333,7 @@ func is_terrain_valid(p_terrain: Terrain3D = null) -> bool:
 		t = p_terrain
 	else:
 		t = terrain
-	if is_instance_valid(t) and t.is_inside_tree() and t.get_storage():
+	if is_instance_valid(t) and t.is_inside_tree() and t.data:
 		return true
 	return false
 
@@ -286,9 +341,9 @@ func is_terrain_valid(p_terrain: Terrain3D = null) -> bool:
 func is_selected() -> bool:
 	var selected: Array[Node] = get_editor_interface().get_selection().get_selected_nodes()
 	for node in selected:
-		if node.get_instance_id() == _last_terrain.get_instance_id():
-			return true
-			
+		if ( is_instance_valid(_last_terrain) and node.get_instance_id() == _last_terrain.get_instance_id() ) or \
+			node is Terrain3D:
+				return true
 	return false	
 
 
@@ -297,3 +352,22 @@ func select_terrain() -> void:
 		var es: EditorSelection = get_editor_interface().get_selection()
 		es.clear()
 		es.add_node(_last_terrain)
+
+
+func set_setting(p_str: String, p_value: Variant) -> void:
+	editor_settings.set_setting(p_str, p_value)
+
+
+func get_setting(p_str: String, p_default: Variant) -> Variant:
+	if editor_settings.has_setting(p_str):
+		return editor_settings.get_setting(p_str)
+	else:
+		return p_default
+
+
+func has_setting(p_str: String) -> bool:
+	return editor_settings.has_setting(p_str)
+
+
+func erase_setting(p_str: String) -> void:
+	editor_settings.erase(p_str)

@@ -1,6 +1,5 @@
-[gd_scene load_steps=97 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=96 format=4 uid="uid://4hdhmdl5jj42"]
 
-[ext_resource type="Terrain3DStorage" uid="uid://c5b2b3hwpcvie" path="res://terrain3d_storages/test_terrain_storage.res" id="1_hkj1p"]
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_tglu4"]
 [ext_resource type="PackedScene" uid="uid://b8pax5fya6ekc" path="res://objects/buildings/church.tscn" id="5_ldo4v"]
@@ -1082,9 +1081,11 @@ data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 
 [node name="Node3D" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("1_hkj1p")
+data_directory = "res://terrain_folder"
 material = SubResource("Terrain3DMaterial_od84v")
 assets = ExtResource("2_sbfna")
+top_level = true
+metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.322924, -0.0148869, 0.946308, -0.00480794, 0.999889, 0.0140892, -0.946413, -5.65831e-08, -0.32296, -118.677, 77.0693, -248.492)
