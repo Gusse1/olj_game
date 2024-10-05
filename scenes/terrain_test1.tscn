@@ -1082,7 +1082,6 @@ data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_codpp"]
 resource_name = "Auto2"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("16_5p6mh")
 emission_enabled = true
 
@@ -1149,14 +1148,12 @@ shadow_mesh = SubResource("ArrayMesh_ejcbe")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpa20"]
 resource_name = "Leather"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("6_o2vuh")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjxos"]
 resource_name = "Material.180"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y2br3"]
@@ -1687,14 +1684,12 @@ shadow_mesh = SubResource("ArrayMesh_0bti4")
 resource_name = "Branch_02"
 transparency = 4
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("9_sirw0")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmajw"]
 resource_name = "Wood_13"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("10_h4kaf")
 emission_enabled = true
 

@@ -22,10 +22,7 @@ signal stride_on_cooldown()
 signal stride_off_cooldown()
 
 func enter(msg := {}) -> void:
-	last_stride = -1
-	stride_speed = 0
-	stride_cooldown = 0
-
+	pass
 
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump"):
@@ -70,9 +67,10 @@ func physics_update(_delta: float) -> void:
 
 	# Player hit wall 
 	# TODO: Add damage effect
-	if player.is_on_wall() && stride_speed > 0.5:
+	if player.is_on_wall() && stride_speed > 0.5 && player.velocity.y >= 0:
 		last_stride = -1
 		stride_speed = 0
+		stride_cooldown = 0
 		stride_off_cooldown.emit()
 		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])
 
@@ -82,7 +80,9 @@ func physics_update(_delta: float) -> void:
 			state_machine.movement_state[state_machine.FALL],
 			{ state_machine.TO : state_machine.STRIDE }
 		)
+
 	if stride_speed < 0.5:
 		last_stride = -1
+		stride_cooldown = 0
 		stride_off_cooldown.emit()
 		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])

@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=32 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
-[ext_resource type="PackedScene" uid="uid://yw6t8d5fykve" path="res://assets/models/own/sepsis.blend" id="2_4iq1c"]
+[ext_resource type="PackedScene" uid="uid://b7dcpwgt8x32w" path="res://assets/models/own/player.blend" id="2_gf5q2"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_state_machine.gd" id="2_wwa58"]
+[ext_resource type="Texture2D" uid="uid://cjwvtcqng62i" path="res://assets/textures/Metal_09-128x128.png" id="3_4jdk1"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/idle.gd" id="3_xe000"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/jump.gd" id="4_1lr3q"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/walk.gd" id="5_bwgwe"]
@@ -244,6 +245,17 @@ height = 1.8
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_aufvi"]
 height = 1.8
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gkt8n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abt6x"]
+albedo_texture = ExtResource("3_4jdk1")
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.15
+emission = Color(1, 1, 1, 1)
+normal_texture = SubResource("NoiseTexture2D_gkt8n")
+clearcoat_roughness = 0.0
+
 [sub_resource type="Theme" id="Theme_bup6e"]
 default_font = ExtResource("17_7kdk6")
 default_font_size = 50
@@ -329,8 +341,11 @@ shape = SubResource("CapsuleShape3D_irl70")
 mesh = SubResource("CapsuleMesh_aufvi")
 skeleton = NodePath("../..")
 
-[node name="sepsis" parent="." instance=ExtResource("2_4iq1c")]
-transform = Transform3D(-0.997955, 0, -0.0639228, 0, 1, 0, 0.0639228, 0, -0.997955, -0.009027, -1.19209e-07, 0.244224)
+[node name="player" parent="." instance=ExtResource("2_gf5q2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.011, 0.263)
+
+[node name="HumanoidBase_NotOverlapping" parent="player/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_abt6x")
 
 [node name="CameraPivot" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -474,3 +489,5 @@ shortcut_keys_enabled = false
 [connection signal="stride_on_cooldown" from="StateMachine/Stride" to="UserInterface/StrideIndicatorContainer" method="_on_stride_stride_on_cooldown"]
 [connection signal="striding" from="StateMachine/Stride" to="CameraPivot/SmoothCamera" method="_on_stride_striding"]
 [connection signal="draw" from="UserInterface/CrosshairContainer/Crosshair" to="UserInterface" method="_on_crosshair_draw"]
+
+[editable path="player"]
