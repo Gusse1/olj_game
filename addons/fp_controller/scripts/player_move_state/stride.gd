@@ -22,7 +22,9 @@ signal stride_on_cooldown()
 signal stride_off_cooldown()
 
 func enter(msg := {}) -> void:
-	pass
+	last_stride = -1
+	stride_speed = 0
+	stride_cooldown = 0
 
 
 func handle_input(_event: InputEvent) -> void:
@@ -71,6 +73,7 @@ func physics_update(_delta: float) -> void:
 	if player.is_on_wall() && stride_speed > 0.5:
 		last_stride = -1
 		stride_speed = 0
+		stride_off_cooldown.emit()
 		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])
 
 	if player.velocity.y < 0:
@@ -81,4 +84,5 @@ func physics_update(_delta: float) -> void:
 		)
 	if stride_speed < 0.5:
 		last_stride = -1
+		stride_off_cooldown.emit()
 		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])

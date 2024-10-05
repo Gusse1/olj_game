@@ -135,5 +135,3 @@ script = ExtResource("3_fthpp")
 MainCamPath = NodePath("../Player/CameraPivot/SmoothCamera")
 MirrorDistortion = 20
 DistortionTexture = SubResource("NoiseTexture2D_ed1o5")
-
-[editable path="Player"]
