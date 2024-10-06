@@ -226,8 +226,13 @@ func _on_state_machine_transitioned(state: PlayerState) -> void:
 	
 	if is_moving:
 		view_bobbing_player.play("view_bobbing", .5, view_bobbing_amount, false)
+		if state is Stride:
+			animation_player.play("stride")
+		else:
+			animation_player.play("walk")
 	else:
 		view_bobbing_player.play("RESET", .5)
+		animation_player.stop()
 
 
 func _add_input_map_event(keycode: int, action_name: String) -> void:

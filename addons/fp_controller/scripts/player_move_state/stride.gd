@@ -17,6 +17,8 @@ var stride_cooldown: float = 0
 var stride_growth_exponent: float = 1.33
 var stride_decay_exponent: float = 0.9
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 signal striding(stride_speed: float, stride_max_speed: float)
 signal stride_on_cooldown()
 signal stride_off_cooldown()
@@ -37,14 +39,19 @@ func physics_update(_delta: float) -> void:
 		stride_on_cooldown.emit()
 	else:
 		stride_off_cooldown.emit()
+	
+	if not animation_player.is_playing():
+		animation_player.play("stride")
 
 	if Input.is_action_just_pressed("stride_left") && stride_cooldown <= 0:
 		if last_stride != 0:
+			animation_player.play("stride_left")
 			stride_cooldown = stride_cooldown_max
 			stride_speed += pow(stride_accumulation, stride_growth_exponent)
 			last_stride = 0
 	if Input.is_action_just_pressed("stride_right") && stride_cooldown <= 0:
 		if last_stride != 1:
+			animation_player.play("stride_right")
 			stride_cooldown = stride_cooldown_max
 			stride_speed += pow(stride_accumulation, stride_growth_exponent)
 			last_stride = 1
