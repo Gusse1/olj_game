@@ -41,7 +41,8 @@ func physics_update(_delta: float) -> void:
 		stride_off_cooldown.emit()
 	
 	if not animation_player.is_playing():
-		animation_player.play("stride")
+		#animation_player.play("stride", -1, 0.20)
+		pass
 
 	if Input.is_action_just_pressed("stride_left") && stride_cooldown <= 0:
 		if last_stride != 0:

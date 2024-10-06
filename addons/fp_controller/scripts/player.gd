@@ -74,7 +74,7 @@ func _ready() -> void:
 	check_controls()
 	if can_pause:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+	
 
 func check_controls() -> void:
 	if !InputMap.has_action(FORWARD):
@@ -227,7 +227,8 @@ func _on_state_machine_transitioned(state: PlayerState) -> void:
 	if is_moving:
 		view_bobbing_player.play("view_bobbing", .5, view_bobbing_amount, false)
 		if state is Stride:
-			animation_player.play("stride")
+			#animation_player.play("stride", -1, 0.20)
+			pass
 		else:
 			animation_player.play("walk")
 	else:
