@@ -232,7 +232,7 @@ func _on_state_machine_transitioned(state: PlayerState) -> void:
 			animation_player.play("walk")
 	else:
 		view_bobbing_player.play("RESET", .5)
-		animation_player.stop()
+		animation_player.play("idle")
 
 
 func _add_input_map_event(keycode: int, action_name: String) -> void:
