@@ -356,8 +356,11 @@ script = ExtResource("2_1py82")
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="CameraPivot/SmoothCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.30005, 0)
-visible = false
+update_mode = 1
+intensity = 0.5
+max_distance = 100.0
 size = Vector3(20, 11.3999, 20)
+ambient_mode = 0
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true

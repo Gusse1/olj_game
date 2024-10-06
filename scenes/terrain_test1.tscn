@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=132 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_tglu4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://blwllofju4tvs" path="res://assets/models/Models pack psx/Models/Concrete_01.jpg" id="6_0gkq2"]
 [ext_resource type="Texture2D" uid="uid://khrsfd40m0j0" path="res://assets/models/Models pack psx/Models/Leather.jpg" id="6_o2vuh"]
 [ext_resource type="Texture2D" uid="uid://dfkuhy4s58vks" path="res://assets/models/Models pack psx/Models/Auto.jpg" id="7_14dwh"]
+[ext_resource type="Material" uid="uid://df1pl6gwsv5jq" path="res://materials/urban_objects/window.tres" id="7_dopmy"]
 [ext_resource type="Texture2D" uid="uid://cvfbu6djrwgh6" path="res://assets/models/Models pack psx/Models/Wire.png" id="7_o43v3"]
 [ext_resource type="Texture2D" uid="uid://djgbfc4hhug5s" path="res://assets/models/Models pack psx/Models/Plastic_02.jpg" id="8_tyqjp"]
 [ext_resource type="Texture2D" uid="uid://bwj7ckbhrxgwy" path="res://assets/models/Models pack psx/Models/Branch_02.png" id="9_sirw0"]
@@ -1776,6 +1777,7 @@ transform = Transform3D(-2.83761, 0, -0.973634, 0, 3, 0, 0.973634, 0, -2.83761, 
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Church_area/church2"]
 transform = Transform3D(-0.00940488, 0, -0.333201, 0, 0.333333, 0, 0.333201, 0, -0.00940488, -7.35678, 1.47251, -0.0460815)
+visible = false
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
 light_energy = 9.533
 light_indirect_energy = 0.0
@@ -1800,6 +1802,7 @@ omni_range = 28.783
 transform = Transform3D(16.4173, 3.79939e-07, 25.1092, 1.31134e-06, 30, -1.31134e-06, -25.1092, 1.81518e-06, 16.4173, -15.2898, -1.32969, 7.0593)
 mesh = SubResource("ArrayMesh_yt8hq")
 skeleton = NodePath("")
+surface_material_override/2 = ExtResource("7_dopmy")
 
 [node name="Auto_001" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(-1, -1.09589e-14, -8.74228e-08, 7.10542e-15, 1, -2.06632e-07, 8.74228e-08, -2.06632e-07, -1, -0.0246217, 0.00636827, 3.20435e-05)
@@ -1810,21 +1813,25 @@ skeleton = NodePath("")
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, -0.0120478)
 mesh = SubResource("ArrayMesh_jn6o0")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_dopmy")
 
 [node name="Auto_004" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, -0.0130313)
 mesh = SubResource("ArrayMesh_pr77t")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_dopmy")
 
 [node name="Auto_005" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, 0.012344)
 mesh = SubResource("ArrayMesh_bjey7")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_dopmy")
 
 [node name="Auto_006" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, 0.0133275)
 mesh = SubResource("ArrayMesh_6f6j7")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("7_dopmy")
 
 [node name="Cylinder_043" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(1, -4.37113e-08, 4.76837e-07, 4.37114e-08, 1, -2.38419e-07, -4.76837e-07, 2.38419e-07, 1, -0.0202614, -0.00697272, -0.0103928)
@@ -1865,6 +1872,11 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/church2/Auto_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4r3sx")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Church_area/church2/Auto_002"]
+transform = Transform3D(0.0111111, -1.05471e-15, 2.32831e-10, 0, 0.0111111, -1.22125e-15, -2.32831e-10, 1.80411e-16, 0.0111111, 0.248528, 0.152251, -0.195168)
+visible = false
+size = Vector3(64.7349, 47.4052, 63.8492)
 
 [node name="Arbol" type="MeshInstance3D" parent="Church_area/church2"]
 transform = Transform3D(-20.0377, -97.9719, -1.16792e-05, 0, -1.19209e-05, 100, -97.9719, 20.0377, 2.38868e-06, -4.62524, -1.65065, -5.46283)
@@ -2300,6 +2312,8 @@ transform = Transform3D(151.96, 38.599, -194.726, 196.843, -61.0532, 141.51, -25
 mesh = SubResource("ArrayMesh_v0mjb")
 skeleton = NodePath("")
 
+[editable path="Player"]
+[editable path="Player/player"]
 [editable path="Church_area/Graves/grave2"]
 [editable path="Church_area/Graves/grave3"]
 [editable path="Church_area/Graves/grave4"]
