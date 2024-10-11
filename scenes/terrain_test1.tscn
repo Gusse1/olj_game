@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=133 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_tglu4"]
@@ -1748,6 +1748,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6q2vv")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0mdl"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
@@ -2312,8 +2314,17 @@ transform = Transform3D(151.96, 38.599, -194.726, 196.843, -61.0532, 141.51, -25
 mesh = SubResource("ArrayMesh_v0mjb")
 skeleton = NodePath("")
 
-[editable path="Player"]
-[editable path="Player/player"]
+[node name="CD_Case" type="CSGBox3D" parent="Church_area"]
+transform = Transform3D(0.243677, 0.220899, 0.944365, -0.67163, 0.740887, 0, -0.699667, -0.634264, 0.3289, -633.048, 34.2, -724.86)
+size = Vector3(0.467712, 0.0205078, 0.497682)
+
+[node name="CD_Case" type="Area3D" parent="Church_area/CD_Case"]
+transform = Transform3D(1, 0, 0, -2.98023e-08, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/CD_Case/CD_Case"]
+transform = Transform3D(1, 2.98023e-08, 0, 0, 1, 1.49012e-08, -1.49012e-08, 1.49012e-08, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_k0mdl")
+
 [editable path="Church_area/Graves/grave2"]
 [editable path="Church_area/Graves/grave3"]
 [editable path="Church_area/Graves/grave4"]
