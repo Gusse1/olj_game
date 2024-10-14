@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=41 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/jump.gd" id="4_1lr3q"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/walk.gd" id="5_bwgwe"]
 [ext_resource type="Script" path="res://src/gameplay/IsLooking.gd" id="5_nx840"]
+[ext_resource type="Script" path="res://src/gameplay/InteractionManager.gd" id="6_602ne"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/sprint.gd" id="6_b4xrx"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/fall.gd" id="7_dv6ye"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/crouch.gd" id="9_yxb0u"]
@@ -3477,9 +3478,12 @@ height = 2.48806
 [node name="Area3D" type="Area3D" parent="CameraPivot/DetectorCylinder"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/DetectorCylinder/Area3D"]
+[node name="DetectorShape" type="CollisionShape3D" parent="CameraPivot/DetectorCylinder/Area3D"]
 shape = SubResource("CylinderShape3D_mtp61")
 script = ExtResource("5_nx840")
+
+[node name="InteractionManager" type="Node" parent="."]
+script = ExtResource("6_602ne")
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
@@ -3574,7 +3578,7 @@ layout_mode = 0
 offset_top = 1336.0
 offset_right = 2560.0
 offset_bottom = 1439.0
-color = Color(0, 0, 0, 0.713726)
+color = Color(0, 0, 0, 0.933333)
 
 [node name="DirectiveTitle" type="RichTextLabel" parent="UserInterface/Control"]
 clip_contents = false
@@ -3593,7 +3597,7 @@ grow_vertical = 0
 theme = SubResource("Theme_bup6e")
 theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
 bbcode_enabled = true
-text = "retrieve cd case from the grave of Theo Laukkala"
+text = "retrieve cd case from the grave of Theo Laukkala:"
 scroll_active = false
 autowrap_mode = 2
 shortcut_keys_enabled = false
@@ -3682,7 +3686,32 @@ shortcut_keys_enabled = false
 text_direction = 2
 metadata/_edit_use_anchors_ = true
 
-[connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="CameraPivot/DetectorCylinder/Area3D/CollisionShape3D" method="_on_area_3d_area_entered"]
+[node name="DirectiveTitle2" type="RichTextLabel" parent="UserInterface/Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 358.0
+offset_top = -100.0
+offset_right = 881.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_bup6e")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "objects:"
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 2
+
+[connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="CameraPivot/DetectorCylinder/Area3D/DetectorShape" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="InteractionManager" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="CameraPivot/DetectorCylinder/Area3D" to="InteractionManager" method="_on_area_3d_area_exited"]
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
 [connection signal="stride_off_cooldown" from="StateMachine/Stride" to="UserInterface/StrideIndicatorContainer" method="_on_stride_stride_off_cooldown"]
 [connection signal="stride_on_cooldown" from="StateMachine/Stride" to="UserInterface/StrideIndicatorContainer" method="_on_stride_stride_on_cooldown"]
