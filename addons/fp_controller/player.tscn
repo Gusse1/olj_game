@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=42 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/jump.gd" id="4_1lr3q"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/walk.gd" id="5_bwgwe"]
 [ext_resource type="Script" path="res://src/gameplay/IsLooking.gd" id="5_nx840"]
+[ext_resource type="PackedScene" uid="uid://bwqp0ltjmjncm" path="res://addons/shader_precompiler/ShaderPrecompiler.tscn" id="5_xop1c"]
 [ext_resource type="Script" path="res://src/gameplay/InteractionManager.gd" id="6_602ne"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/sprint.gd" id="6_b4xrx"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/fall.gd" id="7_dv6ye"]
@@ -3461,6 +3462,9 @@ transform = Transform3D(1, 0, 0, 0, 0.67595, 0.736947, 0, -0.736947, 0.67595, 2.
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
 script = ExtResource("2_1py82")
 
+[node name="ShaderPrecompiler" parent="CameraPivot/SmoothCamera" instance=ExtResource("5_xop1c")]
+transform = Transform3D(1, 0, 0, 0, 0.736947, 0.67595, 0, -0.67595, 0.736947, -2.08165e-12, -0.0526638, -1.81285)
+
 [node name="ReflectionProbe" type="ReflectionProbe" parent="CameraPivot/SmoothCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.30005, 0)
 update_mode = 1
@@ -3719,3 +3723,4 @@ text_direction = 2
 [connection signal="draw" from="UserInterface/CrosshairContainer/Crosshair" to="UserInterface" method="_on_crosshair_draw"]
 
 [editable path="player"]
+[editable path="CameraPivot/SmoothCamera/ShaderPrecompiler"]

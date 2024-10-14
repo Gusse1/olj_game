@@ -1,0 +1,31 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cblagoljjcpt8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uaul6"]
+sky_top_color = Color(0.980392, 0.835294, 0.65098, 1)
+
+[sub_resource type="Sky" id="Sky_bw1n1"]
+sky_material = SubResource("ProceduralSkyMaterial_uaul6")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_bw1n1")
+ambient_light_source = 2
+ambient_light_color = Color(0.980392, 0.839216, 0.647059, 1)
+ambient_light_energy = 0.1
+reflected_light_source = 2
+ssr_enabled = true
+ssr_max_steps = 512
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_y_scale = 0
+sdfgi_energy = 0.1
+glow_enabled = true
+fog_light_color = Color(0.980392, 0.839216, 0.647059, 1)
+fog_density = 0.001
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0125
+volumetric_fog_albedo = Color(0.980392, 0.839216, 0.647059, 1)
+volumetric_fog_emission = Color(0.980392, 0.839216, 0.647059, 1)
+volumetric_fog_length = 128.0
+volumetric_fog_sky_affect = 0.2

@@ -1,5 +1,6 @@
-[gd_scene load_steps=134 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=132 format=4 uid="uid://4hdhmdl5jj42"]
 
+[ext_resource type="Environment" uid="uid://cblagoljjcpt8" path="res://environments/EnvironmentHigh.tres" id="2_7ask8"]
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_tglu4"]
 [ext_resource type="PackedScene" uid="uid://b8pax5fya6ekc" path="res://objects/buildings/church.tscn" id="5_ldo4v"]
@@ -54,36 +55,6 @@ _shader_parameters = {
 "noise_texture": SubResource("NoiseTexture2D_hschl"),
 "vertex_normals_distance": 128.0
 }
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uaul6"]
-sky_top_color = Color(0.980392, 0.835294, 0.65098, 1)
-
-[sub_resource type="Sky" id="Sky_bw1n1"]
-sky_material = SubResource("ProceduralSkyMaterial_uaul6")
-
-[sub_resource type="Environment" id="Environment_8abke"]
-background_mode = 2
-sky = SubResource("Sky_bw1n1")
-ambient_light_source = 2
-ambient_light_color = Color(0.980392, 0.839216, 0.647059, 1)
-ambient_light_energy = 0.1
-reflected_light_source = 2
-ssr_enabled = true
-ssr_max_steps = 512
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
-sdfgi_y_scale = 0
-sdfgi_energy = 0.1
-glow_enabled = true
-fog_light_color = Color(0.980392, 0.839216, 0.647059, 1)
-fog_density = 0.001
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0125
-volumetric_fog_albedo = Color(0.980392, 0.839216, 0.647059, 1)
-volumetric_fog_emission = Color(0.980392, 0.839216, 0.647059, 1)
-volumetric_fog_length = 128.0
-volumetric_fog_sky_affect = 0.2
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_mp0bi"]
 auto_exposure_enabled = true
@@ -1767,7 +1738,7 @@ light_volumetric_fog_energy = 75.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
-environment = SubResource("Environment_8abke")
+environment = ExtResource("2_7ask8")
 camera_attributes = SubResource("CameraAttributesPractical_mp0bi")
 
 [node name="Player" parent="." instance=ExtResource("3_tglu4")]
@@ -2359,6 +2330,9 @@ new_situation = NodePath("../../TreeFallen")
 transform = Transform3D(1, 2.98023e-08, 0, 0, 1, 1.49012e-08, -1.49012e-08, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_k0mdl")
 
+[editable path="Player"]
+[editable path="Player/player"]
+[editable path="Player/CameraPivot/SmoothCamera/ShaderPrecompiler"]
 [editable path="Church_area/Graves/grave2"]
 [editable path="Church_area/Graves/grave3"]
 [editable path="Church_area/Graves/grave4"]
