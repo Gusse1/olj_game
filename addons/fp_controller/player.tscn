@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=43 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://src/ui/stride_indicator.gd" id="15_maurp"]
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="17_7kdk6"]
 [ext_resource type="Texture2D" uid="uid://cmvjborq5kyn6" path="res://assets/textures/ui/green_ring.png" id="18_tbof0"]
+[ext_resource type="Texture2D" uid="uid://dxj8owcka0ldn" path="res://addons/Mirror/icon.svg" id="23_u8lv5"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -3553,22 +3554,27 @@ mouse_filter = 2
 
 [node name="StrideIndicatorContainer" type="CenterContainer" parent="UserInterface"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1280.0
-offset_bottom = -720.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 mouse_filter = 2
 script = ExtResource("15_maurp")
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="UserInterface/StrideIndicatorContainer"]
 layout_mode = 2
 texture = ExtResource("18_tbof0")
 
-[node name="Control" type="Control" parent="UserInterface"]
+[node name="InGameUI" type="Control" parent="UserInterface"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -3577,21 +3583,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="ColorRect" type="ColorRect" parent="UserInterface/Control"]
-layout_mode = 0
-offset_top = 1336.0
-offset_right = 2560.0
-offset_bottom = 1439.0
+[node name="ColorRect" type="ColorRect" parent="UserInterface/InGameUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -114.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0, 0, 0, 0.933333)
+metadata/_edit_use_anchors_ = true
 
-[node name="DirectiveTitle" type="RichTextLabel" parent="UserInterface/Control"]
+[node name="DirectiveTitle" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.309375
+anchor_top = 0.997222
+anchor_right = 0.309375
+anchor_bottom = 0.997222
 offset_left = -271.0
 offset_top = -104.0
 offset_right = 252.0
@@ -3606,8 +3617,9 @@ scroll_active = false
 autowrap_mode = 2
 shortcut_keys_enabled = false
 text_direction = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="DirectiveText" type="RichTextLabel" parent="UserInterface/Control"]
+[node name="DirectiveText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 visible = false
 clip_contents = false
 layout_mode = 0
@@ -3622,7 +3634,7 @@ text = "DIRECTIVE"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="NoConnectionText" type="RichTextLabel" parent="UserInterface/Control"]
+[node name="NoConnectionText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
@@ -3644,7 +3656,7 @@ shortcut_keys_enabled = false
 text_direction = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="LowBatteryText" type="RichTextLabel" parent="UserInterface/Control"]
+[node name="LowBatteryText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 3
@@ -3666,15 +3678,16 @@ scroll_active = false
 autowrap_mode = 2
 shortcut_keys_enabled = false
 text_direction = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="NoConnectionText2" type="RichTextLabel" parent="UserInterface/Control"]
+[node name="NoConnectionText2" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0910156
-anchor_top = 0.957639
-anchor_right = 0.0910156
-anchor_bottom = 1.00208
+anchor_left = 0.127083
+anchor_top = 0.946667
+anchor_right = 0.127083
+anchor_bottom = 0.990833
 offset_left = -454.0
 offset_top = -43.0
 grow_horizontal = 0
@@ -3690,18 +3703,18 @@ shortcut_keys_enabled = false
 text_direction = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="DirectiveTitle2" type="RichTextLabel" parent="UserInterface/Control"]
+[node name="DirectiveTitle2" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 358.0
-offset_top = -100.0
-offset_right = 881.0
-offset_bottom = -2.0
+anchors_preset = -1
+anchor_left = 0.479167
+anchor_top = 0.998148
+anchor_right = 0.479167
+anchor_bottom = 0.998148
+offset_left = 139.0
+offset_top = -103.0
+offset_right = 662.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_bup6e")
@@ -3712,6 +3725,20 @@ scroll_active = false
 autowrap_mode = 2
 shortcut_keys_enabled = false
 text_direction = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Items" type="Control" parent="UserInterface/InGameUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CDCaseImage" type="TextureRect" parent="UserInterface/InGameUI/Items"]
+layout_mode = 0
+offset_left = 1367.0
+offset_top = 978.0
+offset_right = 1418.0
+offset_bottom = 1035.0
+texture = ExtResource("23_u8lv5")
 
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="CameraPivot/DetectorCylinder/Area3D/DetectorShape" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="InteractionManager" method="_on_area_3d_area_entered"]
