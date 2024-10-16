@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=134 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Environment" uid="uid://cblagoljjcpt8" path="res://environments/EnvironmentHigh.tres" id="2_7ask8"]
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ynirj3lbg4de" path="res://assets/models/own/church_table.blend" id="15_xg1t7"]
 [ext_resource type="Texture2D" uid="uid://ci7em85s34i67" path="res://assets/models/Models pack psx/Models/Auto2.jpg" id="16_5p6mh"]
 [ext_resource type="Script" path="res://src/gameplay/events/CDCase.gd" id="18_rs34v"]
+[ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="20_xvpns"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -1722,6 +1723,10 @@ shadow_mesh = SubResource("ArrayMesh_6q2vv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k0mdl"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r05ip"]
+height = 12.4173
+radius = 0.624132
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
@@ -2330,6 +2335,15 @@ new_situation = NodePath("../../TreeFallen")
 transform = Transform3D(1, 2.98023e-08, 0, 0, 1, 1.49012e-08, -1.49012e-08, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_k0mdl")
 
+[node name="FallenTreeOnRoad1" parent="." instance=ExtResource("20_xvpns")]
+transform = Transform3D(0.0368592, -1.99966, 0, 1.99966, 0.0368592, 0, 0, 0, 2, -1067.43, 2.50496, -780.682)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FallenTreeOnRoad1/tree05" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FallenTreeOnRoad1/tree05/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11327, 6.14508, 0)
+shape = SubResource("CylinderShape3D_r05ip")
+
 [editable path="Player"]
 [editable path="Player/player"]
 [editable path="Player/CameraPivot/SmoothCamera/ShaderPrecompiler"]
@@ -2353,3 +2367,4 @@ shape = SubResource("BoxShape3D_k0mdl")
 [editable path="Church_area/Graves/grave19"]
 [editable path="Church_area/Graves/grave20"]
 [editable path="Church_area/church_table"]
+[editable path="FallenTreeOnRoad1"]
