@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=44 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://src/ui/stride_indicator.gd" id="15_maurp"]
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="17_7kdk6"]
 [ext_resource type="Texture2D" uid="uid://cmvjborq5kyn6" path="res://assets/textures/ui/green_ring.png" id="18_tbof0"]
+[ext_resource type="Texture2D" uid="uid://e8lbiq2ca47n" path="res://assets/textures/ui/ring.png" id="21_gwuri"]
 [ext_resource type="Texture2D" uid="uid://dxj8owcka0ldn" path="res://addons/Mirror/icon.svg" id="23_u8lv5"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
@@ -3522,8 +3523,9 @@ script = ExtResource("11_gkc45")
 [node name="Slide" type="Node" parent="StateMachine"]
 script = ExtResource("12_bqyfq")
 
-[node name="Stride" type="Node" parent="StateMachine"]
+[node name="Stride" type="Node" parent="StateMachine" node_paths=PackedStringArray("stride_ui_element")]
 script = ExtResource("13_oc5oa")
+stride_ui_element = NodePath("../../UserInterface/StrideIndicatorContainer")
 
 [node name="UserInterface" type="Control" parent="."]
 top_level = true
@@ -3552,9 +3554,33 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 
+[node name="StrideIndicatorContainer2" type="CenterContainer" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+pivot_offset = Vector2(8, 8)
+mouse_filter = 2
+script = ExtResource("15_maurp")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="UserInterface/StrideIndicatorContainer2"]
+modulate = Color(0.32549, 0.341176, 1, 0.654902)
+layout_mode = 2
+texture = ExtResource("21_gwuri")
+
 [node name="StrideIndicatorContainer" type="CenterContainer" parent="UserInterface"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -3566,6 +3592,7 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+pivot_offset = Vector2(8, 8)
 mouse_filter = 2
 script = ExtResource("15_maurp")
 metadata/_edit_use_anchors_ = true
@@ -3579,6 +3606,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 7.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -3731,14 +3762,23 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CDCaseImage" type="TextureRect" parent="UserInterface/InGameUI/Items"]
-layout_mode = 0
-offset_left = 1367.0
-offset_top = 978.0
-offset_right = 1418.0
-offset_bottom = 1035.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 1347.0
+offset_top = 933.0
+offset_right = 1398.0
+offset_bottom = 990.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("23_u8lv5")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="CameraPivot/DetectorCylinder/Area3D/DetectorShape" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="InteractionManager" method="_on_area_3d_area_entered"]
