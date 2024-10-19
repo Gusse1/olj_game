@@ -38,11 +38,11 @@ size = Vector2(0.95, 0.7)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h1lgg"]
 points = PackedVector3Array(-50, 0, -50, -50, 0, 50, 50, 0, -50, 50, 0, 50)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_q5epn"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ndnfc"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ed1o5"]
 seamless = true
-noise = SubResource("FastNoiseLite_q5epn")
+noise = SubResource("FastNoiseLite_ndnfc")
 
 [node name="Sandbox" type="Node3D"]
 

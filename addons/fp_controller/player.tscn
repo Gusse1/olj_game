@@ -3461,19 +3461,20 @@ surface_material_override/0 = SubResource("StandardMaterial3D_abt6x")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.67595, 0.736947, 0, -0.736947, 0.67595, 2.08165e-12, 1.66866, 0.0205921)
 
-[node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
-script = ExtResource("2_1py82")
-
-[node name="ShaderPrecompiler" parent="CameraPivot/SmoothCamera" instance=ExtResource("5_xop1c")]
-transform = Transform3D(1, 0, 0, 0, 0.736947, 0.67595, 0, -0.67595, 0.736947, -2.08165e-12, -0.0526638, -1.81285)
-
-[node name="ReflectionProbe" type="ReflectionProbe" parent="CameraPivot/SmoothCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.30005, 0)
+[node name="ReflectionProbe" type="ReflectionProbe" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, -0.165031, 0.203012)
+visible = false
 update_mode = 1
 intensity = 0.5
 max_distance = 100.0
 size = Vector3(20, 11.3999, 20)
 ambient_mode = 0
+
+[node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
+script = ExtResource("2_1py82")
+
+[node name="ShaderPrecompiler" parent="CameraPivot/SmoothCamera" instance=ExtResource("5_xop1c")]
+transform = Transform3D(1, 0, 0, 0, 0.736947, 0.67595, 0, -0.67595, 0.736947, -2.08165e-12, -0.0526638, -1.81285)
 
 [node name="DetectorCylinder" type="CSGCylinder3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0267693, -1.32758)
