@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=46 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -23,6 +23,7 @@
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="17_7kdk6"]
 [ext_resource type="Texture2D" uid="uid://cmvjborq5kyn6" path="res://assets/textures/ui/green_ring.png" id="18_tbof0"]
 [ext_resource type="Texture2D" uid="uid://e8lbiq2ca47n" path="res://assets/textures/ui/ring.png" id="21_gwuri"]
+[ext_resource type="Texture2D" uid="uid://bdby2vvgtu2fr" path="res://assets/textures/ui/hand.png" id="23_av2rh"]
 [ext_resource type="Texture2D" uid="uid://dxj8owcka0ldn" path="res://addons/Mirror/icon.svg" id="23_u8lv5"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
@@ -3304,6 +3305,10 @@ clearcoat_roughness = 0.0
 height = 2.4108
 radius = 0.287766
 
+[sub_resource type="Theme" id="Theme_31w8t"]
+default_font = ExtResource("17_7kdk6")
+default_font_size = 50
+
 [sub_resource type="Theme" id="Theme_bup6e"]
 default_font = ExtResource("17_7kdk6")
 default_font_size = 50
@@ -3610,6 +3615,56 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="UserInterface/StrideIndicatorContainer"]
 layout_mode = 2
 texture = ExtResource("18_tbof0")
+
+[node name="InteractIndicator" type="Control" parent="UserInterface"]
+visible = false
+layout_mode = 1
+anchor_left = 0.467708
+anchor_top = 0.52
+anchor_right = 0.558458
+anchor_bottom = 0.557741
+offset_top = 0.399963
+offset_right = 0.759888
+offset_bottom = -0.360046
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractText" type="RichTextLabel" parent="UserInterface/InteractIndicator"]
+clip_contents = false
+layout_mode = 2
+anchor_left = -0.323333
+anchor_top = -0.288888
+anchor_right = 0.305238
+anchor_bottom = 0.336112
+offset_left = 4.58333
+offset_top = 0.555556
+offset_right = 114.583
+offset_bottom = 25.5556
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_31w8t")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "interact: e"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+text_direction = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractHand" type="TextureRect" parent="UserInterface/InteractIndicator"]
+visible = false
+layout_mode = 2
+anchor_left = 0.69381
+anchor_top = 0.16111
+anchor_right = 0.69381
+anchor_bottom = 0.16111
+offset_left = 4.58333
+offset_top = 0.555556
+offset_right = 20.5833
+offset_bottom = 16.5556
+texture = ExtResource("23_av2rh")
+metadata/_edit_use_anchors_ = true
 
 [node name="InGameUI" type="Control" parent="UserInterface"]
 layout_mode = 1
