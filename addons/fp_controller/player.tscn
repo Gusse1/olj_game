@@ -3343,6 +3343,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 target_position = Vector3(0, 1, 0)
 
 [node name="RaycastClimbDetector" type="Node3D" parent="."]
+visible = false
 
 [node name="BottomRaycast" type="RayCast3D" parent="RaycastClimbDetector"]
 unique_name_in_owner = true
@@ -3487,10 +3488,10 @@ visible = false
 radius = 0.279951
 height = 2.48806
 
-[node name="Area3D" type="Area3D" parent="CameraPivot/DetectorCylinder"]
+[node name="PlayerArea" type="Area3D" parent="CameraPivot/DetectorCylinder"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
-[node name="DetectorShape" type="CollisionShape3D" parent="CameraPivot/DetectorCylinder/Area3D"]
+[node name="DetectorShape" type="CollisionShape3D" parent="CameraPivot/DetectorCylinder/PlayerArea"]
 shape = SubResource("CylinderShape3D_mtp61")
 script = ExtResource("5_nx840")
 
@@ -3502,6 +3503,13 @@ light_energy = 4.0
 light_indirect_energy = 4.0
 spot_range = 10.8183
 spot_angle = 30.7377
+
+[node name="Raycast" type="RayCast3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.175092, 1.51041e-08)
+visible = false
+target_position = Vector3(0, -10, 0)
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="InteractionManager" type="Node" parent="."]
 script = ExtResource("6_602ne")
@@ -3853,9 +3861,9 @@ visible = false
 layout_mode = 2
 texture = ExtResource("23_u8lv5")
 
-[connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="CameraPivot/DetectorCylinder/Area3D/DetectorShape" method="_on_area_3d_area_entered"]
-[connection signal="area_entered" from="CameraPivot/DetectorCylinder/Area3D" to="InteractionManager" method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="CameraPivot/DetectorCylinder/Area3D" to="InteractionManager" method="_on_area_3d_area_exited"]
+[connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="CameraPivot/DetectorCylinder/PlayerArea/DetectorShape" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="InteractionManager" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="CameraPivot/DetectorCylinder/PlayerArea" to="InteractionManager" method="_on_area_3d_area_exited"]
 [connection signal="transitioned" from="StateMachine" to="." method="_on_state_machine_transitioned"]
 [connection signal="stride_off_cooldown" from="StateMachine/Stride" to="UserInterface/StrideIndicatorContainer" method="_on_stride_stride_off_cooldown"]
 [connection signal="stride_on_cooldown" from="StateMachine/Stride" to="UserInterface/StrideIndicatorContainer" method="_on_stride_stride_on_cooldown"]

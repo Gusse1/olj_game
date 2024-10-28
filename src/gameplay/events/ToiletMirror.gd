@@ -21,7 +21,7 @@ func interact():
 	print_debug("Interacted with Toilet Mirror")
 	animation_player.play("toilet_door_close")
 	
-	original_atmosphere.process_mode = Node.PROCESS_MODE_DISABLED
+	#original_atmosphere.process_mode = Node.PROCESS_MODE_DISABLED
 	original_atmosphere.visible = false
 
 	alternate_atmosphere.process_mode = Node.PROCESS_MODE_INHERIT

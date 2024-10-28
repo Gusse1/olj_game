@@ -49,7 +49,7 @@ func physics_update(_delta: float) -> void:
 		stride_off_cooldown.emit()
 
 	stride_cooldown -= _delta
-	var scale_factor = 1.0 + (stride_cooldown * 1.5)
+	var scale_factor: float = 1.0 + (stride_cooldown * 1.5)
 	stride_ui_element.scale = Vector2(2, 2) * scale_factor
 	if stride_ui_element.scale.x <= 1.35:
 		stride_ui_element.scale = Vector2(1.35, 1.35)
