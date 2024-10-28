@@ -46,9 +46,11 @@ func _is_looking_at_wall() -> bool:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	raycast.enabled = true
 	looked_at_area = area
 		
 func _on_area_3d_area_exited(_area: Area3D) -> void:
+	raycast.enabled = false
 	looked_at_area = null
 
 func _on_cd_case_picked_up() -> void:
