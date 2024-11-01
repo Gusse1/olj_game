@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clxoqqyhad8x"
-path.s3tc="res://.godot/imported/Wood_13-128x128.png-7b9c08cf62803edb45b026c13c9a5097.s3tc.ctex"
+uid="uid://c8nvvomwj3tyb"
+path.s3tc="res://.godot/imported/bus.png-55d87d0c1ef995915657a3eb32de925c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/Wood_13-128x128.png"
-dest_files=["res://.godot/imported/Wood_13-128x128.png-7b9c08cf62803edb45b026c13c9a5097.s3tc.ctex"]
+source_file="res://assets/textures/bus.png"
+dest_files=["res://.godot/imported/bus.png-55d87d0c1ef995915657a3eb32de925c.s3tc.ctex"]
 
 [params]
 

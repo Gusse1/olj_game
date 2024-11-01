@@ -3318,6 +3318,7 @@ default_font = ExtResource("17_7kdk6")
 default_font_size = 50
 
 [node name="Player" type="CharacterBody3D"]
+platform_on_leave = 1
 script = ExtResource("1_5ras8")
 walk_back_speed = 4.0
 walk_speed = 5.0

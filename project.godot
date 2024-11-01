@@ -48,6 +48,7 @@ interact={
 
 [physics]
 
+3d/default_gravity=14.0
 common/physics_interpolation=true
 
 [rendering]

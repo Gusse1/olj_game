@@ -1,4 +1,4 @@
-[gd_scene load_steps=327 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=337 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Environment" uid="uid://cblagoljjcpt8" path="res://environments/EnvironmentHigh.tres" id="2_7ask8"]
 [ext_resource type="Environment" uid="uid://duilvqtiy7ifc" path="res://environments/EnvironmentWeirdHigh.tres" id="2_j424g"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://ckglrylcwirij" path="res://assets/models/Models pack psx/Models/Deposits.jpg" id="48_muw0a"]
 [ext_resource type="Texture2D" uid="uid://dfb8d210b2g7e" path="res://assets/models/Models pack psx/Models/Trash_01.jpg" id="49_7f6mf"]
 [ext_resource type="Script" path="res://src/gameplay/SpiritAnimations.gd" id="52_6t0qo"]
+[ext_resource type="PackedScene" uid="uid://buflndb6l2a2r" path="res://assets/models/own/bus_stop.blend" id="53_bk0et"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -4223,6 +4224,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w3n4r")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yqvfj"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o6ytg"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0r3ag"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o0odc"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_77l7f"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tmm7b"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8cqem"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wtasq"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rtq25"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
@@ -4251,7 +4279,7 @@ light_volumetric_fog_energy = 75.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_tglu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1421.11, 17.6643, -968.911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1448.12, 79.5681, -1131.29)
 
 [node name="Church_area" type="Node3D" parent="."]
 
@@ -5678,6 +5706,54 @@ shadow_enabled = true
 spot_range = 12.9031
 spot_angle = 16.6027
 
+[node name="bus_stop" parent="." instance=ExtResource("53_bk0et")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1444.63, 61.8136, -1123.85)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_003" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_003/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_yqvfj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_004" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_004/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_o6ytg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_005" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_005/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0r3ag")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_006" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_006/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_o0odc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_007" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_007/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_77l7f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_008" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_008/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tmm7b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_010" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_010/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8cqem")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_001/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wtasq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_002" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bus_stop/Cube_002/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rtq25")
+
 [editable path="Player"]
 [editable path="Player/player"]
 [editable path="Player/CameraPivot/SmoothCamera/ShaderPrecompiler"]
@@ -5706,3 +5782,4 @@ spot_angle = 16.6027
 [editable path="Shop/NormalMode/FallenTreeOnRoad3"]
 [editable path="Shop/AlternateMode/FallenTreeOnRoad2"]
 [editable path="Shop/AlternateMode/FallenTreeOnRoad3"]
+[editable path="bus_stop"]
