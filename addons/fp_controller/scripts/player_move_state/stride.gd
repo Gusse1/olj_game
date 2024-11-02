@@ -4,9 +4,9 @@ class_name Stride extends PlayerState
 var init_state: int
 var last_stride: int = -1 # Cycle between strides -1 = Idle, 0 = Left, 1 = Right
 
-var stride_max_speed: float = 20
-var stride_accumulation: float = 6.7
-var stride_decay: float = 2
+var stride_max_speed: float = 17
+var stride_accumulation: float = 5.3
+var stride_decay: float = 1
 var stride_speed: float = 0
 var brake_strength: float = 16
 
@@ -14,9 +14,9 @@ var brake_strength: float = 16
 var stride_jump_height: float = 7
 
 # Perfect stride
-var stride_perfect_max_speed: float = 30
+var stride_perfect_max_speed: float = 23
 var is_stride_perfect: bool
-var stride_perfect_accumulation: float = 9.7
+var stride_perfect_accumulation: float = 6.7
 
 var stride_cooldown_max: float = 1.5
 var stride_cooldown: float = 0
