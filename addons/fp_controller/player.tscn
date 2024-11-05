@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=48 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://e8lbiq2ca47n" path="res://assets/textures/ui/ring.png" id="21_gwuri"]
 [ext_resource type="Texture2D" uid="uid://bdby2vvgtu2fr" path="res://assets/textures/ui/hand.png" id="23_av2rh"]
 [ext_resource type="Texture2D" uid="uid://dxj8owcka0ldn" path="res://addons/Mirror/icon.svg" id="23_u8lv5"]
+[ext_resource type="Script" path="res://src/ui/VainamoinenTitleAnimation.gd" id="26_1q68i"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -3317,6 +3318,10 @@ default_font_size = 50
 default_font = ExtResource("17_7kdk6")
 default_font_size = 50
 
+[sub_resource type="Theme" id="Theme_sm8ll"]
+default_font = ExtResource("17_7kdk6")
+default_font_size = 0
+
 [node name="Player" type="CharacterBody3D"]
 platform_on_leave = 1
 script = ExtResource("1_5ras8")
@@ -3707,10 +3712,10 @@ metadata/_edit_use_anchors_ = true
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.168
+anchor_left = 0.5305
 anchor_top = 0.901
-anchor_right = 0.441
-anchor_bottom = 0.997222
+anchor_right = 0.8035
+anchor_bottom = 0.999074
 offset_left = 0.439972
 offset_top = -0.0802612
 offset_right = -0.720032
@@ -3795,10 +3800,10 @@ metadata/_edit_use_anchors_ = true
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.006
-anchor_top = 0.906
-anchor_right = 0.124
-anchor_bottom = 0.99
+anchor_left = 0.250792
+anchor_top = 0.903222
+anchor_right = 0.368792
+anchor_bottom = 0.949259
 offset_left = -0.52
 offset_top = -0.480042
 offset_right = 0.919983
@@ -3808,8 +3813,7 @@ grow_vertical = 0
 theme = SubResource("Theme_bup6e")
 theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
 bbcode_enabled = true
-text = "VÄINÄMÖINEN
-Ver: 40.51"
+text = "Ver: 40.51"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
@@ -3818,6 +3822,7 @@ text_direction = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Objects" type="RichTextLabel" parent="UserInterface/InGameUI"]
+visible = false
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
@@ -3842,6 +3847,7 @@ shortcut_keys_enabled = false
 text_direction = 2
 
 [node name="Items" type="HBoxContainer" parent="UserInterface/InGameUI"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.514375
@@ -3862,6 +3868,46 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 2
 texture = ExtResource("23_u8lv5")
+
+[node name="VainamoinenTitle" type="RichTextLabel" parent="UserInterface/InGameUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -108.0
+offset_right = 1775.91
+offset_bottom = 299.0
+grow_vertical = 0
+scale = Vector2(0.27, 0.27)
+theme = SubResource("Theme_sm8ll")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "          _____                    _____                    _____                    _____                    _____                    _____                   _______                   _____                    _____                    _____                    _____          
+         /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                 /::\\    \\                 /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\         
+        /::\\____\\                /::\\    \\                /::\\    \\                /::\\____\\                /::\\    \\                /::\\____\\               /::::\\    \\               /::\\    \\                /::\\____\\                /::\\    \\                /::\\____\\        
+       /:::/    /               /::::\\    \\               \\:::\\    \\              /::::|   |               /::::\\    \\              /::::|   |              /::::::\\    \\              \\:::\\    \\              /::::|   |               /::::\\    \\              /::::|   |        
+      /:::/    /               /::::::\\    \\               \\:::\\    \\            /:::::|   |              /::::::\\    \\            /:::::|   |             /::::::::\\    \\              \\:::\\    \\            /:::::|   |              /::::::\\    \\            /:::::|   |        
+     /:::/    /               /:::/\\:::\\    \\               \\:::\\    \\          /::::::|   |             /:::/\\:::\\    \\          /::::::|   |            /:::/~~\\:::\\    \\              \\:::\\    \\          /::::::|   |             /:::/\\:::\\    \\          /::::::|   |        
+    /:::/____/               /:::/__\\:::\\    \\               \\:::\\    \\        /:::/|::|   |            /:::/__\\:::\\    \\        /:::/|::|   |           /:::/    \\:::\\    \\              \\:::\\    \\        /:::/|::|   |            /:::/__\\:::\\    \\        /:::/|::|   |        
+    |::|    |               /::::\\   \\:::\\    \\              /::::\\    \\      /:::/ |::|   |           /::::\\   \\:::\\    \\      /:::/ |::|   |          /:::/    / \\:::\\    \\             /::::\\    \\      /:::/ |::|   |           /::::\\   \\:::\\    \\      /:::/ |::|   |        
+    |::|    |     _____    /::::::\\   \\:::\\    \\    ____    /::::::\\    \\    /:::/  |::|   | _____    /::::::\\   \\:::\\    \\    /:::/  |::|___|______   /:::/____/   \\:::\\____\\   ____    /::::::\\    \\    /:::/  |::|   | _____    /::::::\\   \\:::\\    \\    /:::/  |::|   | _____  
+    |::|    |    /\\    \\  /:::/\\:::\\   \\:::\\    \\  /\\   \\  /:::/\\:::\\    \\  /:::/   |::|   |/\\    \\  /:::/\\:::\\   \\:::\\    \\  /:::/   |::::::::\\    \\ |:::|    |     |:::|    | /\\   \\  /:::/\\:::\\    \\  /:::/   |::|   |/\\    \\  /:::/\\:::\\   \\:::\\    \\  /:::/   |::|   |/\\    \\ 
+    |::|    |   /::\\____\\/:::/  \\:::\\   \\:::\\____\\/::\\   \\/:::/  \\:::\\____\\/:: /    |::|   /::\\____\\/:::/  \\:::\\   \\:::\\____\\/:::/    |:::::::::\\____\\|:::|____|     |:::|    |/::\\   \\/:::/  \\:::\\____\\/:: /    |::|   /::\\____\\/:::/__\\:::\\   \\:::\\____\\/:: /    |::|   /::\\____\\
+    |::|    |  /:::/    /\\::/    \\:::\\  /:::/    /\\:::\\  /:::/    \\::/    /\\::/    /|::|  /:::/    /\\::/    \\:::\\  /:::/    /\\::/    / ~~~~~/:::/    / \\:::\\    \\   /:::/    / \\:::\\  /:::/    \\::/    /\\::/    /|::|  /:::/    /\\:::\\   \\:::\\   \\::/    /\\::/    /|::|  /:::/    /
+    |::|    | /:::/    /  \\/____/ \\:::\\/:::/    /  \\:::\\/:::/    / \\/____/  \\/____/ |::| /:::/    /  \\/____/ \\:::\\/:::/    /  \\/____/      /:::/    /   \\:::\\    \\ /:::/    /   \\:::\\/:::/    / \\/____/  \\/____/ |::| /:::/    /  \\:::\\   \\:::\\   \\/____/  \\/____/ |::| /:::/    / 
+    |::|____|/:::/    /            \\::::::/    /    \\::::::/    /                   |::|/:::/    /            \\::::::/    /               /:::/    /     \\:::\\    /:::/    /     \\::::::/    /                   |::|/:::/    /    \\:::\\   \\:::\\    \\              |::|/:::/    /  
+    |:::::::::::/    /              \\::::/    /      \\::::/____/                    |::::::/    /              \\::::/    /               /:::/    /       \\:::\\__/:::/    /       \\::::/____/                    |::::::/    /      \\:::\\   \\:::\\____\\             |::::::/    /   
+    \\::::::::::/____/               /:::/    /        \\:::\\    \\                    |:::::/    /               /:::/    /               /:::/    /         \\::::::::/    /         \\:::\\    \\                    |:::::/    /        \\:::\\   \\::/    /             |:::::/    /    
+     ~~~~~~~~~~                    /:::/    /          \\:::\\    \\                   |::::/    /               /:::/    /               /:::/    /           \\::::::/    /           \\:::\\    \\                   |::::/    /          \\:::\\   \\/____/              |::::/    /     
+                                  /:::/    /            \\:::\\    \\                  /:::/    /               /:::/    /               /:::/    /             \\::::/    /             \\:::\\    \\                  /:::/    /            \\:::\\    \\                  /:::/    /      
+                                 /:::/    /              \\:::\\____\\                /:::/    /               /:::/    /               /:::/    /               \\::/____/               \\:::\\____\\                /:::/    /              \\:::\\____\\                /:::/    /       
+                                 \\::/    /                \\::/    /                \\::/    /                \\::/    /                \\::/    /                 ~~                      \\::/    /                \\::/    /                \\::/    /                \\::/    /        
+                                  \\/____/                  \\/____/                  \\/____/                  \\/____/                  \\/____/                                           \\/____/                  \\/____/                  \\/____/                  \\/____/         
+                                                                                                                                                                                                                                                                                   
+
+"
+autowrap_mode = 0
+script = ExtResource("26_1q68i")
 
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="CameraPivot/DetectorCylinder/PlayerArea/DetectorShape" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="InteractionManager" method="_on_area_3d_area_entered"]

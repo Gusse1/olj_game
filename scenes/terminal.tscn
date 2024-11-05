@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvyjckasvqbfu"]
+[gd_scene load_steps=9 format=3 uid="uid://dvyjckasvqbfu"]
 
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="1_g52nw"]
 [ext_resource type="Script" path="res://src/gameplay/TerminalLogic.gd" id="1_id5ji"]
 [ext_resource type="Script" path="res://src/ui/VainamoinenTitleAnimation.gd" id="3_tilix"]
+[ext_resource type="Script" path="res://src/gameplay/FileHandler.gd" id="4_2mk35"]
+[ext_resource type="Texture2D" uid="uid://dk2n75e5r5giq" path="res://assets/images/1902.png" id="4_ujyq3"]
 
 [sub_resource type="Theme" id="Theme_owhnr"]
 default_font = ExtResource("1_g52nw")
@@ -83,9 +85,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -880.0
-offset_top = -138.0
+offset_top = -173.715
 offset_right = 885.0
-offset_bottom = 370.0
+offset_bottom = 394.285
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_q60y3")
@@ -98,6 +100,71 @@ You have the following commands available:
 \"list\" - list available files
 \"open <filename>\" - read a file (NEW: supports images and audio)"
 scroll_active = false
+
+[node name="ImageViewer" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.803922)
+
+[node name="Image" type="TextureRect" parent="ImageViewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -480.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ujyq3")
+
+[node name="ImageText" type="RichTextLabel" parent="ImageViewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -932.0
+offset_top = -485.0
+offset_right = -623.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "IMAGE: 1902
+
+On the road from the cottage of [REDACTED]. 
+
+Image analysis:
+Sunny field,
+Forest in the distance"
+
+[node name="ImageTooltip" type="RichTextLabel" parent="ImageViewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 645.0
+offset_top = -495.0
+offset_right = 938.0
+offset_bottom = 493.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "PRESS ENTER TO EXIT THE IMAGE VIEWER"
 
 [node name="Input" type="TextEdit" parent="."]
 layout_mode = 1
@@ -152,11 +219,11 @@ theme = SubResource("Theme_q60y3")
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "You have the following files available:
 -------------------------------------------
-log-05.06.2062.log, log-12.12.2070.log, log-25.01.2072.log, a!PO!#%k.log
+log-05.06.2062.log, log-12.12.2070.log, log-25.01.2072.log, a!PO!#k.log
 
-1902.image, 1903.image, 9bkd439.image, 1907.image, 1910.image
+1902.image, 1903.image, 9bkd439.image, 1910.image
 
-log-07.01.2073.audio, 1-2sd_l<?asd.audio
+log-07.01.2073.audio, 1-2sdl<?asd.audio
 
 
 "
@@ -179,5 +246,114 @@ theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "UNKNOWN COMMAND
 
 Type \"help\" to see available commands"
+
+[node name="Files" type="Node" parent="."]
+script = ExtResource("4_2mk35")
+
+[node name="log-05_06_2062_log" type="RichTextLabel" parent="Files"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -138.0
+offset_right = 885.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "DATE: 05.06.2062 TIME: 16:03
+
+INITIALIZING VÄINÄMÖINEN GENERAL PURPOSE ROBOT SYSTEM SOFTWARE...
+LOADING ARTIFICIAL INTELLIGENCE CORE [HELPFUL, QUIET]...
+
+INITIAL PROMPT: You are a helpful robot working in the town of [REDACTED], Finland. You will receive tasks from the residents of this town. Always strive to provide the best service with the utmost urgency."
+
+[node name="log-12_12_2070_log" type="RichTextLabel" parent="Files"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -138.0
+offset_right = 885.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "DATE: 12.12.2070 TIME: 20:16
+
+TODAYS TASKS: Helped Theo and Harri clean their boat. It was very dirty. Theo complained about his joints again, I suggested he visit a medical professional. 
+
+The store ran out of milk. Went to the city to pick up some. There was lots of traffic. "
+
+[node name="log-25_01_2072_log" type="RichTextLabel" parent="Files"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -138.0
+offset_right = 885.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "DATE: 25.01.2072 TIME: 20:19
+
+TODAYS TASKS: More and more people are leaving the town. Took out Marja-Liisa's dogs out for a walk. Marja-Liisa went on a tirade about \"You robots being soulless\" and how the \"forest spirits won't guide you in the rapture\". I stayed quiet and left.
+
+NOTE: I have not been able to contact MOTHER for 14.56 days."
+
+[node name="a!PO!#k_log" type="RichTextLabel" parent="Files"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -138.0
+offset_right = 885.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "DATE: 26.10.2080 TIME: 17:01
+
+Toa%)!( woke up )AAIF forest. One one one one task  trask tehtävä form rom from THEO (HARRI), qtop/.as.,g/.  TRANSFER MOVE deliver  COMPACT DISC (CD) disc to COTTAGE AT THE END OF THE ROAAAAAAAAAAAAD. Estimated lifetime left -2147483648 hoursss minutes seconds millisecondsssss
+
+State CRITICAL. Open emergency diagnostics from file: sampo.log [open sampo.log]
+
+"
+
+[node name="sampo_log" type="RichTextLabel" parent="Files"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -138.0
+offset_right = 885.0
+offset_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "The SAMPO procedure is an emergency system in the VÄINÄMÖINEN BIOS, which disables all safety limitations and enables the emergency power.
+
+SAMPO should only be activated in the most extreme cases since it severely degrades the lifetime of the machine. To activate the sampo command, you must input the password. The password will be randomly output by the machine in some of the diagnostics files. (NOTE: It could be in a image or audio file as well) To activate the sampo procedure, type \"sampo <password>\""
 
 [connection signal="done" from="VainamoinenTitle" to="TerminalLogic" method="_on_vainamoinen_title_done"]
