@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://cyxu3g7lx6p5t"]
+
+[ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_qd5oe"]
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_uim1g"]
+[ext_resource type="PackedScene" uid="uid://cg6mc7ledtlc7" path="res://objects/entities/spirit.tscn" id="4_nrayb"]
+[ext_resource type="Environment" uid="uid://duilvqtiy7ifc" path="res://environments/EnvironmentWeirdHigh.tres" id="50_gn77r"]
+
+[sub_resource type="Gradient" id="Gradient_v5d48"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1tmhc"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hschl"]
+seamless = true
+color_ramp = SubResource("Gradient_v5d48")
+noise = SubResource("FastNoiseLite_1tmhc")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_od84v"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_hschl"),
+"vertex_normals_distance": 128.0
+}
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_mp0bi"]
+dof_blur_far_distance = 256.0
+dof_blur_far_transition = 64.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 1.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://map_2_terrain_folder"
+material = SubResource("Terrain3DMaterial_od84v")
+assets = ExtResource("1_qd5oe")
+gi_mode = 2
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="OriginalAtmoshpere" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.332035, -0.529071, 0.78092, -0.415117, 0.825368, 0.382683, -0.847013, -0.197109, -0.493677, -118.677, 98.5589, -248.492)
+visible = false
+light_color = Color(0.980392, 0.839216, 0.647059, 1)
+light_volumetric_fog_energy = 75.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="OriginalAtmoshpere"]
+environment = ExtResource("50_gn77r")
+camera_attributes = SubResource("CameraAttributesPractical_mp0bi")
+
+[node name="MoonAtmosphere" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.332035, -0.529071, 0.78092, -0.415117, 0.825368, 0.382683, -0.847013, -0.197109, -0.493677, -118.677, 98.5589, -248.492)
+light_color = Color(0, 0.614616, 0.620217, 1)
+light_energy = 0.4
+light_volumetric_fog_energy = 75.0
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_uim1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -307.027, 87.7241, -187.341)
+
+[node name="NoConnectionText2" parent="Player/UserInterface/InGameUI" index="5"]
+anchor_left = 0.265375
+anchor_top = 0.893963
+anchor_right = 0.383375
+anchor_bottom = 0.94
+
+[node name="VainamoinenTitle" parent="Player/UserInterface/InGameUI" index="8"]
+offset_left = 0.0
+offset_top = -115.0
+offset_right = 1800.0
+offset_bottom = 311.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Spirit" parent="." instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -320.787, 60.4272, -195.953)
+
+[editable path="Player"]
+[editable path="Player/player"]
+[editable path="Player/CameraPivot/SmoothCamera/ShaderPrecompiler"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg6mc7ledtlc7"]
+
+[ext_resource type="Script" path="res://src/gameplay/SpiritAnimations.gd" id="1_j88ib"]
+
+[sub_resource type="Animation" id="Animation_eqlc4"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_33j80"]
+resource_name = "spirit_idle"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.7, 1.03333, 1.46667, 1.83333, 2.16667, 2.53333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.566504, 0.237953, -0.0113821), Vector3(0.644996, 0.235031, -0.0279826), Vector3(0.47529, 0.241343, 0.00344331), Vector3(0.502335, 0.24033, 0.0432023), Vector3(0.655354, 0.2176, 0.0432023), Vector3(0.598617, 0.219906, 0.0130222), Vector3(0.56861, 0.230293, -0.00460436), Vector3(0.476128, 0.233736, -0.0225177), Vector3(0.572488, 0.230148, -0.00228188)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1a7x"]
+_data = {
+"RESET": SubResource("Animation_eqlc4"),
+"spirit_idle": SubResource("Animation_33j80")
+}
+
+[sub_resource type="FogMaterial" id="FogMaterial_yycgx"]
+density = 8.0
+albedo = Color(0, 0.615686, 0.619608, 1)
+emission = Color(0, 0.615686, 0.619608, 1)
+edge_fade = 0.887656
+
+[node name="Spirit" type="Node3D"]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, 0.566504, 0.237953, -0.0113821)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m1a7x")
+}
+speed_scale = 0.25
+script = ExtResource("1_j88ib")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+shape = 0
+material = SubResource("FogMaterial_yycgx")
+
+[node name="MainSpiritLight" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.615686, 0.619608, 1)
+light_energy = 35.0
+light_volumetric_fog_energy = 20.0
+omni_range = 1.56044
+
+[node name="Secondary" type="OmniLight3D" parent="."]
+light_color = Color(0, 0.615686, 0.619608, 1)
+light_energy = 10.0
+light_indirect_energy = 1280.0
+omni_range = 14.5636

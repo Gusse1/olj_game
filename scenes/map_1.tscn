@@ -1,4 +1,4 @@
-[gd_scene load_steps=391 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=387 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_f1lbb"]
 [ext_resource type="Environment" uid="uid://cblagoljjcpt8" path="res://environments/EnvironmentHigh.tres" id="2_kboty"]
@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bgjn3hurf6npx" path="res://assets/models/Models pack psx/Models/Shelf_Store_02.png" id="30_p35f8"]
 [ext_resource type="Texture2D" uid="uid://3wyj3n8jb81t" path="res://assets/models/Models pack psx/Models/Cash_register.png" id="31_lm4b8"]
 [ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="32_s2nlp"]
-[ext_resource type="Script" path="res://src/gameplay/SpiritAnimations.gd" id="33_btnh0"]
+[ext_resource type="PackedScene" uid="uid://cg6mc7ledtlc7" path="res://objects/entities/spirit.tscn" id="33_3fjyn"]
 [ext_resource type="Texture2D" uid="uid://dk030btjwtw1e" path="res://assets/models/Models pack psx/Models/Trash.jpg" id="34_5o6nd"]
 [ext_resource type="Texture2D" uid="uid://d0ir5g5bp507b" path="res://assets/models/Models pack psx/Models/Mattress.jpg" id="35_so1ys"]
 [ext_resource type="Texture2D" uid="uid://dfb8d210b2g7e" path="res://assets/models/Models pack psx/Models/Trash_01.jpg" id="36_n32kk"]
@@ -2331,50 +2331,6 @@ data = PackedVector3Array(0.0004, -0.0037, 0.0047, 0.0004, 0.0037, 0.0047, 0.000
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c3pdf"]
 size = Vector3(0.072, 0.017, 0.016)
-
-[sub_resource type="Animation" id="Animation_eqlc4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.566504, 0.237953, -0.0113821)]
-}
-
-[sub_resource type="Animation" id="Animation_33j80"]
-resource_name = "spirit_idle"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.7, 1.03333, 1.46667, 1.83333, 2.16667, 2.53333, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.566504, 0.237953, -0.0113821), Vector3(0.644996, 0.235031, -0.0279826), Vector3(0.47529, 0.241343, 0.00344331), Vector3(0.502335, 0.24033, 0.0432023), Vector3(0.655354, 0.2176, 0.0432023), Vector3(0.598617, 0.219906, 0.0130222), Vector3(0.56861, 0.230293, -0.00460436), Vector3(0.476128, 0.233736, -0.0225177), Vector3(0.572488, 0.230148, -0.00228188)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1a7x"]
-_data = {
-"RESET": SubResource("Animation_eqlc4"),
-"spirit_idle": SubResource("Animation_33j80")
-}
-
-[sub_resource type="FogMaterial" id="FogMaterial_yycgx"]
-density = 8.0
-albedo = Color(0, 0.615686, 0.619608, 1)
-emission = Color(0, 0.615686, 0.619608, 1)
-edge_fade = 0.887656
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_770pe"]
 resource_name = "Auto2"
@@ -4862,31 +4818,6 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("3_8phuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.512, 62.4383, -187.341)
 
-[node name="Skeleton3D" parent="Player/player/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.0840071, -7.68465e-09, -0.0170036, 0.99632)
-bones/1/rotation = Quaternion(0.0762696, -0.000470685, 0.017699, 0.99693)
-bones/2/rotation = Quaternion(0.203824, -0.00166863, 0.0289608, 0.978578)
-bones/3/rotation = Quaternion(-0.180077, 0.000770251, -0.0323489, 0.98312)
-bones/4/rotation = Quaternion(0.0518047, -0.00482472, -0.67627, 0.734814)
-bones/5/rotation = Quaternion(-0.0388669, -0.0216657, -0.330244, 0.942846)
-bones/6/rotation = Quaternion(0.019092, -2.69823e-06, 0.0244778, 0.999518)
-bones/7/rotation = Quaternion(-0.0041649, 0.00142714, -0.0562373, 0.998408)
-bones/8/rotation = Quaternion(0.0493761, -0.00591553, 0.689441, 0.722632)
-bones/9/rotation = Quaternion(0.0147622, -0.0381099, 0.307571, 0.950647)
-bones/10/rotation = Quaternion(-0.0206183, -0.0019249, 0.0202976, 0.99958)
-bones/11/rotation = Quaternion(0.0104535, -0.0109354, 0.0280034, 0.999493)
-bones/12/rotation = Quaternion(-0.573686, 0.339396, 0.689972, 0.282195)
-bones/13/rotation = Quaternion(-0.369496, -0.0743248, -0.14235, 0.915252)
-bones/14/rotation = Quaternion(-0.00872882, -0.0051594, 0.317041, 0.948358)
-bones/15/rotation = Quaternion(0.166367, -0.0332103, 0.441495, 0.88108)
-bones/16/rotation = Quaternion(0.649095, 0.322744, 0.590448, -0.354801)
-bones/17/rotation = Quaternion(-0.404369, 0.0343443, 0.112364, 0.907017)
-bones/18/rotation = Quaternion(-0.071479, -0.00324016, -0.284808, 0.95591)
-bones/19/rotation = Quaternion(0.152525, 0.266761, -0.433018, 0.84739)
-
-[node name="CameraPivot" parent="Player" index="7"]
-transform = Transform3D(1, 0, 0, 0, 0.67595, 0.736947, 0, -0.736947, 0.67595, 2.08165e-12, 1.66866, 0.0205921)
-
 [node name="NoConnectionText2" parent="Player/UserInterface/InGameUI" index="5"]
 anchor_left = 0.265375
 anchor_top = 0.893963
@@ -5676,25 +5607,7 @@ transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, -2.60209e-15, 1.1102
 transform = Transform3D(1, -7.45058e-09, -2.22045e-16, 7.45058e-09, 1, -2.61596e-15, -1.11022e-16, 1.6237e-15, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_c3pdf")
 
-[node name="Spirit" type="Node3D" parent="Shop/NormalMode"]
-transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, 0.566504, 0.237953, -0.0113821)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Shop/NormalMode/Spirit"]
-libraries = {
-"": SubResource("AnimationLibrary_m1a7x")
-}
-speed_scale = 0.25
-script = ExtResource("33_btnh0")
-
-[node name="FogVolume" type="FogVolume" parent="Shop/NormalMode/Spirit"]
-shape = 0
-material = SubResource("FogMaterial_yycgx")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Shop/NormalMode/Spirit"]
-light_color = Color(0, 0.615686, 0.619608, 1)
-light_energy = 10.0
-light_volumetric_fog_energy = 10.0
-omni_range = 1.83702
+[node name="Spirit" parent="Shop/NormalMode" instance=ExtResource("33_3fjyn")]
 
 [node name="Car" type="MeshInstance3D" parent="Shop/NormalMode"]
 transform = Transform3D(-0.699863, -1.07594e-14, -0.714277, -0.714277, -4.37114e-08, 0.699863, -3.1222e-08, 1, 3.05919e-08, 0.140753, 0.200325, -0.044364)
