@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvyjckasvqbfu"]
+[gd_scene load_steps=12 format=3 uid="uid://dvyjckasvqbfu"]
 
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="1_g52nw"]
 [ext_resource type="Script" path="res://src/gameplay/TerminalLogic.gd" id="1_id5ji"]
 [ext_resource type="Script" path="res://src/ui/VainamoinenTitleAnimation.gd" id="3_tilix"]
 [ext_resource type="Script" path="res://src/gameplay/FileHandler.gd" id="4_2mk35"]
 [ext_resource type="Texture2D" uid="uid://dk2n75e5r5giq" path="res://assets/images/1902.png" id="4_ujyq3"]
+[ext_resource type="Texture2D" uid="uid://cl22tc1h5wwre" path="res://assets/images/1903.png" id="6_qfccg"]
+[ext_resource type="Texture2D" uid="uid://curjedwux1l5p" path="res://assets/images/1910.png" id="7_iw8to"]
+[ext_resource type="Texture2D" uid="uid://it7w05byvy46" path="res://assets/images/corrupted.png" id="8_kbyyy"]
 
 [sub_resource type="Theme" id="Theme_owhnr"]
 default_font = ExtResource("1_g52nw")
@@ -109,7 +112,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.803922)
+pivot_offset = Vector2(960, 540)
+color = Color(0, 0, 0, 0.901961)
 
 [node name="Image" type="TextureRect" parent="ImageViewer"]
 layout_mode = 1
@@ -247,6 +251,25 @@ text = "UNKNOWN COMMAND
 
 Type \"help\" to see available commands"
 
+[node name="UnknownFile" type="RichTextLabel" parent="Prints"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -882.0
+offset_top = -165.0
+offset_right = 883.0
+offset_bottom = 495.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "UNKNOWN FILE
+
+Type \"list\" to see available files"
+
 [node name="Files" type="Node" parent="."]
 script = ExtResource("4_2mk35")
 
@@ -310,7 +333,7 @@ theme = SubResource("Theme_q60y3")
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "DATE: 25.01.2072 TIME: 20:19
 
-TODAYS TASKS: More and more people are leaving the town. Took out Marja-Liisa's dogs out for a walk. Marja-Liisa went on a tirade about \"You robots being soulless\" and how the \"forest spirits won't guide you in the rapture\". I stayed quiet and left.
+TODAYS TASKS: More and more people are leaving the town. Took out Marja-Liisa's dog out for a walk. Marja-Liisa went on a tirade about the \"forest spirits\" again. She thinks they are now helping her prepare for the \"rapture\". Her dementia is getting worse.
 
 NOTE: I have not been able to contact MOTHER for 14.56 days."
 
@@ -330,8 +353,7 @@ grow_vertical = 2
 theme = SubResource("Theme_q60y3")
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "DATE: 26.10.2080 TIME: 17:01
-
-Toa%)!( woke up )AAIF forest. One one one one task  trask tehtävä form rom from THEO (HARRI), qtop/.as.,g/.  TRANSFER MOVE deliver  COMPACT DISC (CD) disc to COTTAGE AT THE END OF THE ROAAAAAAAAAAAAD. Estimated lifetime left -2147483648 hoursss minutes seconds millisecondsssss
+FOREST. One one one one task trask tehtävä form rom from THEO (HARRI).  TRANSFER MOVE deliver  COMPACT DISC (CD) disc to COTTAGE AT THE END OF THE BASIC ROAD ROADS. Estimated lifetime left -2147483648 hours minutes seconds milliseconds nanoseconds picoseconds femtoseconds attoseconds zeptoseconds yoctoseconds
 
 State CRITICAL. Open emergency diagnostics from file: sampo.log [open sampo.log]
 
@@ -355,5 +377,202 @@ theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "The SAMPO procedure is an emergency system in the VÄINÄMÖINEN BIOS, which disables all safety limitations and enables the emergency power.
 
 SAMPO should only be activated in the most extreme cases since it severely degrades the lifetime of the machine. To activate the sampo command, you must input the password. The password will be randomly output by the machine in some of the diagnostics files. (NOTE: It could be in a image or audio file as well) To activate the sampo procedure, type \"sampo <password>\""
+
+[node name="1902_image" type="ColorRect" parent="Files"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.803922)
+
+[node name="Image" type="TextureRect" parent="Files/1902_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -480.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ujyq3")
+
+[node name="ImageText" type="RichTextLabel" parent="Files/1902_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -932.0
+offset_top = -485.0
+offset_right = -623.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "IMAGE: 1902
+
+On the road from the cottage of [REDACTED]. 
+
+Image analysis:
+Sunny field,
+Forest in the distance"
+
+[node name="1903_image" type="ColorRect" parent="Files"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.803922)
+
+[node name="Image" type="TextureRect" parent="Files/1903_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -480.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_qfccg")
+
+[node name="ImageText" type="RichTextLabel" parent="Files/1903_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -932.0
+offset_top = -485.0
+offset_right = -623.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "IMAGE: 1903
+
+Theo setting up the dock at the cottage.
+
+Image analysis:
+Boat, dock, greenery, ocean water"
+
+[node name="1910_image" type="ColorRect" parent="Files"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.803922)
+
+[node name="Image" type="TextureRect" parent="Files/1910_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -480.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_iw8to")
+
+[node name="ImageText" type="RichTextLabel" parent="Files/1910_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -932.0
+offset_top = -485.0
+offset_right = -623.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "IMAGE: 1910
+
+Marja-Liisa's dog. Called \"Roope\"
+
+Image analysis:
+Joyous dog, greenery, ticks, flowers, forest"
+
+[node name="9bkd439_image" type="ColorRect" parent="Files"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.803922)
+metadata/_edit_use_anchors_ = true
+
+[node name="Image" type="TextureRect" parent="Files/9bkd439_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -480.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_kbyyy")
+
+[node name="ImageText" type="RichTextLabel" parent="Files/9bkd439_image"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -932.0
+offset_top = -485.0
+offset_right = -623.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "IMAGE: DIRT
+
+CORRUPTED
+STAINED 
+TAINTED
+WRONG
+PIG
+PERVERSE
+INCORRECT
+FASCIST
+DIRT 
+DIRT 
+DIRT
+DIRT
+DIRT
+DIRT
+"
 
 [connection signal="done" from="VainamoinenTitle" to="TerminalLogic" method="_on_vainamoinen_title_done"]

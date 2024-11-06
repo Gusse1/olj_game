@@ -5,11 +5,13 @@ extends Node
 @onready var image_viewer: ColorRect = $"../ImageViewer"
 
 var text_index: int = 0
+var image_scaler: float = 0
 var is_title_finished: bool = false
 
 @onready var help_text: RichTextLabel = $"../Prints/Help"
 @onready var list_text: RichTextLabel = $"../Prints/FileList"
 @onready var unknown_text: RichTextLabel = $"../Prints/UnknownCommand"
+@onready var unknown_file_text: RichTextLabel = $"../Prints/UnknownFile"
 @onready var file_handler: Node = $"../Files"
 
 # Called when the node enters the scene tree for the first time.
@@ -20,12 +22,17 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if image_scaler < 1:
+		image_scaler += delta * 2
+		if image_scaler > 1:
+			image_scaler = 1
+		image_viewer.set_scale(Vector2(image_scaler, image_scaler))
+		
 	if Input.is_action_just_pressed("enter"):
 		if image_viewer.is_visible():
 			image_viewer.visible = false
 			input.visible = true
-			print_list()
 			input.grab_focus()
 			return
 			
@@ -42,16 +49,17 @@ func _process(_delta: float) -> void:
 				print_debug(file_to_open)
 				
 				if file_to_open.contains(".log"):
-					print_debug("contains .log")
 					var file_content = file_handler.get_text_for_file(file_to_open)
 					if file_content == "ERROR":
-							print_help()
+						print_unknown_file()
 					else:
 						print_log_file(file_content)
 				elif file_to_open.contains(".image"):
-					print_debug("contains .image")
-					image_viewer.visible = true
-					input.visible = false
+					var file_content: Dictionary = file_handler.get_image_data_for_file(file_to_open)
+					if file_content["caption"] == "ERROR":
+						print_unknown_file()
+					else:
+						print_image_file(file_content)
 				else:
 					print_unknown()
 			else:
@@ -75,9 +83,21 @@ func print_unknown() -> void:
 	print_text.text = unknown_text.text
 	text_index = 0
 
+func print_unknown_file() -> void:
+	print_text.text = unknown_file_text.text
+	text_index = 0
+
 func print_log_file(file_content: String) -> void:
 	print_text.text = file_content
 	text_index = 0
+	
+func print_image_file(file_content: Dictionary) -> void:
+	image_scaler = 0
+	image_viewer.set_scale(Vector2.ZERO)
+	image_viewer.visible = true
+	input.visible = false
+	image_viewer.get_node("Image").texture = file_content["image"]
+	image_viewer.get_node("ImageText").text = file_content["caption"]
 	
 func _on_vainamoinen_title_done() -> void:
 	is_title_finished = true
