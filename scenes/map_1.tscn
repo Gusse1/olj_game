@@ -1,67 +1,67 @@
 [gd_scene load_steps=391 format=4 uid="uid://4hdhmdl5jj42"]
 
-[ext_resource type="Environment" uid="uid://cblagoljjcpt8" path="res://environments/EnvironmentHigh.tres" id="2_7ask8"]
-[ext_resource type="Environment" uid="uid://duilvqtiy7ifc" path="res://environments/EnvironmentWeirdHigh.tres" id="2_j424g"]
-[ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="2_sbfna"]
-[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_tglu4"]
-[ext_resource type="PackedScene" uid="uid://b8pax5fya6ekc" path="res://objects/buildings/church.tscn" id="5_ldo4v"]
-[ext_resource type="Texture2D" uid="uid://blwllofju4tvs" path="res://assets/models/Models pack psx/Models/Concrete_01.jpg" id="6_0gkq2"]
-[ext_resource type="Texture2D" uid="uid://khrsfd40m0j0" path="res://assets/models/Models pack psx/Models/Leather.jpg" id="6_o2vuh"]
-[ext_resource type="Texture2D" uid="uid://dfkuhy4s58vks" path="res://assets/models/Models pack psx/Models/Auto.jpg" id="7_14dwh"]
-[ext_resource type="Material" uid="uid://df1pl6gwsv5jq" path="res://materials/urban_objects/window.tres" id="7_dopmy"]
-[ext_resource type="Texture2D" uid="uid://cvfbu6djrwgh6" path="res://assets/models/Models pack psx/Models/Wire.png" id="7_o43v3"]
-[ext_resource type="Texture2D" uid="uid://djgbfc4hhug5s" path="res://assets/models/Models pack psx/Models/Plastic_02.jpg" id="8_tyqjp"]
-[ext_resource type="Texture2D" uid="uid://bwj7ckbhrxgwy" path="res://assets/models/Models pack psx/Models/Branch_02.png" id="9_sirw0"]
-[ext_resource type="Texture2D" uid="uid://cdfxyk1ia2eu4" path="res://assets/models/Models pack psx/Models/Wood_13.jpg" id="10_h4kaf"]
-[ext_resource type="Texture2D" uid="uid://baceptmvrqarp" path="res://assets/textures/Metal_18-128x128.png" id="12_dpw53"]
-[ext_resource type="PackedScene" uid="uid://c6n6uiqqet3yc" path="res://assets/models/own/grave.blend" id="13_hlyfa"]
-[ext_resource type="Texture2D" uid="uid://b5a3kn7n00wmp" path="res://assets/textures/gravestone.png" id="13_tqul2"]
-[ext_resource type="PackedScene" uid="uid://dxclam6mcr4u5" path="res://objects/misc/church_bench.tscn" id="14_6sg52"]
-[ext_resource type="PackedScene" uid="uid://ynirj3lbg4de" path="res://assets/models/own/church_table.blend" id="15_xg1t7"]
-[ext_resource type="Texture2D" uid="uid://ci7em85s34i67" path="res://assets/models/Models pack psx/Models/Auto2.jpg" id="16_5p6mh"]
-[ext_resource type="Script" path="res://src/gameplay/events/CDCase.gd" id="18_rs34v"]
-[ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="20_xvpns"]
-[ext_resource type="Texture2D" uid="uid://banf1xbnrlsna" path="res://assets/models/Models pack psx/Models/Metal.jpg" id="21_8s16q"]
-[ext_resource type="Texture2D" uid="uid://cl5t3atso8gj3" path="res://assets/models/Models pack psx/Models/Asphalt.png" id="22_t5yxm"]
-[ext_resource type="Texture2D" uid="uid://ds0jx0bvb2u42" path="res://assets/models/Models pack psx/Models/brick_02.jpg" id="23_3hk6x"]
-[ext_resource type="Texture2D" uid="uid://cdhvg1skshi1o" path="res://assets/models/Models pack psx/Models/Tiles_01.jpg" id="24_y6000"]
-[ext_resource type="Texture2D" uid="uid://drrkaho0p18lr" path="res://assets/models/Models pack psx/Models/ceiling.png" id="25_6e3lw"]
-[ext_resource type="Texture2D" uid="uid://xiwrd8dve4d7" path="res://assets/models/Models pack psx/Models/Shelf_Store_16.png" id="26_3i2wl"]
-[ext_resource type="Texture2D" uid="uid://cwxx26v3yrtvw" path="res://assets/models/Models pack psx/Models/Shelf_Store_15.png" id="27_2ud0f"]
-[ext_resource type="Texture2D" uid="uid://10uorg6wi4nl" path="res://assets/models/Models pack psx/Models/Shelf_Store_14.png" id="28_ise08"]
-[ext_resource type="Texture2D" uid="uid://bryq0yq8fmv2j" path="res://assets/models/Models pack psx/Models/Shelf_Store_09.jpg" id="29_48ldu"]
-[ext_resource type="Texture2D" uid="uid://bgjn3hurf6npx" path="res://assets/models/Models pack psx/Models/Shelf_Store_02.png" id="30_rtcn4"]
-[ext_resource type="Texture2D" uid="uid://3wyj3n8jb81t" path="res://assets/models/Models pack psx/Models/Cash_register.png" id="31_m2m30"]
-[ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="32_g6jya"]
-[ext_resource type="Texture2D" uid="uid://bp0tog5lkvwef" path="res://assets/models/Models pack psx/Models/Wood_05.jpg" id="33_4erhp"]
-[ext_resource type="Texture2D" uid="uid://dlk8nntcu4tki" path="res://assets/models/Models pack psx/Models/Wood_02.jpg" id="34_kqgf0"]
-[ext_resource type="Texture2D" uid="uid://d3rux2y2ewrpa" path="res://assets/models/Models pack psx/Models/Fabric.jpg" id="35_xfwkq"]
-[ext_resource type="Texture2D" uid="uid://dm716bkj8xpg" path="res://assets/models/Models pack psx/Models/Tiles.jpg" id="36_87xkv"]
-[ext_resource type="Texture2D" uid="uid://c57yllyrpxse1" path="res://assets/models/Models pack psx/Models/Metal_04.jpg" id="37_4xxro"]
-[ext_resource type="Texture2D" uid="uid://bei3f27hx0cb8" path="res://assets/models/Models pack psx/Models/Deposits_02.jpg" id="37_xl5pc"]
-[ext_resource type="Texture2D" uid="uid://cdddmt0na3bcs" path="res://assets/models/Models pack psx/Models/Metal_06.jpg" id="38_k5prf"]
-[ext_resource type="Texture2D" uid="uid://pg5shepeg01o" path="res://assets/models/Models pack psx/Models/Wood_04.jpg" id="39_r4sqe"]
-[ext_resource type="Texture2D" uid="uid://dpvkqkaqfuund" path="res://assets/models/Models pack psx/Models/Micro.jpg" id="40_se122"]
-[ext_resource type="Texture2D" uid="uid://d3betirnepjh0" path="res://assets/models/Models pack psx/Models/Plastic.jpg" id="41_g1ba6"]
-[ext_resource type="Texture2D" uid="uid://b142r2b7q57sp" path="res://assets/models/Models pack psx/Models/Marmol.png" id="42_bk2lv"]
-[ext_resource type="Script" path="res://src/gameplay/events/pink_mirror.gd" id="43_n8nkc"]
-[ext_resource type="Script" path="res://src/gameplay/events/ToiletMirror.gd" id="44_apbvk"]
-[ext_resource type="Texture2D" uid="uid://c7gblnt1dw3r" path="res://assets/models/Models pack psx/Models/Door.jpg" id="44_vlf46"]
-[ext_resource type="Texture2D" uid="uid://cj5x75j0mis4s" path="res://assets/models/Models pack psx/Models/Paper.jpg" id="45_0gqho"]
-[ext_resource type="Texture2D" uid="uid://ige0thewt3ai" path="res://assets/models/Models pack psx/Models/Trash_06.jpg" id="46_0joy0"]
-[ext_resource type="Texture2D" uid="uid://dk030btjwtw1e" path="res://assets/models/Models pack psx/Models/Trash.jpg" id="47_y478u"]
-[ext_resource type="Texture2D" uid="uid://ckglrylcwirij" path="res://assets/models/Models pack psx/Models/Deposits.jpg" id="48_muw0a"]
-[ext_resource type="Texture2D" uid="uid://dfb8d210b2g7e" path="res://assets/models/Models pack psx/Models/Trash_01.jpg" id="49_7f6mf"]
-[ext_resource type="Script" path="res://src/gameplay/SpiritAnimations.gd" id="52_6t0qo"]
-[ext_resource type="Texture2D" uid="uid://cmnn6bn0vect1" path="res://assets/models/Models pack psx/Models/Metal_15.jpg" id="53_2303d"]
-[ext_resource type="PackedScene" uid="uid://buflndb6l2a2r" path="res://assets/models/own/bus_stop.blend" id="53_bk0et"]
-[ext_resource type="Texture2D" uid="uid://vsti23xe8tst" path="res://assets/models/Models pack psx/Models/Metal_05.jpg" id="54_6xu1d"]
-[ext_resource type="Texture2D" uid="uid://cotgkhyvgqxp7" path="res://assets/models/Models pack psx/Models/Wood_12.jpg" id="54_af241"]
-[ext_resource type="Texture2D" uid="uid://dflx626onaqqi" path="res://assets/models/Models pack psx/Models/Boxs_07.jpg" id="55_2ia7r"]
-[ext_resource type="Script" path="res://src/misc/fan_blades.gd" id="55_wfc0m"]
-[ext_resource type="Texture2D" uid="uid://dvi2cv2ib57uk" path="res://assets/models/Models pack psx/Models/Cardboard_02.jpg" id="56_q2kpv"]
-[ext_resource type="Texture2D" uid="uid://dggu33ua7pnju" path="res://assets/models/Models pack psx/Models/Boxs_12.jpg" id="57_wneg8"]
-[ext_resource type="Texture2D" uid="uid://d0ir5g5bp507b" path="res://assets/models/Models pack psx/Models/Mattress.jpg" id="58_lwfuy"]
+[ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_f1lbb"]
+[ext_resource type="Environment" uid="uid://cblagoljjcpt8" path="res://environments/EnvironmentHigh.tres" id="2_kboty"]
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_8phuo"]
+[ext_resource type="PackedScene" uid="uid://b8pax5fya6ekc" path="res://objects/buildings/church.tscn" id="4_wwn2a"]
+[ext_resource type="Texture2D" uid="uid://khrsfd40m0j0" path="res://assets/models/Models pack psx/Models/Leather.jpg" id="5_8c3ex"]
+[ext_resource type="Texture2D" uid="uid://dfkuhy4s58vks" path="res://assets/models/Models pack psx/Models/Auto.jpg" id="6_y36sv"]
+[ext_resource type="Texture2D" uid="uid://djgbfc4hhug5s" path="res://assets/models/Models pack psx/Models/Plastic_02.jpg" id="7_tmbpv"]
+[ext_resource type="Material" uid="uid://df1pl6gwsv5jq" path="res://materials/urban_objects/window.tres" id="8_1yhtm"]
+[ext_resource type="Texture2D" uid="uid://bwj7ckbhrxgwy" path="res://assets/models/Models pack psx/Models/Branch_02.png" id="9_v0ja1"]
+[ext_resource type="Texture2D" uid="uid://cdfxyk1ia2eu4" path="res://assets/models/Models pack psx/Models/Wood_13.jpg" id="10_ss804"]
+[ext_resource type="Texture2D" uid="uid://cvfbu6djrwgh6" path="res://assets/models/Models pack psx/Models/Wire.png" id="11_ax1sl"]
+[ext_resource type="Texture2D" uid="uid://blwllofju4tvs" path="res://assets/models/Models pack psx/Models/Concrete_01.jpg" id="12_cwffv"]
+[ext_resource type="Texture2D" uid="uid://baceptmvrqarp" path="res://assets/textures/Metal_18-128x128.png" id="13_ursia"]
+[ext_resource type="Texture2D" uid="uid://b5a3kn7n00wmp" path="res://assets/textures/gravestone.png" id="14_k1qso"]
+[ext_resource type="PackedScene" uid="uid://c6n6uiqqet3yc" path="res://assets/models/own/grave.blend" id="15_dg5xu"]
+[ext_resource type="PackedScene" uid="uid://dxclam6mcr4u5" path="res://objects/misc/church_bench.tscn" id="16_uv21a"]
+[ext_resource type="PackedScene" uid="uid://ynirj3lbg4de" path="res://assets/models/own/church_table.blend" id="17_lvx38"]
+[ext_resource type="Texture2D" uid="uid://ci7em85s34i67" path="res://assets/models/Models pack psx/Models/Auto2.jpg" id="18_hli2f"]
+[ext_resource type="Script" path="res://src/gameplay/events/CDCase.gd" id="19_88lbw"]
+[ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="20_1kmr8"]
+[ext_resource type="Texture2D" uid="uid://banf1xbnrlsna" path="res://assets/models/Models pack psx/Models/Metal.jpg" id="21_mrx43"]
+[ext_resource type="Texture2D" uid="uid://cl5t3atso8gj3" path="res://assets/models/Models pack psx/Models/Asphalt.png" id="22_aquuk"]
+[ext_resource type="Texture2D" uid="uid://ds0jx0bvb2u42" path="res://assets/models/Models pack psx/Models/brick_02.jpg" id="23_7e0m4"]
+[ext_resource type="Texture2D" uid="uid://cdhvg1skshi1o" path="res://assets/models/Models pack psx/Models/Tiles_01.jpg" id="24_a0bba"]
+[ext_resource type="Texture2D" uid="uid://drrkaho0p18lr" path="res://assets/models/Models pack psx/Models/ceiling.png" id="25_x512l"]
+[ext_resource type="Texture2D" uid="uid://xiwrd8dve4d7" path="res://assets/models/Models pack psx/Models/Shelf_Store_16.png" id="26_tsa48"]
+[ext_resource type="Texture2D" uid="uid://cwxx26v3yrtvw" path="res://assets/models/Models pack psx/Models/Shelf_Store_15.png" id="27_bphcp"]
+[ext_resource type="Texture2D" uid="uid://10uorg6wi4nl" path="res://assets/models/Models pack psx/Models/Shelf_Store_14.png" id="28_ka24h"]
+[ext_resource type="Texture2D" uid="uid://bryq0yq8fmv2j" path="res://assets/models/Models pack psx/Models/Shelf_Store_09.jpg" id="29_xdro4"]
+[ext_resource type="Texture2D" uid="uid://bgjn3hurf6npx" path="res://assets/models/Models pack psx/Models/Shelf_Store_02.png" id="30_p35f8"]
+[ext_resource type="Texture2D" uid="uid://3wyj3n8jb81t" path="res://assets/models/Models pack psx/Models/Cash_register.png" id="31_lm4b8"]
+[ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="32_s2nlp"]
+[ext_resource type="Script" path="res://src/gameplay/SpiritAnimations.gd" id="33_btnh0"]
+[ext_resource type="Texture2D" uid="uid://dk030btjwtw1e" path="res://assets/models/Models pack psx/Models/Trash.jpg" id="34_5o6nd"]
+[ext_resource type="Texture2D" uid="uid://d0ir5g5bp507b" path="res://assets/models/Models pack psx/Models/Mattress.jpg" id="35_so1ys"]
+[ext_resource type="Texture2D" uid="uid://dfb8d210b2g7e" path="res://assets/models/Models pack psx/Models/Trash_01.jpg" id="36_n32kk"]
+[ext_resource type="Texture2D" uid="uid://bei3f27hx0cb8" path="res://assets/models/Models pack psx/Models/Deposits_02.jpg" id="37_da5sf"]
+[ext_resource type="Texture2D" uid="uid://bp0tog5lkvwef" path="res://assets/models/Models pack psx/Models/Wood_05.jpg" id="38_uhiyr"]
+[ext_resource type="Texture2D" uid="uid://dlk8nntcu4tki" path="res://assets/models/Models pack psx/Models/Wood_02.jpg" id="39_4jmcn"]
+[ext_resource type="Texture2D" uid="uid://d3rux2y2ewrpa" path="res://assets/models/Models pack psx/Models/Fabric.jpg" id="40_4m6bo"]
+[ext_resource type="Texture2D" uid="uid://dm716bkj8xpg" path="res://assets/models/Models pack psx/Models/Tiles.jpg" id="41_ieth1"]
+[ext_resource type="Texture2D" uid="uid://c57yllyrpxse1" path="res://assets/models/Models pack psx/Models/Metal_04.jpg" id="42_vp45o"]
+[ext_resource type="Texture2D" uid="uid://cdddmt0na3bcs" path="res://assets/models/Models pack psx/Models/Metal_06.jpg" id="43_u0ki5"]
+[ext_resource type="Texture2D" uid="uid://pg5shepeg01o" path="res://assets/models/Models pack psx/Models/Wood_04.jpg" id="44_d2mol"]
+[ext_resource type="Texture2D" uid="uid://dpvkqkaqfuund" path="res://assets/models/Models pack psx/Models/Micro.jpg" id="45_78tby"]
+[ext_resource type="Texture2D" uid="uid://d3betirnepjh0" path="res://assets/models/Models pack psx/Models/Plastic.jpg" id="46_gfsu5"]
+[ext_resource type="Texture2D" uid="uid://b142r2b7q57sp" path="res://assets/models/Models pack psx/Models/Marmol.png" id="47_x85kh"]
+[ext_resource type="Script" path="res://src/gameplay/events/pink_mirror.gd" id="48_2dg4p"]
+[ext_resource type="Script" path="res://src/gameplay/events/ToiletMirror.gd" id="49_mm6tc"]
+[ext_resource type="Environment" uid="uid://duilvqtiy7ifc" path="res://environments/EnvironmentWeirdHigh.tres" id="50_u6y1v"]
+[ext_resource type="Texture2D" uid="uid://c7gblnt1dw3r" path="res://assets/models/Models pack psx/Models/Door.jpg" id="51_w01jf"]
+[ext_resource type="Texture2D" uid="uid://cj5x75j0mis4s" path="res://assets/models/Models pack psx/Models/Paper.jpg" id="52_vur85"]
+[ext_resource type="Texture2D" uid="uid://cmnn6bn0vect1" path="res://assets/models/Models pack psx/Models/Metal_15.jpg" id="53_11oo1"]
+[ext_resource type="Texture2D" uid="uid://cotgkhyvgqxp7" path="res://assets/models/Models pack psx/Models/Wood_12.jpg" id="54_yjoir"]
+[ext_resource type="Script" path="res://src/misc/fan_blades.gd" id="55_82jmw"]
+[ext_resource type="Texture2D" uid="uid://ige0thewt3ai" path="res://assets/models/Models pack psx/Models/Trash_06.jpg" id="56_vvq4o"]
+[ext_resource type="Texture2D" uid="uid://ckglrylcwirij" path="res://assets/models/Models pack psx/Models/Deposits.jpg" id="57_yhmit"]
+[ext_resource type="PackedScene" uid="uid://buflndb6l2a2r" path="res://assets/models/own/bus_stop.blend" id="58_ql836"]
+[ext_resource type="Texture2D" uid="uid://vsti23xe8tst" path="res://assets/models/Models pack psx/Models/Metal_05.jpg" id="59_oaf7v"]
+[ext_resource type="Texture2D" uid="uid://dflx626onaqqi" path="res://assets/models/Models pack psx/Models/Boxs_07.jpg" id="60_mltxf"]
+[ext_resource type="Texture2D" uid="uid://dvi2cv2ib57uk" path="res://assets/models/Models pack psx/Models/Cardboard_02.jpg" id="61_iccvi"]
+[ext_resource type="Texture2D" uid="uid://dggu33ua7pnju" path="res://assets/models/Models pack psx/Models/Boxs_12.jpg" id="62_5m5tu"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -111,7 +111,7 @@ density = 0.016
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67xc7"]
 resource_name = "Leather"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_o2vuh")
+albedo_texture = ExtResource("5_8c3ex")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_appiv"]
@@ -128,13 +128,13 @@ emission_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhisf"]
 resource_name = "Auto"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("7_14dwh")
+albedo_texture = ExtResource("6_y36sv")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8ng4"]
 resource_name = "Plastic_02"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("8_tyqjp")
+albedo_texture = ExtResource("7_tmbpv")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_r7lnt"]
@@ -788,13 +788,13 @@ data = PackedVector3Array(-0.0121, -0.0029, 0.0002, -0.0133, -0.0029, 0.0014, -0
 resource_name = "Branch_02"
 transparency = 4
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("9_sirw0")
+albedo_texture = ExtResource("9_v0ja1")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3eng"]
 resource_name = "Wood_13"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("10_h4kaf")
+albedo_texture = ExtResource("10_ss804")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_p35ic"]
@@ -858,7 +858,7 @@ data = PackedVector3Array(0.0266, 0.0155, 0.0987, 0.0465, 0.0194, 0.0903, 0.0337
 resource_name = "Wire"
 transparency = 4
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("7_o43v3")
+albedo_texture = ExtResource("11_ax1sl")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jir8h"]
@@ -895,7 +895,7 @@ shadow_mesh = SubResource("ArrayMesh_jir8h")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfn8n"]
 transparency = 1
-albedo_texture = ExtResource("7_o43v3")
+albedo_texture = ExtResource("11_ax1sl")
 uv1_scale = Vector3(8, 1, 1)
 uv2_scale = Vector3(4, 1, 1)
 
@@ -905,7 +905,7 @@ data = PackedVector3Array(-0.0112, 0, 0.0112, -0.0112, 0, -0.0112, 0.0112, 0, -0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8y2e"]
 resource_name = "Concrete_01"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_0gkq2")
+albedo_texture = ExtResource("12_cwffv")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fj3fm"]
@@ -968,7 +968,7 @@ data = PackedVector3Array(0.0105, -0.001, 0.0148, 0.0105, 0.0008, 0.0148, 0.0105
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ox8ta"]
 resource_name = "grave"
 cull_mode = 2
-albedo_texture = ExtResource("12_dpw53")
+albedo_texture = ExtResource("13_ursia")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8juki"]
@@ -1026,7 +1026,7 @@ shadow_mesh = SubResource("ArrayMesh_8juki")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qxoe"]
 transparency = 1
-albedo_texture = ExtResource("13_tqul2")
+albedo_texture = ExtResource("14_k1qso")
 uv1_scale = Vector3(2.63, 0.575, 0.385)
 uv1_offset = Vector3(0.74, 1.315, -0.505)
 uv1_triplanar = true
@@ -1097,7 +1097,7 @@ data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_codpp"]
 resource_name = "Auto2"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("16_5p6mh")
+albedo_texture = ExtResource("18_hli2f")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apvh5"]
@@ -1163,7 +1163,7 @@ shadow_mesh = SubResource("ArrayMesh_ejcbe")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpa20"]
 resource_name = "Leather"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_o2vuh")
+albedo_texture = ExtResource("5_8c3ex")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjxos"]
@@ -1699,13 +1699,13 @@ shadow_mesh = SubResource("ArrayMesh_0bti4")
 resource_name = "Branch_02"
 transparency = 4
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("9_sirw0")
+albedo_texture = ExtResource("9_v0ja1")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmajw"]
 resource_name = "Wood_13"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("10_h4kaf")
+albedo_texture = ExtResource("10_ss804")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6q2vv"]
@@ -1771,7 +1771,7 @@ radius = 0.624132
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0jyp"]
 resource_name = "Metal"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("21_8s16q")
+albedo_texture = ExtResource("21_mrx43")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hn3xp"]
@@ -1783,7 +1783,7 @@ emission_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkvlg"]
 resource_name = "Asphalt"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("22_t5yxm")
+albedo_texture = ExtResource("22_aquuk")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oek7t"]
@@ -1800,19 +1800,19 @@ backlight = Color(1, 1, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gmhv"]
 resource_name = "brick_02"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("23_3hk6x")
+albedo_texture = ExtResource("23_7e0m4")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfof3"]
 resource_name = "Tiles_01"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("24_y6000")
+albedo_texture = ExtResource("24_a0bba")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brd24"]
 resource_name = "ceiling"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("25_6e3lw")
+albedo_texture = ExtResource("25_x512l")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wilst"]
@@ -1985,7 +1985,7 @@ data = PackedVector3Array(0.1148, -0.0448, -0.0357, 0.1148, -0.0448, 0.015, 0.11
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06vsa"]
 resource_name = "Shelf_Store_16"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("26_3i2wl")
+albedo_texture = ExtResource("26_tsa48")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mob7d"]
@@ -2029,7 +2029,7 @@ data = PackedVector3Array(-0.0234, 0.0058, 0.0143, -0.0234, -0.0058, 0.0143, -0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pnuj"]
 resource_name = "Shelf_Store_15"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("27_2ud0f")
+albedo_texture = ExtResource("27_bphcp")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hyokn"]
@@ -2073,13 +2073,13 @@ data = PackedVector3Array(-0.0177, 0.0064, 0.015, -0.0177, -0.0064, 0.015, -0.01
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57vf8"]
 resource_name = "Metal"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("21_8s16q")
+albedo_texture = ExtResource("21_mrx43")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awfd7"]
 resource_name = "Shelf_Store_14"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("28_ise08")
+albedo_texture = ExtResource("28_ka24h")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1p7w4"]
@@ -2142,7 +2142,7 @@ data = PackedVector3Array(0.0008, 0.0002, 0.0027, 0, 0.0008, 0.0027, 0, 0.0008, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74o7r"]
 resource_name = "Shelf_Store_09"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("29_48ldu")
+albedo_texture = ExtResource("29_xdro4")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_s36iv"]
@@ -2188,7 +2188,7 @@ emission_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gwno"]
 resource_name = "Shelf_Store_02"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("30_rtcn4")
+albedo_texture = ExtResource("30_p35f8")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6jq4e"]
@@ -2254,7 +2254,7 @@ data = PackedVector3Array(-0.009, -0.0031, 0.01, -0.009, -0.0079, 0.01, -0.009, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aeiyw"]
 resource_name = "Cash_register"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("31_m2m30")
+albedo_texture = ExtResource("31_lm4b8")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wqyaj"]
@@ -2379,7 +2379,7 @@ edge_fade = 0.887656
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_770pe"]
 resource_name = "Auto2"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("16_5p6mh")
+albedo_texture = ExtResource("18_hli2f")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd6rx"]
@@ -2445,7 +2445,7 @@ shadow_mesh = SubResource("ArrayMesh_1ao31")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7je6"]
 resource_name = "Leather"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_o2vuh")
+albedo_texture = ExtResource("5_8c3ex")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8ysh"]
@@ -2986,7 +2986,7 @@ size = Vector3(0.071936, 0.0188843, 0.0271484)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emw6w"]
 resource_name = "Trash"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("47_y478u")
+albedo_texture = ExtResource("34_5o6nd")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j0g3r"]
@@ -3027,7 +3027,7 @@ size = Vector3(0.0298645, 0.0254883, 0.0278503)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmq26"]
 resource_name = "Mattress"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("58_lwfuy")
+albedo_texture = ExtResource("35_so1ys")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_18ahe"]
@@ -3070,13 +3070,13 @@ data = PackedVector3Array(-0.0103, -0.0139, -0.0012, -0.0103, 0.0139, -0.0012, -
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5ok6"]
 resource_name = "Trash_01"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("49_7f6mf")
+albedo_texture = ExtResource("36_n32kk")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wm21x"]
 resource_name = "Deposits_02"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("37_xl5pc")
+albedo_texture = ExtResource("37_da5sf")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_43hrf"]
@@ -3139,13 +3139,13 @@ data = PackedVector3Array(0.0246, 0.0239, 0.0281, 0.0492, 0.0239, 0.0224, 0.0492
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2hxi"]
 resource_name = "Wood_05"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("33_4erhp")
+albedo_texture = ExtResource("38_uhiyr")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xs6l8"]
 resource_name = "Wood_02"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("34_kqgf0")
+albedo_texture = ExtResource("39_4jmcn")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_brqcm"]
@@ -3218,7 +3218,7 @@ emission_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_giqvu"]
 resource_name = "Fabric"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("35_xfwkq")
+albedo_texture = ExtResource("40_4m6bo")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5vyva"]
@@ -3289,13 +3289,13 @@ data = PackedVector3Array(-0.0044, -0.0057, -0.0112, -0.0033, -0.0057, -0.0024, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5c3b"]
 resource_name = "Tiles"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("36_87xkv")
+albedo_texture = ExtResource("41_ieth1")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j4lh"]
 resource_name = "Metal_04"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("37_4xxro")
+albedo_texture = ExtResource("42_vp45o")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ksixs"]
@@ -3382,7 +3382,7 @@ data = PackedVector3Array(-0.0102, 0.0072, 0.0089, -0.0102, -0.0058, 0.0089, -0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejmt6"]
 resource_name = "Metal_06"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("38_k5prf")
+albedo_texture = ExtResource("43_u0ki5")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rhyy5"]
@@ -3546,7 +3546,7 @@ data = PackedVector3Array(-0.0001, -0.0005, 0.0074, -0.0001, -0.0005, 0.0054, 0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3xt5"]
 resource_name = "Wood_04"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("39_r4sqe")
+albedo_texture = ExtResource("44_d2mol")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kyofv"]
@@ -3723,7 +3723,7 @@ data = PackedVector3Array(-0.0007, -0.0004, -0.0079, -0.0007, -0.0004, 0.0079, 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp65t"]
 resource_name = "Micro"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("40_se122")
+albedo_texture = ExtResource("45_78tby")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ymxih"]
@@ -3824,7 +3824,7 @@ data = PackedVector3Array(-0.0059, 0.0023, 0.0031, -0.0059, -0.0035, 0.0031, -0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_178ok"]
 resource_name = "Plastic"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("41_g1ba6")
+albedo_texture = ExtResource("46_gfsu5")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f5p8n"]
@@ -3992,7 +3992,7 @@ data = PackedVector3Array(-0.0038, -0.0031, 0.0038, -0.0033, -0.0049, 0.0038, -0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tprk0"]
 resource_name = "Marmol"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("42_bk2lv")
+albedo_texture = ExtResource("47_x85kh")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_i1qrf"]
@@ -4076,7 +4076,7 @@ data = PackedVector3Array(-0.0005, -0.0019, 0.0059, 0, -0.0023, 0.0059, 0, -0.00
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpei6"]
 resource_name = "Door"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("44_vlf46")
+albedo_texture = ExtResource("51_w01jf")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v8jry"]
@@ -4117,7 +4117,7 @@ data = PackedVector3Array(-0.0004, 0.0006, 0.0215, -0.0004, -0.0006, 0.0215, -0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nmev"]
 resource_name = "Metal_06"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("38_k5prf")
+albedo_texture = ExtResource("43_u0ki5")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8recf"]
@@ -4161,7 +4161,7 @@ emission_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbtvb"]
 resource_name = "Paper"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("45_0gqho")
+albedo_texture = ExtResource("52_vur85")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mnhop"]
@@ -4221,7 +4221,7 @@ shadow_mesh = SubResource("ArrayMesh_mnhop")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kq5r"]
 resource_name = "Metal_15"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("53_2303d")
+albedo_texture = ExtResource("53_11oo1")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0evpu"]
@@ -4259,7 +4259,7 @@ shadow_mesh = SubResource("ArrayMesh_0evpu")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c04l4"]
 resource_name = "Wood_12"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("54_af241")
+albedo_texture = ExtResource("54_yjoir")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q08y"]
@@ -4348,7 +4348,7 @@ shadow_mesh = SubResource("ArrayMesh_1xne4")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uq77"]
 resource_name = "Metal"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("21_8s16q")
+albedo_texture = ExtResource("21_mrx43")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g7c6u"]
@@ -4408,7 +4408,7 @@ shadow_mesh = SubResource("ArrayMesh_g7c6u")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skdq1"]
 resource_name = "Trash_06"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("46_0joy0")
+albedo_texture = ExtResource("56_vvq4o")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xvr7w"]
@@ -4478,13 +4478,13 @@ shadow_mesh = SubResource("ArrayMesh_tnjpn")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdc3j"]
 resource_name = "Deposits"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("48_muw0a")
+albedo_texture = ExtResource("57_yhmit")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjd7b"]
 resource_name = "Trash_01"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("49_7f6mf")
+albedo_texture = ExtResource("36_n32kk")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w3n4r"]
@@ -4574,13 +4574,13 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cw3t"]
 resource_name = "Concrete_01"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_0gkq2")
+albedo_texture = ExtResource("12_cwffv")
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ih4m"]
 resource_name = "Metal_05"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("54_6xu1d")
+albedo_texture = ExtResource("59_oaf7v")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e4fjh"]
@@ -4704,7 +4704,7 @@ size = Vector3(0.0825562, 0.0685181, 0.0319153)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fsmg"]
 resource_name = "Boxs_07"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("55_2ia7r")
+albedo_texture = ExtResource("60_mltxf")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_658xh"]
@@ -4745,7 +4745,7 @@ data = PackedVector3Array(-0.0152, 0.0102, 0.0168, -0.0152, -0.0102, 0.0168, -0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bm7r7"]
 resource_name = "Cardboard_02"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("56_q2kpv")
+albedo_texture = ExtResource("61_iccvi")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8spiu"]
@@ -4788,7 +4788,7 @@ data = PackedVector3Array(0.0146, -0.011, 0.0042, -0.0146, -0.011, 0.0042, -0.01
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgtts"]
 resource_name = "Boxs_12"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("57_wneg8")
+albedo_texture = ExtResource("62_5m5tu")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f2aik"]
@@ -4837,7 +4837,7 @@ size = Vector3(27.4877, 45.3702, 35.999)
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://terrain_folder"
 material = SubResource("Terrain3DMaterial_od84v")
-assets = ExtResource("2_sbfna")
+assets = ExtResource("1_f1lbb")
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -4848,7 +4848,7 @@ light_volumetric_fog_energy = 75.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="OriginalAtmoshpere"]
-environment = ExtResource("2_7ask8")
+environment = ExtResource("2_kboty")
 camera_attributes = SubResource("CameraAttributesPractical_mp0bi")
 
 [node name="MoonAtmosphere" type="DirectionalLight3D" parent="."]
@@ -4859,8 +4859,8 @@ light_energy = 0.4
 light_volumetric_fog_energy = 75.0
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("3_tglu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1444.3, 32.3127, -949.876)
+[node name="Player" parent="." instance=ExtResource("3_8phuo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.512, 62.4383, -187.341)
 
 [node name="Skeleton3D" parent="Player/player/Armature" index="0"]
 bones/0/rotation = Quaternion(-0.0840071, -7.68465e-09, -0.0170036, 0.99632)
@@ -4902,7 +4902,7 @@ scale = Vector2(0.3, 0.3)
 
 [node name="Church_area" type="Node3D" parent="."]
 
-[node name="church2" parent="Church_area" instance=ExtResource("5_ldo4v")]
+[node name="church2" parent="Church_area" instance=ExtResource("4_wwn2a")]
 transform = Transform3D(-2.83761, 0, -0.973634, 0, 3, 0, 0.973634, 0, -2.83761, -681.141, 38.5231, -717.918)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Church_area/church2"]
@@ -4932,7 +4932,7 @@ omni_range = 28.783
 transform = Transform3D(16.4173, 3.79939e-07, 25.1092, 1.31134e-06, 30, -1.31134e-06, -25.1092, 1.81518e-06, 16.4173, -15.2898, -1.32969, 7.0593)
 mesh = SubResource("ArrayMesh_yt8hq")
 skeleton = NodePath("")
-surface_material_override/2 = ExtResource("7_dopmy")
+surface_material_override/2 = ExtResource("8_1yhtm")
 
 [node name="Auto_001" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(-1, -1.09589e-14, -8.74228e-08, 7.10542e-15, 1, -2.06632e-07, 8.74228e-08, -2.06632e-07, -1, -0.0246217, 0.00636827, 3.20435e-05)
@@ -4943,25 +4943,25 @@ skeleton = NodePath("")
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, -0.0120478)
 mesh = SubResource("ArrayMesh_jn6o0")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_004" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, -0.0130313)
 mesh = SubResource("ArrayMesh_pr77t")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_005" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, 0.012344)
 mesh = SubResource("ArrayMesh_bjey7")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_006" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, 0.0133275)
 mesh = SubResource("ArrayMesh_6f6j7")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Cylinder_043" type="MeshInstance3D" parent="Church_area/church2/Auto_002"]
 transform = Transform3D(1, -4.37113e-08, 4.76837e-07, 4.37114e-08, 1, -2.38419e-07, -4.76837e-07, 2.38419e-07, 1, -0.0202614, -0.00697272, -0.0103928)
@@ -5099,7 +5099,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_4qxoe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_l2cyc")
 
-[node name="grave2" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave2" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.958977, -0.224131, -0.173575, 0.216508, 0.974315, -0.0619232, 0.182996, 0.0218025, 0.982872, -643.549, 34.0797, -737.655)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave2/Cube" index="0"]
@@ -5107,7 +5107,7 @@ transform = Transform3D(0.958977, -0.224131, -0.173575, 0.216508, 0.974315, -0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave2/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_j48yt")
 
-[node name="grave3" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave3" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.856583, -0.159149, 0.490854, 0.216508, 0.974315, -0.0619232, -0.468392, 0.159316, 0.869038, -641.513, 34.0797, -733.962)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave3/Cube" index="0"]
@@ -5115,7 +5115,7 @@ transform = Transform3D(0.856583, -0.159149, 0.490854, 0.216508, 0.974315, -0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave3/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ayed3")
 
-[node name="grave4" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave4" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.856583, -0.159149, 0.490854, 0.216508, 0.974315, -0.0619232, -0.468392, 0.159316, 0.869038, -638.913, 34.0797, -730.822)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave4/Cube" index="0"]
@@ -5123,7 +5123,7 @@ transform = Transform3D(0.856583, -0.159149, 0.490854, 0.216508, 0.974315, -0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave4/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_yrbvt")
 
-[node name="grave5" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave5" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.856583, -0.159149, 0.490854, 0.0419052, 0.969562, 0.241232, -0.514306, -0.186066, 0.837179, -636.545, 34.0797, -726.878)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave5/Cube" index="0"]
@@ -5131,7 +5131,7 @@ transform = Transform3D(0.856583, -0.159149, 0.490854, 0.0419052, 0.969562, 0.24
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave5/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_yodkh")
 
-[node name="grave6" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave6" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.856583, -0.159149, 0.490854, 0.332974, 0.897176, -0.290177, -0.394201, 0.412002, 0.821498, -638.198, 34.0797, -719.881)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave6/Cube" index="0"]
@@ -5139,7 +5139,7 @@ transform = Transform3D(0.856583, -0.159149, 0.490854, 0.332974, 0.897176, -0.29
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave6/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nycwk")
 
-[node name="grave7" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave7" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.706837, -0.112686, 0.698343, 0.216508, 0.974315, -0.0619232, -0.673429, 0.194966, 0.713079, -649.401, 34.0797, -732.404)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave7/Cube" index="0"]
@@ -5147,7 +5147,7 @@ transform = Transform3D(0.706837, -0.112686, 0.698343, 0.216508, 0.974315, -0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave7/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cxtyk")
 
-[node name="grave8" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave8" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.76104, -0.128706, 0.635809, -0.0237508, 0.973935, 0.225581, -0.64827, -0.186777, 0.738146, -646.748, 34.0797, -729.125)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave8/Cube" index="0"]
@@ -5155,7 +5155,7 @@ transform = Transform3D(0.76104, -0.128706, 0.635809, -0.0237508, 0.973935, 0.22
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave8/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nru4k")
 
-[node name="grave9" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave9" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.76104, -0.128706, 0.635809, 0.216508, 0.974315, -0.0619232, -0.611508, 0.184784, 0.769358, -643.638, 34.0797, -726.491)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave9/Cube" index="0"]
@@ -5163,7 +5163,7 @@ transform = Transform3D(0.76104, -0.128706, 0.635809, 0.216508, 0.974315, -0.061
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave9/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3q8x6")
 
-[node name="grave10" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave10" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.738391, -0.331323, 0.58737, 0.495603, 0.857281, -0.139455, -0.457336, 0.394074, 0.797213, -640.614, 34.0797, -723.024)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave10/Cube" index="0"]
@@ -5171,7 +5171,7 @@ transform = Transform3D(0.738391, -0.331323, 0.58737, 0.495603, 0.857281, -0.139
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave10/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s1b6u")
 
-[node name="grave11" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave11" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.816129, -0.120071, 0.565258, 0.332974, 0.897176, -0.290177, -0.472294, 0.425038, 0.772192, -642.441, 34.0797, -716.577)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave11/Cube" index="0"]
@@ -5179,7 +5179,7 @@ transform = Transform3D(0.816129, -0.120071, 0.565258, 0.332974, 0.897176, -0.29
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave11/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5bir2")
 
-[node name="grave12" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave12" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.771325, -0.131828, 0.622639, 0.216508, 0.974315, -0.0619232, -0.598484, 0.182569, 0.780055, -654.761, 34.0797, -728.001)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave12/Cube" index="0"]
@@ -5187,7 +5187,7 @@ transform = Transform3D(0.771325, -0.131828, 0.622639, 0.216508, 0.974315, -0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave12/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v2iov")
 
-[node name="grave13" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave13" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.700755, -0.110929, 0.704725, 0.216508, 0.974315, -0.0619232, -0.679755, 0.195971, 0.706773, -651.814, 34.0797, -724.984)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave13/Cube" index="0"]
@@ -5195,7 +5195,7 @@ transform = Transform3D(0.700755, -0.110929, 0.704725, 0.216508, 0.974315, -0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave13/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ol6jt")
 
-[node name="grave14" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave14" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.700755, -0.110929, 0.704725, 0.216508, 0.974315, -0.0619232, -0.679755, 0.195971, 0.706773, -648.472, 34.0797, -722.651)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave14/Cube" index="0"]
@@ -5203,7 +5203,7 @@ transform = Transform3D(0.700755, -0.110929, 0.704725, 0.216508, 0.974315, -0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave14/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ysovx")
 
-[node name="grave15" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave15" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.848978, 0.0431143, 0.526667, -0.13449, 0.981475, 0.136449, -0.511028, -0.186673, 0.839049, -645.138, 34.0797, -719.481)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave15/Cube" index="0"]
@@ -5211,7 +5211,7 @@ transform = Transform3D(0.848978, 0.0431143, 0.526667, -0.13449, 0.981475, 0.136
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave15/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qljsk")
 
-[node name="grave16" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave16" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.816129, -0.120071, 0.565258, 0.332974, 0.897176, -0.290177, -0.472294, 0.425038, 0.772192, -648.332, 34.0797, -710.818)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave16/Cube" index="0"]
@@ -5219,7 +5219,7 @@ transform = Transform3D(0.816129, -0.120071, 0.565258, 0.332974, 0.897176, -0.29
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave16/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tewps")
 
-[node name="grave17" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave17" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.990082, 0.122383, 0.0689962, -0.116026, 0.989192, -0.0896465, -0.0792218, 0.080752, 0.993581, -660.653, 34.0797, -722.242)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave17/Cube" index="0"]
@@ -5227,7 +5227,7 @@ transform = Transform3D(0.990082, 0.122383, 0.0689962, -0.116026, 0.989192, -0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave17/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nbb41")
 
-[node name="grave18" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave18" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.700755, -0.110929, 0.704725, 0.0486482, 0.992968, 0.107927, -0.711741, -0.0413469, 0.701224, -657.706, 34.0797, -719.224)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave18/Cube" index="0"]
@@ -5235,7 +5235,7 @@ transform = Transform3D(0.700755, -0.110929, 0.704725, 0.0486482, 0.992968, 0.10
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave18/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_deq4p")
 
-[node name="grave19" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave19" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.700755, -0.110929, 0.704725, 0.216508, 0.974315, -0.0619232, -0.679755, 0.195971, 0.706773, -654.364, 34.0797, -716.892)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave19/Cube" index="0"]
@@ -5243,7 +5243,7 @@ transform = Transform3D(0.700755, -0.110929, 0.704725, 0.216508, 0.974315, -0.06
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/Graves/grave19/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7fcb6")
 
-[node name="grave20" parent="Church_area/Graves" instance=ExtResource("13_hlyfa")]
+[node name="grave20" parent="Church_area/Graves" instance=ExtResource("15_dg5xu")]
 transform = Transform3D(0.688518, -0.202985, 0.696233, 0.0419051, 0.969562, 0.241232, -0.724008, -0.136917, 0.676067, -651.03, 34.0797, -713.721)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Church_area/Graves/grave20/Cube" index="0"]
@@ -5253,31 +5253,31 @@ shape = SubResource("ConcavePolygonShape3D_l6kp1")
 
 [node name="church_benches" type="Node3D" parent="Church_area"]
 
-[node name="church_bench" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.949896, 0, -0.312567, 0, 1, 0, 0.312567, 0, -0.949896, -676.087, 34.1366, -722.832)
 
-[node name="church_bench2" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench2" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.977589, 0, -0.210523, 0, 1, 0, 0.210523, 0, -0.977589, -674.627, 34.1366, -716.793)
 
-[node name="church_bench3" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench3" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.907997, 0, -0.418977, 0, 1, 0, 0.418977, 0, -0.907997, -678.727, 34.1366, -722.022)
 
-[node name="church_bench4" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench4" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.939208, 0, -0.343348, 0, 1, 0, 0.343348, 0, -0.939208, -677.267, 34.1366, -715.983)
 
-[node name="church_bench5" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench5" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.970662, 0, -0.240448, 0, 1, 0, 0.240448, 0, -0.970662, -681.077, 34.1366, -721.412)
 
-[node name="church_bench6" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench6" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.916565, 0, -0.399885, 0, 1, 0, 0.399885, 0, -0.916565, -679.617, 34.1366, -715.373)
 
-[node name="church_bench7" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench7" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.920259, 0, -0.39131, 0, 1, 0, 0.39131, 0, -0.920259, -683.265, 34.1366, -720.711)
 
-[node name="church_bench8" parent="Church_area/church_benches" instance=ExtResource("14_6sg52")]
+[node name="church_bench8" parent="Church_area/church_benches" instance=ExtResource("16_uv21a")]
 transform = Transform3D(-0.911332, 0, -0.411674, 0, 1, 0, 0.411674, 0, -0.911332, -681.804, 34.1366, -714.672)
 
-[node name="church_table" parent="Church_area" instance=ExtResource("15_xg1t7")]
+[node name="church_table" parent="Church_area" instance=ExtResource("17_lvx38")]
 transform = Transform3D(0.946734, 0, 0.322018, 0, 1, 0, -0.322018, 0, 0.946734, -687.063, 34.188, -716.138)
 
 [node name="Cube" parent="Church_area/church_table" index="0"]
@@ -5478,7 +5478,7 @@ size = Vector3(0.467712, 0.0205078, 0.497682)
 
 [node name="CD_Case" type="Area3D" parent="Church_area/CD_Case" node_paths=PackedStringArray("original_situation", "new_situation")]
 transform = Transform3D(1, 0, 0, -2.98023e-08, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)
-script = ExtResource("18_rs34v")
+script = ExtResource("19_88lbw")
 original_situation = NodePath("../../TreeNotFallen")
 new_situation = NodePath("../../TreeFallen")
 
@@ -5486,7 +5486,16 @@ new_situation = NodePath("../../TreeFallen")
 transform = Transform3D(1, 2.98023e-08, 0, 0, 1, 1.49012e-08, -1.49012e-08, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_k0mdl")
 
-[node name="FallenTreeOnRoad1" parent="." instance=ExtResource("20_xvpns")]
+[node name="FallenTreeOnRoad3" parent="." instance=ExtResource("20_1kmr8")]
+transform = Transform3D(1.33756, 1.48692, 0, -1.48692, 1.33756, 0, 0, 0, 2, -172.938, 63.8679, -160.368)
+
+[node name="tree05" parent="FallenTreeOnRoad3" index="0"]
+transform = Transform3D(0.921965, 0.387274, -7.45058e-09, -0.375878, 0.894835, 0.240804, 0.0932573, -0.222013, 0.970574, -2.65785e-14, -0.02322, 3.647)
+
+[node name="FallenTreeOnRoad2" parent="." instance=ExtResource("20_1kmr8")]
+transform = Transform3D(0.0827398, -1.99829, 0, 1.99829, 0.0827398, 0, 0, 0, 2, -154.492, 63.4246, -160.368)
+
+[node name="FallenTreeOnRoad1" parent="." instance=ExtResource("20_1kmr8")]
 transform = Transform3D(0.0368592, -1.99966, 0, 1.99966, 0.0368592, 0, 0, 0, 2, -1067.43, 2.50496, -780.682)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="FallenTreeOnRoad1/tree05" index="0"]
@@ -5506,13 +5515,13 @@ transform = Transform3D(1, -3.72529e-09, -2.22045e-16, 3.72529e-09, 1, 6.68215e-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ouadj")
 
-[node name="FallenTreeOnRoad2" parent="Shop" instance=ExtResource("20_xvpns")]
+[node name="FallenTreeOnRoad2" parent="Shop" instance=ExtResource("20_1kmr8")]
 transform = Transform3D(0.0101086, -0.0205921, -0.00993875, -0.000558335, 0.0106412, -0.0226154, 0.0228584, 0.00936636, 0.0038428, 0.711866, 0.266449, -0.0324032)
 
 [node name="tree05" parent="Shop/FallenTreeOnRoad2" index="0"]
 transform = Transform3D(1, -2.98023e-08, 0, 0, 1, 1.49012e-07, 1.49012e-08, -1.49012e-07, 1, -0.664963, -0.272461, -0.111694)
 
-[node name="FallenTreeOnRoad3" parent="Shop" instance=ExtResource("20_xvpns")]
+[node name="FallenTreeOnRoad3" parent="Shop" instance=ExtResource("20_1kmr8")]
 transform = Transform3D(-0.00948346, 0.0229132, -0.0031701, 0.000362955, 0.00357315, 0.0247407, 0.0231286, 0.00933906, -0.00168809, 0.41223, 0.292242, -0.0511917)
 
 [node name="NormalMode" type="Node3D" parent="Shop"]
@@ -5650,7 +5659,7 @@ shape = SubResource("ConcavePolygonShape3D_wyonw")
 
 [node name="Mirror" type="Node3D" parent="Shop/NormalMode/Display"]
 transform = Transform3D(0.00280405, 1.49353e-05, 0.0095988, -0.000104388, 0.00999945, 1.49357e-05, -0.00959825, -0.000104388, 0.00280405, 0.00246811, -9.15527e-05, 0.00260502)
-script = ExtResource("32_g6jya")
+script = ExtResource("32_s2nlp")
 size = Vector2(0.7, 0.9)
 ResolutionPerUnit = 200
 MainCamPath = NodePath("../../../../Player/CameraPivot/SmoothCamera")
@@ -5675,7 +5684,7 @@ libraries = {
 "": SubResource("AnimationLibrary_m1a7x")
 }
 speed_scale = 0.25
-script = ExtResource("52_6t0qo")
+script = ExtResource("33_btnh0")
 
 [node name="FogVolume" type="FogVolume" parent="Shop/NormalMode/Spirit"]
 shape = 0
@@ -5691,7 +5700,7 @@ omni_range = 1.83702
 transform = Transform3D(-0.699863, -1.07594e-14, -0.714277, -0.714277, -4.37114e-08, 0.699863, -3.1222e-08, 1, 3.05919e-08, 0.140753, 0.200325, -0.044364)
 mesh = SubResource("ArrayMesh_yt8hq")
 skeleton = NodePath("")
-surface_material_override/2 = ExtResource("7_dopmy")
+surface_material_override/2 = ExtResource("8_1yhtm")
 
 [node name="Auto_001" type="MeshInstance3D" parent="Shop/NormalMode/Car"]
 transform = Transform3D(-1, -1.09589e-14, -8.74228e-08, 7.10542e-15, 1, -2.06632e-07, 8.74228e-08, -2.06632e-07, -1, -0.0246217, 0.00636827, 3.20435e-05)
@@ -5702,25 +5711,25 @@ skeleton = NodePath("")
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, -0.0120478)
 mesh = SubResource("ArrayMesh_jn6o0")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_004" type="MeshInstance3D" parent="Shop/NormalMode/Car"]
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, -0.0130313)
 mesh = SubResource("ArrayMesh_pr77t")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_005" type="MeshInstance3D" parent="Shop/NormalMode/Car"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, 0.012344)
 mesh = SubResource("ArrayMesh_bjey7")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_006" type="MeshInstance3D" parent="Shop/NormalMode/Car"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, 0.0133275)
 mesh = SubResource("ArrayMesh_6f6j7")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Cylinder_043" type="MeshInstance3D" parent="Shop/NormalMode/Car"]
 transform = Transform3D(1, -4.37113e-08, 4.76837e-07, 4.37114e-08, 1, -2.38419e-07, -4.76837e-07, 2.38419e-07, 1, -0.0202614, -0.00697272, -0.0103928)
@@ -5873,13 +5882,13 @@ light_indirect_energy = 10.0
 shadow_enabled = true
 omni_range = 12.5496
 
-[node name="FallenTreeOnRoad2" parent="Shop/AlternateMode" instance=ExtResource("20_xvpns")]
+[node name="FallenTreeOnRoad2" parent="Shop/AlternateMode" instance=ExtResource("20_1kmr8")]
 transform = Transform3D(0.0101086, -0.0205921, -0.00993875, -0.000558335, 0.0106412, -0.0226154, 0.0228584, 0.00936636, 0.0038428, 0.691016, -0.29361, -0.0324032)
 
 [node name="tree05" parent="Shop/AlternateMode/FallenTreeOnRoad2" index="0"]
 transform = Transform3D(1, -2.98023e-08, 0, 0, 1, 1.49012e-07, 1.49012e-08, -1.49012e-07, 1, -0.664963, -0.272461, -0.111694)
 
-[node name="FallenTreeOnRoad3" parent="Shop/AlternateMode" instance=ExtResource("20_xvpns")]
+[node name="FallenTreeOnRoad3" parent="Shop/AlternateMode" instance=ExtResource("20_1kmr8")]
 transform = Transform3D(-0.00948346, 0.0229132, -0.0031701, 0.000362955, 0.00357315, 0.0247407, 0.0231286, 0.00933906, -0.00168809, 0.391379, -0.267817, -0.0511917)
 
 [node name="Auto" type="MeshInstance3D" parent="Shop/AlternateMode"]
@@ -5977,7 +5986,7 @@ shape = SubResource("BoxShape3D_wwlqt")
 transform = Transform3D(0.025649, 0.0499703, -0.998421, 0.906619, 0.419618, 0.0442923, 0.421169, -0.906324, -0.0345413, 0.552511, 0.195101, -0.00930214)
 mesh = SubResource("ArrayMesh_yt8hq")
 skeleton = NodePath("")
-surface_material_override/2 = ExtResource("7_dopmy")
+surface_material_override/2 = ExtResource("8_1yhtm")
 
 [node name="Auto_001" type="MeshInstance3D" parent="Shop/AlternateMode/Car"]
 transform = Transform3D(-1, -1.09589e-14, -8.74228e-08, 7.10542e-15, 1, -2.06632e-07, 8.74228e-08, -2.06632e-07, -1, -0.0246217, 0.00636827, 3.20435e-05)
@@ -5988,25 +5997,25 @@ skeleton = NodePath("")
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, -0.0120478)
 mesh = SubResource("ArrayMesh_jn6o0")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_004" type="MeshInstance3D" parent="Shop/AlternateMode/Car"]
 transform = Transform3D(1, -4.76837e-07, -4.37115e-08, 4.37114e-08, -1.19209e-07, 1, -4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, -0.0130313)
 mesh = SubResource("ArrayMesh_pr77t")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_005" type="MeshInstance3D" parent="Shop/AlternateMode/Car"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, -0.00159019, 0.00413564, 0.012344)
 mesh = SubResource("ArrayMesh_bjey7")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Auto_006" type="MeshInstance3D" parent="Shop/AlternateMode/Car"]
 transform = Transform3D(-1, -4.76837e-07, 6.27833e-07, -6.27833e-07, 1.78814e-07, -1, 4.76837e-07, -1, -1.19209e-07, 0.0181689, 0.00266247, 0.0133275)
 mesh = SubResource("ArrayMesh_6f6j7")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("7_dopmy")
+surface_material_override/0 = ExtResource("8_1yhtm")
 
 [node name="Cylinder_043" type="MeshInstance3D" parent="Shop/AlternateMode/Car"]
 transform = Transform3D(1, -4.37113e-08, 4.76837e-07, 4.37114e-08, 1, -2.38419e-07, -4.76837e-07, 2.38419e-07, 1, -0.0202614, -0.00697272, -0.0103928)
@@ -6361,7 +6370,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 9.31323e-10, -1.44329e-15, -9.31323e-10, 1, 3.42671e-13, 1.30451e-15, -1.26041e-14, 1, 0.000270799, -0.00316429, 0.0183627)
 size = Vector3(0.0179346, 0.004, 0.0147656)
 material = SubResource("StandardMaterial3D_vovq5")
-script = ExtResource("43_n8nkc")
+script = ExtResource("48_2dg4p")
 noise_texture = SubResource("FastNoiseLite_48ic4")
 light = NodePath("OmniLight3D")
 
@@ -6380,15 +6389,15 @@ shadow_enabled = true
 spot_angle = 89.99
 
 [node name="ToiletMirror" type="Area3D" parent="Shop/Backroom/Toilet/Sink/NightMirror" node_paths=PackedStringArray("original_situation", "new_situation", "animation_player", "original_atmosphere", "alternate_atmosphere", "environment")]
-script = ExtResource("44_apbvk")
+script = ExtResource("49_mm6tc")
 original_situation = NodePath("../../../../../NormalMode")
 new_situation = NodePath("../../../../../AlternateMode")
 animation_player = NodePath("../../../AnimationPlayer")
 original_atmosphere = NodePath("../../../../../../OriginalAtmoshpere")
 alternate_atmosphere = NodePath("../../../../../../MoonAtmosphere")
 environment = NodePath("../../../../../../OriginalAtmoshpere/WorldEnvironment")
-original_env = ExtResource("2_7ask8")
-alternate_env = ExtResource("2_j424g")
+original_env = ExtResource("2_kboty")
+alternate_env = ExtResource("50_u6y1v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shop/Backroom/Toilet/Sink/NightMirror/ToiletMirror"]
 transform = Transform3D(1, -2.00234e-07, -8.99281e-15, 2.00234e-07, 1, 1.40278e-13, -4.16334e-15, -5.39065e-15, 1, -0.000138283, 0.00167274, 0.000412595)
@@ -6433,7 +6442,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90735e-08, 0, -0.000647483)
 mesh = SubResource("ArrayMesh_sw0vl")
 skeleton = NodePath("")
-script = ExtResource("55_wfc0m")
+script = ExtResource("55_82jmw")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Shop/Backroom/Fan"]
 transform = Transform3D(0.0125, -2.91038e-11, -3.81639e-17, 2.91038e-11, 0.0125, 1.82688e-17, 0, 1.81062e-17, 0.0125, 0, 0, -0.0127419)
@@ -6566,7 +6575,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90735e-08, 0, -0.000647483)
 mesh = SubResource("ArrayMesh_sw0vl")
 skeleton = NodePath("")
-script = ExtResource("55_wfc0m")
+script = ExtResource("55_82jmw")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Shop/Fan"]
 transform = Transform3D(0.0125, -2.91038e-11, -3.81639e-17, 2.91038e-11, 0.0125, 1.82688e-17, 0, 1.81062e-17, 0.0125, 0, 0, -0.0127419)
@@ -6575,7 +6584,7 @@ light_indirect_energy = 10.0
 light_volumetric_fog_energy = 100.0
 shadow_enabled = true
 
-[node name="bus_stop" parent="." instance=ExtResource("53_bk0et")]
+[node name="bus_stop" parent="." instance=ExtResource("58_ql836")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1444.63, 61.8136, -1123.85)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="bus_stop/Cube_003" index="0"]
@@ -6860,6 +6869,8 @@ shape = SubResource("BoxShape3D_rolbf")
 [editable path="Church_area/Graves/grave19"]
 [editable path="Church_area/Graves/grave20"]
 [editable path="Church_area/church_table"]
+[editable path="FallenTreeOnRoad3"]
+[editable path="FallenTreeOnRoad2"]
 [editable path="FallenTreeOnRoad1"]
 [editable path="Shop/FallenTreeOnRoad2"]
 [editable path="Shop/FallenTreeOnRoad3"]
