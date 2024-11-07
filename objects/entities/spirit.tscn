@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg6mc7ledtlc7"]
+[gd_scene load_steps=7 format=3 uid="uid://cg6mc7ledtlc7"]
 
+[ext_resource type="Script" path="res://src/misc/Spirit.gd" id="1_4f1ol"]
 [ext_resource type="Script" path="res://src/gameplay/SpiritAnimations.gd" id="1_j88ib"]
 
 [sub_resource type="Animation" id="Animation_eqlc4"]
@@ -36,6 +37,7 @@ edge_fade = 0.887656
 
 [node name="Spirit" type="Node3D"]
 transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, 0.566504, 0.237953, -0.0113821)
+script = ExtResource("1_4f1ol")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

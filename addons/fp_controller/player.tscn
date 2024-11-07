@@ -3329,6 +3329,7 @@ walk_back_speed = 4.0
 walk_speed = 5.0
 sprint_speed = 12.5
 crouch_speed = 3.5
+jump_height = 2.0
 view_bobbing_amount = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -3397,9 +3398,10 @@ target_position = Vector3(0.4, 2.08165e-12, 2.08165e-12)
 [node name="Flashlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.989044, 0.14762, 0, -0.14762, 0.989044, -0.0989468, 1.46846, 0.11152)
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
+light_energy = 2.7
 light_indirect_energy = 4.0
 light_volumetric_fog_energy = 7.0
-spot_range = 4.64806
+spot_range = 30.2736
 spot_angle = 52.7174
 
 [node name="Placeholder_Collider" type="CollisionShape3D" parent="."]

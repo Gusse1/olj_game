@@ -1,9 +1,11 @@
-[gd_resource type="Terrain3DAssets" load_steps=15 format=3 uid="uid://kxvt1pu0lust"]
+[gd_resource type="Terrain3DAssets" load_steps=19 format=3 uid="uid://kxvt1pu0lust"]
 
 [ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="1_b6qvs"]
 [ext_resource type="Texture2D" uid="uid://brqkblulq0qcl" path="res://assets/textures/Grass_25-128x128.png" id="1_m56ce"]
+[ext_resource type="PackedScene" uid="uid://c3wihp47p8glh" path="res://objects/foliage/bush_02.tscn" id="2_f47fw"]
 [ext_resource type="Texture2D" uid="uid://cj1eo7fositqi" path="res://assets/textures/Dirt_17-128x128.png" id="2_xapb2"]
 [ext_resource type="Texture2D" uid="uid://bkocsg74e8xwc" path="res://assets/textures/normals/grass_25_normal.png" id="3_4bsuo"]
+[ext_resource type="PackedScene" uid="uid://b4w1srfc2f0w3" path="res://objects/foliage/grass_patch.tscn" id="3_16ipx"]
 [ext_resource type="Texture2D" uid="uid://crx0q02txwygc" path="res://assets/textures/Dirt_16-128x128.png" id="4_e8u3w"]
 [ext_resource type="Texture2D" uid="uid://bipn5fdiytogh" path="res://assets/textures/normals/dirt_17_normal.png" id="5_k07ne"]
 [ext_resource type="Texture2D" uid="uid://dkj4rums8ng4y" path="res://assets/textures/Dirt_02-128x128.png" id="5_q0x3p"]
@@ -14,6 +16,18 @@
 name = "tree_05"
 density = 0.0222222
 scene_file = ExtResource("1_b6qvs")
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_mpi5s"]
+name = "bush_02"
+id = 1
+density = 0.01
+scene_file = ExtResource("2_f47fw")
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_syphi"]
+name = "grass_patch"
+id = 2
+density = 0.5
+scene_file = ExtResource("3_16ipx")
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_068tb"]
 name = "Grass_25-128x128"
@@ -44,5 +58,5 @@ normal_texture = ExtResource("9_j5jb6")
 uv_scale = 0.3
 
 [resource]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_10ppv")])
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_10ppv"), SubResource("Terrain3DMeshAsset_mpi5s"), SubResource("Terrain3DMeshAsset_syphi")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_068tb"), SubResource("Terrain3DTextureAsset_m22ol"), SubResource("Terrain3DTextureAsset_sq4j3"), SubResource("Terrain3DTextureAsset_5bddq")])

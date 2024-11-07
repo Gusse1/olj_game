@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyxu3g7lx6p5t"]
+[gd_scene load_steps=11 format=3 uid="uid://cyxu3g7lx6p5t"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_qd5oe"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_uim1g"]
 [ext_resource type="PackedScene" uid="uid://cg6mc7ledtlc7" path="res://objects/entities/spirit.tscn" id="4_nrayb"]
+[ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="5_hsb2i"]
 [ext_resource type="Environment" uid="uid://duilvqtiy7ifc" path="res://environments/EnvironmentWeirdHigh.tres" id="50_gn77r"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
@@ -69,14 +70,14 @@ environment = ExtResource("50_gn77r")
 camera_attributes = SubResource("CameraAttributesPractical_mp0bi")
 
 [node name="MoonAtmosphere" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.332035, -0.529071, 0.78092, -0.415117, 0.825368, 0.382683, -0.847013, -0.197109, -0.493677, -118.677, 98.5589, -248.492)
+transform = Transform3D(-0.779475, 0.00481291, 0.626415, 0.145564, 0.973991, 0.173648, -0.609287, 0.226538, -0.759902, -125.911, 201.989, -232.904)
 light_color = Color(0, 0.614616, 0.620217, 1)
 light_energy = 0.4
-light_volumetric_fog_energy = 75.0
+light_volumetric_fog_energy = 175.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_uim1g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -307.027, 87.7241, -187.341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -827.204, 19.5619, -754.773)
 
 [node name="NoConnectionText2" parent="Player/UserInterface/InGameUI" index="5"]
 anchor_left = 0.265375
@@ -91,8 +92,94 @@ offset_right = 1800.0
 offset_bottom = 311.0
 scale = Vector2(0.3, 0.3)
 
-[node name="Spirit" parent="." instance=ExtResource("4_nrayb")]
-transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -320.787, 60.4272, -195.953)
+[node name="Spirits" type="Node" parent="."]
+
+[node name="Spirit" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -320.603, 65.3576, -195.953)
+
+[node name="Spirit2" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -342.347, 54.2902, -251.661)
+
+[node name="Spirit3" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -366.699, 43.7199, -324.058)
+
+[node name="Spirit4" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -392.828, 26.0893, -407.993)
+
+[node name="Spirit5" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -405.92, 18.176, -513.049)
+
+[node name="Spirit6" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -475.2, 11.9533, -646.038)
+
+[node name="Spirit7" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -505.717, 6.94198, -678.883)
+
+[node name="Spirit8" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -382.45, 33.5085, -367.411)
+
+[node name="Spirit9" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -400.65, 21.9262, -457.724)
+
+[node name="Spirit10" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -426.344, 18.9364, -566.09)
+
+[node name="Spirit11" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -452.262, 19.9012, -605.315)
+
+[node name="Spirit12" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -537.614, 6.66452, -685.706)
+
+[node name="Spirit13" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -571.094, 6.93941, -694.015)
+
+[node name="Spirit14" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -600.805, 6.58692, -703.285)
+
+[node name="Spirit15" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -640.736, 7.50248, -713.274)
+
+[node name="Spirit16" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -674.796, 8.77607, -716.074)
+
+[node name="Spirit17" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -720.02, 8.096, -718.539)
+
+[node name="Spirit18" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -763.211, 8.86029, -723.616)
+
+[node name="Spirit19" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -800.477, 9.44381, -726.921)
+
+[node name="Spirit20" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -827.494, 4.35548, -738.293)
+
+[node name="Spirit21" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -827.594, 5.18533, -777.287)
+
+[node name="Spirit22" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -827.309, 4.34859, -756.835)
+
+[node name="Spirit23" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -824.771, 4.25413, -767.452)
+
+[node name="Spirit24" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -829.146, 4.41698, -762.707)
+
+[node name="Spirit25" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -1.85313e-05, -0.0124913, -0.0124913, 6.89326e-07, 0.000465019, -5.45956e-10, 0.0125, -1.8544e-05, -829.453, 4.42842, -770.421)
+
+[node name="Spirit26" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -1.85313e-05, -0.0124913, -0.0124913, 6.89326e-07, 0.000465019, -5.45956e-10, 0.0125, -1.8544e-05, -828.674, 4.39941, -789.651)
+
+[node name="Spirit27" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -887.618, 7.91946, -822.416)
+
+[node name="Spirit28" parent="Spirits" instance=ExtResource("4_nrayb")]
+transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -916.206, 8.98371, -860.814)
+
+[node name="tree05" parent="." instance=ExtResource("5_hsb2i")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -899.498, 6.76222, -865.993)
 
 [editable path="Player"]
 [editable path="Player/player"]
