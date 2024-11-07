@@ -52,12 +52,14 @@ material = SubResource("FogMaterial_yycgx")
 
 [node name="MainSpiritLight" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.615686, 0.619608, 1)
-light_energy = 35.0
-light_volumetric_fog_energy = 20.0
+light_energy = 70.0
+light_indirect_energy = 128.0
+light_volumetric_fog_energy = 60.0
 omni_range = 1.56044
 
 [node name="Secondary" type="OmniLight3D" parent="."]
 light_color = Color(0, 0.615686, 0.619608, 1)
 light_energy = 10.0
 light_indirect_energy = 1280.0
-omni_range = 14.5636
+light_volumetric_fog_energy = 3.0
+omni_range = 32.29

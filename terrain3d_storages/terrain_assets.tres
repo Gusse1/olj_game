@@ -26,7 +26,7 @@ scene_file = ExtResource("2_f47fw")
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_syphi"]
 name = "grass_patch"
 id = 2
-density = 0.5
+density = 4.53515
 scene_file = ExtResource("3_16ipx")
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_068tb"]
