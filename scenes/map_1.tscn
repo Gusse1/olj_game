@@ -4748,7 +4748,7 @@ vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("62_5m5tu")
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_f2aik"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ylb44"]
 _surfaces = [{
 "aabb": AABB(-0.0108646, -0.0108186, -0.0100164, 0.0217291, 0.0216373, 0.0200328),
 "format": 34359742465,
@@ -4778,7 +4778,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("UgEyvKBAMTzhGyQ8UgEyvKBAMbzhGyQ8UgEyvKBAMbzhGyS8UgEyvKBAMTzhGyS8UgEyPKBAMTzhGyQ8UgEyvKBAMTzhGyQ8UgEyvKBAMTzhGyS8UgEyPKBAMTzhGyS8UgEyPKBAMbzhGyQ8UgEyPKBAMTzhGyQ8UgEyPKBAMTzhGyS8UgEyPKBAMbzhGyS8UgEyvKBAMbzhGyQ8UgEyPKBAMbzhGyQ8UgEyPKBAMbzhGyS8UgEyvKBAMbzhGyS8UgEyPKBAMbzhGyS8UgEyPKBAMTzhGyS8UgEyvKBAMTzhGyS8UgEyvKBAMbzhGyS8UgEyvKBAMbzhGyQ8UgEyvKBAMTzhGyQ8UgEyPKBAMTzhGyQ8UgEyPKBAMbzhGyQ8AAD/f/9/AAAAAP9//38AAAAA/3//fwAAAAD/f/9/AAD/f///////P/9///////8//3///////z//f///////P////3//f///////f/9///////9//3///////3//f////38AAP///7//fwAA////v/9/AAD///+//38AAP///7//////////P/////////8//////////z//////////P/9//3////+//3//f////7//f/9/////v/9//3////+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_f2aik")
+shadow_mesh = SubResource("ArrayMesh_ylb44")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6agq4"]
 data = PackedVector3Array(-0.0109, 0.0108, 0.01, -0.0109, -0.0108, 0.01, -0.0109, -0.0108, -0.01, -0.0109, -0.0108, -0.01, -0.0109, 0.0108, -0.01, -0.0109, 0.0108, 0.01, 0.0109, 0.0108, 0.01, -0.0109, 0.0108, 0.01, -0.0109, 0.0108, -0.01, -0.0109, 0.0108, -0.01, 0.0109, 0.0108, -0.01, 0.0109, 0.0108, 0.01, 0.0109, -0.0108, 0.01, 0.0109, 0.0108, 0.01, 0.0109, 0.0108, -0.01, 0.0109, 0.0108, -0.01, 0.0109, -0.0108, -0.01, 0.0109, -0.0108, 0.01, -0.0109, -0.0108, 0.01, 0.0109, -0.0108, 0.01, 0.0109, -0.0108, -0.01, 0.0109, -0.0108, -0.01, -0.0109, -0.0108, -0.01, -0.0109, -0.0108, 0.01, 0.0109, -0.0108, -0.01, 0.0109, 0.0108, -0.01, -0.0109, 0.0108, -0.01, -0.0109, 0.0108, -0.01, -0.0109, -0.0108, -0.01, 0.0109, -0.0108, -0.01, -0.0109, -0.0108, 0.01, -0.0109, 0.0108, 0.01, 0.0109, 0.0108, 0.01, 0.0109, 0.0108, 0.01, 0.0109, -0.0108, 0.01, -0.0109, -0.0108, 0.01)
