@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cyxu3g7lx6p5t"]
+[gd_scene load_steps=62 format=4 uid="uid://cyxu3g7lx6p5t"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_qd5oe"]
 [ext_resource type="Texture2D" uid="uid://dggu33ua7pnju" path="res://assets/models/Models pack psx/Models/Boxs_12.jpg" id="2_g2ugb"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://d2abaqtnw7vs0" path="res://assets/models/Models pack psx/Models/Wood_08.jpg" id="9_1ar20"]
 [ext_resource type="Texture2D" uid="uid://5aj2j84e56os" path="res://assets/models/Models pack psx/Models/Tiles_02.jpg" id="10_3m12n"]
 [ext_resource type="Texture2D" uid="uid://27nihmvlxb22" path="res://assets/models/Models pack psx/Models/Wood_10.jpg" id="11_5cy53"]
+[ext_resource type="PackedScene" uid="uid://ignpdv10rx52" path="res://addons/boujie_water_shader/prefabs/deep_ocean.tscn" id="12_ve4w2"]
+[ext_resource type="Script" path="res://addons/boujie_water_shader/types/gerstner_wave.gd" id="13_50amq"]
+[ext_resource type="Shader" path="res://example/boujie_water_shader/DropWithDistance.gdshader" id="13_tc8g6"]
+[ext_resource type="Texture2D" uid="uid://dwsniss71hd03" path="res://example/boujie_water_shader/Sand.png" id="14_c0cpm"]
+[ext_resource type="Script" path="res://example/boujie_water_shader/ocean_floor.gd" id="15_d4fih"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -958,6 +963,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gymxk")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ulo81"]
+subdivide_width = 16
+subdivide_depth = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xoqd2"]
+render_priority = 0
+shader = ExtResource("13_tc8g6")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = null
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.1, 0.1, 0.1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/drop_far = 2000.0
+shader_parameter/texture_albedo = ExtResource("14_c0cpm")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
@@ -997,7 +1023,7 @@ light_volumetric_fog_energy = 175.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_uim1g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1112.19, 14.1512, -1303.64)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2136.14, 49.6079, -1419.7)
 
 [node name="NoConnectionText2" parent="Player/UserInterface/InGameUI" index="5"]
 anchor_left = 0.265375
@@ -1245,141 +1271,161 @@ transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.4
 [node name="Spirit78" parent="Spirits" instance=ExtResource("4_nrayb")]
 transform = Transform3D(-0.000465019, -7.13061e-17, -0.0124913, -0.0124913, -5.46387e-10, 0.000465019, -5.46013e-10, 0.0125, 2.03267e-11, -1492.59, 7.27592, -1306.65)
 
-[node name="tree05" parent="." instance=ExtResource("5_hsb2i")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -899.498, 6.76222, -865.993)
+[node name="PathObstacles" type="Node" parent="."]
 
-[node name="HighBox" type="MeshInstance3D" parent="."]
+[node name="HighBox" type="MeshInstance3D" parent="PathObstacles"]
 transform = Transform3D(82.7355, 56.1679, 4.54747e-13, 6.69575e-06, -9.86283e-06, 100, 56.1679, -82.7355, -1.19209e-05, -835.855, 13.4245, -916.634)
 mesh = SubResource("ArrayMesh_hyvqk")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="HighBox"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PathObstacles/HighBox"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HighBox/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathObstacles/HighBox/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6wuxm")
 
-[node name="HighBox2" type="MeshInstance3D" parent="."]
+[node name="HighBox2" type="MeshInstance3D" parent="PathObstacles"]
 transform = Transform3D(82.7355, 56.1679, 4.54747e-13, 6.69575e-06, -9.86283e-06, 100, 56.1679, -82.7355, -1.19209e-05, -833.989, 13.4245, -915.368)
 mesh = SubResource("ArrayMesh_hyvqk")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="HighBox2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PathObstacles/HighBox2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HighBox2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathObstacles/HighBox2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6wuxm")
 
-[node name="HighBox3" type="MeshInstance3D" parent="."]
+[node name="HighBox3" type="MeshInstance3D" parent="PathObstacles"]
 transform = Transform3D(82.7355, 56.1679, 4.54747e-13, 6.69575e-06, -9.86283e-06, 100, 56.1679, -82.7355, -1.19209e-05, -834.004, 15.3881, -915.377)
 mesh = SubResource("ArrayMesh_hyvqk")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="HighBox3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PathObstacles/HighBox3"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HighBox3/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathObstacles/HighBox3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6wuxm")
 
-[node name="HighBox4" type="MeshInstance3D" parent="."]
+[node name="HighBox4" type="MeshInstance3D" parent="PathObstacles"]
 transform = Transform3D(82.7355, 56.1679, 4.54747e-13, 6.69575e-06, -9.86283e-06, 100, 56.1679, -82.7355, -1.19209e-05, -835.561, 17.2862, -916.871)
 mesh = SubResource("ArrayMesh_hyvqk")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="HighBox4"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PathObstacles/HighBox4"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HighBox4/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathObstacles/HighBox4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6wuxm")
 
-[node name="HighBox5" type="MeshInstance3D" parent="."]
+[node name="HighBox5" type="MeshInstance3D" parent="PathObstacles"]
 transform = Transform3D(82.7355, 56.1679, 4.54747e-13, 6.69575e-06, -9.86283e-06, 100, 56.1679, -82.7355, -1.19209e-05, -835.819, 15.3881, -916.61)
 mesh = SubResource("ArrayMesh_hyvqk")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="HighBox5"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PathObstacles/HighBox5"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HighBox5/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathObstacles/HighBox5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6wuxm")
 
-[node name="Casa" type="MeshInstance3D" parent="."]
-transform = Transform3D(69.6301, -71.775, -8.55624e-06, 0, -1.19209e-05, 100, -71.775, -69.6301, -8.30056e-06, -2169.42, 24.316, -1396.1)
+[node name="tree05" parent="PathObstacles" instance=ExtResource("5_hsb2i")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -899.498, 6.76222, -865.993)
+
+[node name="House" type="MeshInstance3D" parent="."]
+transform = Transform3D(69.6301, -71.775, -8.55624e-06, 0, -1.19209e-05, 100, -71.775, -69.6301, -8.30056e-06, -2238.82, 2.1642, -1458.16)
 mesh = SubResource("ArrayMesh_8nwsf")
 skeleton = NodePath("")
 
-[node name="Techo" type="MeshInstance3D" parent="Casa"]
+[node name="Roof" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-1, -8.66252e-07, 0, 8.66252e-07, -1, 0, 0, 0, 1, -0.0014253, 0.000628281, 0.0419924)
 mesh = SubResource("ArrayMesh_lsfdg")
 skeleton = NodePath("")
 
-[node name="Ventana" type="MeshInstance3D" parent="Casa"]
+[node name="Window" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0, 0, 1, -0.0368553, -0.0131347, 0.0122833)
 visible = false
 mesh = SubResource("ArrayMesh_nda6g")
 skeleton = NodePath("")
 
-[node name="V" type="MeshInstance3D" parent="Casa/Ventana"]
+[node name="V" type="MeshInstance3D" parent="House/Window"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00079977, -0.00982645)
 mesh = SubResource("ArrayMesh_wdbjj")
 skeleton = NodePath("")
 
-[node name="Ventana_001" type="MeshInstance3D" parent="Casa"]
+[node name="Window2" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0, 0, 1, -0.0368553, 0.0222374, 0.0122833)
 visible = false
 mesh = SubResource("ArrayMesh_6ut0k")
 skeleton = NodePath("")
 
-[node name="V_001" type="MeshInstance3D" parent="Casa/Ventana_001"]
+[node name="V_001" type="MeshInstance3D" parent="House/Window2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00079977, -0.00982645)
 mesh = SubResource("ArrayMesh_pj6ha")
 skeleton = NodePath("")
 
-[node name="Ventana_002" type="MeshInstance3D" parent="Casa"]
+[node name="Window3" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-1.19209e-07, 1, 1.42109e-14, 1, 5.96046e-08, -3.89414e-07, -3.89414e-07, -1.42109e-14, -1, 0.0339336, -0.0131347, 0.0122833)
 visible = false
 mesh = SubResource("ArrayMesh_rinjq")
 skeleton = NodePath("")
 
-[node name="V_002" type="MeshInstance3D" parent="Casa/Ventana_002"]
+[node name="V_002" type="MeshInstance3D" parent="House/Window3"]
 transform = Transform3D(1, -1.00974e-28, 0, 1.00974e-28, 1, 3.17637e-22, 0, -3.17637e-22, 1, 0, 0.00079977, 0.00982645)
 mesh = SubResource("ArrayMesh_n6e27")
 skeleton = NodePath("")
 
-[node name="Ventana_003" type="MeshInstance3D" parent="Casa"]
+[node name="Window4" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-1.19209e-07, 1, 1.42109e-14, 1, 5.96046e-08, -3.89414e-07, -3.89414e-07, -1.42109e-14, -1, 0.0339336, 0.0222374, 0.0122833)
 visible = false
 mesh = SubResource("ArrayMesh_6vu4u")
 skeleton = NodePath("")
 
-[node name="V_003" type="MeshInstance3D" parent="Casa/Ventana_003"]
+[node name="V_003" type="MeshInstance3D" parent="House/Window4"]
 transform = Transform3D(1, -1.00974e-28, 0, 1.00974e-28, 1, 3.17637e-22, 0, -3.17637e-22, 1, 0, 0.00079977, 0.00982645)
 mesh = SubResource("ArrayMesh_ymtuq")
 skeleton = NodePath("")
 
-[node name="Ventana_004" type="MeshInstance3D" parent="Casa"]
+[node name="Window5" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-1.19209e-07, 1, 1.42109e-14, 1, 5.96046e-08, -3.89414e-07, -3.89414e-07, -1.42109e-14, -1, 0.0339336, -0.0564872, 0.0122833)
 visible = false
 mesh = SubResource("ArrayMesh_k0dho")
 skeleton = NodePath("")
 
-[node name="V_004" type="MeshInstance3D" parent="Casa/Ventana_004"]
+[node name="V_004" type="MeshInstance3D" parent="House/Window5"]
 transform = Transform3D(1, -1.00974e-28, 0, 1.00974e-28, 1, 3.17637e-22, 0, -3.17637e-22, 1, -3.8147e-08, 0.00079977, 0.00982645)
 mesh = SubResource("ArrayMesh_16vdy")
 skeleton = NodePath("")
 
-[node name="Ventana_005" type="MeshInstance3D" parent="Casa"]
+[node name="Window6" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0, 0, 1, -0.00726019, -0.0564872, 0.0122833)
 visible = false
 mesh = SubResource("ArrayMesh_dw7lj")
 skeleton = NodePath("")
 
-[node name="V_005" type="MeshInstance3D" parent="Casa/Ventana_005"]
+[node name="V_005" type="MeshInstance3D" parent="House/Window6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-08, -0.00079977, -0.00982645)
 mesh = SubResource("ArrayMesh_yqxs6")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Casa"]
+[node name="OmniLight3D" type="OmniLight3D" parent="House"]
 light_energy = 10.0
 light_volumetric_fog_energy = 100.0
 shadow_enabled = true
 omni_range = 245.209
 
+[node name="DeepOcean" parent="." instance=ExtResource("12_ve4w2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.94763, 0)
+far_edge = 256
+
+[node name="WaterMaterialDesigner" parent="DeepOcean" index="1"]
+wave_fade_far = 1440
+height_waves = Array[ExtResource("13_50amq")]([])
+foam_waves = Array[ExtResource("13_50amq")]([])
+uv_waves = Array[ExtResource("13_50amq")]([])
+
+[node name="OceanFloor" type="MeshInstance3D" parent="DeepOcean"]
+transform = Transform3D(8000, 0, 0, 0, 1, 0, 0, 0, 8000, 0, -350, 0)
+mesh = SubResource("PlaneMesh_ulo81")
+skeleton = NodePath("../../Other_Designers")
+surface_material_override/0 = SubResource("ShaderMaterial_xoqd2")
+script = ExtResource("15_d4fih")
+
 [editable path="Player"]
 [editable path="Player/player"]
 [editable path="Player/CameraPivot/SmoothCamera/ShaderPrecompiler"]
+[editable path="DeepOcean"]
