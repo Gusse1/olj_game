@@ -2,7 +2,6 @@
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_qd5oe"]
 [ext_resource type="Texture2D" uid="uid://dggu33ua7pnju" path="res://assets/models/Models pack psx/Models/Boxs_12.jpg" id="2_g2ugb"]
-[ext_resource type="Environment" uid="uid://br5p0hosmpw8j" path="res://environments/EnvironmentHighDawn.tres" id="3_a2md8"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_uim1g"]
 [ext_resource type="PackedScene" uid="uid://cg6mc7ledtlc7" path="res://objects/entities/spirit.tscn" id="4_nrayb"]
 [ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="5_hsb2i"]
@@ -16,6 +15,7 @@
 [ext_resource type="Shader" path="res://example/boujie_water_shader/DropWithDistance.gdshader" id="13_tc8g6"]
 [ext_resource type="Texture2D" uid="uid://dwsniss71hd03" path="res://example/boujie_water_shader/Sand.png" id="14_c0cpm"]
 [ext_resource type="Script" path="res://example/boujie_water_shader/ocean_floor.gd" id="15_d4fih"]
+[ext_resource type="Environment" uid="uid://duilvqtiy7ifc" path="res://environments/EnvironmentWeirdHigh.tres" id="50_gn77r"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -1006,24 +1006,24 @@ shape = SubResource("ConcavePolygonShape3D_6wuxm")
 
 [node name="OriginalAtmoshpere" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0108694, -0.0249979, -0.999628, -0.449251, 0.893235, -0.0174524, 0.89334, 0.448894, -0.0209392, -118.677, 98.5589, -248.492)
+visible = false
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
 light_volumetric_fog_energy = 75.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="OriginalAtmoshpere"]
-environment = ExtResource("3_a2md8")
+environment = ExtResource("50_gn77r")
 camera_attributes = SubResource("CameraAttributesPractical_mp0bi")
 
 [node name="MoonAtmosphere" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.771344, 0.0592245, 0.633658, 0.147247, 0.985253, 0.0871558, -0.619151, 0.160531, -0.768688, -125.911, 201.989, -232.904)
-visible = false
 light_color = Color(0, 0.614616, 0.620217, 1)
 light_energy = 0.4
 light_volumetric_fog_energy = 175.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_uim1g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2136.14, 49.6079, -1419.7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325.072, 82.8279, -195.093)
 
 [node name="NoConnectionText2" parent="Player/UserInterface/InGameUI" index="5"]
 anchor_left = 0.265375
