@@ -10,7 +10,7 @@ alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_3n82r")
 
 [node name="bush02" instance=ExtResource("1_v5qal")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -1.12929, 0)
 
 [node name="bush02" parent="." index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_ovuk1")

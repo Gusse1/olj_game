@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://blflafntl37q0"]
+
+[ext_resource type="ArrayMesh" uid="uid://wdoyhb5j18ue" path="res://assets/models/retro_nature_pack/models/OBJ/bushes/bush02.obj" id="1_ii8hn"]
+[ext_resource type="Texture2D" uid="uid://hsfpusoo5vfi" path="res://assets/models/tree_pack_1.1/textures/bush02.png" id="2_igl57"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4n8fb"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_igl57")
+
+[node name="bush2" type="Node3D"]
+
+[node name="Bush02" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.00873828, -1.19209e-07, -0.00477386)
+mesh = ExtResource("1_ii8hn")
+surface_material_override/0 = SubResource("StandardMaterial3D_4n8fb")
