@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=50 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bdby2vvgtu2fr" path="res://assets/textures/ui/hand.png" id="23_av2rh"]
 [ext_resource type="Texture2D" uid="uid://dxj8owcka0ldn" path="res://addons/Mirror/icon.svg" id="23_u8lv5"]
 [ext_resource type="Script" path="res://src/ui/VainamoinenTitleAnimation.gd" id="26_1q68i"]
+[ext_resource type="Script" path="res://src/ui/StrideFeedback.gd" id="27_axnf1"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -3322,6 +3323,10 @@ default_font_size = 50
 default_font = ExtResource("17_7kdk6")
 default_font_size = 0
 
+[sub_resource type="Theme" id="Theme_2f51j"]
+default_font = ExtResource("17_7kdk6")
+default_font_size = 50
+
 [node name="Player" type="CharacterBody3D"]
 platform_on_leave = 1
 script = ExtResource("1_5ras8")
@@ -3556,9 +3561,10 @@ script = ExtResource("11_gkc45")
 [node name="Slide" type="Node" parent="StateMachine"]
 script = ExtResource("12_bqyfq")
 
-[node name="Stride" type="Node" parent="StateMachine" node_paths=PackedStringArray("stride_ui_element")]
+[node name="Stride" type="Node" parent="StateMachine" node_paths=PackedStringArray("stride_ui_element", "stride_ui_indicator")]
 script = ExtResource("13_oc5oa")
 stride_ui_element = NodePath("../../UserInterface/StrideIndicatorContainer")
+stride_ui_indicator = NodePath("../../UserInterface/InGameUI/StrideFeedback")
 
 [node name="UserInterface" type="Control" parent="."]
 top_level = true
@@ -3697,7 +3703,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="ColorRect" type="ColorRect" parent="UserInterface/InGameUI"]
+[node name="BottomBar" type="ColorRect" parent="UserInterface/InGameUI"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -3911,6 +3917,32 @@ text = "          _____                    _____                    _____       
 "
 autowrap_mode = 0
 script = ExtResource("26_1q68i")
+
+[node name="StrideFeedback" type="RichTextLabel" parent="UserInterface/InGameUI"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.459635
+anchor_top = 0.557407
+anchor_right = 0.532552
+anchor_bottom = 0.557407
+offset_left = -0.5
+offset_top = -25.0
+offset_right = 0.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2f51j")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "[center]PERFECT[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+script = ExtResource("27_axnf1")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="CameraPivot/DetectorCylinder/PlayerArea/DetectorShape" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="InteractionManager" method="_on_area_3d_area_entered"]

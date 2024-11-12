@@ -16,13 +16,13 @@
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_10ppv"]
 name = "tree_05"
-density = 0.2
+density = 0.0222222
 scene_file = ExtResource("1_b6qvs")
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_mpi5s"]
 name = "bush_02"
 id = 1
-density = 1.0
+density = 10.0
 scene_file = ExtResource("2_655fl")
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_syphi"]

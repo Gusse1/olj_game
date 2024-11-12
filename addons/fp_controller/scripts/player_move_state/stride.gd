@@ -26,6 +26,7 @@ var stride_decay_exponent: float = 0.9
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @export var stride_ui_element: CenterContainer
+@export var stride_ui_indicator: RichTextLabel
 
 signal striding(stride_speed: float, stride_max_speed: float)
 signal stride_on_cooldown()
@@ -53,19 +54,17 @@ func physics_update(_delta: float) -> void:
 	stride_ui_element.scale = Vector2(2, 2) * scale_factor
 	if stride_ui_element.scale.x <= 1.35:
 		stride_ui_element.scale = Vector2(1.35, 1.35)
-
-	if not animation_player.is_playing():
-		#animation_player.play("stride", -1, 0.20)
-		pass
-
+		
 	if Input.is_action_just_pressed("stride_left") && stride_cooldown <= 0:
 		if last_stride != 0:
 			animation_player.play("stride_left")
 			if stride_cooldown > -0.16:
+				stride_ui_indicator.give_feedback("[center]PERFECT[/center]")
 				print_debug("perfect", stride_cooldown)
 				is_stride_perfect = true
 				stride_speed += pow(stride_perfect_accumulation, stride_growth_exponent)
 			else:
+				stride_ui_indicator.give_feedback("[center]LATE[/center]")
 				is_stride_perfect = false
 				stride_speed += pow(stride_accumulation, stride_growth_exponent)
 			last_stride = 0
@@ -74,10 +73,12 @@ func physics_update(_delta: float) -> void:
 		if last_stride != 1:
 			animation_player.play("stride_right")
 			if stride_cooldown > -0.16:
+				stride_ui_indicator.give_feedback("[center]PERFECT[/center]")
 				print_debug("perfect", stride_cooldown)
 				is_stride_perfect = true
 				stride_speed += pow(stride_perfect_accumulation, stride_growth_exponent)
 			else:
+				stride_ui_indicator.give_feedback("[center]LATE[/center]")
 				is_stride_perfect = false
 				stride_speed += pow(stride_accumulation, stride_growth_exponent)
 			last_stride = 1
