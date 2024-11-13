@@ -1,4 +1,4 @@
-[gd_scene load_steps=391 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=402 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_f1lbb"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bv10g834yw4wa" path="res://occluders/map_1.occ" id="2_fudlv"]
@@ -22,7 +22,9 @@
 [ext_resource type="Script" path="res://src/gameplay/events/CDCase.gd" id="19_88lbw"]
 [ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="20_1kmr8"]
 [ext_resource type="Texture2D" uid="uid://banf1xbnrlsna" path="res://assets/models/Models pack psx/Models/Metal.jpg" id="21_mrx43"]
+[ext_resource type="Texture2D" uid="uid://dk6ell81umd56" path="res://assets/images/ads/jeesus.png" id="21_o5h8o"]
 [ext_resource type="Texture2D" uid="uid://cl5t3atso8gj3" path="res://assets/models/Models pack psx/Models/Asphalt.png" id="22_aquuk"]
+[ext_resource type="Texture2D" uid="uid://iipeuoni1bo8" path="res://assets/images/ads/dog_missing.png" id="22_n6qw6"]
 [ext_resource type="Texture2D" uid="uid://ds0jx0bvb2u42" path="res://assets/models/Models pack psx/Models/brick_02.jpg" id="23_7e0m4"]
 [ext_resource type="Texture2D" uid="uid://cdhvg1skshi1o" path="res://assets/models/Models pack psx/Models/Tiles_01.jpg" id="24_a0bba"]
 [ext_resource type="Texture2D" uid="uid://drrkaho0p18lr" path="res://assets/models/Models pack psx/Models/ceiling.png" id="25_x512l"]
@@ -35,6 +37,7 @@
 [ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="32_s2nlp"]
 [ext_resource type="PackedScene" uid="uid://cg6mc7ledtlc7" path="res://objects/entities/spirit.tscn" id="33_3fjyn"]
 [ext_resource type="Texture2D" uid="uid://dk030btjwtw1e" path="res://assets/models/Models pack psx/Models/Trash.jpg" id="34_5o6nd"]
+[ext_resource type="Texture2D" uid="uid://ccia6o7gginr4" path="res://assets/textures/Plaster_16-128x128.png" id="34_c4dfh"]
 [ext_resource type="Texture2D" uid="uid://d0ir5g5bp507b" path="res://assets/models/Models pack psx/Models/Mattress.jpg" id="35_so1ys"]
 [ext_resource type="Texture2D" uid="uid://dfb8d210b2g7e" path="res://assets/models/Models pack psx/Models/Trash_01.jpg" id="36_n32kk"]
 [ext_resource type="Texture2D" uid="uid://bei3f27hx0cb8" path="res://assets/models/Models pack psx/Models/Deposits_02.jpg" id="37_da5sf"]
@@ -59,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://ige0thewt3ai" path="res://assets/models/Models pack psx/Models/Trash_06.jpg" id="56_vvq4o"]
 [ext_resource type="Texture2D" uid="uid://ckglrylcwirij" path="res://assets/models/Models pack psx/Models/Deposits.jpg" id="57_yhmit"]
 [ext_resource type="PackedScene" uid="uid://buflndb6l2a2r" path="res://assets/models/own/bus_stop.blend" id="58_ql836"]
+[ext_resource type="Texture2D" uid="uid://bg7g2x26d72d" path="res://assets/images/ads/maitoa.png" id="59_kc3ta"]
 [ext_resource type="Texture2D" uid="uid://vsti23xe8tst" path="res://assets/models/Models pack psx/Models/Metal_05.jpg" id="59_oaf7v"]
 [ext_resource type="Texture2D" uid="uid://dflx626onaqqi" path="res://assets/models/Models pack psx/Models/Boxs_07.jpg" id="60_mltxf"]
 [ext_resource type="Texture2D" uid="uid://dvi2cv2ib57uk" path="res://assets/models/Models pack psx/Models/Cardboard_02.jpg" id="61_iccvi"]
@@ -1766,6 +1770,20 @@ shadow_mesh = SubResource("ArrayMesh_6q2vv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k0mdl"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x71iw"]
+albedo_texture = ExtResource("21_o5h8o")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kchks"]
+material = SubResource("StandardMaterial3D_x71iw")
+size = Vector2(0.45, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xixxp"]
+albedo_texture = ExtResource("22_n6qw6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jkd7a"]
+material = SubResource("StandardMaterial3D_xixxp")
+size = Vector2(0.64, 0.48)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r05ip"]
 height = 12.4173
 radius = 0.624132
@@ -2330,6 +2348,9 @@ shadow_mesh = SubResource("ArrayMesh_58ylr")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wyonw"]
 data = PackedVector3Array(0.0004, -0.0037, 0.0047, 0.0004, 0.0037, 0.0047, 0.0001, 0.0049, 0.0055, 0.0001, 0.0049, 0.0055, 0.0001, -0.0049, 0.0055, 0.0004, -0.0037, 0.0047, 0.0015, 0.0049, 0.0059, 0.0001, 0.0049, 0.0055, 0.0022, 0.0049, -0.0014, 0.0022, 0.0049, -0.0014, 0.0035, 0.0049, -0.001, 0.0015, 0.0049, 0.0059, 0.0015, -0.0049, 0.0059, 0.0015, 0.0049, 0.0059, 0.0035, 0.0049, -0.001, 0.0035, 0.0049, -0.001, 0.0035, -0.0049, -0.001, 0.0015, -0.0049, 0.0059, 0.0022, -0.0049, -0.0014, 0.0001, -0.0049, 0.0055, 0.0015, -0.0049, 0.0059, 0.0015, -0.0049, 0.0059, 0.0035, -0.0049, -0.001, 0.0022, -0.0049, -0.0014, 0.0035, -0.0049, -0.001, 0.0035, 0.0049, -0.001, 0.0022, 0.0049, -0.0014, 0.0022, 0.0049, -0.0014, 0.0022, -0.0049, -0.0014, 0.0035, -0.0049, -0.001, 0.0001, -0.0049, 0.0055, 0.0001, 0.0049, 0.0055, 0.0015, 0.0049, 0.0059, 0.0015, 0.0049, 0.0059, 0.0015, -0.0049, 0.0059, 0.0001, -0.0049, 0.0055, 0, 0.0034, 0.0043, 0.0013, 0.0034, -0.0005, 0.0019, 0.0037, -0.0005, 0.0019, 0.0037, -0.0005, 0.0004, 0.0037, 0.0047, 0, 0.0034, 0.0043, 0.0019, -0.0037, -0.0005, 0.0022, -0.0049, -0.0014, 0.0022, 0.0049, -0.0014, 0.0022, 0.0049, -0.0014, 0.0019, 0.0037, -0.0005, 0.0019, -0.0037, -0.0005, 0.0019, 0.0037, -0.0005, 0.0022, 0.0049, -0.0014, 0.0001, 0.0049, 0.0055, 0.0001, 0.0049, 0.0055, 0.0004, 0.0037, 0.0047, 0.0019, 0.0037, -0.0005, 0.0019, -0.0037, -0.0005, 0.0004, -0.0037, 0.0047, 0.0001, -0.0049, 0.0055, 0.0001, -0.0049, 0.0055, 0.0022, -0.0049, -0.0014, 0.0019, -0.0037, -0.0005, 0.0003, -0.0019, 0.0028, 0.0003, 0.0019, 0.0028, 0, 0.0034, 0.0043, 0, 0.0034, 0.0043, 0, -0.0034, 0.0043, 0.0003, -0.0019, 0.0028, 0, -0.0034, 0.0043, 0.0004, -0.0037, 0.0047, 0.0019, -0.0037, -0.0005, 0.0019, -0.0037, -0.0005, 0.0013, -0.0034, -0.0005, 0, -0.0034, 0.0043, 0, 0.0034, 0.0043, 0.0004, 0.0037, 0.0047, 0.0004, -0.0037, 0.0047, 0.0004, -0.0037, 0.0047, 0, -0.0034, 0.0043, 0, 0.0034, 0.0043, 0.0013, -0.0034, -0.0005, 0.0019, -0.0037, -0.0005, 0.0019, 0.0037, -0.0005, 0.0019, 0.0037, -0.0005, 0.0013, 0.0034, -0.0005, 0.0013, -0.0034, -0.0005, -0.0018, 0.0019, 0.0017, 0.0003, 0.0019, 0.0028, 0.0003, -0.0019, 0.0028, 0.0003, -0.0019, 0.0028, -0.0018, -0.0019, 0.0017, -0.0018, 0.0019, 0.0017, 0.001, -0.0019, 0.0002, 0.0013, -0.0034, -0.0005, 0.0013, 0.0034, -0.0005, 0.0013, 0.0034, -0.0005, 0.001, 0.0019, 0.0002, 0.001, -0.0019, 0.0002, 0.0003, 0.0019, 0.0028, 0.001, 0.0019, 0.0002, 0.0013, 0.0034, -0.0005, 0.0013, 0.0034, -0.0005, 0, 0.0034, 0.0043, 0.0003, 0.0019, 0.0028, 0.0003, -0.0019, 0.0028, 0, -0.0034, 0.0043, 0.0013, -0.0034, -0.0005, 0.0013, -0.0034, -0.0005, 0.001, -0.0019, 0.0002, 0.0003, -0.0019, 0.0028, -0.0004, 0.0023, -0.001, 0.0002, 0.0019, -0.0001, -0.0018, 0.0019, 0.0017, -0.0018, 0.0019, 0.0017, -0.0036, 0.0023, -0.0001, -0.0004, 0.0023, -0.001, 0.0002, 0.0019, -0.0001, 0.0002, -0.0019, -0.0001, 0.001, -0.0019, 0.0002, 0.001, -0.0019, 0.0002, 0.001, 0.0019, 0.0002, 0.0002, 0.0019, -0.0001, 0.0002, 0.0019, -0.0001, 0.001, 0.0019, 0.0002, 0.0003, 0.0019, 0.0028, 0.0003, 0.0019, 0.0028, -0.0018, 0.0019, 0.0017, 0.0002, 0.0019, -0.0001, 0.0002, -0.0019, -0.0001, -0.0018, -0.0019, 0.0017, 0.0003, -0.0019, 0.0028, 0.0003, -0.0019, 0.0028, 0.001, -0.0019, 0.0002, 0.0002, -0.0019, -0.0001, -0.0044, -0.0027, -0.0019, -0.0044, 0.0027, -0.0019, -0.0036, 0.0023, -0.0001, -0.0036, 0.0023, -0.0001, -0.0036, -0.0023, -0.0001, -0.0044, -0.0027, -0.0019, -0.0004, -0.0023, -0.001, -0.0036, -0.0023, -0.0001, -0.0018, -0.0019, 0.0017, -0.0018, -0.0019, 0.0017, 0.0002, -0.0019, -0.0001, -0.0004, -0.0023, -0.001, -0.0036, 0.0023, -0.0001, -0.0018, 0.0019, 0.0017, -0.0018, -0.0019, 0.0017, -0.0018, -0.0019, 0.0017, -0.0036, -0.0023, -0.0001, -0.0036, 0.0023, -0.0001, -0.0004, 0.0023, -0.001, -0.0004, -0.0023, -0.001, 0.0002, -0.0019, -0.0001, 0.0002, -0.0019, -0.0001, 0.0002, 0.0019, -0.0001, -0.0004, 0.0023, -0.001, -0.0053, 0.0051, -0.002, 0.0026, 0.0051, -0.0024, -0.0005, 0.0027, -0.0022, -0.0005, 0.0027, -0.0022, -0.0044, 0.0027, -0.0019, -0.0053, 0.0051, -0.002, -0.0005, 0.0027, -0.0022, -0.0005, -0.0027, -0.0022, -0.0004, -0.0023, -0.001, -0.0004, -0.0023, -0.001, -0.0004, 0.0023, -0.001, -0.0005, 0.0027, -0.0022, -0.0005, 0.0027, -0.0022, -0.0004, 0.0023, -0.001, -0.0036, 0.0023, -0.0001, -0.0036, 0.0023, -0.0001, -0.0044, 0.0027, -0.0019, -0.0005, 0.0027, -0.0022, -0.0005, -0.0027, -0.0022, -0.0044, -0.0027, -0.0019, -0.0036, -0.0023, -0.0001, -0.0036, -0.0023, -0.0001, -0.0004, -0.0023, -0.001, -0.0005, -0.0027, -0.0022, -0.0054, 0.0051, -0.0027, -0.0053, 0.0051, -0.002, -0.0053, -0.0051, -0.002, -0.0053, -0.0051, -0.002, -0.0054, -0.0051, -0.0027, -0.0054, 0.0051, -0.0027, -0.0053, -0.0051, -0.002, -0.0044, -0.0027, -0.0019, -0.0005, -0.0027, -0.0022, -0.0005, -0.0027, -0.0022, 0.0026, -0.0051, -0.0024, -0.0053, -0.0051, -0.002, -0.0053, 0.0051, -0.002, -0.0044, 0.0027, -0.0019, -0.0044, -0.0027, -0.0019, -0.0044, -0.0027, -0.0019, -0.0053, -0.0051, -0.002, -0.0053, 0.0051, -0.002, 0.0026, 0.0051, -0.0024, 0.0026, -0.0051, -0.0024, -0.0005, -0.0027, -0.0022, -0.0005, -0.0027, -0.0022, -0.0005, 0.0027, -0.0022, 0.0026, 0.0051, -0.0024, 0.0026, 0.0051, -0.0031, -0.0054, 0.0051, -0.0027, -0.0054, -0.0051, -0.0027, -0.0054, -0.0051, -0.0027, 0.0026, -0.0051, -0.0031, 0.0026, 0.0051, -0.0031, 0.0026, -0.0051, -0.0031, 0.0026, -0.0051, -0.0024, 0.0026, 0.0051, -0.0024, 0.0026, 0.0051, -0.0024, 0.0026, 0.0051, -0.0031, 0.0026, -0.0051, -0.0031, 0.0026, 0.0051, -0.0031, 0.0026, 0.0051, -0.0024, -0.0053, 0.0051, -0.002, -0.0053, 0.0051, -0.002, -0.0054, 0.0051, -0.0027, 0.0026, 0.0051, -0.0031, 0.0026, -0.0051, -0.0031, -0.0054, -0.0051, -0.0027, -0.0053, -0.0051, -0.002, -0.0053, -0.0051, -0.002, 0.0026, -0.0051, -0.0024, 0.0026, -0.0051, -0.0031)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_816m0"]
+albedo_texture = ExtResource("34_c4dfh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c3pdf"]
 size = Vector3(0.072, 0.017, 0.016)
@@ -4499,6 +4520,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w3n4r")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbpkp"]
+albedo_texture = ExtResource("59_kc3ta")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r81je"]
+material = SubResource("StandardMaterial3D_tbpkp")
+size = Vector2(0.45, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmnqe"]
+albedo_texture = ExtResource("64_5dh7l")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qjp4y"]
+material = SubResource("StandardMaterial3D_fmnqe")
+size = Vector2(1.6, 0.9)
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yqvfj"]
 data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
 
@@ -4787,13 +4822,6 @@ data = PackedVector3Array(-0.0109, 0.0108, 0.01, -0.0109, -0.0108, 0.01, -0.0109
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4vc5g"]
 data = PackedVector3Array(-0.0103, -0.0139, -0.0012, -0.0103, 0.0139, -0.0012, -0.0103, 0.0139, 0.0012, -0.0103, 0.0139, 0.0012, -0.0103, -0.0139, 0.0012, -0.0103, -0.0139, -0.0012, -0.0064, 0.0178, -0.0012, 0.0064, 0.0178, -0.0012, 0.0064, 0.0178, 0.0012, 0.0064, 0.0178, 0.0012, -0.0064, 0.0178, 0.0012, -0.0064, 0.0178, -0.0012, 0.0103, 0.0139, -0.0012, 0.0103, -0.0139, -0.0012, 0.0103, -0.0139, 0.0012, 0.0103, -0.0139, 0.0012, 0.0103, 0.0139, 0.0012, 0.0103, 0.0139, -0.0012, -0.0103, 0.0139, -0.0012, 0.0103, 0.0139, -0.0012, 0.0092, 0.0166, -0.0012, -0.0064, -0.0178, -0.0012, 0.0103, -0.0139, -0.0012, 0.0103, 0.0139, -0.0012, 0.0064, -0.0178, -0.0012, 0.0092, -0.0166, -0.0012, 0.0103, -0.0139, -0.0012, -0.0064, -0.0178, -0.0012, 0.0064, -0.0178, -0.0012, 0.0103, -0.0139, -0.0012, -0.0092, -0.0166, -0.0012, -0.0064, -0.0178, -0.0012, 0.0103, 0.0139, -0.0012, -0.0103, -0.0139, -0.0012, -0.0092, -0.0166, -0.0012, 0.0103, 0.0139, -0.0012, -0.0103, 0.0139, -0.0012, -0.0103, -0.0139, -0.0012, 0.0103, 0.0139, -0.0012, -0.0092, 0.0166, -0.0012, -0.0103, 0.0139, -0.0012, 0.0092, 0.0166, -0.0012, -0.0064, 0.0178, -0.0012, -0.0092, 0.0166, -0.0012, 0.0092, 0.0166, -0.0012, -0.0064, 0.0178, -0.0012, 0.0092, 0.0166, -0.0012, 0.0064, 0.0178, -0.0012, -0.0103, -0.0139, 0.0012, 0.0064, 0.0178, 0.0012, 0.0092, 0.0166, 0.0012, -0.0103, 0.0139, 0.0012, -0.0064, 0.0178, 0.0012, 0.0064, 0.0178, 0.0012, -0.0103, 0.0139, 0.0012, -0.0092, 0.0166, 0.0012, -0.0064, 0.0178, 0.0012, -0.0103, -0.0139, 0.0012, -0.0103, 0.0139, 0.0012, 0.0064, 0.0178, 0.0012, -0.0092, -0.0166, 0.0012, -0.0103, -0.0139, 0.0012, 0.0092, -0.0166, 0.0012, -0.0064, -0.0178, 0.0012, -0.0092, -0.0166, 0.0012, 0.0092, -0.0166, 0.0012, -0.0064, -0.0178, 0.0012, 0.0092, -0.0166, 0.0012, 0.0064, -0.0178, 0.0012, -0.0103, -0.0139, 0.0012, 0.0103, -0.0139, 0.0012, 0.0092, -0.0166, 0.0012, -0.0103, -0.0139, 0.0012, 0.0103, 0.0139, 0.0012, 0.0103, -0.0139, 0.0012, -0.0103, -0.0139, 0.0012, 0.0092, 0.0166, 0.0012, 0.0103, 0.0139, 0.0012, -0.0092, -0.0166, -0.0012, -0.0092, -0.0166, 0.0012, -0.0064, -0.0178, 0.0012, -0.0064, -0.0178, 0.0012, -0.0064, -0.0178, -0.0012, -0.0092, -0.0166, -0.0012, -0.0103, -0.0139, -0.0012, -0.0103, -0.0139, 0.0012, -0.0092, -0.0166, 0.0012, -0.0092, -0.0166, 0.0012, -0.0092, -0.0166, -0.0012, -0.0103, -0.0139, -0.0012, -0.0092, 0.0166, 0.0012, -0.0092, 0.0166, -0.0012, -0.0064, 0.0178, -0.0012, -0.0064, 0.0178, -0.0012, -0.0064, 0.0178, 0.0012, -0.0092, 0.0166, 0.0012, -0.0103, 0.0139, 0.0012, -0.0103, 0.0139, -0.0012, -0.0092, 0.0166, -0.0012, -0.0092, 0.0166, -0.0012, -0.0092, 0.0166, 0.0012, -0.0103, 0.0139, 0.0012, 0.0092, 0.0166, 0.0012, 0.0092, 0.0166, -0.0012, 0.0103, 0.0139, -0.0012, 0.0103, 0.0139, -0.0012, 0.0103, 0.0139, 0.0012, 0.0092, 0.0166, 0.0012, 0.0064, 0.0178, 0.0012, 0.0064, 0.0178, -0.0012, 0.0092, 0.0166, -0.0012, 0.0092, 0.0166, -0.0012, 0.0092, 0.0166, 0.0012, 0.0064, 0.0178, 0.0012, 0.0092, -0.0166, 0.0012, 0.0092, -0.0166, -0.0012, 0.0064, -0.0178, -0.0012, 0.0064, -0.0178, -0.0012, 0.0064, -0.0178, 0.0012, 0.0092, -0.0166, 0.0012, 0.0103, -0.0139, 0.0012, 0.0103, -0.0139, -0.0012, 0.0092, -0.0166, -0.0012, 0.0092, -0.0166, -0.0012, 0.0092, -0.0166, 0.0012, 0.0103, -0.0139, 0.0012, 0.0064, -0.0178, -0.0012, -0.0064, -0.0178, -0.0012, -0.0064, -0.0178, 0.0012, -0.0064, -0.0178, 0.0012, 0.0064, -0.0178, 0.0012, 0.0064, -0.0178, -0.0012)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmnqe"]
-albedo_texture = ExtResource("64_5dh7l")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_qjp4y"]
-material = SubResource("StandardMaterial3D_fmnqe")
-size = Vector2(1.6, 0.9)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_rolbf"]
 size = Vector3(27.4877, 45.3702, 35.999)
 
@@ -4829,31 +4857,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_8phuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.512, 62.4383, -187.341)
-
-[node name="Skeleton3D" parent="Player/player/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.0840071, -7.68465e-09, -0.0170036, 0.99632)
-bones/1/rotation = Quaternion(0.0762696, -0.000470685, 0.017699, 0.99693)
-bones/2/rotation = Quaternion(0.203824, -0.00166863, 0.0289608, 0.978578)
-bones/3/rotation = Quaternion(-0.180077, 0.000770251, -0.0323489, 0.98312)
-bones/4/rotation = Quaternion(0.0518047, -0.00482472, -0.67627, 0.734814)
-bones/5/rotation = Quaternion(-0.0388669, -0.0216657, -0.330244, 0.942846)
-bones/6/rotation = Quaternion(0.019092, -2.69823e-06, 0.0244778, 0.999518)
-bones/7/rotation = Quaternion(-0.0041649, 0.00142714, -0.0562373, 0.998408)
-bones/8/rotation = Quaternion(0.0493761, -0.00591553, 0.689441, 0.722632)
-bones/9/rotation = Quaternion(0.0147622, -0.0381099, 0.307571, 0.950647)
-bones/10/rotation = Quaternion(-0.0206183, -0.0019249, 0.0202976, 0.99958)
-bones/11/rotation = Quaternion(0.0104535, -0.0109354, 0.0280034, 0.999493)
-bones/12/rotation = Quaternion(-0.573686, 0.339396, 0.689972, 0.282195)
-bones/13/rotation = Quaternion(-0.369496, -0.0743248, -0.14235, 0.915252)
-bones/14/rotation = Quaternion(-0.00872882, -0.0051594, 0.317041, 0.948358)
-bones/15/rotation = Quaternion(0.166367, -0.0332103, 0.441495, 0.88108)
-bones/16/rotation = Quaternion(0.649095, 0.322744, 0.590448, -0.354801)
-bones/17/rotation = Quaternion(-0.404369, 0.0343443, 0.112364, 0.907017)
-bones/18/rotation = Quaternion(-0.071479, -0.00324016, -0.284808, 0.95591)
-bones/19/rotation = Quaternion(0.152525, 0.266761, -0.433018, 0.84739)
-
-[node name="CameraPivot" parent="Player" index="7"]
-transform = Transform3D(1, 0, 0, 0, 0.67595, 0.736947, 0, -0.736947, 0.67595, 2.08165e-12, 1.66866, 0.0205921)
 
 [node name="NoConnectionText2" parent="Player/UserInterface/InGameUI" index="5"]
 anchor_left = 0.265375
@@ -5454,6 +5457,18 @@ new_situation = NodePath("../../TreeFallen")
 transform = Transform3D(1, 2.98023e-08, 0, 0, 1, 1.49012e-08, -1.49012e-08, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_k0mdl")
 
+[node name="Poster" type="MeshInstance3D" parent="Church_area"]
+transform = Transform3D(-0.201418, 1.98983, 1.52574e-09, -8.71187e-08, -7.28493e-09, -2, -1.98983, -0.201418, 8.74095e-08, -672.324, 35.0997, -725.223)
+mesh = SubResource("PlaneMesh_kchks")
+
+[node name="Poster2" type="MeshInstance3D" parent="Church_area"]
+transform = Transform3D(-1.09562, 1.6732, 1.52574e-09, -7.39627e-08, -4.66075e-08, -2, -1.6732, -1.09562, 8.74095e-08, -661.116, 35.0037, -708.148)
+mesh = SubResource("PlaneMesh_jkd7a")
+
+[node name="Poster3" type="MeshInstance3D" parent="Church_area"]
+transform = Transform3D(-1.09562, 1.6732, 1.52574e-09, -7.39627e-08, -4.66075e-08, -2, -1.6732, -1.09562, 8.74095e-08, -949.572, 3.73574, -398.556)
+mesh = SubResource("PlaneMesh_jkd7a")
+
 [node name="FallenTreeOnRoad3" parent="." instance=ExtResource("20_1kmr8")]
 transform = Transform3D(1.33756, 1.48692, 0, -1.48692, 1.33756, 0, 0, 0, 2, -172.938, 63.8679, -160.368)
 
@@ -5471,6 +5486,10 @@ transform = Transform3D(0.0368592, -1.99966, 0, 1.99966, 0.0368592, 0, 0, 0, 2, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FallenTreeOnRoad1/tree05/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11327, 6.14508, 0)
 shape = SubResource("CylinderShape3D_r05ip")
+
+[node name="Poster3" type="MeshInstance3D" parent="FallenTreeOnRoad1"]
+transform = Transform3D(-0.0363519, 0.0278583, -0.998951, -0.513927, -0.857818, -0.00522056, -0.857063, 0.513198, 0.0455005, 0.822648, 9.1451, 7.83363)
+mesh = SubResource("PlaneMesh_jkd7a")
 
 [node name="Shop" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.97614, -79.9446, -3.49449e-06, 0, -3.49691e-06, 80, -79.9446, 2.97614, 1.30091e-07, -1412.71, 5.09721, -930.414)
@@ -5636,6 +5655,7 @@ MirrorColor = Color(1, 1, 1, 1)
 [node name="Checkout" type="CSGBox3D" parent="Shop/NormalMode"]
 transform = Transform3D(0.999983, -1.93715e-07, -7.77156e-16, 1.93715e-07, 0.999983, 6.70297e-15, 5.55112e-15, 7.73437e-13, 1, 0.0779619, 0.036274, -0.0425589)
 size = Vector3(0.0717163, 0.0170288, 0.0156403)
+material = SubResource("StandardMaterial3D_816m0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Shop/NormalMode/Checkout"]
 transform = Transform3D(1, 3.72529e-09, 0, -3.72529e-09, 1, -2.60209e-15, 1.11022e-16, -1.92207e-15, 1, 0, 0, 0)
@@ -6534,6 +6554,22 @@ light_indirect_energy = 10.0
 light_volumetric_fog_energy = 100.0
 shadow_enabled = true
 
+[node name="Poster" type="MeshInstance3D" parent="Shop"]
+transform = Transform3D(2.75703e-10, 0.04, 6.28177e-09, 0.0388732, -1.74846e-09, 0.0094274, 0.0094274, 6.03983e-09, -0.0388732, 0.119211, 0.0574689, -0.00925214)
+mesh = SubResource("PlaneMesh_r81je")
+
+[node name="Poster2" type="MeshInstance3D" parent="Shop"]
+transform = Transform3D(1.08985e-09, -0.04, -3.75469e-09, -0.0393455, -1.74846e-09, 0.00720634, -0.00720634, 3.49691e-09, -0.0393455, -0.000339033, -0.0374016, -0.0167032)
+mesh = SubResource("PlaneMesh_r81je")
+
+[node name="Poster3" type="MeshInstance3D" parent="Shop"]
+transform = Transform3D(-0.0194153, 0, -0.00480049, 0, 0.02, 0, 0.00480049, 0, -0.0194153, -0.0325508, -0.0703972, -0.0169663)
+mesh = SubResource("PlaneMesh_qjp4y")
+
+[node name="Poster4" type="MeshInstance3D" parent="Shop"]
+transform = Transform3D(-0.000208698, 0.0199989, 1.2711e-05, 0.0199619, 0.000209085, -0.00121568, -0.00121575, 1.32131e-09, -0.019963, 0.11943, 0.0612561, -0.0339148)
+mesh = SubResource("PlaneMesh_jkd7a")
+
 [node name="bus_stop" parent="." instance=ExtResource("58_ql836")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1444.63, 61.8136, -1123.85)
 
@@ -6790,8 +6826,20 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_xr76m")
 
 [node name="Poster" type="MeshInstance3D" parent="bus_stop"]
-transform = Transform3D(-0.999848, -0.0174525, 7.62871e-10, 0, -4.37114e-08, -1, 0.0174525, -0.999848, 4.37047e-08, 1.06176, 2.22069, 0.910845)
+transform = Transform3D(-0.986877, -0.0174525, -0.160529, 0.160553, -4.35393e-08, -0.987027, 0.0172261, -0.999848, 0.0028021, 1.06176, 2.22069, 0.910845)
 mesh = SubResource("PlaneMesh_qjp4y")
+
+[node name="Poster4" type="MeshInstance3D" parent="bus_stop"]
+transform = Transform3D(-0.968549, -8.74228e-08, 0.248825, -0.248825, 1.77636e-15, -0.968548, 8.46732e-08, -1, -2.1753e-08, -0.501789, 1.97661, 0.922136)
+mesh = SubResource("PlaneMesh_jkd7a")
+
+[node name="Poster5" type="MeshInstance3D" parent="bus_stop"]
+transform = Transform3D(-0.978678, -8.74228e-08, -0.205401, 0.205401, 0, -0.978678, 8.55587e-08, -1, 1.79568e-08, -1.27303, 2.25489, 0.922136)
+mesh = SubResource("PlaneMesh_jkd7a")
+
+[node name="Poster6" type="MeshInstance3D" parent="bus_stop"]
+transform = Transform3D(-0.988855, -8.74228e-08, 0.14888, -0.14888, 0, -0.988855, 8.64485e-08, -1, -1.30155e-08, -0.567219, 2.52568, 0.922136)
+mesh = SubResource("PlaneMesh_jkd7a")
 
 [node name="LevelEnd" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1336.42, 10.3402, -1564.93)

@@ -9,10 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print_debug("size", theme.default_font_size)
-	if theme.default_font_size > 0:
+	if theme.default_font_size > 0 and visible:
 		theme.default_font_size -= 1
-	elif theme.default_font_size < 15:
+	if theme.default_font_size < 15:
 		visible = false
 	
 

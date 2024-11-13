@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=51 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cmvjborq5kyn6" path="res://assets/textures/ui/green_ring.png" id="18_tbof0"]
 [ext_resource type="Texture2D" uid="uid://e8lbiq2ca47n" path="res://assets/textures/ui/ring.png" id="21_gwuri"]
 [ext_resource type="Texture2D" uid="uid://bdby2vvgtu2fr" path="res://assets/textures/ui/hand.png" id="23_av2rh"]
+[ext_resource type="Texture2D" uid="uid://dde88xviorbs8" path="res://assets/textures/ui/red_ring.png" id="23_gkg6v"]
 [ext_resource type="Texture2D" uid="uid://dxj8owcka0ldn" path="res://addons/Mirror/icon.svg" id="23_u8lv5"]
 [ext_resource type="Script" path="res://src/ui/VainamoinenTitleAnimation.gd" id="26_1q68i"]
 [ext_resource type="Script" path="res://src/ui/StrideFeedback.gd" id="27_axnf1"]
@@ -3634,6 +3635,8 @@ scale = Vector2(2, 2)
 pivot_offset = Vector2(8, 8)
 mouse_filter = 2
 script = ExtResource("15_maurp")
+original_stride_texture = ExtResource("18_tbof0")
+early_stride_texture = ExtResource("23_gkg6v")
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="UserInterface/StrideIndicatorContainer"]
