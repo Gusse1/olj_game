@@ -1,4 +1,4 @@
-[gd_scene load_steps=402 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=406 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_f1lbb"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bv10g834yw4wa" path="res://occluders/map_1.occ" id="2_fudlv"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bwj7ckbhrxgwy" path="res://assets/models/Models pack psx/Models/Branch_02.png" id="9_v0ja1"]
 [ext_resource type="Texture2D" uid="uid://cdfxyk1ia2eu4" path="res://assets/models/Models pack psx/Models/Wood_13.jpg" id="10_ss804"]
 [ext_resource type="Texture2D" uid="uid://cvfbu6djrwgh6" path="res://assets/models/Models pack psx/Models/Wire.png" id="11_ax1sl"]
+[ext_resource type="PackedScene" uid="uid://gqsxut5xui32" path="res://assets/models/own/phone.blend" id="12_aa2xx"]
 [ext_resource type="Texture2D" uid="uid://blwllofju4tvs" path="res://assets/models/Models pack psx/Models/Concrete_01.jpg" id="12_cwffv"]
 [ext_resource type="Texture2D" uid="uid://baceptmvrqarp" path="res://assets/textures/Metal_18-128x128.png" id="13_ursia"]
 [ext_resource type="Texture2D" uid="uid://b5a3kn7n00wmp" path="res://assets/textures/gravestone.png" id="14_k1qso"]
@@ -21,12 +22,14 @@
 [ext_resource type="Texture2D" uid="uid://ci7em85s34i67" path="res://assets/models/Models pack psx/Models/Auto2.jpg" id="18_hli2f"]
 [ext_resource type="Script" path="res://src/gameplay/events/CDCase.gd" id="19_88lbw"]
 [ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="20_1kmr8"]
+[ext_resource type="Texture2D" uid="uid://cbrofw32q33g8" path="res://assets/textures/special/cd_case.png" id="21_gsye2"]
 [ext_resource type="Texture2D" uid="uid://banf1xbnrlsna" path="res://assets/models/Models pack psx/Models/Metal.jpg" id="21_mrx43"]
 [ext_resource type="Texture2D" uid="uid://dk6ell81umd56" path="res://assets/images/ads/jeesus.png" id="21_o5h8o"]
 [ext_resource type="Texture2D" uid="uid://cl5t3atso8gj3" path="res://assets/models/Models pack psx/Models/Asphalt.png" id="22_aquuk"]
 [ext_resource type="Texture2D" uid="uid://iipeuoni1bo8" path="res://assets/images/ads/dog_missing.png" id="22_n6qw6"]
 [ext_resource type="Texture2D" uid="uid://ds0jx0bvb2u42" path="res://assets/models/Models pack psx/Models/brick_02.jpg" id="23_7e0m4"]
 [ext_resource type="Texture2D" uid="uid://cdhvg1skshi1o" path="res://assets/models/Models pack psx/Models/Tiles_01.jpg" id="24_a0bba"]
+[ext_resource type="PackedScene" uid="uid://c1v7ye6wf03yb" path="res://assets/models/own/hat.blend" id="24_kx8qp"]
 [ext_resource type="Texture2D" uid="uid://drrkaho0p18lr" path="res://assets/models/Models pack psx/Models/ceiling.png" id="25_x512l"]
 [ext_resource type="Texture2D" uid="uid://xiwrd8dve4d7" path="res://assets/models/Models pack psx/Models/Shelf_Store_16.png" id="26_tsa48"]
 [ext_resource type="Texture2D" uid="uid://cwxx26v3yrtvw" path="res://assets/models/Models pack psx/Models/Shelf_Store_15.png" id="27_bphcp"]
@@ -1767,6 +1770,11 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6q2vv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iypnr"]
+albedo_texture = ExtResource("21_gsye2")
+uv1_scale = Vector3(1, -1, 1)
+uv1_triplanar_sharpness = 0.013139
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k0mdl"]
 
@@ -4989,6 +4997,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Church_area/church2/Arbol/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1wjyv")
 
+[node name="phone" parent="Church_area/church2" instance=ExtResource("12_aa2xx")]
+transform = Transform3D(-0.126116, 0, 0.0432727, 0, 0.133333, 0, -0.0432727, 0, -0.126116, -0.910065, -1.43239, -0.608185)
+
+[node name="phone2" parent="Church_area/church2" instance=ExtResource("12_aa2xx")]
+transform = Transform3D(-0.126116, 0, 0.0432727, 0, 0.133333, 0, -0.0432727, 0, -0.126116, 2.4742, -1.30166, -0.501617)
+
 [node name="Church_fence" type="Node3D" parent="Church_area"]
 
 [node name="Wire" type="MeshInstance3D" parent="Church_area/Church_fence"]
@@ -5446,6 +5460,7 @@ skeleton = NodePath("")
 [node name="CD_Case" type="CSGBox3D" parent="Church_area"]
 transform = Transform3D(0.243677, 0.220899, 0.944365, -0.67163, 0.740887, 0, -0.699667, -0.634264, 0.3289, -633.048, 34.2, -724.86)
 size = Vector3(0.467712, 0.0205078, 0.497682)
+material = SubResource("StandardMaterial3D_iypnr")
 
 [node name="CD_Case" type="Area3D" parent="Church_area/CD_Case" node_paths=PackedStringArray("original_situation", "new_situation")]
 transform = Transform3D(1, 0, 0, -2.98023e-08, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)
@@ -5468,6 +5483,9 @@ mesh = SubResource("PlaneMesh_jkd7a")
 [node name="Poster3" type="MeshInstance3D" parent="Church_area"]
 transform = Transform3D(-1.09562, 1.6732, 1.52574e-09, -7.39627e-08, -4.66075e-08, -2, -1.6732, -1.09562, 8.74095e-08, -949.572, 3.73574, -398.556)
 mesh = SubResource("PlaneMesh_jkd7a")
+
+[node name="hat" parent="Church_area" instance=ExtResource("24_kx8qp")]
+transform = Transform3D(0.189014, 0.252218, 0.246292, 0, 0.279461, -0.286184, -0.352525, 0.135232, 0.132055, -682.408, 34.7847, -719.254)
 
 [node name="FallenTreeOnRoad3" parent="." instance=ExtResource("20_1kmr8")]
 transform = Transform3D(1.33756, 1.48692, 0, -1.48692, 1.33756, 0, 0, 0, 2, -172.938, 63.8679, -160.368)
@@ -6635,13 +6653,13 @@ skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="bus_stop/LightPost"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 5.72459e-17, 1.11022e-16, -1.73472e-18, 0.01, -0.029623, -5.72205e-05, -0.0293454)
-light_color = Color(0.645765, 0.639332, 0, 1)
+light_color = Color(0.994327, 1, 0.665914, 1)
 light_energy = 12.0
-light_indirect_energy = 10.0
+light_indirect_energy = 60.0
 light_volumetric_fog_energy = 128.0
 shadow_enabled = true
 spot_range = 14.4576
-spot_angle = 22.7884
+spot_angle = 42.177
 
 [node name="Auto" type="MeshInstance3D" parent="bus_stop"]
 transform = Transform3D(-31.535, -4.59115, 73.3788, -2.20405, 79.8669, 4.04987, -73.4893, -0.425284, -31.609, 1.35486, 1.47161, 10.228)
@@ -6840,6 +6858,13 @@ mesh = SubResource("PlaneMesh_jkd7a")
 [node name="Poster6" type="MeshInstance3D" parent="bus_stop"]
 transform = Transform3D(-0.988855, -8.74228e-08, 0.14888, -0.14888, 0, -0.988855, 8.64485e-08, -1, -1.30155e-08, -0.567219, 2.52568, 0.922136)
 mesh = SubResource("PlaneMesh_jkd7a")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="bus_stop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0499268, 2.41081, 0)
+light_energy = 0.1
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
 
 [node name="LevelEnd" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1336.42, 10.3402, -1564.93)

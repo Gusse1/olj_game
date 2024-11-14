@@ -19,7 +19,6 @@ func _process(_delta: float) -> void:
 		interact_ui.visible = false
 
 	if Input.is_action_just_pressed("interact"):
-			print_debug("Interacting...")
 			if looked_at_area and not _is_looking_at_wall():
 				looked_at_area.interact()
 				if looked_at_area.name == "CD_Case":
@@ -35,13 +34,10 @@ func _is_looking_at_wall() -> bool:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		if collider != looked_at_area:
-			print("Interactable object is behind an obstacle named: ", collider.name)
 			return true
 		else:
-			print("Interactable object is in line of sight.")
 			return false
 	else:
-		print("No obstacle detected.")
 		return false
 
 
@@ -54,5 +50,4 @@ func _on_area_3d_area_exited(_area: Area3D) -> void:
 	looked_at_area = null
 
 func _on_cd_case_picked_up() -> void:
-	print_debug("Registered CD_Case pickup")
 	cd_case_image.visible = true

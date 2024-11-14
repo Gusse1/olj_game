@@ -13,5 +13,4 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	print("Area by name entered player view: " + area.name)
-	
+	pass	
