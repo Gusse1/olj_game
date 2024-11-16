@@ -19,7 +19,7 @@ var screen_count: int
 
 @onready var input = $"../../PauseMenu/Input"
 
-@onready var game_environment: WorldEnvironment
+@export var game_environment: WorldEnvironment
 
 var quality_preset_value: int
 var window_mode: int
@@ -57,9 +57,6 @@ func _ready() -> void:
 
 	load_settings_from_file()
 	
-	if get_parent().get_parent().get_node("PauseMenu/MenuLogic").pause_mode:
-		game_environment = get_tree().get_root().get_node("Node3D/OriginalAtmoshpere/WorldEnvironment")
-
 func save_settings() -> void:
 	var settings_values: Dictionary = {
 										  "display" : DisplayServer.window_get_current_screen(),

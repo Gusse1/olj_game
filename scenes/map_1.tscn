@@ -4898,6 +4898,9 @@ offset_right = 1800.0
 offset_bottom = 311.0
 scale = Vector2(0.3, 0.3)
 
+[node name="SettingsHandler" parent="Player/Menu/SettingsMenu" index="0" node_paths=PackedStringArray("game_environment")]
+game_environment = NodePath("../../../../OriginalAtmoshpere/WorldEnvironment")
+
 [node name="Church_area" type="Node3D" parent="."]
 
 [node name="church2" parent="Church_area" instance=ExtResource("4_wwn2a")]
