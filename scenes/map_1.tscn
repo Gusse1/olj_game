@@ -4866,6 +4866,31 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("3_8phuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.512, 62.4383, -187.341)
 
+[node name="Skeleton3D" parent="Player/player/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.0840071, -7.68465e-09, -0.0170036, 0.99632)
+bones/1/rotation = Quaternion(0.0762696, -0.000470685, 0.017699, 0.99693)
+bones/2/rotation = Quaternion(0.203824, -0.00166863, 0.0289608, 0.978578)
+bones/3/rotation = Quaternion(-0.180077, 0.000770251, -0.0323489, 0.98312)
+bones/4/rotation = Quaternion(0.0518047, -0.00482472, -0.67627, 0.734814)
+bones/5/rotation = Quaternion(-0.0388669, -0.0216657, -0.330244, 0.942846)
+bones/6/rotation = Quaternion(0.019092, -2.69823e-06, 0.0244778, 0.999518)
+bones/7/rotation = Quaternion(-0.0041649, 0.00142714, -0.0562373, 0.998408)
+bones/8/rotation = Quaternion(0.0493761, -0.00591553, 0.689441, 0.722632)
+bones/9/rotation = Quaternion(0.0147622, -0.0381099, 0.307571, 0.950647)
+bones/10/rotation = Quaternion(-0.0206183, -0.0019249, 0.0202976, 0.99958)
+bones/11/rotation = Quaternion(0.0104535, -0.0109354, 0.0280034, 0.999493)
+bones/12/rotation = Quaternion(-0.573686, 0.339396, 0.689972, 0.282195)
+bones/13/rotation = Quaternion(-0.369496, -0.0743248, -0.14235, 0.915252)
+bones/14/rotation = Quaternion(-0.00872882, -0.0051594, 0.317041, 0.948358)
+bones/15/rotation = Quaternion(0.166367, -0.0332103, 0.441495, 0.88108)
+bones/16/rotation = Quaternion(0.649095, 0.322744, 0.590448, -0.354801)
+bones/17/rotation = Quaternion(-0.404369, 0.0343443, 0.112364, 0.907017)
+bones/18/rotation = Quaternion(-0.071479, -0.00324016, -0.284808, 0.95591)
+bones/19/rotation = Quaternion(0.152525, 0.266761, -0.433018, 0.84739)
+
+[node name="CameraPivot" parent="Player" index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.67595, 0.736947, 0, -0.736947, 0.67595, 2.08165e-12, 1.66866, 0.0205921)
+
 [node name="VainamoinenTitle" parent="Player/UserInterface/InGameUI" index="8"]
 offset_left = 0.0
 offset_top = -115.0

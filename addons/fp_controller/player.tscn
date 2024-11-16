@@ -3951,7 +3951,6 @@ script = ExtResource("27_axnf1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Intro" type="ColorRect" parent="UserInterface"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

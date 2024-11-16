@@ -12,6 +12,8 @@ var screen_count: int
 @onready var shadow_quality_dropdown: OptionButton = $"../ShadowQuality"
 @onready var volumetric_lighting_dropdown: OptionButton = $"../VolumetricLighting"
 @onready var render_resolution_slider: Slider = $"../RenderResolution"
+@onready var vsync_dropdown: OptionButton = $"../Vsync"
+@onready var max_fps_dropdown: OptionButton = $"../MaxFPS"
 
 @onready var render_resolution_indicator: RichTextLabel = $"../RenderResolution/ResText"
 
@@ -26,6 +28,8 @@ var anti_aliasing_value: int
 var shadow_quality_value: int
 var ambient_occlusion_value: int
 var volumetric_lighting_value: int
+var vsync_value: int
+var max_fps_value: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,17 +45,19 @@ func _ready() -> void:
 
 func save_settings() -> void:
 	var settings_values: Dictionary = {
-		"display" : DisplayServer.window_get_current_screen(),
-		"render_resolution" : get_viewport().get_scaling_3d_scale(),
-		"window_mode" : window_mode,
-		"quality_preset" : quality_preset_value,
-		"upscaling_quality" : get_viewport().get_scaling_3d_mode(),
-		"lighting_quality" : lighting_quality_value,
-		"anti_aliasing" : anti_aliasing_value,
-		"shadow_quality" : shadow_quality_value,
-		"ambient_occlusion_quality" : ambient_occlusion_value,
-		"volumetric_lighting_quality" : volumetric_lighting_value
-	  }
+										  "display" : DisplayServer.window_get_current_screen(),
+										  "render_resolution" : get_viewport().get_scaling_3d_scale(),
+										  "window_mode" : window_mode,
+										  "quality_preset" : quality_preset_value,
+										  "upscaling_quality" : get_viewport().get_scaling_3d_mode(),
+										  "lighting_quality" : lighting_quality_value,
+										  "anti_aliasing" : anti_aliasing_value,
+										  "shadow_quality" : shadow_quality_value,
+										  "ambient_occlusion_quality" : ambient_occlusion_value,
+										  "volumetric_lighting_quality" : volumetric_lighting_value,
+										  "vsync" : vsync_value,
+	                                      "max_fps" : max_fps_value
+									  }
 	var save_file: FileAccess = FileAccess.open("user://settings.save", FileAccess.WRITE)
 	var json_string: String   = JSON.stringify(settings_values)
 	save_file.store_line(json_string)
@@ -59,7 +65,7 @@ func save_settings() -> void:
 func load_settings_from_file() -> void:
 	if not FileAccess.file_exists("user://settings.save"):
 		# Load default settings
-		_on_graphics_preset_item_selected(2)
+		return
 	var save_file: FileAccess = FileAccess.open("user://settings.save", FileAccess.READ)
 	var json_string: String = save_file.get_line()
 
@@ -87,7 +93,10 @@ func load_settings(settings: Dictionary) -> void:
 	_on_shadow_quality_item_selected(settings.shadow_quality)
 	_on_ambient_occlusion_item_selected(settings.ambient_occlusion_quality)
 	_on_volumetric_lighting_item_selected(settings.volumetric_lighting_quality)
-
+	_on_vsync_item_selected(settings.vsync)
+	_on_max_fps_item_selected(settings.max_fps)
+	
+	quality_preset_dropdown.selected = settings.quality_preset
 	display_dropdown.selected = settings.display
 	window_mode_dropdown.selected = settings.window_mode
 	render_resolution_slider.value = settings.render_resolution
@@ -97,7 +106,8 @@ func load_settings(settings: Dictionary) -> void:
 	shadow_quality_dropdown.selected = settings.shadow_quality
 	ambient_occlusion_dropdown.selected = settings.ambient_occlusion_quality
 	volumetric_lighting_dropdown.selected = settings.volumetric_lighting_quality
-	quality_preset_dropdown.selected = settings.quality_preset
+	vsync_dropdown.selected = settings.vsync
+	max_fps_dropdown.selected = settings.max_fps
 
 func _on_display_selector_item_selected(index:int) -> void:
 	DisplayServer.window_set_current_screen(index)
@@ -270,71 +280,100 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 	quality_preset_value = index
 	if index == 0:
 		var ultra_settings_dict: Dictionary = {
-			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 1,
-			"window_mode" : window_mode,
-			"quality_preset" : 0,
-			"upscaling_quality" : 0,
-			"lighting_quality" : 0,
-			"anti_aliasing" : 1,
-			"shadow_quality" : 0,
-			"ambient_occlusion_quality" : 0,
-			"volumetric_lighting_quality" : 0
-		}
+												  "display" : DisplayServer.window_get_current_screen(),
+												  "render_resolution" : 1,
+												  "window_mode" : window_mode,
+												  "upscaling_quality" : 0,
+												  "lighting_quality" : 0,
+												  "anti_aliasing" : 1,
+												  "shadow_quality" : 0,
+												  "ambient_occlusion_quality" : 0,
+												  "volumetric_lighting_quality" : 0,
+												  "vsync" : 0,
+			                                      "max_fps" : 0
+											  }
 		load_settings(ultra_settings_dict)
 	elif index == 1:
 		var high_settings_dict: Dictionary = {
-			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 1,
-			"window_mode" : window_mode,
-			"quality_preset" : 1,
-			"upscaling_quality" : 0,
-			"lighting_quality" : 1,
-			"anti_aliasing" : 2,
-			"shadow_quality" : 1,
-			"ambient_occlusion_quality" : 1,
-			"volumetric_lighting_quality" : 1
-		 }
+												 "display" : DisplayServer.window_get_current_screen(),
+												 "render_resolution" : 1,
+												 "window_mode" : window_mode,
+												 "upscaling_quality" : 0,
+												 "lighting_quality" : 1,
+												 "anti_aliasing" : 0,
+												 "shadow_quality" : 1,
+												 "ambient_occlusion_quality" : 1,
+												 "volumetric_lighting_quality" : 1,
+												 "vsync" : 0,
+			                                     "max_fps" : 0
+											 }
 		load_settings(high_settings_dict)
 	elif index == 2:
 		var medium_settings_dict: Dictionary = {
-			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 0.67,
-			"window_mode" : window_mode,
-			"quality_preset" : 2,
-			"upscaling_quality" : 2,
-			"lighting_quality" : 2,
-			"anti_aliasing" : 4,
-			"shadow_quality" : 2,
-			"ambient_occlusion_quality" : 3,
-			"volumetric_lighting_quality" : 2
-	   }
+												   "display" : DisplayServer.window_get_current_screen(),
+												   "render_resolution" : 0.67,
+												   "window_mode" : window_mode,
+												   "upscaling_quality" : 2,
+												   "lighting_quality" : 2,
+												   "anti_aliasing" : 0,
+												   "shadow_quality" : 2,
+												   "ambient_occlusion_quality" : 3,
+												   "volumetric_lighting_quality" : 0,
+												   "vsync" : 2,
+			                                       "max_fps" : 0
+											   }
 		load_settings(medium_settings_dict)
 	elif index == 3:
 		var low_settings_dict: Dictionary = {
-			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 0.67,
-			"window_mode" : window_mode,
-			"quality_preset" : 3,
-			"upscaling_quality" : 1,
-			"lighting_quality" : 3,
-			"anti_aliasing" : 3,
-			"shadow_quality" : 3,
-			"ambient_occlusion_quality" : 3,
-			"volumetric_lighting_quality" : 3
-		}
+												"display" : DisplayServer.window_get_current_screen(),
+												"render_resolution" : 0.67,
+												"window_mode" : window_mode,
+												"upscaling_quality" : 1,
+												"lighting_quality" : 3,
+												"anti_aliasing" : 0,
+												"shadow_quality" : 3,
+												"ambient_occlusion_quality" : 3,
+												"volumetric_lighting_quality" : 3,
+												"vsync" : 1,
+			                                    "max_fps" : 0
+											}
 		load_settings(low_settings_dict)
 	elif index == 4:
 		var very_low_settings_dict: Dictionary = {
-			 "display" : DisplayServer.window_get_current_screen(),
-			 "render_resolution" : 0.5,
-			 "window_mode" : window_mode,
-			 "quality_preset" : 4,
-			 "upscaling_quality" : 1,
-			 "lighting_quality" : 4,
-			 "anti_aliasing" : 3,
-			 "shadow_quality" : 4,
-			 "ambient_occlusion_quality" : 3,
-			 "volumetric_lighting_quality" : 3
-		 }
+													 "display" : DisplayServer.window_get_current_screen(),
+													 "render_resolution" : 0.4,
+													 "window_mode" : window_mode,
+													 "upscaling_quality" : 1,
+													 "lighting_quality" : 4,
+													 "anti_aliasing" : 0,
+													 "shadow_quality" : 4,
+													 "ambient_occlusion_quality" : 3,
+													 "volumetric_lighting_quality" : 3,
+													 "vsync" : 1,
+			                                         "max_fps" : 0
+												 }
 		load_settings(very_low_settings_dict)
+
+
+func _on_vsync_item_selected(index: int) -> void:
+	vsync_value = index
+	if index == 0:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	elif index == 1:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
+	elif index == 2:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	save_settings()
+
+
+func _on_max_fps_item_selected(index:int) -> void:
+	max_fps_value = index
+	if index == 0:
+		Engine.set_max_fps(0)
+	elif index == 1:
+		Engine.set_max_fps(120)
+	elif index == 2:
+		Engine.set_max_fps(60)
+	elif index == 3:
+		Engine.set_max_fps(30)
+	save_settings()
