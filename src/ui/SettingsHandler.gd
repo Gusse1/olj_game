@@ -38,7 +38,7 @@ var default_settings_dict: Dictionary = {
 	"quality_preset" : 2,
 	"upscaling_quality" : 2,
 	"lighting_quality" : 2,
-	"anti_aliasing" : 0,
+	"anti_aliasing" : 4,
 	"shadow_quality" : 2,
 	"ambient_occlusion_quality" : 3,
 	"volumetric_lighting_quality" : 0,
@@ -297,83 +297,83 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 	quality_preset_value = index
 	if index == 0:
 		var ultra_settings_dict: Dictionary = {
-												  "display" : DisplayServer.window_get_current_screen(),
-												  "render_resolution" : 1,
-												  "window_mode" : window_mode,
-												  "quality_preset" : 0,
-												  "upscaling_quality" : 0,
-												  "lighting_quality" : 0,
-												  "anti_aliasing" : 1,
-												  "shadow_quality" : 0,
-												  "ambient_occlusion_quality" : 0,
-												  "volumetric_lighting_quality" : 0,
-												  "vsync" : 0,
-			                                      "max_fps" : 0
-											  }
+			"display" : DisplayServer.window_get_current_screen(),
+			"render_resolution" : 1,
+			"window_mode" : window_mode,
+			"quality_preset" : 0,
+			"upscaling_quality" : 0,
+			"lighting_quality" : 0,
+			"anti_aliasing" : 1,
+			"shadow_quality" : 0,
+			"ambient_occlusion_quality" : 0,
+			"volumetric_lighting_quality" : 0,
+			"vsync" : 0,
+			"max_fps" : 0
+		}
 		load_settings(ultra_settings_dict)
 	elif index == 1:
 		var high_settings_dict: Dictionary = {
-												 "display" : DisplayServer.window_get_current_screen(),
-												 "render_resolution" : 1,
-												 "window_mode" : window_mode,
-												 "quality_preset" : 1,
-												 "upscaling_quality" : 0,
-												 "lighting_quality" : 1,
-												 "anti_aliasing" : 0,
-												 "shadow_quality" : 1,
-												 "ambient_occlusion_quality" : 1,
-												 "volumetric_lighting_quality" : 1,
-												 "vsync" : 0,
-			                                     "max_fps" : 0
-											 }
+			"display" : DisplayServer.window_get_current_screen(),
+			"render_resolution" : 1,
+			"window_mode" : window_mode,
+			"quality_preset" : 1,
+			"upscaling_quality" : 0,
+			"lighting_quality" : 1,
+			"anti_aliasing" : 0,
+			"shadow_quality" : 1,
+			"ambient_occlusion_quality" : 1,
+			"volumetric_lighting_quality" : 1,
+			"vsync" : 0,
+			"max_fps" : 0
+		}
 		load_settings(high_settings_dict)
 	elif index == 2:
 		var medium_settings_dict: Dictionary = {
-												   "display" : DisplayServer.window_get_current_screen(),
-												   "render_resolution" : 0.67,
-												   "window_mode" : window_mode,
-												   "quality_preset" : 2,
-												   "upscaling_quality" : 2,
-												   "lighting_quality" : 2,
-												   "anti_aliasing" : 0,
-												   "shadow_quality" : 2,
-												   "ambient_occlusion_quality" : 3,
-												   "volumetric_lighting_quality" : 0,
-												   "vsync" : 0,
-			                                       "max_fps" : 0
-											   }
+			"display" : DisplayServer.window_get_current_screen(),
+			"render_resolution" : 0.67,
+			"window_mode" : window_mode,
+			"quality_preset" : 2,
+			"upscaling_quality" : 2,
+			"lighting_quality" : 2,
+			"anti_aliasing" : 4,
+			"shadow_quality" : 2,
+			"ambient_occlusion_quality" : 3,
+			"volumetric_lighting_quality" : 0,
+			"vsync" : 0,
+			"max_fps" : 0
+	   }
 		load_settings(medium_settings_dict)
 	elif index == 3:
 		var low_settings_dict: Dictionary = {
-												"display" : DisplayServer.window_get_current_screen(),
-												"render_resolution" : 0.67,
-												"window_mode" : window_mode,
-												"quality_preset" : 3,
-												"upscaling_quality" : 1,
-												"lighting_quality" : 3,
-												"anti_aliasing" : 0,
-												"shadow_quality" : 3,
-												"ambient_occlusion_quality" : 3,
-												"volumetric_lighting_quality" : 3,
-												"vsync" : 1,
-			                                    "max_fps" : 0
-											}
+			"display" : DisplayServer.window_get_current_screen(),
+			"render_resolution" : 0.67,
+			"window_mode" : window_mode,
+			"quality_preset" : 3,
+			"upscaling_quality" : 1,
+			"lighting_quality" : 3,
+			"anti_aliasing" : 3,
+			"shadow_quality" : 3,
+			"ambient_occlusion_quality" : 3,
+			"volumetric_lighting_quality" : 3,
+			"vsync" : 1,
+			"max_fps" : 0
+		}
 		load_settings(low_settings_dict)
 	elif index == 4:
 		var very_low_settings_dict: Dictionary = {
-													 "display" : DisplayServer.window_get_current_screen(),
-													 "render_resolution" : 0.4,
-													 "window_mode" : window_mode,
-													 "quality_preset" : 4,
-													 "upscaling_quality" : 1,
-													 "lighting_quality" : 4,
-													 "anti_aliasing" : 0,
-													 "shadow_quality" : 4,
-													 "ambient_occlusion_quality" : 3,
-													 "volumetric_lighting_quality" : 3,
-													 "vsync" : 1,
-			                                         "max_fps" : 0
-												 }
+			"display" : DisplayServer.window_get_current_screen(),
+			"render_resolution" : 0.4,
+			"window_mode" : window_mode,
+			"quality_preset" : 4,
+			"upscaling_quality" : 1,
+			"lighting_quality" : 4,
+			"anti_aliasing" : 3,
+			"shadow_quality" : 4,
+			"ambient_occlusion_quality" : 3,
+			"volumetric_lighting_quality" : 3,
+			"vsync" : 1,
+			"max_fps" : 0
+		}
 		load_settings(very_low_settings_dict)
 
 

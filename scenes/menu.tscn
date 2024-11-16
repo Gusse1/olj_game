@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cghygmxt178q7"]
+[gd_scene load_steps=16 format=3 uid="uid://cghygmxt178q7"]
 
 [ext_resource type="Script" path="res://src/ui/MenuLogic.gd" id="1_mlcvl"]
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="2_hsm5d"]
 [ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="3_371gw"]
 [ext_resource type="Script" path="res://src/ui/SettingsHandler.gd" id="3_rfvrh"]
 [ext_resource type="Script" path="res://src/ui/FPS.gd" id="5_mm5ul"]
+[ext_resource type="Script" path="res://src/ui/SettingsExplainer.gd" id="5_mx7co"]
 
 [sub_resource type="Theme" id="Theme_owhnr"]
 default_font = ExtResource("2_hsm5d")
@@ -330,6 +331,7 @@ item_count = 2
 popup/item_0/text = "SCREEN 1"
 popup/item_1/text = "SCREEN 2"
 popup/item_1/id = 1
+script = ExtResource("5_mx7co")
 
 [node name="Print" type="RichTextLabel" parent="SettingsMenu/DisplaySelector"]
 layout_mode = 1
@@ -347,6 +349,28 @@ grow_vertical = 2
 theme = SubResource("Theme_j8m4h")
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "DISPLAY"
+scroll_active = false
+
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/DisplaySelector"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.54799
+offset_top = -269.346
+offset_right = 948.0
+offset_bottom = 46.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "DISPLAY:
+
+CHOOSE WHICH DISPLAY TO PLAY THE GAME ON"
 scroll_active = false
 
 [node name="WindowMode" type="OptionButton" parent="SettingsMenu"]
@@ -372,6 +396,7 @@ item_count = 2
 popup/item_0/text = "WINDOWED"
 popup/item_1/text = "FULLSCREEN"
 popup/item_1/id = 4
+script = ExtResource("5_mx7co")
 
 [node name="Print" type="RichTextLabel" parent="SettingsMenu/WindowMode"]
 layout_mode = 1
@@ -391,6 +416,96 @@ theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "MODE"
 scroll_active = false
 
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/WindowMode"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -314.548
+offset_top = -269.346
+offset_right = -16.0
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "MODE:
+
+CHOOSE BETWEEN WINDOWED AND FULLSCREEN"
+scroll_active = false
+
+[node name="Vsync" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -483.0
+offset_right = -172.0
+offset_bottom = -425.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "ENABLED"
+popup/item_1/text = "ADAPTIVE"
+popup/item_1/id = 1
+popup/item_2/text = "OFF"
+popup/item_2/id = 2
+script = ExtResource("5_mx7co")
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/Vsync"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640136
+offset_top = 0.0799713
+offset_right = -0.479919
+offset_bottom = -7.76003
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "VSYNC"
+scroll_active = false
+
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/Vsync"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "VSYNC:
+
+ENABLED - NORMAL TRIPLE BUFFERING VSYNC
+
+ADAPTIVE - VSYNC TO MONITOR REFRESH RATE, BUT WHEN THE FRAMERATE DROPS, ALLOW TEARING
+"
+scroll_active = false
+
 [node name="Upscaling" type="OptionButton" parent="SettingsMenu"]
 layout_mode = 1
 anchors_preset = 8
@@ -399,9 +514,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 152.0
-offset_top = -265.0
+offset_top = -300.0
 offset_right = 364.0
-offset_bottom = -207.0
+offset_bottom = -242.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bpn5f")
@@ -416,6 +531,7 @@ popup/item_1/text = "FSR 1"
 popup/item_1/id = 1
 popup/item_2/text = "FSR 2"
 popup/item_2/id = 2
+script = ExtResource("5_mx7co")
 
 [node name="Print" type="RichTextLabel" parent="SettingsMenu/Upscaling"]
 layout_mode = 1
@@ -435,17 +551,44 @@ theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "UPSCALING"
 scroll_active = false
 
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/Upscaling"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "UPSCALING:
+
+USE WITH RENDER RESOLUTION SLIDER TO INCREASE PERFORMANCE. LOWER RENDER RESOLUTIONS YIELD HIGHER PERFORMANCE
+
+STANDARD - NORMAL BILINEAR UPSCALING, LOW GPU COST
+
+FSR 1 - FAST WITH MODERATE QUALITY, RECOMMENDED FOR LOW END DEVICES
+
+FSR 2 - GOOD IMAGE QUALITY AT LOW INTERNAL RESOLUTIONS, HIGH GPU COST"
+scroll_active = false
+
 [node name="RenderResolution" type="HSlider" parent="SettingsMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.449917
-anchor_top = 0.452148
+anchor_top = 0.461407
 anchor_right = 0.549875
-anchor_bottom = 0.492148
+anchor_bottom = 0.501407
 offset_left = -15.8401
-offset_top = -205.32
-offset_right = -15.7601
-offset_bottom = -205.52
+offset_top = -249.32
+offset_right = -15.76
+offset_bottom = -249.52
 theme = SubResource("Theme_ake0p")
 min_value = 0.25
 max_value = 2.0
@@ -499,9 +642,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -384.0
-offset_top = -265.0
+offset_top = -299.0
 offset_right = -172.0
-offset_bottom = -207.0
+offset_bottom = -241.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bpn5f")
@@ -520,6 +663,7 @@ popup/item_3/text = "LOW"
 popup/item_3/id = 3
 popup/item_4/text = "VERY LOW"
 popup/item_4/id = 4
+script = ExtResource("5_mx7co")
 
 [node name="Print" type="RichTextLabel" parent="SettingsMenu/GraphicsPreset"]
 layout_mode = 1
@@ -540,287 +684,8 @@ text = "GRAPHICS
 PRESET"
 scroll_active = false
 
-[node name="LightingQuality" type="OptionButton" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -384.0
-offset_top = -65.0004
-offset_right = -172.0
-offset_bottom = -7.00043
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_bpn5f")
-theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
-alignment = 1
-expand_icon = true
-selected = 0
-fit_to_longest_item = false
-item_count = 5
-popup/item_0/text = "ULTRA"
-popup/item_1/text = "HIGH"
-popup/item_1/id = 1
-popup/item_2/text = "MEDIUM"
-popup/item_2/id = 2
-popup/item_3/text = "LOW"
-popup/item_3/id = 3
-popup/item_4/text = "VERY LOW"
-popup/item_4/id = 4
-
-[node name="Print" type="RichTextLabel" parent="SettingsMenu/LightingQuality"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00301951
-anchor_top = -0.828965
-anchor_right = 0.955094
-anchor_bottom = 0.151035
-offset_left = -0.640137
-offset_top = -47.92
-offset_right = -0.47998
-offset_bottom = -7.76001
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_j8m4h")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
-text = "LIGHTING QUALITY"
-scroll_active = false
-
-[node name="AntiAliasing" type="OptionButton" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -112.0
-offset_top = -65.0004
-offset_right = 100.0
-offset_bottom = -7.00043
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_bpn5f")
-theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
-alignment = 1
-expand_icon = true
-selected = 0
-fit_to_longest_item = false
-item_count = 5
-popup/item_0/text = "TAA"
-popup/item_1/text = "MSAA 4x"
-popup/item_1/id = 1
-popup/item_2/text = "MSAA 2x"
-popup/item_2/id = 2
-popup/item_3/text = "FXAA"
-popup/item_3/id = 3
-popup/item_4/text = "OFF"
-popup/item_4/id = 4
-
-[node name="Print" type="RichTextLabel" parent="SettingsMenu/AntiAliasing"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00301951
-anchor_top = -0.828965
-anchor_right = 0.955094
-anchor_bottom = 0.151035
-offset_left = -0.640137
-offset_top = -47.92
-offset_right = -0.47998
-offset_bottom = -7.76001
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_j8m4h")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
-text = "ANTI ALIASING"
-scroll_active = false
-
-[node name="ShadowQuality" type="OptionButton" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 152.0
-offset_top = -65.0004
-offset_right = 364.0
-offset_bottom = -7.00043
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_bpn5f")
-theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
-alignment = 1
-expand_icon = true
-selected = 0
-fit_to_longest_item = false
-item_count = 5
-popup/item_0/text = "ULTRA"
-popup/item_1/text = "HIGH"
-popup/item_1/id = 1
-popup/item_2/text = "MEDIUM"
-popup/item_2/id = 2
-popup/item_3/text = "LOW"
-popup/item_3/id = 3
-popup/item_4/text = "VERY LOW"
-popup/item_4/id = 4
-
-[node name="Print" type="RichTextLabel" parent="SettingsMenu/ShadowQuality"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00301951
-anchor_top = -0.828965
-anchor_right = 0.955094
-anchor_bottom = 0.151035
-offset_left = -0.640137
-offset_top = -47.92
-offset_right = -0.47998
-offset_bottom = -7.76001
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_j8m4h")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
-text = "SHADOW QUALITY"
-scroll_active = false
-
-[node name="AmbientOcclusion" type="OptionButton" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -384.0
-offset_top = 111.0
-offset_right = -172.0
-offset_bottom = 169.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_bpn5f")
-theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
-alignment = 1
-expand_icon = true
-selected = 0
-fit_to_longest_item = false
-item_count = 4
-popup/item_0/text = "HIGH"
-popup/item_1/text = "MEDIUM"
-popup/item_1/id = 1
-popup/item_2/text = "LOW"
-popup/item_2/id = 2
-popup/item_3/text = "VERY LOW"
-popup/item_3/id = 3
-
-[node name="Print" type="RichTextLabel" parent="SettingsMenu/AmbientOcclusion"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00301951
-anchor_top = -0.828965
-anchor_right = 0.955094
-anchor_bottom = 0.151035
-offset_left = -0.640137
-offset_top = -47.92
-offset_right = -0.47998
-offset_bottom = -7.76001
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_j8m4h")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
-text = "AMBIENT OCCLUSION"
-scroll_active = false
-
-[node name="VolumetricLighting" type="OptionButton" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -112.0
-offset_top = 112.0
-offset_right = 100.0
-offset_bottom = 170.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_bpn5f")
-theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
-alignment = 1
-expand_icon = true
-selected = 0
-fit_to_longest_item = false
-item_count = 4
-popup/item_0/text = "ULTRA"
-popup/item_1/text = "HIGH"
-popup/item_1/id = 1
-popup/item_2/text = "MEDIUM"
-popup/item_2/id = 2
-popup/item_3/text = "LOW"
-popup/item_3/id = 3
-
-[node name="Print" type="RichTextLabel" parent="SettingsMenu/VolumetricLighting"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00301951
-anchor_top = -0.828965
-anchor_right = 0.955094
-anchor_bottom = 0.151035
-offset_left = -0.640137
-offset_top = -47.92
-offset_right = -0.47998
-offset_bottom = -7.76001
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_j8m4h")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
-text = "VOLUMETRIC LIGHTING"
-scroll_active = false
-
-[node name="Vsync" type="OptionButton" parent="SettingsMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -384.0
-offset_top = -483.0
-offset_right = -172.0
-offset_bottom = -425.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_bpn5f")
-theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
-alignment = 1
-expand_icon = true
-selected = 0
-fit_to_longest_item = false
-item_count = 3
-popup/item_0/text = "ENABLED"
-popup/item_1/text = "ADAPTIVE"
-popup/item_1/id = 1
-popup/item_2/text = "OFF"
-popup/item_2/id = 2
-
-[node name="Print" type="RichTextLabel" parent="SettingsMenu/Vsync"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00301951
-anchor_top = -0.828965
-anchor_right = 0.955094
-anchor_bottom = 0.151035
-offset_left = -0.640136
-offset_top = 0.0799713
-offset_right = -0.479919
-offset_bottom = -7.76003
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_j8m4h")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
-text = "VSYNC"
-scroll_active = false
-
-[node name="Explainer" type="RichTextLabel" parent="SettingsMenu"]
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/GraphicsPreset"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.729
@@ -848,41 +713,373 @@ LOW - VERY CUT BACK LIGHTING FOR LOW END MACHINES (RECOMMENDED FOR LAPTOPS)
 VERY LOW - TURNS OFF MOST GRAPHICAL FEATURES (ONLY FOR VERY LOW END MACHINES)"
 scroll_active = false
 
-[node name="Exit" type="Button" parent="SettingsMenu"]
+[node name="LightingQuality" type="OptionButton" parent="SettingsMenu"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -272.0
-offset_right = 264.0
-offset_bottom = -179.0
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -109.0
+offset_right = -172.0
+offset_bottom = -51.0005
 grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_44hgc")
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-text = "BACK TO TERMINAL"
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "ULTRA"
+popup/item_1/text = "HIGH"
+popup/item_1/id = 1
+popup/item_2/text = "MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "LOW"
+popup/item_3/id = 3
+popup/item_4/text = "VERY LOW"
+popup/item_4/id = 4
+script = ExtResource("5_mx7co")
 
-[node name="FPS" type="RichTextLabel" parent="SettingsMenu"]
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/LightingQuality"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -94.0
-offset_top = -166.0
-offset_right = 98.0
-offset_bottom = -118.0
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = SubResource("Theme_j8m4h")
 theme_override_colors/default_color = Color(0, 1, 0, 1)
-text = "FPS:"
+text = "LIGHTING QUALITY"
 scroll_active = false
-script = ExtResource("5_mm5ul")
+
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/LightingQuality"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "LIGHTING QUALITY:
+
+ULTRA - VOXEL RAY TRACED LIGHTING AT HIGHEST QUALITY
+
+HIGH - VOXEL RAY TRACED LIGHTING WITH LOWER RESOLUTION ON Y-AXIS (75%)
+
+MEDIUM - VOXEL RAY TRACED LIGHTING WITH LOWER RESOLUTION ON Y-AXIS (50%) AND LOWER RANGE (HALF)
+
+LOW - NO VOXEL RAY TRACED LIGHTING, SSAO, SSR AND SSIL PRESERVED
+
+VERY LOW - NO VOXEL RAY TRACED LIGHTING, NO SSAO, SSR OR SSIL"
+scroll_active = false
+
+[node name="AntiAliasing" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -109.0
+offset_right = 100.0
+offset_bottom = -51.0005
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "TAA"
+popup/item_1/text = "MSAA 4x"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA 2x"
+popup/item_2/id = 2
+popup/item_3/text = "FXAA"
+popup/item_3/id = 3
+popup/item_4/text = "OFF"
+popup/item_4/id = 4
+script = ExtResource("5_mx7co")
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/AntiAliasing"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "ANTI ALIASING"
+scroll_active = false
+
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/AntiAliasing"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "ANTI-ALIASING:
+
+TAA - REMOVES JAGGIES USING A TEMPORAL METHOD, WORKS WELL FOR IN SURFACE ALIASING AT THE COST OF SOME SOFTNESS
+
+MSAA - REMOVES EDGE ALIASING EFFECTIVELY AT A HIGH COST, IN SURFACE ALIASING REMAINS UNTREATED
+
+FXAA - FAST POST PROCESS AA, COMBATS ALIASING OF ALL TYPES BUT LEAVES IMAGE BLURRY
+
+OFF - NO ANTI-ALIASING"
+scroll_active = false
+
+[node name="ShadowQuality" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 152.0
+offset_top = -109.0
+offset_right = 364.0
+offset_bottom = -51.0005
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "ULTRA"
+popup/item_1/text = "HIGH"
+popup/item_1/id = 1
+popup/item_2/text = "MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "LOW"
+popup/item_3/id = 3
+popup/item_4/text = "VERY LOW"
+popup/item_4/id = 4
+script = ExtResource("5_mx7co")
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/ShadowQuality"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "SHADOW QUALITY"
+scroll_active = false
+
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/ShadowQuality"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "SHADOW QUALITY:
+
+ULTRA - 4096x SHADOW RESOLUTION, HIGH QUALITY SMOOTHING
+
+HIGH - 4096x SHADOW RESOLUTION, MEDIUM QUALITY SMOOTHING
+
+MEDIUM - 2048x SHADOW RESOLUTION, MEDIUM QUALITY SMOOTHING
+
+LOW - 1024x SHADOW RESOLUTION, LOW QUALITY SMOOTHING
+
+VERY LOW - 512x SHADOW RESOLUTION, LOW QUALITY SMOOTHING"
+scroll_active = false
+
+[node name="AmbientOcclusion" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = 67.0
+offset_right = -172.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "HIGH"
+popup/item_1/text = "MEDIUM"
+popup/item_1/id = 1
+popup/item_2/text = "LOW"
+popup/item_2/id = 2
+popup/item_3/text = "VERY LOW"
+popup/item_3/id = 3
+script = ExtResource("5_mx7co")
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/AmbientOcclusion"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "AMBIENT OCCLUSION"
+scroll_active = false
+
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/AmbientOcclusion"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "AMBIENT OCCLUSION:
+
+ADJUSTS SCREEN SPACE AMBIENT OCCLUSION QUALITY AS WELL AS SCREEN SPACE INDIRECT OCCLUSION, BOTH ARE DISABLED WHEN LIGHTING QUALITY IS SET TO VERY LOW"
+scroll_active = false
+
+[node name="VolumetricLighting" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 68.0
+offset_right = 100.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "ULTRA"
+popup/item_1/text = "HIGH"
+popup/item_1/id = 1
+popup/item_2/text = "MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "LOW"
+popup/item_3/id = 3
+script = ExtResource("5_mx7co")
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/VolumetricLighting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "VOLUMETRIC LIGHTING"
+scroll_active = false
+
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu/VolumetricLighting"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "VOLUMETRIC LIGHTING:
+
+ADJUST VOLUMETRIC LIGHTING RESOLUTION"
+scroll_active = false
 
 [node name="MaxFPS" type="OptionButton" parent="SettingsMenu"]
 layout_mode = 1
@@ -892,9 +1089,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 152.0
-offset_top = 111.0
+offset_top = 67.0
 offset_right = 364.0
-offset_bottom = 169.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_bpn5f")
@@ -930,6 +1127,70 @@ theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "MAX FPS"
 scroll_active = false
 
+[node name="ExplainerPrint" type="RichTextLabel" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -168.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "GRAPHICS PRESET:
+
+ULTRA - HIGH END LIGHTING WITH HIGH SAMPLE COUNTS AND BEST ANTI-ALIASING (WARNING VERY HEAVY)
+
+HIGH - HIGH END LIGHTING AT LOWER QUALITY, LOWER ANTI-ALIASING
+
+MEDIUM - HIGH END LIGHTING AT LOWEST SETTING, OPTIMIZED FOR MOST MACHINES
+
+LOW - VERY CUT BACK LIGHTING FOR LOW END MACHINES (RECOMMENDED FOR LAPTOPS)
+
+VERY LOW - TURNS OFF MOST GRAPHICAL FEATURES (ONLY FOR VERY LOW END MACHINES)"
+scroll_active = false
+
+[node name="Exit" type="Button" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -376.0
+offset_right = 264.0
+offset_bottom = -283.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_44hgc")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "BACK TO TERMINAL"
+
+[node name="FPS" type="RichTextLabel" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -270.0
+offset_right = 98.0
+offset_bottom = -222.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "FPS:"
+scroll_active = false
+script = ExtResource("5_mm5ul")
+
 [node name="ClosePrompt" type="RichTextLabel" parent="."]
 visible = false
 layout_mode = 1
@@ -950,15 +1211,25 @@ scroll_active = false
 [connection signal="done" from="PauseMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]
 [connection signal="done" from="SettingsMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]
 [connection signal="item_selected" from="SettingsMenu/DisplaySelector" to="SettingsMenu/SettingsHandler" method="_on_display_selector_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/DisplaySelector" to="SettingsMenu/DisplaySelector" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/WindowMode" to="SettingsMenu/SettingsHandler" method="_on_window_mode_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/WindowMode" to="SettingsMenu/WindowMode" method="_on_mouse_entered"]
+[connection signal="item_selected" from="SettingsMenu/Vsync" to="SettingsMenu/SettingsHandler" method="_on_vsync_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/Vsync" to="SettingsMenu/Vsync" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/Upscaling" to="SettingsMenu/SettingsHandler" method="_on_upscaling_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/Upscaling" to="SettingsMenu/Upscaling" method="_on_mouse_entered"]
 [connection signal="value_changed" from="SettingsMenu/RenderResolution" to="SettingsMenu/SettingsHandler" method="_on_render_resolution_value_changed"]
 [connection signal="item_selected" from="SettingsMenu/GraphicsPreset" to="SettingsMenu/SettingsHandler" method="_on_graphics_preset_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/GraphicsPreset" to="SettingsMenu/GraphicsPreset" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/LightingQuality" to="SettingsMenu/SettingsHandler" method="_on_lighting_quality_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/LightingQuality" to="SettingsMenu/LightingQuality" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/AntiAliasing" to="SettingsMenu/SettingsHandler" method="_on_anti_aliasing_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/AntiAliasing" to="SettingsMenu/AntiAliasing" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/ShadowQuality" to="SettingsMenu/SettingsHandler" method="_on_shadow_quality_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/ShadowQuality" to="SettingsMenu/ShadowQuality" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/AmbientOcclusion" to="SettingsMenu/SettingsHandler" method="_on_ambient_occlusion_item_selected"]
+[connection signal="mouse_entered" from="SettingsMenu/AmbientOcclusion" to="SettingsMenu/AmbientOcclusion" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/VolumetricLighting" to="SettingsMenu/SettingsHandler" method="_on_volumetric_lighting_item_selected"]
-[connection signal="item_selected" from="SettingsMenu/Vsync" to="SettingsMenu/SettingsHandler" method="_on_vsync_item_selected"]
-[connection signal="pressed" from="SettingsMenu/Exit" to="SettingsMenu/SettingsHandler" method="_on_exit_pressed"]
+[connection signal="mouse_entered" from="SettingsMenu/VolumetricLighting" to="SettingsMenu/VolumetricLighting" method="_on_mouse_entered"]
 [connection signal="item_selected" from="SettingsMenu/MaxFPS" to="SettingsMenu/SettingsHandler" method="_on_max_fps_item_selected"]
+[connection signal="pressed" from="SettingsMenu/Exit" to="SettingsMenu/SettingsHandler" method="_on_exit_pressed"]
