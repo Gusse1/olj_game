@@ -4866,12 +4866,6 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("3_8phuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.512, 62.4383, -187.341)
 
-[node name="NoConnectionText2" parent="Player/UserInterface/InGameUI" index="5"]
-anchor_left = 0.265375
-anchor_top = 0.893963
-anchor_right = 0.383375
-anchor_bottom = 0.94
-
 [node name="VainamoinenTitle" parent="Player/UserInterface/InGameUI" index="8"]
 offset_left = 0.0
 offset_top = -115.0
@@ -6876,6 +6870,7 @@ shape = SubResource("BoxShape3D_rolbf")
 [editable path="Player"]
 [editable path="Player/player"]
 [editable path="Player/CameraPivot/SmoothCamera/ShaderPrecompiler"]
+[editable path="Player/Menu"]
 [editable path="Church_area/Graves/grave2"]
 [editable path="Church_area/Graves/grave3"]
 [editable path="Church_area/Graves/grave4"]

@@ -1,0 +1,817 @@
+[gd_scene load_steps=14 format=3 uid="uid://cghygmxt178q7"]
+
+[ext_resource type="Script" path="res://src/ui/MenuLogic.gd" id="1_mlcvl"]
+[ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="2_hsm5d"]
+[ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="3_371gw"]
+[ext_resource type="Script" path="res://src/ui/SettingsHandler.gd" id="3_rfvrh"]
+
+[sub_resource type="Theme" id="Theme_owhnr"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 0
+
+[sub_resource type="Theme" id="Theme_j8m4h"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 50
+
+[sub_resource type="Theme" id="Theme_m501g"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 125
+
+[sub_resource type="Theme" id="Theme_q60y3"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_d1v8e"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_ake0p"]
+
+[sub_resource type="Theme" id="Theme_bpn5f"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 50
+
+[sub_resource type="Theme" id="Theme_in21x"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 35
+
+[sub_resource type="Theme" id="Theme_44hgc"]
+default_font = ExtResource("2_hsm5d")
+default_font_size = 85
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuLogic" type="Node" parent="PauseMenu"]
+script = ExtResource("1_mlcvl")
+
+[node name="Background" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="VainamoinenTitle" type="RichTextLabel" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -868.0
+offset_right = 897.0
+offset_bottom = 447.0
+grow_horizontal = 2
+theme = SubResource("Theme_owhnr")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "          _____                    _____                    _____                    _____                    _____                    _____                   _______                   _____                    _____                    _____                    _____          
+         /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                 /::\\    \\                 /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\         
+        /::\\____\\                /::\\    \\                /::\\    \\                /::\\____\\                /::\\    \\                /::\\____\\               /::::\\    \\               /::\\    \\                /::\\____\\                /::\\    \\                /::\\____\\        
+       /:::/    /               /::::\\    \\               \\:::\\    \\              /::::|   |               /::::\\    \\              /::::|   |              /::::::\\    \\              \\:::\\    \\              /::::|   |               /::::\\    \\              /::::|   |        
+      /:::/    /               /::::::\\    \\               \\:::\\    \\            /:::::|   |              /::::::\\    \\            /:::::|   |             /::::::::\\    \\              \\:::\\    \\            /:::::|   |              /::::::\\    \\            /:::::|   |        
+     /:::/    /               /:::/\\:::\\    \\               \\:::\\    \\          /::::::|   |             /:::/\\:::\\    \\          /::::::|   |            /:::/~~\\:::\\    \\              \\:::\\    \\          /::::::|   |             /:::/\\:::\\    \\          /::::::|   |        
+    /:::/____/               /:::/__\\:::\\    \\               \\:::\\    \\        /:::/|::|   |            /:::/__\\:::\\    \\        /:::/|::|   |           /:::/    \\:::\\    \\              \\:::\\    \\        /:::/|::|   |            /:::/__\\:::\\    \\        /:::/|::|   |        
+    |::|    |               /::::\\   \\:::\\    \\              /::::\\    \\      /:::/ |::|   |           /::::\\   \\:::\\    \\      /:::/ |::|   |          /:::/    / \\:::\\    \\             /::::\\    \\      /:::/ |::|   |           /::::\\   \\:::\\    \\      /:::/ |::|   |        
+    |::|    |     _____    /::::::\\   \\:::\\    \\    ____    /::::::\\    \\    /:::/  |::|   | _____    /::::::\\   \\:::\\    \\    /:::/  |::|___|______   /:::/____/   \\:::\\____\\   ____    /::::::\\    \\    /:::/  |::|   | _____    /::::::\\   \\:::\\    \\    /:::/  |::|   | _____  
+    |::|    |    /\\    \\  /:::/\\:::\\   \\:::\\    \\  /\\   \\  /:::/\\:::\\    \\  /:::/   |::|   |/\\    \\  /:::/\\:::\\   \\:::\\    \\  /:::/   |::::::::\\    \\ |:::|    |     |:::|    | /\\   \\  /:::/\\:::\\    \\  /:::/   |::|   |/\\    \\  /:::/\\:::\\   \\:::\\    \\  /:::/   |::|   |/\\    \\ 
+    |::|    |   /::\\____\\/:::/  \\:::\\   \\:::\\____\\/::\\   \\/:::/  \\:::\\____\\/:: /    |::|   /::\\____\\/:::/  \\:::\\   \\:::\\____\\/:::/    |:::::::::\\____\\|:::|____|     |:::|    |/::\\   \\/:::/  \\:::\\____\\/:: /    |::|   /::\\____\\/:::/__\\:::\\   \\:::\\____\\/:: /    |::|   /::\\____\\
+    |::|    |  /:::/    /\\::/    \\:::\\  /:::/    /\\:::\\  /:::/    \\::/    /\\::/    /|::|  /:::/    /\\::/    \\:::\\  /:::/    /\\::/    / ~~~~~/:::/    / \\:::\\    \\   /:::/    / \\:::\\  /:::/    \\::/    /\\::/    /|::|  /:::/    /\\:::\\   \\:::\\   \\::/    /\\::/    /|::|  /:::/    /
+    |::|    | /:::/    /  \\/____/ \\:::\\/:::/    /  \\:::\\/:::/    / \\/____/  \\/____/ |::| /:::/    /  \\/____/ \\:::\\/:::/    /  \\/____/      /:::/    /   \\:::\\    \\ /:::/    /   \\:::\\/:::/    / \\/____/  \\/____/ |::| /:::/    /  \\:::\\   \\:::\\   \\/____/  \\/____/ |::| /:::/    / 
+    |::|____|/:::/    /            \\::::::/    /    \\::::::/    /                   |::|/:::/    /            \\::::::/    /               /:::/    /     \\:::\\    /:::/    /     \\::::::/    /                   |::|/:::/    /    \\:::\\   \\:::\\    \\              |::|/:::/    /  
+    |:::::::::::/    /              \\::::/    /      \\::::/____/                    |::::::/    /              \\::::/    /               /:::/    /       \\:::\\__/:::/    /       \\::::/____/                    |::::::/    /      \\:::\\   \\:::\\____\\             |::::::/    /   
+    \\::::::::::/____/               /:::/    /        \\:::\\    \\                    |:::::/    /               /:::/    /               /:::/    /         \\::::::::/    /         \\:::\\    \\                    |:::::/    /        \\:::\\   \\::/    /             |:::::/    /    
+     ~~~~~~~~~~                    /:::/    /          \\:::\\    \\                   |::::/    /               /:::/    /               /:::/    /           \\::::::/    /           \\:::\\    \\                   |::::/    /          \\:::\\   \\/____/              |::::/    /     
+                                  /:::/    /            \\:::\\    \\                  /:::/    /               /:::/    /               /:::/    /             \\::::/    /             \\:::\\    \\                  /:::/    /            \\:::\\    \\                  /:::/    /      
+                                 /:::/    /              \\:::\\____\\                /:::/    /               /:::/    /               /:::/    /               \\::/____/               \\:::\\____\\                /:::/    /              \\:::\\____\\                /:::/    /       
+                                 \\::/    /                \\::/    /                \\::/    /                \\::/    /                \\::/    /                 ~~                      \\::/    /                \\::/    /                \\::/    /                \\::/    /        
+                                  \\/____/                  \\/____/                  \\/____/                  \\/____/                  \\/____/                                           \\/____/                  \\/____/                  \\/____/                  \\/____/         
+                                                                                                                                                                                                                                                                                   
+
+"
+autowrap_mode = 0
+script = ExtResource("3_371gw")
+
+[node name="Print" type="RichTextLabel" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -173.715
+offset_right = 885.0
+offset_bottom = 394.285
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "Welcome to the MAIN TERMINAL interface for the VÄINÄMÖINEN general purpose assistant. You are currently using VERSION: 40.51
+
+You have the following commands available:
+-------------------------------------------
+\"help\" - show this list of commands
+\"continue\" - continue form the previous memory slot
+\"start\" - start over from a new memory slot (\"WARNING\": OVERWRITES CURRENT PROGRESS)
+\"settings\" - open up the GUI based settings menu to adjust audio and settings
+\"exit\" - exit the interface and shutdown the machine\""
+scroll_active = false
+
+[node name="Input" type="TextEdit" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_m501g")
+theme_override_fonts/font = ExtResource("2_hsm5d")
+caret_blink = true
+
+[node name="Prints" type="Node" parent="PauseMenu"]
+
+[node name="Help" type="RichTextLabel" parent="PauseMenu/Prints"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -138.0
+offset_right = 885.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "Welcome to the MAIN TERMINAL interface for the VÄINÄMÖINEN general purpose assistant. You are currently using VERSION: 40.51
+
+You have the following commands available:
+-------------------------------------------
+\"help\" - show this list of commands
+\"continue\" - continue form the previous memory slot
+\"start\" - start over from a new memory slot (\"WARNING\": OVERWRITES CURRENT PROGRESS)
+\"settings\" - open up the GUI based settings menu to adjust audio and settings
+\"exit\" - exit the interface and shutdown the machine\""
+
+[node name="UnknownCommand" type="RichTextLabel" parent="PauseMenu/Prints"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -882.0
+offset_top = -165.0
+offset_right = 883.0
+offset_bottom = 495.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_d1v8e")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "UNKNOWN COMMAND
+
+Type \"help\" to see available commands"
+
+[node name="SettingsMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsHandler" type="Node" parent="SettingsMenu"]
+script = ExtResource("3_rfvrh")
+
+[node name="Background" type="ColorRect" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+metadata/_edit_use_anchors_ = true
+
+[node name="VainamoinenTitle" type="RichTextLabel" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -616.0
+offset_top = 9.0
+offset_right = 626.0
+offset_bottom = 413.0
+grow_horizontal = 2
+scale = Vector2(0.38, 0.38)
+theme = SubResource("Theme_owhnr")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "          _____                    _____                _____                _____                    _____                    _____                    _____                    _____          
+         /\\    \\                  /\\    \\              /\\    \\              /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\                  /\\    \\         
+        /::\\    \\                /::\\    \\            /::\\    \\            /::\\    \\                /::\\    \\                /::\\____\\                /::\\    \\                /::\\    \\        
+       /::::\\    \\              /::::\\    \\           \\:::\\    \\           \\:::\\    \\               \\:::\\    \\              /::::|   |               /::::\\    \\              /::::\\    \\       
+      /::::::\\    \\            /::::::\\    \\           \\:::\\    \\           \\:::\\    \\               \\:::\\    \\            /:::::|   |              /::::::\\    \\            /::::::\\    \\      
+     /:::/\\:::\\    \\          /:::/\\:::\\    \\           \\:::\\    \\           \\:::\\    \\               \\:::\\    \\          /::::::|   |             /:::/\\:::\\    \\          /:::/\\:::\\    \\     
+    /:::/__\\:::\\    \\        /:::/__\\:::\\    \\           \\:::\\    \\           \\:::\\    \\               \\:::\\    \\        /:::/|::|   |            /:::/  \\:::\\    \\        /:::/__\\:::\\    \\    
+    \\:::\\   \\:::\\    \\      /::::\\   \\:::\\    \\          /::::\\    \\          /::::\\    \\              /::::\\    \\      /:::/ |::|   |           /:::/    \\:::\\    \\       \\:::\\   \\:::\\    \\   
+  ___\\:::\\   \\:::\\    \\    /::::::\\   \\:::\\    \\        /::::::\\    \\        /::::::\\    \\    ____    /::::::\\    \\    /:::/  |::|   | _____    /:::/    / \\:::\\    \\    ___\\:::\\   \\:::\\    \\  
+ /\\   \\:::\\   \\:::\\    \\  /:::/\\:::\\   \\:::\\    \\      /:::/\\:::\\    \\      /:::/\\:::\\    \\  /\\   \\  /:::/\\:::\\    \\  /:::/   |::|   |/\\    \\  /:::/    /   \\:::\\ ___\\  /\\   \\:::\\   \\:::\\    \\ 
+/::\\   \\:::\\   \\:::\\____\\/:::/__\\:::\\   \\:::\\____\\    /:::/  \\:::\\____\\    /:::/  \\:::\\____\\/::\\   \\/:::/  \\:::\\____\\/:: /    |::|   /::\\____\\/:::/____/  ___\\:::|    |/::\\   \\:::\\   \\:::\\____\\
+\\:::\\   \\:::\\   \\::/    /\\:::\\   \\:::\\   \\::/    /   /:::/    \\::/    /   /:::/    \\::/    /\\:::\\  /:::/    \\::/    /\\::/    /|::|  /:::/    /\\:::\\    \\ /\\  /:::|____|\\:::\\   \\:::\\   \\::/    /
+ \\:::\\   \\:::\\   \\/____/  \\:::\\   \\:::\\   \\/____/   /:::/    / \\/____/   /:::/    / \\/____/  \\:::\\/:::/    / \\/____/  \\/____/ |::| /:::/    /  \\:::\\    /::\\ \\::/    /  \\:::\\   \\:::\\   \\/____/ 
+  \\:::\\   \\:::\\    \\       \\:::\\   \\:::\\    \\      /:::/    /           /:::/    /            \\::::::/    /                   |::|/:::/    /    \\:::\\   \\:::\\ \\/____/    \\:::\\   \\:::\\    \\     
+   \\:::\\   \\:::\\____\\       \\:::\\   \\:::\\____\\    /:::/    /           /:::/    /              \\::::/____/                    |::::::/    /      \\:::\\   \\:::\\____\\       \\:::\\   \\:::\\____\\    
+    \\:::\\  /:::/    /        \\:::\\   \\::/    /    \\::/    /            \\::/    /                \\:::\\    \\                    |:::::/    /        \\:::\\  /:::/    /        \\:::\\  /:::/    /    
+     \\:::\\/:::/    /          \\:::\\   \\/____/      \\/____/              \\/____/                  \\:::\\    \\                   |::::/    /          \\:::\\/:::/    /          \\:::\\/:::/    /     
+      \\::::::/    /            \\:::\\    \\                                                         \\:::\\    \\                  /:::/    /            \\::::::/    /            \\::::::/    /      
+       \\::::/    /              \\:::\\____\\                                                         \\:::\\____\\                /:::/    /              \\::::/    /              \\::::/    /       
+        \\::/    /                \\::/    /                                                          \\::/    /                \\::/    /                \\::/____/                \\::/    /        
+         \\/____/                  \\/____/                                                            \\/____/                  \\/____/                                           \\/____/         
+                                                                                                                                                                                                
+
+"
+autowrap_mode = 0
+script = ExtResource("3_371gw")
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.822729
+anchor_top = 0.241593
+anchor_right = 0.878896
+anchor_bottom = 0.289593
+offset_left = -16.6401
+offset_top = -260.92
+offset_right = -16.48
+offset_bottom = -260.76
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "AUDIO"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider" type="HSlider" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.752
+anchor_top = 0.304
+anchor_right = 0.953
+anchor_bottom = 0.344
+offset_left = -15.8401
+offset_top = -261.32
+offset_right = -15.7601
+offset_bottom = -261.52
+theme = SubResource("Theme_ake0p")
+value = 50.0
+tick_count = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="DisplaySelector" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -484.0
+offset_right = 84.0
+offset_bottom = -426.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 2
+popup/item_0/text = "SCREEN 1"
+popup/item_1/text = "SCREEN 2"
+popup/item_1/id = 1
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/DisplaySelector"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = 0.0799866
+offset_right = -0.47998
+offset_bottom = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "DISPLAY"
+scroll_active = false
+
+[node name="WindowMode" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 136.0
+offset_top = -483.0
+offset_right = 348.0
+offset_bottom = -425.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 2
+popup/item_0/text = "WINDOWED"
+popup/item_1/text = "FULLSCREEN"
+popup/item_1/id = 4
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/WindowMode"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = 0.0799866
+offset_right = -0.47998
+offset_bottom = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "MODE"
+scroll_active = false
+
+[node name="Upscaling" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 152.0
+offset_top = -265.0
+offset_right = 364.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "STANDARD"
+popup/item_1/text = "FSR 1"
+popup/item_1/id = 1
+popup/item_2/text = "FSR 2"
+popup/item_2/id = 2
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/Upscaling"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -7.92001
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "UPSCALING"
+scroll_active = false
+
+[node name="RenderResolution" type="HSlider" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.449917
+anchor_top = 0.452148
+anchor_right = 0.549875
+anchor_bottom = 0.492148
+offset_left = -15.8401
+offset_top = -205.32
+offset_right = -15.7601
+offset_bottom = -205.52
+theme = SubResource("Theme_ake0p")
+min_value = 0.25
+max_value = 2.0
+step = 0.01
+value = 1.0
+tick_count = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="ResText" type="RichTextLabel" parent="SettingsMenu/RenderResolution"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.253334
+anchor_top = 0.858605
+anchor_right = 0.710833
+anchor_bottom = 1.97116
+offset_left = -0.640137
+offset_top = 0.0799866
+offset_right = -0.47998
+offset_bottom = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "100%"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Print3" type="RichTextLabel" parent="SettingsMenu/RenderResolution"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -2.419
+anchor_right = 1.042
+anchor_bottom = -0.186
+offset_left = -8.0
+offset_top = -2.98299
+offset_right = -0.0640106
+offset_bottom = -0.00199986
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "RENDER RESOLUTION"
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="GraphicsPreset" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -265.0
+offset_right = -172.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "ULTRA"
+popup/item_1/text = "HIGH"
+popup/item_1/id = 1
+popup/item_2/text = "MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "LOW"
+popup/item_3/id = 3
+popup/item_4/text = "VERY LOW"
+popup/item_4/id = 4
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/GraphicsPreset"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "GRAPHICS
+PRESET"
+scroll_active = false
+
+[node name="LightingQuality" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -65.0004
+offset_right = -172.0
+offset_bottom = -7.00043
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "ULTRA"
+popup/item_1/text = "HIGH"
+popup/item_1/id = 1
+popup/item_2/text = "MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "LOW"
+popup/item_3/id = 3
+popup/item_4/text = "VERY LOW"
+popup/item_4/id = 4
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/LightingQuality"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "LIGHTING QUALITY"
+scroll_active = false
+
+[node name="AntiAliasing" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -65.0004
+offset_right = 100.0
+offset_bottom = -7.00043
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "TAA"
+popup/item_1/text = "MSAA 4x"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA 2x"
+popup/item_2/id = 2
+popup/item_3/text = "FXAA"
+popup/item_3/id = 3
+popup/item_4/text = "OFF"
+popup/item_4/id = 4
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/AntiAliasing"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "ANTI ALIASING"
+scroll_active = false
+
+[node name="ShadowQuality" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 152.0
+offset_top = -65.0004
+offset_right = 364.0
+offset_bottom = -7.00043
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "ULTRA"
+popup/item_1/text = "HIGH"
+popup/item_1/id = 1
+popup/item_2/text = "MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "LOW"
+popup/item_3/id = 3
+popup/item_4/text = "VERY LOW"
+popup/item_4/id = 4
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/ShadowQuality"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "SHADOW QUALITY"
+scroll_active = false
+
+[node name="AmbientOcclusion" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = 111.0
+offset_right = -172.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "HIGH"
+popup/item_1/text = "MEDIUM"
+popup/item_1/id = 1
+popup/item_2/text = "LOW"
+popup/item_2/id = 2
+popup/item_3/text = "VERY LOW"
+popup/item_3/id = 3
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/AmbientOcclusion"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "AMBIENT OCCLUSION"
+scroll_active = false
+
+[node name="VolumetricLighting" type="OptionButton" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 112.0
+offset_right = 100.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bpn5f")
+theme_override_colors/font_color = Color(0, 0.912759, 7.70092e-07, 1)
+alignment = 1
+expand_icon = true
+selected = 0
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "ULTRA"
+popup/item_1/text = "HIGH"
+popup/item_1/id = 1
+popup/item_2/text = "MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "LOW"
+popup/item_3/id = 3
+
+[node name="Print" type="RichTextLabel" parent="SettingsMenu/VolumetricLighting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00301951
+anchor_top = -0.828965
+anchor_right = 0.955094
+anchor_bottom = 0.151035
+offset_left = -0.640137
+offset_top = -47.92
+offset_right = -0.47998
+offset_bottom = -7.76001
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "VOLUMETRIC LIGHTING"
+scroll_active = false
+
+[node name="Explainer" type="RichTextLabel" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.68005
+offset_top = -268.96
+offset_right = -16.0001
+offset_bottom = -208.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_in21x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "GRAPHICS PRESET:
+
+ULTRA - HIGH END LIGHTING WITH HIGH SAMPLE COUNTS (WARNING VERY HEAVY)
+
+HIGH - HIGH END LIGHTING WITH LOWER SAMPLE COUNTS, SMALL CUTS TO CERTAIN SETTINGS
+
+MEDIUM - MID END LIGHTING WITH LOW SAMPLE COUNTS AND CUTS TO EFFECTS
+
+LOW - VERY CUT BACK LIGHTING FOR LOW END MACHINES, LOWEST END EFFECTS
+
+VERY LOW - TURNS OFF MOST GRAPHICAL FEATURES (ONLY FOR VERY LOW END MACHINES)"
+scroll_active = false
+
+[node name="Exit" type="Button" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -354.0
+offset_right = 112.0
+offset_bottom = -261.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_44hgc")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "EXIT"
+
+[connection signal="done" from="PauseMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]
+[connection signal="done" from="SettingsMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]
+[connection signal="item_selected" from="SettingsMenu/DisplaySelector" to="SettingsMenu/SettingsHandler" method="_on_display_selector_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/WindowMode" to="SettingsMenu/SettingsHandler" method="_on_window_mode_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/Upscaling" to="SettingsMenu/SettingsHandler" method="_on_upscaling_item_selected"]
+[connection signal="value_changed" from="SettingsMenu/RenderResolution" to="SettingsMenu/SettingsHandler" method="_on_render_resolution_value_changed"]
+[connection signal="item_selected" from="SettingsMenu/GraphicsPreset" to="SettingsMenu/SettingsHandler" method="_on_graphics_preset_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/LightingQuality" to="SettingsMenu/SettingsHandler" method="_on_lighting_quality_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/AntiAliasing" to="SettingsMenu/SettingsHandler" method="_on_anti_aliasing_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/ShadowQuality" to="SettingsMenu/SettingsHandler" method="_on_shadow_quality_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/AmbientOcclusion" to="SettingsMenu/SettingsHandler" method="_on_ambient_occlusion_item_selected"]
+[connection signal="item_selected" from="SettingsMenu/VolumetricLighting" to="SettingsMenu/SettingsHandler" method="_on_volumetric_lighting_item_selected"]
+[connection signal="pressed" from="SettingsMenu/Exit" to="SettingsMenu/SettingsHandler" method="_on_exit_pressed"]

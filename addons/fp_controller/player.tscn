@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=54 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://src/ui/StrideFeedback.gd" id="27_axnf1"]
 [ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="28_vcbs6"]
 [ext_resource type="Script" path="res://src/ui/Intro.gd" id="29_dr3mp"]
+[ext_resource type="PackedScene" uid="uid://cghygmxt178q7" path="res://scenes/menu.tscn" id="30_gipmc"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -3728,15 +3729,13 @@ metadata/_edit_use_anchors_ = true
 [node name="DirectiveTitle" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5305
-anchor_top = 0.901
-anchor_right = 0.8035
-anchor_bottom = 0.999074
-offset_left = 0.439972
-offset_top = -0.0802612
-offset_right = -0.720032
-offset_bottom = -6.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 618.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_bup6e")
@@ -3750,7 +3749,6 @@ shortcut_keys_enabled = false
 text_direction = 2
 script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="DirectiveText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 visible = false
@@ -3770,13 +3768,13 @@ shortcut_keys_enabled = false
 [node name="NoConnectionText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.849
-anchor_top = 0.943
-anchor_right = 0.993229
-anchor_bottom = 0.988889
-offset_left = 0.919922
-offset_top = -0.440002
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -309.0
+offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource("Theme_bup6e")
@@ -3790,20 +3788,19 @@ shortcut_keys_enabled = false
 text_direction = 2
 script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="LowBatteryText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.869
-anchor_top = 0.898
-anchor_right = 0.988
-anchor_bottom = 0.944
-offset_left = 0.52002
-offset_top = 0.159912
-offset_right = 0.039917
-offset_bottom = 0.479919
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -108.0
+offset_right = -4.0
+offset_bottom = -58.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource("Theme_bup6e")
@@ -3817,21 +3814,15 @@ shortcut_keys_enabled = false
 text_direction = 2
 script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="NoConnectionText2" type="RichTextLabel" parent="UserInterface/InGameUI"]
+[node name="VersionText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.250792
-anchor_top = 0.903222
-anchor_right = 0.368792
-anchor_bottom = 0.949259
-offset_left = -0.52
-offset_top = -0.480042
-offset_right = 0.919983
-offset_bottom = -0.200073
-grow_horizontal = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 849.0
 grow_vertical = 0
 theme = SubResource("Theme_bup6e")
 theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
@@ -3839,12 +3830,11 @@ bbcode_enabled = true
 text = "Ver: 40.51"
 fit_content = true
 scroll_active = false
-autowrap_mode = 2
+autowrap_mode = 0
 shortcut_keys_enabled = false
 text_direction = 2
 script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Objects" type="RichTextLabel" parent="UserInterface/InGameUI"]
 visible = false
@@ -3899,10 +3889,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -108.0
-offset_right = 1775.91
-offset_bottom = 299.0
+offset_left = -1.0
+offset_top = -109.0
+offset_right = 1771.91
+offset_bottom = 298.0
 grow_vertical = 0
 scale = Vector2(0.27, 0.27)
 theme = SubResource("Theme_sm8ll")
@@ -3961,15 +3951,15 @@ script = ExtResource("27_axnf1")
 metadata/_edit_use_anchors_ = true
 
 [node name="Intro" type="ColorRect" parent="UserInterface"]
+visible = false
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.896296
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("29_dr3mp")
-metadata/_edit_use_anchors_ = true
 
 [node name="NoConnectionText2" type="RichTextLabel" parent="UserInterface/Intro"]
 clip_contents = false
@@ -3998,6 +3988,12 @@ script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Menu" parent="." instance=ExtResource("30_gipmc")]
+visible = false
+
+[node name="MenuLogic" parent="Menu/PauseMenu" index="0"]
+pause_mode = true
+
 [connection signal="allShadersCompiled" from="CameraPivot/SmoothCamera/ShaderPrecompiler" to="UserInterface/Intro" method="_on_shader_precompiler_all_shaders_compiled"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="CameraPivot/DetectorCylinder/PlayerArea/DetectorShape" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="InteractionManager" method="_on_area_3d_area_entered"]
@@ -4010,3 +4006,4 @@ metadata/_edit_use_anchors_ = true
 
 [editable path="player"]
 [editable path="CameraPivot/SmoothCamera/ShaderPrecompiler"]
+[editable path="Menu"]
