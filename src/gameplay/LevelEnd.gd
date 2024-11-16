@@ -1,6 +1,5 @@
-extends ColorRect
+extends Area3D
 
-var fade_out: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,12 +8,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if fade_out:
-		color.a -= delta * 0.5
-		if color.a <= 0:
-			visible = false
+	pass
 
 
-func _on_shader_precompiler_all_shaders_compiled() -> void:
-	await get_tree().create_timer(4.0).timeout
-	fade_out = true
+
+func _on_area_entered(area:Area3D) -> void:
+	if area.name == "PlayerArea":
+		get_tree().change_scene_to_file("res://scenes/terminal.tscn")

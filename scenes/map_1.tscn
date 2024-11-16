@@ -1,4 +1,4 @@
-[gd_scene load_steps=406 format=4 uid="uid://4hdhmdl5jj42"]
+[gd_scene load_steps=407 format=4 uid="uid://4hdhmdl5jj42"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_f1lbb"]
 [ext_resource type="ArrayOccluder3D" uid="uid://bv10g834yw4wa" path="res://occluders/map_1.occ" id="2_fudlv"]
@@ -71,6 +71,7 @@
 [ext_resource type="Texture2D" uid="uid://dvi2cv2ib57uk" path="res://assets/models/Models pack psx/Models/Cardboard_02.jpg" id="61_iccvi"]
 [ext_resource type="Texture2D" uid="uid://dggu33ua7pnju" path="res://assets/models/Models pack psx/Models/Boxs_12.jpg" id="62_5m5tu"]
 [ext_resource type="Texture2D" uid="uid://ct2jm48abmbr8" path="res://assets/images/ads/piglin_brute.png" id="64_5dh7l"]
+[ext_resource type="Script" path="res://src/gameplay/LevelEnd.gd" id="72_a6e1x"]
 
 [sub_resource type="Gradient" id="Gradient_v5d48"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -4864,7 +4865,7 @@ light_volumetric_fog_energy = 75.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_8phuo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.512, 62.4383, -187.341)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1431.49, 313.146, -934.808)
 
 [node name="Skeleton3D" parent="Player/player/Armature" index="0"]
 bones/0/rotation = Quaternion(-0.0840071, -7.68465e-09, -0.0170036, 0.99632)
@@ -6890,10 +6891,13 @@ light_specular = 0.0
 
 [node name="LevelEnd" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1336.42, 10.3402, -1564.93)
+script = ExtResource("72_a6e1x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelEnd"]
 transform = Transform3D(0.971504, 0, 0.237025, 0, 1, 0, -0.237025, 0, 0.971504, -6.47365, 12.0373, -15.8055)
 shape = SubResource("BoxShape3D_rolbf")
+
+[connection signal="area_entered" from="LevelEnd" to="LevelEnd" method="_on_area_entered"]
 
 [editable path="Player"]
 [editable path="Player/player"]

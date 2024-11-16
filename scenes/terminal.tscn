@@ -101,7 +101,8 @@ You have the following commands available:
 -------------------------------------------
 \"help\" - show this list of commands
 \"list\" - list available files
-\"open <filename>\" - read a file (NEW: supports images and audio)"
+\"open <filename>\" - read a file (NEW: supports images and audio)
+\"exit\" - exit the interface and shutdown the machine"
 scroll_active = false
 
 [node name="ImageViewer" type="ColorRect" parent="."]
@@ -204,7 +205,8 @@ text = "You have the following commands available:
 -------------------------------------------
 \"help\" - show this list of commands
 \"list\" - list available files
-\"open <filename>\" - read a file (NEW: supports images and audio)"
+\"open <filename>\" - read a file (NEW: supports images and audio)
+\"exit\" - exit the interface and shutdown the machine"
 
 [node name="FileList" type="RichTextLabel" parent="Prints"]
 visible = false
