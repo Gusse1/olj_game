@@ -11,6 +11,8 @@ var is_title_finished: bool = false
 @onready var settings_menu: Control = $"../../SettingsMenu"
 @onready var background: ColorRect = $"../Background"
 
+var player: Player
+
 @export var pause_mode: bool
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +22,7 @@ func _ready() -> void:
 	
 	if pause_mode:
 		background.color.a = 0.66
+		player = get_tree().get_root().get_node("Node3D/Player")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,6 +31,9 @@ func _process(_delta: float) -> void:
 		get_parent().get_parent().visible = true
 		print_help()
 		input.grab_focus()
+		player.can_move = false
+		player.get_node("StateMachine").transition_to(player.get_node("StateMachine").movement_state[player.get_node("StateMachine").IDLE])
+
 	if Input.is_action_just_pressed("enter"):
 		var input_text: String = input.text.strip_edges()
 		input.text = ""
@@ -39,6 +45,7 @@ func _process(_delta: float) -> void:
 		elif input_text == "start" and pause_mode:
 			get_parent().get_parent().visible = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			player.can_move = true
 		elif input_text == "settings":
 			settings_menu.visible = true
 			get_parent().visible = false
