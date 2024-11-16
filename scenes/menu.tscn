@@ -191,6 +191,30 @@ text = "UNKNOWN COMMAND
 
 Type \"help\" to see available commands"
 
+[node name="PauseHelp" type="RichTextLabel" parent="PauseMenu/Prints"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -880.0
+offset_top = -138.0
+offset_right = 885.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_q60y3")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "Welcome to the MAIN TERMINAL interface for the VÄINÄMÖINEN general purpose assistant. You are currently using VERSION: 40.51
+
+You have the following commands available:
+-------------------------------------------
+\"help\" - show this list of commands
+\"continue\" - continue operations
+\"settings\" - open up the GUI based settings menu to adjust audio and settings
+\"exit\" - exit the interface and shutdown the machine\""
+
 [node name="SettingsMenu" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -800,7 +824,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_44hgc")
 theme_override_colors/font_color = Color(0, 1, 0, 1)
-text = "EXIT"
+text = "BACK TO TERMINAL"
 
 [connection signal="done" from="PauseMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]
 [connection signal="done" from="SettingsMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]

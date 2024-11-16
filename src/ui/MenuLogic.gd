@@ -7,6 +7,7 @@ var text_index: int = 0
 var is_title_finished: bool = false
 
 @onready var help_text: RichTextLabel = $"../Prints/Help"
+@onready var pause_help_text: RichTextLabel = $"../Prints/PauseHelp"
 @onready var unknown_text: RichTextLabel = $"../Prints/UnknownCommand"
 @onready var settings_menu: Control = $"../../SettingsMenu"
 @onready var background: ColorRect = $"../Background"
@@ -14,6 +15,8 @@ var is_title_finished: bool = false
 var player: Player
 
 @export var pause_mode: bool
+
+var menu_open: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,13 +30,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause") and pause_mode:
+	if Input.is_action_just_pressed("pause") and pause_mode and not menu_open:
 		get_parent().get_parent().visible = true
 		print_help()
 		input.grab_focus()
 		player.can_move = false
 		player.get_node("StateMachine").transition_to(player.get_node("StateMachine").movement_state[player.get_node("StateMachine").IDLE])
-
+		menu_open = true
+	elif Input.is_action_just_pressed("pause") and pause_mode and menu_open:
+		get_parent().get_parent().visible = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		player.can_move = true
+		menu_open = false
 	if Input.is_action_just_pressed("enter"):
 		var input_text: String = input.text.strip_edges()
 		input.text = ""
@@ -42,10 +50,11 @@ func _process(_delta: float) -> void:
 			print_help()
 		elif input_text == "start" and not pause_mode:
 			get_tree().change_scene_to_file("res://scenes/map_1.tscn")
-		elif input_text == "start" and pause_mode:
+		elif input_text == "continue" and pause_mode:
 			get_parent().get_parent().visible = false
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			player.can_move = true
+			menu_open = false
 		elif input_text == "settings":
 			settings_menu.visible = true
 			get_parent().visible = false
@@ -60,7 +69,10 @@ func _process(_delta: float) -> void:
 		print_text.visible_characters = text_index
 
 func print_help() -> void:
-	print_text.text = help_text.text
+	if not pause_mode:
+		print_text.text = help_text.text
+	else:
+		print_text.text = pause_help_text.text
 	text_index = 0
 
 
