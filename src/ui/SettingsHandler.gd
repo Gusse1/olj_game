@@ -19,7 +19,7 @@ var screen_count: int
 
 @onready var input = $"../../PauseMenu/Input"
 
-@onready var game_environment: WorldEnvironment = get_tree().get_root().get_node("Node3D/OriginalAtmoshpere/WorldEnvironment")
+@onready var game_environment: WorldEnvironment
 
 var quality_preset_value: int
 var window_mode: int
@@ -31,6 +31,21 @@ var volumetric_lighting_value: int
 var vsync_value: int
 var max_fps_value: int
 
+var default_settings_dict: Dictionary = {
+	"display" : DisplayServer.window_get_current_screen(),
+	"render_resolution" : 0.67,
+	"window_mode" : window_mode,
+	"quality_preset" : 2,
+	"upscaling_quality" : 2,
+	"lighting_quality" : 2,
+	"anti_aliasing" : 0,
+	"shadow_quality" : 2,
+	"ambient_occlusion_quality" : 3,
+	"volumetric_lighting_quality" : 0,
+	"vsync" : 0,
+	"max_fps" : 0
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_count = DisplayServer.get_screen_count()
@@ -40,8 +55,10 @@ func _ready() -> void:
 	DisplayServer.window_set_current_screen(DisplayServer.get_primary_screen())
 	display_dropdown.selected = DisplayServer.get_primary_screen()
 
-	print(game_environment)
 	load_settings_from_file()
+	
+	if get_parent().get_parent().get_node("PauseMenu/MenuLogic").pause_mode:
+		game_environment = get_tree().get_root().get_node("Node3D/OriginalAtmoshpere/WorldEnvironment")
 
 func save_settings() -> void:
 	var settings_values: Dictionary = {
@@ -80,7 +97,10 @@ func load_settings_from_file() -> void:
 	# Get the data from the JSON object.
 	var data = json.data
 	print_debug(data)
-
+	for key in default_settings_dict.keys():
+		if key not in data.keys():
+			print_debug("Missing ", key)
+			data[key] = default_settings_dict[key]
 	load_settings(data)
 
 func load_settings(settings: Dictionary) -> void:
@@ -283,6 +303,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 												  "display" : DisplayServer.window_get_current_screen(),
 												  "render_resolution" : 1,
 												  "window_mode" : window_mode,
+												  "quality_preset" : 0,
 												  "upscaling_quality" : 0,
 												  "lighting_quality" : 0,
 												  "anti_aliasing" : 1,
@@ -298,6 +319,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 												 "display" : DisplayServer.window_get_current_screen(),
 												 "render_resolution" : 1,
 												 "window_mode" : window_mode,
+												 "quality_preset" : 1,
 												 "upscaling_quality" : 0,
 												 "lighting_quality" : 1,
 												 "anti_aliasing" : 0,
@@ -313,13 +335,14 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 												   "display" : DisplayServer.window_get_current_screen(),
 												   "render_resolution" : 0.67,
 												   "window_mode" : window_mode,
+												   "quality_preset" : 2,
 												   "upscaling_quality" : 2,
 												   "lighting_quality" : 2,
 												   "anti_aliasing" : 0,
 												   "shadow_quality" : 2,
 												   "ambient_occlusion_quality" : 3,
 												   "volumetric_lighting_quality" : 0,
-												   "vsync" : 2,
+												   "vsync" : 0,
 			                                       "max_fps" : 0
 											   }
 		load_settings(medium_settings_dict)
@@ -328,6 +351,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 												"display" : DisplayServer.window_get_current_screen(),
 												"render_resolution" : 0.67,
 												"window_mode" : window_mode,
+												"quality_preset" : 3,
 												"upscaling_quality" : 1,
 												"lighting_quality" : 3,
 												"anti_aliasing" : 0,
@@ -343,6 +367,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 													 "display" : DisplayServer.window_get_current_screen(),
 													 "render_resolution" : 0.4,
 													 "window_mode" : window_mode,
+													 "quality_preset" : 4,
 													 "upscaling_quality" : 1,
 													 "lighting_quality" : 4,
 													 "anti_aliasing" : 0,
