@@ -11,6 +11,7 @@ var is_title_finished: bool = false
 @onready var unknown_text: RichTextLabel = $"../Prints/UnknownCommand"
 @onready var settings_menu: Control = $"../../SettingsMenu"
 @onready var background: ColorRect = $"../Background"
+@onready var close_prompt: RichTextLabel = $"../../ClosePrompt"
 
 var player: Player
 
@@ -26,6 +27,7 @@ func _ready() -> void:
 	if pause_mode:
 		background.color.a = 0.66
 		player = get_tree().get_root().get_node("Node3D/Player")
+		close_prompt.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

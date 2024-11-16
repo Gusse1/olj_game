@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cghygmxt178q7"]
+[gd_scene load_steps=15 format=3 uid="uid://cghygmxt178q7"]
 
 [ext_resource type="Script" path="res://src/ui/MenuLogic.gd" id="1_mlcvl"]
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="2_hsm5d"]
 [ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="3_371gw"]
 [ext_resource type="Script" path="res://src/ui/SettingsHandler.gd" id="3_rfvrh"]
+[ext_resource type="Script" path="res://src/ui/FPS.gd" id="5_mm5ul"]
 
 [sub_resource type="Theme" id="Theme_owhnr"]
 default_font = ExtResource("2_hsm5d")
@@ -825,6 +826,42 @@ grow_vertical = 0
 theme = SubResource("Theme_44hgc")
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "BACK TO TERMINAL"
+
+[node name="FPS" type="RichTextLabel" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -248.0
+offset_right = 96.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "FPS:"
+scroll_active = false
+script = ExtResource("5_mm5ul")
+
+[node name="ClosePrompt" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -432.0
+offset_top = -104.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_j8m4h")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "PRESS ESC/TAB TO CLOSE"
+scroll_active = false
 
 [connection signal="done" from="PauseMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]
 [connection signal="done" from="SettingsMenu/VainamoinenTitle" to="PauseMenu/MenuLogic" method="_on_vainamoinen_title_done"]
