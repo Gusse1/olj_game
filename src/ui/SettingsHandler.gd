@@ -159,20 +159,21 @@ func _on_lighting_quality_item_selected(index:int) -> void:
 	lighting_quality_value = index
 	if index == 0:
 		if game_environment:
+			RenderingServer.gi_set_use_half_resolution(false)
 			game_environment.environment.sdfgi_y_scale = Environment.SDFGI_Y_SCALE_100_PERCENT
 			game_environment.environment.sdfgi_max_distance = 204.8
 	if index == 1:
 		if game_environment:
+			RenderingServer.gi_set_use_half_resolution(true)
 			game_environment.environment.sdfgi_y_scale = Environment.SDFGI_Y_SCALE_75_PERCENT
 			game_environment.environment.sdfgi_max_distance = 204.8
 	if index == 2:
 		if game_environment:
-			game_environment.environment.sdfgi_y_scale = Environment.SDFGI_Y_SCALE_50_PERCENT
-			game_environment.environment.sdfgi_max_distance = 204.8
-	if index == 3:
-		if game_environment:
+			RenderingServer.gi_set_use_half_resolution(true)
 			game_environment.environment.sdfgi_y_scale = Environment.SDFGI_Y_SCALE_50_PERCENT
 			game_environment.environment.sdfgi_max_distance = 102.4
+	if index == 3:
+		if game_environment:
 			game_environment.environment.ssil_enabled = true
 			game_environment.environment.ssao_enabled = true
 			ambient_occlusion_dropdown.disabled = false
