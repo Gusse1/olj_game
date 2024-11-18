@@ -176,16 +176,17 @@ func _on_lighting_quality_item_selected(index:int) -> void:
 		if game_environment:
 			game_environment.environment.ssil_enabled = true
 			game_environment.environment.ssao_enabled = true
+			game_environment.environment.ssr_enabled = true
 			ambient_occlusion_dropdown.disabled = false
 	if index == 4:
 		if game_environment:
 			game_environment.environment.ssil_enabled = false
 			game_environment.environment.ssao_enabled = false
+			game_environment.environment.ssr_enabled = false
 			ambient_occlusion_dropdown.disabled = true
 	if index >= 3:
 		if game_environment:
 			game_environment.environment.sdfgi_enabled = false
-			game_environment.environment.ssr_enabled = false
 	else:
 		if game_environment:
 			game_environment.environment.sdfgi_enabled = true
@@ -276,9 +277,9 @@ func _on_ambient_occlusion_item_selected(index:int) -> void:
 func _on_volumetric_lighting_item_selected(index:int) -> void:
 	volumetric_lighting_value = index
 	if index == 0:
-		RenderingServer.environment_set_volumetric_fog_volume_size(72, 72)
+		RenderingServer.environment_set_volumetric_fog_volume_size(128, 128)
 	if index == 1:
-		RenderingServer.environment_set_volumetric_fog_volume_size(62, 62)
+		RenderingServer.environment_set_volumetric_fog_volume_size(64, 64)
 	if index == 2:
 		RenderingServer.environment_set_volumetric_fog_volume_size(48, 48)
 	if index == 3:

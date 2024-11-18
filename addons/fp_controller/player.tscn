@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=57 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -30,6 +30,9 @@
 [ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="28_vcbs6"]
 [ext_resource type="Script" path="res://src/ui/Intro.gd" id="29_dr3mp"]
 [ext_resource type="PackedScene" uid="uid://cghygmxt178q7" path="res://scenes/menu.tscn" id="30_gipmc"]
+[ext_resource type="Script" path="res://src/audio/AudioManager.gd" id="31_4nu6u"]
+[ext_resource type="AudioStream" uid="uid://kk56b5x7ongq" path="res://assets/audio/modified/stomp.wav" id="31_gygwd"]
+[ext_resource type="AudioStream" uid="uid://5woeaqjm5x8m" path="res://assets/audio/75358__neotone__thump.mp3" id="33_v34ke"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -3510,6 +3513,8 @@ ambient_mode = 0
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
 script = ExtResource("2_1py82")
 
+[node name="AudioListener3D" type="AudioListener3D" parent="CameraPivot/SmoothCamera"]
+
 [node name="ShaderPrecompiler" parent="CameraPivot/SmoothCamera" instance=ExtResource("5_xop1c")]
 transform = Transform3D(1, 0, 0, 0, 0.736947, 0.67595, 0, -0.67595, 0.736947, -2.08165e-12, -0.0526638, -1.81285)
 
@@ -3992,6 +3997,24 @@ visible = false
 
 [node name="MenuLogic" parent="Menu/PauseMenu" index="0"]
 pause_mode = true
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("31_4nu6u")
+
+[node name="FeetAudio" type="AudioStreamPlayer3D" parent="AudioManager"]
+stream = ExtResource("31_gygwd")
+attenuation_model = 3
+unit_size = 40.0
+pitch_scale = 0.8
+panning_strength = 0.0
+
+[node name="PerfectStrideAudio" type="AudioStreamPlayer3D" parent="AudioManager"]
+stream = ExtResource("33_v34ke")
+attenuation_model = 3
+volume_db = -20.0
+unit_size = 40.0
+pitch_scale = 0.75
+panning_strength = 0.0
 
 [connection signal="allShadersCompiled" from="CameraPivot/SmoothCamera/ShaderPrecompiler" to="UserInterface/Intro" method="_on_shader_precompiler_all_shaders_compiled"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="CameraPivot/DetectorCylinder/PlayerArea/DetectorShape" method="_on_area_3d_area_entered"]

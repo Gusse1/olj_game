@@ -1,12 +1,14 @@
-[gd_scene load_steps=62 format=4 uid="uid://cyxu3g7lx6p5t"]
+[gd_scene load_steps=65 format=4 uid="uid://cyxu3g7lx6p5t"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://kxvt1pu0lust" path="res://terrain3d_storages/terrain_assets.tres" id="1_qd5oe"]
 [ext_resource type="Texture2D" uid="uid://dggu33ua7pnju" path="res://assets/models/Models pack psx/Models/Boxs_12.jpg" id="2_g2ugb"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="3_uim1g"]
 [ext_resource type="PackedScene" uid="uid://cg6mc7ledtlc7" path="res://objects/entities/spirit.tscn" id="4_nrayb"]
 [ext_resource type="PackedScene" uid="uid://bf3uc48mj8vr1" path="res://objects/foliage/tree_05.tscn" id="5_hsb2i"]
+[ext_resource type="Script" path="res://src/gameplay/TimeTransitioner.gd" id="7_5l7gj"]
 [ext_resource type="Texture2D" uid="uid://bp0tog5lkvwef" path="res://assets/models/Models pack psx/Models/Wood_05.jpg" id="7_s6dgm"]
 [ext_resource type="Texture2D" uid="uid://rsp2p7gf2pmd" path="res://assets/models/Models pack psx/Models/Wood_09.jpg" id="8_a8vam"]
+[ext_resource type="Environment" uid="uid://br5p0hosmpw8j" path="res://environments/EnvironmentHighDawn.tres" id="8_ffrq6"]
 [ext_resource type="Texture2D" uid="uid://d2abaqtnw7vs0" path="res://assets/models/Models pack psx/Models/Wood_08.jpg" id="9_1ar20"]
 [ext_resource type="Texture2D" uid="uid://5aj2j84e56os" path="res://assets/models/Models pack psx/Models/Tiles_02.jpg" id="10_3m12n"]
 [ext_resource type="Texture2D" uid="uid://27nihmvlxb22" path="res://assets/models/Models pack psx/Models/Wood_10.jpg" id="11_5cy53"]
@@ -99,6 +101,9 @@ dof_blur_far_distance = 256.0
 dof_blur_far_transition = 64.0
 dof_blur_near_enabled = true
 dof_blur_near_distance = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bejrh"]
+size = Vector3(27.4877, 45.3702, 35.999)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n18q"]
 resource_name = "Wood_05"
@@ -987,6 +992,7 @@ material = SubResource("Terrain3DMaterial_od84v")
 assets = ExtResource("1_qd5oe")
 gi_mode = 2
 top_level = true
+metadata/_edit_lock_ = true
 
 [node name="HighBox2" type="MeshInstance3D" parent="Terrain3D"]
 transform = Transform3D(82.7355, 56.1679, 4.54747e-13, 6.69575e-06, -9.86283e-06, 100, 56.1679, -82.7355, -1.19209e-05, -835.941, 13.4245, -914.132)
@@ -999,10 +1005,10 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_6wuxm")
 
 [node name="OriginalAtmoshpere" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.0108694, -0.0249979, -0.999628, -0.449251, 0.893235, -0.0174524, 0.89334, 0.448894, -0.0209392, -118.677, 98.5589, -248.492)
+transform = Transform3D(-0.174841, 0.347632, -0.921185, -0.413906, 0.82296, 0.389124, 0.893372, 0.449319, -4.02663e-08, -118.677, 98.5589, -248.492)
 visible = false
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
-light_volumetric_fog_energy = 75.0
+light_volumetric_fog_energy = 60.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="OriginalAtmoshpere"]
@@ -1017,7 +1023,32 @@ light_volumetric_fog_energy = 175.0
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_uim1g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -325.072, 82.8279, -195.093)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -855.251, 19.9916, -869.291)
+
+[node name="Skeleton3D" parent="Player/player/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.0840071, -7.68465e-09, -0.0170036, 0.99632)
+bones/1/rotation = Quaternion(0.0762696, -0.000470685, 0.017699, 0.99693)
+bones/2/rotation = Quaternion(0.203824, -0.00166863, 0.0289608, 0.978578)
+bones/3/rotation = Quaternion(-0.180077, 0.000770251, -0.0323489, 0.98312)
+bones/4/rotation = Quaternion(0.0518047, -0.00482472, -0.67627, 0.734814)
+bones/5/rotation = Quaternion(-0.0388669, -0.0216657, -0.330244, 0.942846)
+bones/6/rotation = Quaternion(0.019092, -2.69823e-06, 0.0244778, 0.999518)
+bones/7/rotation = Quaternion(-0.0041649, 0.00142714, -0.0562373, 0.998408)
+bones/8/rotation = Quaternion(0.0493761, -0.00591553, 0.689441, 0.722632)
+bones/9/rotation = Quaternion(0.0147622, -0.0381099, 0.307571, 0.950647)
+bones/10/rotation = Quaternion(-0.0206183, -0.0019249, 0.0202976, 0.99958)
+bones/11/rotation = Quaternion(0.0104535, -0.0109354, 0.0280034, 0.999493)
+bones/12/rotation = Quaternion(-0.573686, 0.339396, 0.689972, 0.282195)
+bones/13/rotation = Quaternion(-0.369496, -0.0743248, -0.14235, 0.915252)
+bones/14/rotation = Quaternion(-0.00872882, -0.0051594, 0.317041, 0.948358)
+bones/15/rotation = Quaternion(0.166367, -0.0332103, 0.441495, 0.88108)
+bones/16/rotation = Quaternion(0.649095, 0.322744, 0.590448, -0.354801)
+bones/17/rotation = Quaternion(-0.404369, 0.0343443, 0.112364, 0.907017)
+bones/18/rotation = Quaternion(-0.071479, -0.00324016, -0.284808, 0.95591)
+bones/19/rotation = Quaternion(0.152525, 0.266761, -0.433018, 0.84739)
+
+[node name="CameraPivot" parent="Player" index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.67595, 0.736947, 0, -0.736947, 0.67595, 2.08165e-12, 1.66866, 0.0205921)
 
 [node name="VainamoinenTitle" parent="Player/UserInterface/InGameUI" index="8"]
 offset_left = 0.0
@@ -1317,6 +1348,20 @@ shape = SubResource("ConcavePolygonShape3D_6wuxm")
 [node name="tree05" parent="PathObstacles" instance=ExtResource("5_hsb2i")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -899.498, 6.76222, -865.993)
 
+[node name="TimeTransitioner" type="Area3D" parent="." node_paths=PackedStringArray("settings", "world_environment", "original_light", "new_light")]
+transform = Transform3D(0.480591, 0, 0.876945, 0, 1, 0, -0.876945, 0, 0.480591, -833.442, 10.3402, -904.844)
+script = ExtResource("7_5l7gj")
+settings = NodePath("../Player/Menu/SettingsMenu/SettingsHandler")
+world_environment = NodePath("../OriginalAtmoshpere/WorldEnvironment")
+original_atmosphere = ExtResource("50_gn77r")
+new_atmosphere = ExtResource("8_ffrq6")
+original_light = NodePath("../MoonAtmosphere")
+new_light = NodePath("../OriginalAtmoshpere")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TimeTransitioner"]
+transform = Transform3D(0.971504, 0, 0.237025, 0, 1, 0, -0.237025, 0, 0.971504, -6.47365, 12.0373, -15.8055)
+shape = SubResource("BoxShape3D_bejrh")
+
 [node name="House" type="MeshInstance3D" parent="."]
 transform = Transform3D(69.6301, -71.775, -8.55624e-06, 0, -1.19209e-05, 100, -71.775, -69.6301, -8.30056e-06, -2238.82, 2.1642, -1458.16)
 mesh = SubResource("ArrayMesh_8nwsf")
@@ -1415,6 +1460,8 @@ mesh = SubResource("PlaneMesh_ulo81")
 skeleton = NodePath("../../Other_Designers")
 surface_material_override/0 = SubResource("ShaderMaterial_xoqd2")
 script = ExtResource("15_d4fih")
+
+[connection signal="area_entered" from="TimeTransitioner" to="TimeTransitioner" method="_on_area_entered"]
 
 [editable path="Player"]
 [editable path="Player/player"]

@@ -16,7 +16,7 @@
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_10ppv"]
 name = "tree_05"
-density = 0.3
+density = 0.0222222
 scene_file = ExtResource("1_b6qvs")
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_mpi5s"]
@@ -28,7 +28,7 @@ scene_file = ExtResource("2_655fl")
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_syphi"]
 name = "grass_patch"
 id = 2
-density = 1.0
+density = 4.53515
 cast_shadows = 0
 scene_file = ExtResource("3_16ipx")
 

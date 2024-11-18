@@ -43,6 +43,8 @@ func _process(delta: float) -> void:
 			print_help()
 		elif input_text == "list":
 			print_list()
+		elif input_text == "exit":
+			get_tree().quit()
 		elif input_text.contains("open"):
 			if input_text.split(" ").size() > 1:
 				var file_to_open: String = input_text.split(" ")[1]
@@ -64,6 +66,8 @@ func _process(delta: float) -> void:
 					print_unknown()
 			else:
 				print_unknown()
+		elif input_text.to_lower().contains("sampo dirt"):
+			get_tree().change_scene_to_file("res://scenes/map_2.tscn")
 		else:
 			print_unknown()
 	# Animate text

@@ -62,6 +62,12 @@ func _process(_delta: float) -> void:
 			get_parent().visible = false
 		elif input_text == "exit":
 			get_tree().quit()
+		elif input_text == "load 1":
+			get_tree().change_scene_to_file("res://scenes/map_1.tscn")
+		elif input_text == "load 2":
+			get_tree().change_scene_to_file("res://scenes/terminal.tscn")
+		elif input_text == "load 3":
+			get_tree().change_scene_to_file("res://scenes/map_2.tscn")
 		else:
 			print_unknown()
 		

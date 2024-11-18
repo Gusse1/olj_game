@@ -13,6 +13,8 @@ extends "res://src/gameplay/Event.gd"
 @export var original_env: Environment
 @export var alternate_env: Environment
 
+@export var settings: Node
+
 @onready var mirror_light: OmniLight3D = $"../OmniLight3D"
 
 signal toilet_mirror
@@ -36,6 +38,8 @@ func interact():
 	environment.environment = alternate_env
 
 	await get_tree().create_timer(5.0).timeout
+	
+	settings.load_settings_from_file()
 		
 	mirror_light.visible = false
 	

@@ -24,6 +24,8 @@ var stride_cooldown: float = 0
 var stride_growth_exponent: float = 1.33
 var stride_decay_exponent: float = 0.9
 
+@onready var audio_manager: Node = $"../../AudioManager"
+
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @export var stride_ui_element: CenterContainer
 @export var stride_ui_indicator: RichTextLabel
@@ -44,7 +46,9 @@ func handle_input(_event: InputEvent) -> void:
 
 func stride_action() -> void:
 	stride_ui_element.stride_correct()
+	audio_manager.play_audio("stomp")
 	if stride_cooldown > -0.16:
+		audio_manager.play_audio("perfect")
 		stride_ui_indicator.give_feedback("[center]PERFECT[/center]")
 		print_debug("perfect", stride_cooldown)
 		is_stride_perfect = true
