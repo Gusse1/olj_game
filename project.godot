@@ -60,6 +60,7 @@ pause={
 
 [physics]
 
+common/physics_jitter_fix=0.0
 3d/default_gravity=14.0
 common/physics_interpolation=true
 
@@ -71,6 +72,7 @@ lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
 global_illumination/gi/use_half_resolution=true
 global_illumination/voxel_gi/quality=1
 scaling_3d/mode=1
+scaling_3d/fsr_sharpness=0.6
 environment/screen_space_reflection/roughness_quality=3
 anti_aliasing/quality/msaa_3d=2
 occlusion_culling/use_occlusion_culling=true

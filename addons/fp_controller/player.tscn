@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=59 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -33,6 +33,8 @@
 [ext_resource type="Script" path="res://src/audio/AudioManager.gd" id="31_4nu6u"]
 [ext_resource type="AudioStream" uid="uid://kk56b5x7ongq" path="res://assets/audio/modified/stomp.wav" id="31_gygwd"]
 [ext_resource type="AudioStream" uid="uid://5woeaqjm5x8m" path="res://assets/audio/75358__neotone__thump.mp3" id="33_v34ke"]
+[ext_resource type="AudioStream" uid="uid://b7cdfk6bkaa00" path="res://assets/audio/630029__el_boss__echoy-bass-thump.wav" id="34_8x3dm"]
+[ext_resource type="AudioStream" uid="uid://ctx87wt442q8y" path="res://assets/audio/570733__martian__computer-hard-drive-access-fan-click.wav" id="35_nxrbj"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -3998,8 +4000,12 @@ visible = false
 [node name="MenuLogic" parent="Menu/PauseMenu" index="0"]
 pause_mode = true
 
-[node name="AudioManager" type="Node" parent="."]
+[node name="AudioManager" type="Node" parent="." node_paths=PackedStringArray("audio_stream_player_feet", "audio_stream_player_perfect_stride", "audio_stream_player_early_stride", "audio_stream_player_thinking")]
 script = ExtResource("31_4nu6u")
+audio_stream_player_feet = NodePath("FeetAudio")
+audio_stream_player_perfect_stride = NodePath("PerfectStrideAudio")
+audio_stream_player_early_stride = NodePath("EarlyStrideAudio")
+audio_stream_player_thinking = NodePath("ComputerThinkingSound")
 
 [node name="FeetAudio" type="AudioStreamPlayer3D" parent="AudioManager"]
 stream = ExtResource("31_gygwd")
@@ -4011,10 +4017,23 @@ panning_strength = 0.0
 [node name="PerfectStrideAudio" type="AudioStreamPlayer3D" parent="AudioManager"]
 stream = ExtResource("33_v34ke")
 attenuation_model = 3
-volume_db = -20.0
+volume_db = -18.0
 unit_size = 40.0
 pitch_scale = 0.75
 panning_strength = 0.0
+
+[node name="EarlyStrideAudio" type="AudioStreamPlayer3D" parent="AudioManager"]
+stream = ExtResource("34_8x3dm")
+attenuation_model = 3
+volume_db = -18.0
+unit_size = 40.0
+pitch_scale = 0.75
+panning_strength = 0.0
+
+[node name="ComputerThinkingSound" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("35_nxrbj")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="allShadersCompiled" from="CameraPivot/SmoothCamera/ShaderPrecompiler" to="UserInterface/Intro" method="_on_shader_precompiler_all_shaders_compiled"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="CameraPivot/DetectorCylinder/PlayerArea/DetectorShape" method="_on_area_3d_area_entered"]

@@ -60,6 +60,7 @@ func stride_action() -> void:
 	stride_cooldown = stride_cooldown_max
 		
 func stride_early() -> void:
+	audio_manager.play_audio("early")
 	stride_ui_element.stride_early()
 	stride_ui_indicator.give_feedback("[center]EARLY[/center]")
 	stride_cooldown = stride_cooldown_max

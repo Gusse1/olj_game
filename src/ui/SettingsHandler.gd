@@ -321,7 +321,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"quality_preset" : 1,
 			"upscaling_quality" : 0,
 			"lighting_quality" : 1,
-			"anti_aliasing" : 0,
+			"anti_aliasing" : 2,
 			"shadow_quality" : 1,
 			"ambient_occlusion_quality" : 1,
 			"volumetric_lighting_quality" : 1,
@@ -332,15 +332,15 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 	elif index == 2:
 		var medium_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 0.67,
+			"render_resolution" : 0.85,
 			"window_mode" : window_mode,
 			"quality_preset" : 2,
-			"upscaling_quality" : 2,
+			"upscaling_quality" : 1,
 			"lighting_quality" : 2,
-			"anti_aliasing" : 4,
+			"anti_aliasing" : 2,
 			"shadow_quality" : 2,
 			"ambient_occlusion_quality" : 3,
-			"volumetric_lighting_quality" : 0,
+			"volumetric_lighting_quality" : 2,
 			"vsync" : 0,
 			"max_fps" : 0
 	   }
