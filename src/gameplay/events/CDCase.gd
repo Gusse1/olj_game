@@ -2,6 +2,7 @@ extends "res://src/gameplay/Event.gd"
 
 @export var original_situation: Node3D
 @export var new_situation: Node3D
+@export var interact_audio: AudioStreamPlayer3D
 
 signal cd_case_picked_up
 
@@ -15,3 +16,6 @@ func interact():
 
 	get_parent().visible = false
 	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
+
+	if interact_audio:
+		interact_audio.play()

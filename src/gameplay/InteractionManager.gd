@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 			if looked_at_area and not _is_looking_at_wall():
 				looked_at_area.interact()
-				if looked_at_area.name == "CD_Case":
+				if looked_at_area.name == "InteractArea":
 					_on_cd_case_picked_up()
 	
 

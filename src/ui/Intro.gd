@@ -7,7 +7,7 @@ var fade_out: bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(audio_manager)
-	audio_manager.play_audio("thinking")
+	audio_manager.play_audio("ComputerThinkingSound")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		modulate.a -= delta * 1
 		if modulate.a <= 0:
 			visible = false
-			audio_manager.stop_audio("thinking")
+			audio_manager.stop_audio("ComputerThinkingSound")
 
 
 func _on_shader_precompiler_all_shaders_compiled() -> void:

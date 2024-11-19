@@ -46,9 +46,9 @@ func handle_input(_event: InputEvent) -> void:
 
 func stride_action() -> void:
 	stride_ui_element.stride_correct()
-	audio_manager.play_audio("stomp")
+	audio_manager.play_audio("FeetAudio")
 	if stride_cooldown > -0.16:
-		audio_manager.play_audio("perfect")
+		audio_manager.play_audio("PerfectStrideAudio")
 		stride_ui_indicator.give_feedback("[center]PERFECT[/center]")
 		print_debug("perfect", stride_cooldown)
 		is_stride_perfect = true
@@ -60,7 +60,7 @@ func stride_action() -> void:
 	stride_cooldown = stride_cooldown_max
 		
 func stride_early() -> void:
-	audio_manager.play_audio("early")
+	audio_manager.play_audio("EarlyStrideAudio")
 	stride_ui_element.stride_early()
 	stride_ui_indicator.give_feedback("[center]EARLY[/center]")
 	stride_cooldown = stride_cooldown_max
@@ -117,10 +117,11 @@ func physics_update(_delta: float) -> void:
 
 	player.velocity.x = direction.x * stride_speed + (direction.normalized().x)
 	player.velocity.z = direction.z * stride_speed + (direction.normalized().z)
-
+	
 	# Player hit wall 
 	# TODO: Add damage effect
 	if player.is_on_wall() && stride_speed > 0.5 && player.velocity.y >= 0:
+		audio_manager.play_audio("CrashAudio")
 		last_stride = -1
 		stride_speed = 0
 		stride_cooldown = 0
@@ -128,7 +129,7 @@ func physics_update(_delta: float) -> void:
 		stride_ui_element.scale = Vector2(1.35, 1.35)
 		stride_off_cooldown.emit()
 		state_machine.transition_to(state_machine.movement_state[state_machine.IDLE])
-
+		
 	if player.velocity.y < 0:
 		last_stride = -1
 		state_machine.transition_to(

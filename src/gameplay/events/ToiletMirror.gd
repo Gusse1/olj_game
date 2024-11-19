@@ -17,6 +17,8 @@ extends "res://src/gameplay/Event.gd"
 
 @onready var mirror_light: OmniLight3D = $"../OmniLight3D"
 
+@export var ambient_audio_manager: Node
+
 signal toilet_mirror
 
 func interact():
@@ -37,8 +39,10 @@ func interact():
 	
 	environment.environment = alternate_env
 
+	ambient_audio_manager.stop_audio("DawnForestAmbiance")
 	await get_tree().create_timer(5.0).timeout
-	
+	ambient_audio_manager.play_audio("NightForestAmbiance")
+
 	settings.load_settings_from_file()
 		
 	mirror_light.visible = false

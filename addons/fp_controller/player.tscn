@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=60 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://5woeaqjm5x8m" path="res://assets/audio/75358__neotone__thump.mp3" id="33_v34ke"]
 [ext_resource type="AudioStream" uid="uid://b7cdfk6bkaa00" path="res://assets/audio/630029__el_boss__echoy-bass-thump.wav" id="34_8x3dm"]
 [ext_resource type="AudioStream" uid="uid://ctx87wt442q8y" path="res://assets/audio/570733__martian__computer-hard-drive-access-fan-click.wav" id="35_nxrbj"]
+[ext_resource type="AudioStream" uid="uid://duw8vaii6ymd3" path="res://assets/audio/modified/small_crash.wav" id="36_ekx7m"]
 
 [sub_resource type="Animation" id="Animation_5udu4"]
 length = 0.001
@@ -3560,8 +3561,9 @@ script = ExtResource("5_bwgwe")
 [node name="Sprint" type="Node" parent="StateMachine"]
 script = ExtResource("6_b4xrx")
 
-[node name="Fall" type="Node" parent="StateMachine"]
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("audio_manager")]
 script = ExtResource("7_dv6ye")
+audio_manager = NodePath("../../AudioManager")
 
 [node name="Crouch" type="Node" parent="StateMachine"]
 script = ExtResource("9_yxb0u")
@@ -4000,16 +4002,13 @@ visible = false
 [node name="MenuLogic" parent="Menu/PauseMenu" index="0"]
 pause_mode = true
 
-[node name="AudioManager" type="Node" parent="." node_paths=PackedStringArray("audio_stream_player_feet", "audio_stream_player_perfect_stride", "audio_stream_player_early_stride", "audio_stream_player_thinking")]
+[node name="AudioManager" type="Node" parent="."]
 script = ExtResource("31_4nu6u")
-audio_stream_player_feet = NodePath("FeetAudio")
-audio_stream_player_perfect_stride = NodePath("PerfectStrideAudio")
-audio_stream_player_early_stride = NodePath("EarlyStrideAudio")
-audio_stream_player_thinking = NodePath("ComputerThinkingSound")
 
 [node name="FeetAudio" type="AudioStreamPlayer3D" parent="AudioManager"]
 stream = ExtResource("31_gygwd")
 attenuation_model = 3
+volume_db = -3.0
 unit_size = 40.0
 pitch_scale = 0.8
 panning_strength = 0.0
@@ -4034,6 +4033,14 @@ panning_strength = 0.0
 stream = ExtResource("35_nxrbj")
 volume_db = -10.0
 autoplay = true
+
+[node name="CrashAudio" type="AudioStreamPlayer3D" parent="AudioManager"]
+stream = ExtResource("36_ekx7m")
+attenuation_model = 3
+volume_db = -12.0
+unit_size = 40.0
+pitch_scale = 0.75
+panning_strength = 0.0
 
 [connection signal="allShadersCompiled" from="CameraPivot/SmoothCamera/ShaderPrecompiler" to="UserInterface/Intro" method="_on_shader_precompiler_all_shaders_compiled"]
 [connection signal="area_entered" from="CameraPivot/DetectorCylinder/PlayerArea" to="CameraPivot/DetectorCylinder/PlayerArea/DetectorShape" method="_on_area_3d_area_entered"]
