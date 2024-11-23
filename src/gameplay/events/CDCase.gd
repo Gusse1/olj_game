@@ -19,8 +19,10 @@ func interact():
 	get_parent().visible = false
 	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
 	
-	note_manager.activate_note("CD_Case")
-	directive_manager.next_directive()
+	if note_manager:
+		note_manager.activate_note("CD_Case")
+	if directive_manager:
+		directive_manager.next_directive()
 	
 	if interact_audio:
 		interact_audio.play()

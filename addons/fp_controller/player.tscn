@@ -4045,7 +4045,7 @@ offset_right = -10.0
 offset_bottom = 264.0
 grow_vertical = 2
 theme = SubResource("Theme_jil2x")
-theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+theme_override_colors/default_color = Color(0, 1, 0, 1)
 bbcode_enabled = true
 text = "A CD Case with \"Theolle\" (To Theo) written on top. This is what I must deliver to the cottage."
 fit_content = true
@@ -4072,11 +4072,49 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jil2x")
-theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+theme_override_colors/default_color = Color(0, 1, 0, 1)
 bbcode_enabled = true
 text = "A mobile phone manufactured by the company UKKO. It appears to have run out of battery a long time ago. 
 
 A text message was sent from the phone before it was abandoned \"See you at the port after this. Remember to feed the dog before you leave this time!\""
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Toilet_Mirror" type="RichTextLabel" parent="UserInterface/NoteViewer"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.277083
+anchor_top = 0.0861111
+anchor_right = 0.750521
+anchor_bottom = 0.912037
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jil2x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "THE MIRROR MESMERIZES YOUR SENSES
+YOU SEE THROUGH THE MIRROR INTO ANOTHER WORLD
+THERE IS KRATKA EVERYWHERE
+UNSTABLE UNREASONABLE UNLIMITED ROOMS
+A RINGING IN YOUR EARS \"KRATKATA KRATKARAPU KROTTI KRATKATA\" REPEATING
+A HOSTILE ENTITY ENTERS THE ROOM
+YOU PICK UP THE CUP TO YOUR RIGHT AND THROW IT
+THE KRATKA FLOWS OUT OF HIS EYE SOCKETS POOLING ON THE FLOOR
+THE KRATKA EVAPORATES, EUPHORIA FILLS THE ROOM
+THE MIRROR CLOSES, KRATKA LEAVES YOUR MIND 
+"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
@@ -4102,7 +4140,7 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jil2x")
-theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+theme_override_colors/default_color = Color(0, 1, 0, 1)
 bbcode_enabled = true
 text = "Hello VÄINÖ. 
 
@@ -4136,7 +4174,7 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jil2x")
-theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+theme_override_colors/default_color = Color(0, 1, 0, 1)
 bbcode_enabled = true
 text = "A mobile phone manufactured by the company UKKO. It appears to have run out of battery a long time ago. It appears to be damaged through some sort of electromagnetic blast. "
 fit_content = true
@@ -4161,7 +4199,7 @@ offset_top = -92.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = SubResource("Theme_jil2x")
-theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+theme_override_colors/default_color = Color(0, 1, 0, 1)
 bbcode_enabled = true
 text = "Press ENTER to exit"
 fit_content = true

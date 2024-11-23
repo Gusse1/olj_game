@@ -19,12 +19,17 @@ extends "res://src/gameplay/Event.gd"
 
 @export var ambient_audio_manager: Node
 
+var note_manager: ColorRect
+
 signal toilet_mirror
+
+func _ready() -> void:
+	note_manager = get_tree().get_root().get_node("Node3D/Player/UserInterface/NoteViewer")
 
 func interact():
 	print_debug("Interacted with Toilet Mirror")
 	animation_player.play("toilet_door_close")
-	
+	note_manager.activate_note("Toilet_Mirror")
 	#original_atmosphere.process_mode = Node.PROCESS_MODE_DISABLED
 	original_atmosphere.visible = false
 
@@ -44,7 +49,7 @@ func interact():
 	ambient_audio_manager.play_audio("NightForestAmbiance")
 
 	settings.load_settings_from_file()
-		
+	
 	mirror_light.visible = false
 	
 	animation_player.play("toilet_door_close", -1, -1)
