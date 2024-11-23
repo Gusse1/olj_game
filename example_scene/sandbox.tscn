@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://d1mhk3prnqywk"]
 
-[ext_resource type="Script" path="res://example_scene/viewport_set.gd" id="1_52rwm"]
+[ext_resource type="Script" path="res://src/misc/viewport_set.gd" id="1_52rwm"]
 [ext_resource type="PlaneMesh" uid="uid://dw4aowfv2n5sc" path="res://example_scene/meshes/floor_mesh.tres" id="1_ipgcd"]
 [ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://addons/fp_controller/player.tscn" id="2_l16tt"]
 [ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="3_fthpp"]

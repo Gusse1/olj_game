@@ -11,6 +11,8 @@ var active: bool = false
 @export var original_light: DirectionalLight3D
 @export var new_light: DirectionalLight3D
 
+@export var spirits: Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,5 +27,6 @@ func _process(delta: float) -> void:
 func _on_area_entered(area:Area3D) -> void:
 	world_environment.environment = new_atmosphere
 	original_light.visible = false
-	new_light.visible = false
+	new_light.visible = true
+	spirits.visible = false
 	settings.load_settings_from_file()

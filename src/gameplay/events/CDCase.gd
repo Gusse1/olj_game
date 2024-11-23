@@ -3,6 +3,8 @@ extends "res://src/gameplay/Event.gd"
 @export var original_situation: Node3D
 @export var new_situation: Node3D
 @export var interact_audio: AudioStreamPlayer3D
+@export var note_manager: ColorRect
+@export var directive_manager: RichTextLabel
 
 signal cd_case_picked_up
 
@@ -16,6 +18,9 @@ func interact():
 
 	get_parent().visible = false
 	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
-
+	
+	note_manager.activate_note("CD_Case")
+	directive_manager.next_directive()
+	
 	if interact_audio:
 		interact_audio.play()

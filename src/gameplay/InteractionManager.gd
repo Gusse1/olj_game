@@ -14,7 +14,8 @@ var can_interact: bool
 
 func _process(_delta: float) -> void:
 	if looked_at_area and not _is_looking_at_wall():
-		interact_ui.visible = true
+		if (looked_at_area.name != "LevelEnd") or (looked_at_area.name != "TimeTransitioner"):
+			interact_ui.visible = true
 	else:
 		interact_ui.visible = false
 

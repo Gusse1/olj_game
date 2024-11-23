@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=64 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -26,9 +26,12 @@
 [ext_resource type="Texture2D" uid="uid://bdby2vvgtu2fr" path="res://assets/textures/ui/hand.png" id="23_av2rh"]
 [ext_resource type="Texture2D" uid="uid://dde88xviorbs8" path="res://assets/textures/ui/red_ring.png" id="23_gkg6v"]
 [ext_resource type="Texture2D" uid="uid://dxj8owcka0ldn" path="res://addons/Mirror/icon.svg" id="23_u8lv5"]
+[ext_resource type="Script" path="res://src/ui/DirectiveManager.gd" id="26_75kjk"]
 [ext_resource type="Script" path="res://src/ui/StrideFeedback.gd" id="27_axnf1"]
 [ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="28_vcbs6"]
 [ext_resource type="Script" path="res://src/ui/Intro.gd" id="29_dr3mp"]
+[ext_resource type="Texture2D" uid="uid://cbrofw32q33g8" path="res://assets/textures/special/cd_case.png" id="30_6ff36"]
+[ext_resource type="Script" path="res://src/ui/NoteHandler.gd" id="30_bwtf8"]
 [ext_resource type="PackedScene" uid="uid://cghygmxt178q7" path="res://scenes/menu.tscn" id="30_gipmc"]
 [ext_resource type="Script" path="res://src/audio/AudioManager.gd" id="31_4nu6u"]
 [ext_resource type="AudioStream" uid="uid://kk56b5x7ongq" path="res://assets/audio/modified/stomp.wav" id="31_gygwd"]
@@ -3340,6 +3343,10 @@ default_font_size = 50
 default_font = ExtResource("17_7kdk6")
 default_font_size = 175
 
+[sub_resource type="Theme" id="Theme_jil2x"]
+default_font = ExtResource("17_7kdk6")
+default_font_size = 80
+
 [node name="Player" type="CharacterBody3D"]
 platform_on_leave = 1
 script = ExtResource("1_5ras8")
@@ -3756,8 +3763,8 @@ scroll_active = false
 autowrap_mode = 2
 shortcut_keys_enabled = false
 text_direction = 2
-script = ExtResource("28_vcbs6")
-text_scroll_speed = 1
+script = ExtResource("26_75kjk")
+directives = Array[String](["retrieve cd case from the grave of Theo Laukkala", "deliver cd case to the cottage at the end of the road"])
 
 [node name="DirectiveText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 visible = false
@@ -3773,6 +3780,8 @@ bbcode_enabled = true
 text = "DIRECTIVE"
 scroll_active = false
 shortcut_keys_enabled = false
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
 
 [node name="NoConnectionText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 clip_contents = false
@@ -3995,6 +4004,173 @@ text_direction = 2
 script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="NoteViewer" type="ColorRect" parent="UserInterface"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.552941)
+script = ExtResource("30_bwtf8")
+
+[node name="CD_Case" type="TextureRect" parent="UserInterface/NoteViewer"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -320.0
+offset_right = 320.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("30_6ff36")
+expand_mode = 5
+
+[node name="CDCaseText" type="RichTextLabel" parent="UserInterface/NoteViewer/CD_Case"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -638.0
+offset_top = -296.0
+offset_right = -10.0
+offset_bottom = 264.0
+grow_vertical = 2
+theme = SubResource("Theme_jil2x")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "A CD Case with \"Theolle\" (To Theo) written on top. This is what I must deliver to the cottage."
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+
+[node name="Church_Phone_1" type="RichTextLabel" parent="UserInterface/NoteViewer"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.277083
+anchor_top = 0.0861111
+anchor_right = 0.750521
+anchor_bottom = 0.912037
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jil2x")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "A mobile phone manufactured by the company UKKO. It appears to have run out of battery a long time ago. 
+
+A text message was sent from the phone before it was abandoned \"See you at the port after this. Remember to feed the dog before you leave this time!\""
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HarriDeathNote" type="RichTextLabel" parent="UserInterface/NoteViewer"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.277083
+anchor_top = 0.0861111
+anchor_right = 0.750521
+anchor_bottom = 0.912037
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jil2x")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "Hello VÄINÖ. 
+
+Your deliveries have been greatly appreciated. I know we are all fucked, but I tried to ask for one last delivery from you. Unfortunately if you are reading this, you were too late. You will find my body in the boat on the shore. Please give me my viking burial. 
+
+I hope there is an afterlife. I wish to see Theo again.
+
+Best, HARRI"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Broken_Phone" type="RichTextLabel" parent="UserInterface/NoteViewer"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.277083
+anchor_top = 0.0861111
+anchor_right = 0.750521
+anchor_bottom = 0.912037
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jil2x")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "A mobile phone manufactured by the company UKKO. It appears to have run out of battery a long time ago. It appears to be damaged through some sort of electromagnetic blast. "
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EnterToExitTooltip" type="RichTextLabel" parent="UserInterface/NoteViewer"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -628.0
+offset_top = -92.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_jil2x")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "Press ENTER to exit"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
 
 [node name="Menu" parent="." instance=ExtResource("30_gipmc")]
 visible = false
