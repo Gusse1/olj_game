@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvyjckasvqbfu"]
+[gd_scene load_steps=15 format=3 uid="uid://dvyjckasvqbfu"]
 
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="1_g52nw"]
 [ext_resource type="Script" path="res://src/gameplay/TerminalLogic.gd" id="1_id5ji"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cl22tc1h5wwre" path="res://assets/images/1903.png" id="6_qfccg"]
 [ext_resource type="Texture2D" uid="uid://curjedwux1l5p" path="res://assets/images/1910.png" id="7_iw8to"]
 [ext_resource type="Texture2D" uid="uid://it7w05byvy46" path="res://assets/images/corrupted.png" id="8_kbyyy"]
+[ext_resource type="Script" path="res://src/ui/Intro.gd" id="9_5735i"]
 
 [sub_resource type="Theme" id="Theme_owhnr"]
 default_font = ExtResource("1_g52nw")
@@ -20,6 +21,14 @@ default_font_size = 60
 [sub_resource type="Theme" id="Theme_m501g"]
 default_font = ExtResource("1_g52nw")
 default_font_size = 125
+
+[sub_resource type="Theme" id="Theme_glpwd"]
+default_font = ExtResource("1_g52nw")
+default_font_size = 175
+
+[sub_resource type="Theme" id="Theme_cnjoi"]
+default_font = ExtResource("1_g52nw")
+default_font_size = 175
 
 [node name="Terminal" type="Control"]
 layout_mode = 3
@@ -101,7 +110,7 @@ You have the following commands available:
 -------------------------------------------
 \"help\" - show this list of commands
 \"list\" - list available files
-\"open <filename>\" - read a file (NEW: supports images and audio)
+\"open <filename>\" - read a file (NEW: supports images)
 \"exit\" - exit the interface and shutdown the machine"
 scroll_active = false
 
@@ -205,7 +214,7 @@ text = "You have the following commands available:
 -------------------------------------------
 \"help\" - show this list of commands
 \"list\" - list available files
-\"open <filename>\" - read a file (NEW: supports images and audio)
+\"open <filename>\" - read a file (NEW: supports images)
 \"exit\" - exit the interface and shutdown the machine"
 
 [node name="FileList" type="RichTextLabel" parent="Prints"]
@@ -228,9 +237,6 @@ text = "You have the following files available:
 log-05.06.2062.log, log-12.12.2070.log, log-25.01.2072.log, a!PO!#k.log
 
 1902.image, 1903.image, 9bkd439.image, 1910.image
-
-log-07.01.2073.audio, 1-2sdl<?asd.audio
-
 
 "
 
@@ -576,5 +582,92 @@ DIRT
 DIRT
 DIRT
 "
+
+[node name="Intro" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_5735i")
+is_terminal_intro = true
+
+[node name="OriginalIntroText" type="RichTextLabel" parent="Intro"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_glpwd")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "REBOOTING"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 2
+script = ExtResource("3_23c4l")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TerminalIntroText" type="RichTextLabel" parent="Intro"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_glpwd")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "CRITICALLY LOW BATTERY
+
+BOOTING TO DEBUG INTERFACE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 2
+script = ExtResource("3_23c4l")
+text_scroll_speed = 1
+
+[node name="FirstIntroText" type="RichTextLabel" parent="Intro"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cnjoi")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "REBOOTING SYSTEM
+
+1 (ONE) DIRECTIVE TODO
+
+DELIVER CD-CASE TO COTTAGE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("3_23c4l")
+text_scroll_speed = 1
 
 [connection signal="done" from="VainamoinenTitle" to="TerminalLogic" method="_on_vainamoinen_title_done"]

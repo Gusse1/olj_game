@@ -50,7 +50,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseMenu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,6 +218,7 @@ You have the following commands available:
 \"exit\" - exit the interface and shutdown the machine\""
 
 [node name="SettingsMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

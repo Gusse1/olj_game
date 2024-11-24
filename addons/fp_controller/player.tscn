@@ -3978,7 +3978,32 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("29_dr3mp")
 
-[node name="NoConnectionText2" type="RichTextLabel" parent="UserInterface/Intro"]
+[node name="FirstIntroText" type="RichTextLabel" parent="UserInterface/Intro"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_85j0l")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "REBOOTING SYSTEM
+
+1 (ONE) DIRECTIVE TODO
+
+DELIVER CD-CASE TO COTTAGE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+
+[node name="OriginalIntroText" type="RichTextLabel" parent="UserInterface/Intro"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = 8
@@ -3993,7 +4018,7 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_85j0l")
-theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+theme_override_colors/default_color = Color(0, 1, 0, 1)
 bbcode_enabled = true
 text = "REBOOTING"
 fit_content = true
