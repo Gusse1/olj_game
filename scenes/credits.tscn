@@ -1,0 +1,179 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgd24ivpmupw2"]
+
+[ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="1_adjyg"]
+[ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="2_loea8"]
+[ext_resource type="Script" path="res://src/ui/BackToMenuButton.gd" id="3_2g77p"]
+[ext_resource type="Script" path="res://src/ui/Intro.gd" id="4_xfdnx"]
+
+[sub_resource type="Theme" id="Theme_fdmne"]
+default_font = ExtResource("1_adjyg")
+default_font_size = 440
+
+[sub_resource type="Theme" id="Theme_gutrt"]
+default_font = ExtResource("1_adjyg")
+default_font_size = 140
+
+[sub_resource type="Theme" id="Theme_4rj62"]
+default_font = ExtResource("1_adjyg")
+default_font_size = 165
+
+[sub_resource type="Theme" id="Theme_5ce2m"]
+default_font = ExtResource("1_adjyg")
+default_font_size = 175
+
+[sub_resource type="Theme" id="Theme_3gsqe"]
+default_font = ExtResource("1_adjyg")
+default_font_size = 175
+
+[node name="Terminal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TheEnd" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_right = 273.0
+offset_bottom = 447.0
+grow_horizontal = 2
+theme = SubResource("Theme_fdmne")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "END"
+autowrap_mode = 0
+script = ExtResource("2_loea8")
+
+[node name="Credits" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -934.0
+offset_top = -151.0
+offset_right = 943.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_gutrt")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "Game created by Mikael Gustafsson"
+autowrap_mode = 0
+script = ExtResource("2_loea8")
+
+[node name="BackToMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -424.0
+offset_top = -163.5
+offset_right = 424.0
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4rj62")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "BACK TO MENU"
+script = ExtResource("3_2g77p")
+
+[node name="Intro" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_xfdnx")
+is_terminal_intro = true
+
+[node name="OriginalIntroText" type="RichTextLabel" parent="Intro"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5ce2m")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 2
+script = ExtResource("2_loea8")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TerminalIntroText" type="RichTextLabel" parent="Intro"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5ce2m")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 2
+script = ExtResource("2_loea8")
+text_scroll_speed = 1
+
+[node name="FirstIntroText" type="RichTextLabel" parent="Intro"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3gsqe")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "REBOOTING SYSTEM
+
+1 (ONE) DIRECTIVE TODO
+
+DELIVER CD-CASE TO COTTAGE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("2_loea8")
+text_scroll_speed = 1
+
+[connection signal="pressed" from="BackToMenuButton" to="BackToMenuButton" method="_on_pressed"]

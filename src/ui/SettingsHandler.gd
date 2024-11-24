@@ -54,6 +54,10 @@ func _ready() -> void:
 		display_dropdown.add_item("DISPLAY " + str(screen), screen)
 	DisplayServer.window_set_current_screen(DisplayServer.get_primary_screen())
 	display_dropdown.selected = DisplayServer.get_primary_screen()
+	
+	if not FileAccess.file_exists("user://settings.save"):
+		_on_graphics_preset_item_selected(2)
+		_on_window_mode_item_selected(1)
 
 	load_settings_from_file()
 	
@@ -78,7 +82,6 @@ func save_settings() -> void:
 
 func load_settings_from_file() -> void:
 	if not FileAccess.file_exists("user://settings.save"):
-		# Load default settings
 		return
 	var save_file: FileAccess = FileAccess.open("user://settings.save", FileAccess.READ)
 	var json_string: String = save_file.get_line()

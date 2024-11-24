@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=66 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://kk56b5x7ongq" path="res://assets/audio/modified/stomp.wav" id="31_gygwd"]
 [ext_resource type="AudioStream" uid="uid://5woeaqjm5x8m" path="res://assets/audio/75358__neotone__thump.mp3" id="33_v34ke"]
 [ext_resource type="AudioStream" uid="uid://b7cdfk6bkaa00" path="res://assets/audio/630029__el_boss__echoy-bass-thump.wav" id="34_8x3dm"]
+[ext_resource type="Script" path="res://src/ui/TutorialManager.gd" id="34_fbco0"]
 [ext_resource type="AudioStream" uid="uid://ctx87wt442q8y" path="res://assets/audio/570733__martian__computer-hard-drive-access-fan-click.wav" id="35_nxrbj"]
 [ext_resource type="AudioStream" uid="uid://duw8vaii6ymd3" path="res://assets/audio/modified/small_crash.wav" id="36_ekx7m"]
 
@@ -3340,13 +3341,13 @@ default_font_size = 0
 default_font = ExtResource("17_7kdk6")
 default_font_size = 50
 
-[sub_resource type="Theme" id="Theme_85j0l"]
-default_font = ExtResource("17_7kdk6")
-default_font_size = 175
-
 [sub_resource type="Theme" id="Theme_jil2x"]
 default_font = ExtResource("17_7kdk6")
 default_font_size = 80
+
+[sub_resource type="Theme" id="Theme_85j0l"]
+default_font = ExtResource("17_7kdk6")
+default_font_size = 175
 
 [node name="Player" type="CharacterBody3D"]
 platform_on_leave = 1
@@ -3970,67 +3971,63 @@ shortcut_keys_enabled = false
 script = ExtResource("27_axnf1")
 metadata/_edit_use_anchors_ = true
 
-[node name="Intro" type="ColorRect" parent="UserInterface"]
+[node name="TutorialUI" type="ColorRect" parent="UserInterface"]
+visible = false
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 107.0
 grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("29_dr3mp")
+color = Color(0, 0, 0, 0.933333)
+script = ExtResource("34_fbco0")
 
-[node name="FirstIntroText" type="RichTextLabel" parent="UserInterface/Intro"]
+[node name="MoveTutorial" type="RichTextLabel" parent="UserInterface/TutorialUI"]
 visible = false
 clip_contents = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_85j0l")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
+offset_right = 1864.0
+offset_bottom = 100.0
+theme = SubResource("Theme_bup6e")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
 bbcode_enabled = true
-text = "REBOOTING SYSTEM
-
-1 (ONE) DIRECTIVE TODO
-
-DELIVER CD-CASE TO COTTAGE"
+text = "Move using WASD and use the Mouse to look around."
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
 shortcut_keys_enabled = false
 text_direction = 1
-script = ExtResource("28_vcbs6")
-text_scroll_speed = 1
 
-[node name="OriginalIntroText" type="RichTextLabel" parent="UserInterface/Intro"]
+[node name="StrideTutorial" type="RichTextLabel" parent="UserInterface/TutorialUI"]
+visible = false
 clip_contents = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -353.0
-offset_top = -87.0
-offset_right = 275.0
-offset_bottom = 88.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_85j0l")
-theme_override_colors/default_color = Color(0, 1, 0, 1)
+offset_right = 1864.0
+offset_bottom = 100.0
+theme = SubResource("Theme_bup6e")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
 bbcode_enabled = true
-text = "REBOOTING"
+text = "Alternate pressing Left mouse button and Right Mouse button to STRIDE. Time your stride perfectly to gain more speed."
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
 shortcut_keys_enabled = false
-text_direction = 2
-script = ExtResource("28_vcbs6")
-text_scroll_speed = 1
-metadata/_edit_use_anchors_ = true
+text_direction = 1
+
+[node name="FlashlightTutorial" type="RichTextLabel" parent="UserInterface/TutorialUI"]
+visible = false
+clip_contents = false
+layout_mode = 1
+offset_right = 1864.0
+offset_bottom = 100.0
+theme = SubResource("Theme_bup6e")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "Press F to toggle the flashlight."
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
 
 [node name="NoteViewer" type="ColorRect" parent="UserInterface"]
 visible = false
@@ -4268,6 +4265,68 @@ shortcut_keys_enabled = false
 text_direction = 1
 script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
+
+[node name="Intro" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("29_dr3mp")
+
+[node name="FirstIntroText" type="RichTextLabel" parent="UserInterface/Intro"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_85j0l")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "REBOOTING SYSTEM
+
+1 (ONE) DIRECTIVE TODO
+
+DELIVER CD-CASE TO COTTAGE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+
+[node name="OriginalIntroText" type="RichTextLabel" parent="UserInterface/Intro"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_85j0l")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "REBOOTING"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 2
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Menu" parent="." instance=ExtResource("30_gipmc")]
 visible = false

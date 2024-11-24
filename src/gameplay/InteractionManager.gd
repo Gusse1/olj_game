@@ -14,9 +14,7 @@ var can_interact: bool
 
 func _process(_delta: float) -> void:
 	if looked_at_area and not _is_looking_at_wall():
-		print_debug(looked_at_area.name)
-		if (looked_at_area.name != "LevelEnd") or (looked_at_area.name != "TimeTransitioner"):
-			interact_ui.visible = true
+		interact_ui.visible = true
 	else:
 		interact_ui.visible = false
 
@@ -45,7 +43,8 @@ func _is_looking_at_wall() -> bool:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	raycast.enabled = true
-	looked_at_area = area
+	if area.name != "TimeTransitioner" and area.name != "LevelEnd" and not area.name.contains("TutorialArea"):
+		looked_at_area = area
 		
 func _on_area_3d_area_exited(_area: Area3D) -> void:
 	raycast.enabled = false

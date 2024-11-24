@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvyjckasvqbfu"]
+[gd_scene load_steps=18 format=3 uid="uid://dvyjckasvqbfu"]
 
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="1_g52nw"]
 [ext_resource type="Script" path="res://src/gameplay/TerminalLogic.gd" id="1_id5ji"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://it7w05byvy46" path="res://assets/images/corrupted.png" id="8_kbyyy"]
 [ext_resource type="Script" path="res://src/ui/Intro.gd" id="9_5735i"]
 [ext_resource type="Script" path="res://src/gameplay/StateSaver.gd" id="10_bmnw4"]
+[ext_resource type="AudioStream" uid="uid://ctx87wt442q8y" path="res://assets/audio/570733__martian__computer-hard-drive-access-fan-click.wav" id="11_a03ug"]
+[ext_resource type="Script" path="res://src/audio/AudioLooper.gd" id="12_waj3a"]
 
 [sub_resource type="Theme" id="Theme_owhnr"]
 default_font = ExtResource("1_g52nw")
@@ -673,5 +675,12 @@ text_scroll_speed = 1
 [node name="StateSaver" type="Node" parent="."]
 script = ExtResource("10_bmnw4")
 level_name = "terminal"
+
+[node name="ComputerThinkingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_a03ug")
+volume_db = -20.0
+pitch_scale = 0.8
+autoplay = true
+script = ExtResource("12_waj3a")
 
 [connection signal="done" from="VainamoinenTitle" to="TerminalLogic" method="_on_vainamoinen_title_done"]

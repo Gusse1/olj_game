@@ -3,6 +3,7 @@ extends "res://src/gameplay/Event.gd"
 @onready var boat: Node3D = $"../.."
 @export var environment: Environment
 @export var siren_audio: AudioStreamPlayer
+@export var music_audio: AudioStreamPlayer
 @export var sun: DirectionalLight3D
 @export var water_walls: Node3D
 @export var spirits: Node3D
@@ -24,6 +25,8 @@ func _process(delta: float) -> void:
 
 		boat.global_transform.origin += boat.global_transform.basis.z * -boat_speed * delta
 		
+		if not music_audio.playing:
+			music_audio.play()
 
 		if time_since_boat_in_motion > 20:
 			spirits.visible = true
@@ -49,8 +52,9 @@ func _process(delta: float) -> void:
 			var new_sun_intensity: float = lerp(current_sun_intensity, 1.0, sun_transition_speed * delta)
 			sun.light_energy = new_sun_intensity
 			
-			if current_sun_intensity >= 9.9:
+			if time_since_boat_in_motion >= 46:
 				print_debug("Transition_finished")
+				get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	
 
 func interact() -> void:
