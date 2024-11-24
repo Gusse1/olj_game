@@ -52,11 +52,27 @@ func _process(_delta: float) -> void:
 			print_help()
 		elif input_text == "start" and not pause_mode:
 			get_tree().change_scene_to_file("res://scenes/map_1.tscn")
-		elif input_text == "continue" and pause_mode:
-			get_parent().get_parent().visible = false
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			player.can_move = true
-			menu_open = false
+		elif input_text == "continue":
+			print_debug("Trying to continue")
+
+			if not FileAccess.file_exists("user://level.save"):
+				print_debug("No save :(")
+				return
+			var save_file: FileAccess = FileAccess.open("user://level.save", FileAccess.READ)
+			var json_string: String = save_file.get_line()
+		
+			var json = JSON.new()
+		
+			var parse_result = json.parse(json_string)
+			if not parse_result == OK:
+				print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+		
+			# Get the data from the JSON object.
+			var level = json.data
+			print_debug(level)
+			get_tree().change_scene_to_file("res://scenes/" + level + ".tscn")
+				
+
 		elif input_text == "settings":
 			settings_menu.visible = true
 			get_parent().visible = false
