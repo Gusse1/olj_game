@@ -810,16 +810,18 @@ alignment = 1
 expand_icon = true
 selected = 0
 fit_to_longest_item = false
-item_count = 5
-popup/item_0/text = "TAA"
-popup/item_1/text = "MSAA 4x"
+item_count = 6
+popup/item_0/text = "TAA + FXAA"
+popup/item_1/text = "MSAA 8x"
 popup/item_1/id = 1
-popup/item_2/text = "MSAA 2x"
+popup/item_2/text = "MSAA 4x"
 popup/item_2/id = 2
-popup/item_3/text = "FXAA"
+popup/item_3/text = "MSAA 2x"
 popup/item_3/id = 3
-popup/item_4/text = "OFF"
+popup/item_4/text = "FXAA"
 popup/item_4/id = 4
+popup/item_5/text = "OFF"
+popup/item_5/id = 5
 script = ExtResource("5_mx7co")
 
 [node name="Print" type="RichTextLabel" parent="SettingsMenu/AntiAliasing"]

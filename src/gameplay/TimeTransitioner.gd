@@ -13,6 +13,8 @@ var active: bool = false
 
 @export var spirits: Node
 
+@export var ambient_audio: Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -30,3 +32,5 @@ func _on_area_entered(area:Area3D) -> void:
 	new_light.visible = true
 	spirits.visible = false
 	settings.load_settings_from_file()
+	ambient_audio.stop_audio("NightForestAmbiance")
+	ambient_audio.play_audio("DawnForestAmbiance")

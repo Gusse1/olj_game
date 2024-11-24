@@ -1,8 +1,9 @@
-[gd_scene load_steps=64 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=65 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
 [ext_resource type="PackedScene" uid="uid://b7dcpwgt8x32w" path="res://assets/models/own/player.blend" id="2_gf5q2"]
+[ext_resource type="Script" path="res://src/gameplay/Flashlight.gd" id="2_ng64c"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_state_machine.gd" id="2_wwa58"]
 [ext_resource type="Texture2D" uid="uid://cjwvtcqng62i" path="res://assets/textures/Metal_09-128x128.png" id="3_4jdk1"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/idle.gd" id="3_xe000"]
@@ -3429,6 +3430,7 @@ light_indirect_energy = 4.0
 light_volumetric_fog_energy = 7.0
 spot_range = 30.2736
 spot_angle = 52.7174
+script = ExtResource("2_ng64c")
 
 [node name="Placeholder_Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.9, 2.08165e-12)
@@ -3764,7 +3766,7 @@ autowrap_mode = 2
 shortcut_keys_enabled = false
 text_direction = 2
 script = ExtResource("26_75kjk")
-directives = Array[String](["retrieve cd case from the grave of Theo Laukkala", "deliver cd case to the cottage at the end of the road"])
+directives = Array[String](["retrieve cd case from the grave of Theo Laukkala", "deliver cd case to the cottage at the end of the road", "find a path in the forest to the cottage", "start the engine on the boat"])
 
 [node name="DirectiveText" type="RichTextLabel" parent="UserInterface/InGameUI"]
 visible = false
@@ -4111,6 +4113,34 @@ script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="CRT_Game" type="RichTextLabel" parent="UserInterface/NoteViewer"]
+visible = false
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.277083
+anchor_top = 0.0861111
+anchor_right = 0.750521
+anchor_bottom = 0.912037
+offset_left = -353.0
+offset_top = -87.0
+offset_right = 275.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jil2x")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+bbcode_enabled = true
+text = "The TV is displaying a game. Tall grey buildings populate the game world. Beside them are dancing statues, frozen in time. The player appears to be holding a gun with tubes coming out of it and connecting to the player's arm. "
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+script = ExtResource("28_vcbs6")
+text_scroll_speed = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Toilet_Mirror" type="RichTextLabel" parent="UserInterface/NoteViewer"]
 visible = false
 clip_contents = false
@@ -4149,7 +4179,7 @@ script = ExtResource("28_vcbs6")
 text_scroll_speed = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="HarriDeathNote" type="RichTextLabel" parent="UserInterface/NoteViewer"]
+[node name="Fridge_Note" type="RichTextLabel" parent="UserInterface/NoteViewer"]
 visible = false
 clip_contents = false
 layout_mode = 1
@@ -4167,13 +4197,17 @@ grow_vertical = 2
 theme = SubResource("Theme_jil2x")
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 bbcode_enabled = true
-text = "Hello VÄINÖ. 
+text = "\"Hello VÄINÖ. 
 
-Your deliveries have been greatly appreciated. I know we are all fucked, but I tried to ask for one last delivery from you. Unfortunately if you are reading this, you were too late. You will find my body in the boat on the shore. Please give me my viking burial. 
+Your deliveries have been greatly appreciated. I know we are all fucked, but I tried to ask for one last delivery from you. Unfortunately if you are reading this, you were too late. 
+
+You will find my body in the boat on the shore. Please give me my viking burial. 
 
 I hope there is an afterlife. I wish to see Theo again.
 
-Best, HARRI"
+Best, HARRI\"
+
+[There appears to be a key taped to the note]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2

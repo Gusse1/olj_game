@@ -12,6 +12,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func skip_to_directive(num: int) -> void:
+	current_directive = num
+	text = directives[current_directive]
+	
 func next_directive() -> void:
 	current_directive += 1
 	text = directives[current_directive]

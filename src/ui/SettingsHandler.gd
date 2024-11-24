@@ -161,17 +161,17 @@ func _on_lighting_quality_item_selected(index:int) -> void:
 		if game_environment:
 			RenderingServer.gi_set_use_half_resolution(false)
 			game_environment.environment.sdfgi_y_scale = Environment.SDFGI_Y_SCALE_100_PERCENT
-			game_environment.environment.sdfgi_max_distance = 204.8
+			game_environment.environment.sdfgi_min_cell_size = 0.1
 	if index == 1:
 		if game_environment:
 			RenderingServer.gi_set_use_half_resolution(true)
 			game_environment.environment.sdfgi_y_scale = Environment.SDFGI_Y_SCALE_75_PERCENT
-			game_environment.environment.sdfgi_max_distance = 204.8
+			game_environment.environment.sdfgi_min_cell_size = 0.2
 	if index == 2:
 		if game_environment:
 			RenderingServer.gi_set_use_half_resolution(true)
 			game_environment.environment.sdfgi_y_scale = Environment.SDFGI_Y_SCALE_50_PERCENT
-			game_environment.environment.sdfgi_max_distance = 102.4
+			game_environment.environment.sdfgi_min_cell_size = 0.3
 	if index == 3:
 		if game_environment:
 			game_environment.environment.ssil_enabled = true
@@ -205,20 +205,24 @@ func _on_anti_aliasing_item_selected(index:int) -> void:
 	if index == 0:
 		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_DISABLED)
 		RenderingServer.viewport_set_use_taa(viewport.get_viewport_rid(), true)
-		RenderingServer.viewport_set_screen_space_aa(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_DISABLED)
+		RenderingServer.viewport_set_screen_space_aa(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_FXAA)
 	if index == 1:
-		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_4X)
+		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_8X)
 		RenderingServer.viewport_set_use_taa(viewport.get_viewport_rid(), false)
 		RenderingServer.viewport_set_screen_space_aa(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_DISABLED)
 	if index == 2:
-		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_2X)
+		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_4X)
 		RenderingServer.viewport_set_use_taa(viewport.get_viewport_rid(), false)
 		RenderingServer.viewport_set_screen_space_aa(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_DISABLED)
 	if index == 3:
+		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_2X)
+		RenderingServer.viewport_set_use_taa(viewport.get_viewport_rid(), false)
+		RenderingServer.viewport_set_screen_space_aa(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_DISABLED)
+	if index == 4:
 		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_DISABLED)
 		RenderingServer.viewport_set_use_taa(viewport.get_viewport_rid(), false)
 		RenderingServer.viewport_set_screen_space_aa(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_FXAA)
-	if index == 4:
+	if index == 5:
 		RenderingServer.viewport_set_msaa_3d(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_MSAA_DISABLED)
 		RenderingServer.viewport_set_use_taa(viewport.get_viewport_rid(), false)
 		RenderingServer.viewport_set_screen_space_aa(viewport.get_viewport_rid(), RenderingServer.VIEWPORT_SCREEN_SPACE_AA_DISABLED)
@@ -260,16 +264,16 @@ func _on_shadow_quality_item_selected(index:int) -> void:
 func _on_ambient_occlusion_item_selected(index:int) -> void:
 	ambient_occlusion_value = index
 	if index == 0:
-		RenderingServer.environment_set_ssao_quality(3, false, 0.5, 2, 50, 300)
+		RenderingServer.environment_set_ssao_quality(3, false, 0.5, 10, 50, 300)
 		RenderingServer.environment_set_ssil_quality(3, false, 0.5, 2, 50, 300)
 	if index == 1:
-		RenderingServer.environment_set_ssao_quality(2, false, 0.5, 2, 50, 300)
+		RenderingServer.environment_set_ssao_quality(2, false, 0.5, 10, 50, 300)
 		RenderingServer.environment_set_ssil_quality(2, false, 0.5, 2, 50, 300)
 	if index == 2:
-		RenderingServer.environment_set_ssao_quality(1, false, 0.5, 2, 50, 300)
+		RenderingServer.environment_set_ssao_quality(1, false, 0.5, 10, 50, 300)
 		RenderingServer.environment_set_ssil_quality(1, false, 0.5, 2, 50, 300)
 	if index == 3:
-		RenderingServer.environment_set_ssao_quality(0, true, 0.5, 2, 50, 300)
+		RenderingServer.environment_set_ssao_quality(0, true, 0.5, 10, 50, 300)
 		RenderingServer.environment_set_ssil_quality(0, false, 0.5, 2, 50, 300)
 	save_settings()
 
@@ -305,7 +309,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"quality_preset" : 0,
 			"upscaling_quality" : 0,
 			"lighting_quality" : 0,
-			"anti_aliasing" : 1,
+			"anti_aliasing" : 2,
 			"shadow_quality" : 0,
 			"ambient_occlusion_quality" : 0,
 			"volumetric_lighting_quality" : 0,
@@ -321,7 +325,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"quality_preset" : 1,
 			"upscaling_quality" : 0,
 			"lighting_quality" : 1,
-			"anti_aliasing" : 2,
+			"anti_aliasing" : 3,
 			"shadow_quality" : 1,
 			"ambient_occlusion_quality" : 1,
 			"volumetric_lighting_quality" : 1,
@@ -337,7 +341,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"quality_preset" : 2,
 			"upscaling_quality" : 1,
 			"lighting_quality" : 2,
-			"anti_aliasing" : 2,
+			"anti_aliasing" : 3,
 			"shadow_quality" : 2,
 			"ambient_occlusion_quality" : 3,
 			"volumetric_lighting_quality" : 2,
@@ -353,7 +357,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"quality_preset" : 3,
 			"upscaling_quality" : 1,
 			"lighting_quality" : 3,
-			"anti_aliasing" : 3,
+			"anti_aliasing" : 4,
 			"shadow_quality" : 3,
 			"ambient_occlusion_quality" : 3,
 			"volumetric_lighting_quality" : 3,
@@ -369,7 +373,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"quality_preset" : 4,
 			"upscaling_quality" : 1,
 			"lighting_quality" : 4,
-			"anti_aliasing" : 3,
+			"anti_aliasing" : 4,
 			"shadow_quality" : 4,
 			"ambient_occlusion_quality" : 3,
 			"volumetric_lighting_quality" : 3,
