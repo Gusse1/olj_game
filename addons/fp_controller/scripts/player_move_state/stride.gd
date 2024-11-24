@@ -34,14 +34,18 @@ signal striding(stride_speed: float, stride_max_speed: float)
 signal stride_on_cooldown()
 signal stride_off_cooldown()
 
+var is_jumped: bool
+
 func enter(msg := {}) -> void:
-	pass
+	is_jumped = false
 
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump"):
+		if not is_jumped:
 			print_debug("Stride jump")
 			stride_speed += pow(stride_accumulation, stride_growth_exponent) * 0.2
 			player.velocity.y = stride_jump_height
+			is_jumped = true
 
 
 func stride_action() -> void:
@@ -119,7 +123,6 @@ func physics_update(_delta: float) -> void:
 	player.velocity.z = direction.z * stride_speed + (direction.normalized().z)
 	
 	# Player hit wall 
-	# TODO: Add damage effect
 	if player.is_on_wall() && stride_speed > 0.5 && player.velocity.y >= 0:
 		audio_manager.play_audio("CrashAudio")
 		last_stride = -1

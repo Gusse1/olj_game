@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 			active_tutorial.visible = false
 
 func activate_tutorial(tutorial_name: String, duration: float) -> void:
+	if active_tutorial:
+		active_tutorial.visible = false
 	visible = true
 	active_tutorial = get_node(tutorial_name)
 	active_tutorial.visible = true

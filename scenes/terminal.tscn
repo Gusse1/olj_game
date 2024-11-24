@@ -684,3 +684,4 @@ autoplay = true
 script = ExtResource("12_waj3a")
 
 [connection signal="done" from="VainamoinenTitle" to="TerminalLogic" method="_on_vainamoinen_title_done"]
+[connection signal="finished" from="ComputerThinkingSound" to="ComputerThinkingSound" method="_on_finished"]

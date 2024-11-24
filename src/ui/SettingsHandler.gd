@@ -14,6 +14,7 @@ var screen_count: int
 @onready var render_resolution_slider: Slider = $"../RenderResolution"
 @onready var vsync_dropdown: OptionButton = $"../Vsync"
 @onready var max_fps_dropdown: OptionButton = $"../MaxFPS"
+@onready var volume_slider: HSlider = $"../Volume"
 
 @onready var render_resolution_indicator: RichTextLabel = $"../RenderResolution/ResText"
 
@@ -30,6 +31,7 @@ var ambient_occlusion_value: int
 var volumetric_lighting_value: int
 var vsync_value: int
 var max_fps_value: int
+var volume_value: float
 
 var default_settings_dict: Dictionary = {
 	"display" : DisplayServer.window_get_current_screen(),
@@ -43,7 +45,8 @@ var default_settings_dict: Dictionary = {
 	"ambient_occlusion_quality" : 3,
 	"volumetric_lighting_quality" : 0,
 	"vsync" : 0,
-	"max_fps" : 0
+	"max_fps" : 0,
+	"volume": 50
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -56,8 +59,8 @@ func _ready() -> void:
 	display_dropdown.selected = DisplayServer.get_primary_screen()
 	
 	if not FileAccess.file_exists("user://settings.save"):
-		_on_graphics_preset_item_selected(2)
 		_on_window_mode_item_selected(1)
+		_on_graphics_preset_item_selected(2)
 
 	load_settings_from_file()
 	
@@ -74,7 +77,8 @@ func save_settings() -> void:
 										  "ambient_occlusion_quality" : ambient_occlusion_value,
 										  "volumetric_lighting_quality" : volumetric_lighting_value,
 										  "vsync" : vsync_value,
-	                                      "max_fps" : max_fps_value
+	                                      "max_fps" : max_fps_value,
+	                                      "volume" : volume_value
 									  }
 	var save_file: FileAccess = FileAccess.open("user://settings.save", FileAccess.WRITE)
 	var json_string: String   = JSON.stringify(settings_values)
@@ -104,6 +108,12 @@ func load_settings_from_file() -> void:
 	load_settings(data)
 
 func load_settings(settings: Dictionary) -> void:
+	var volume: float
+	if "volume" not in settings.keys():
+		volume = 50
+	else:
+		volume = settings.volume
+	
 	_on_display_selector_item_selected(settings.display)
 	_on_window_mode_item_selected(settings.window_mode)
 	_on_render_resolution_value_changed(settings.render_resolution)
@@ -115,7 +125,8 @@ func load_settings(settings: Dictionary) -> void:
 	_on_volumetric_lighting_item_selected(settings.volumetric_lighting_quality)
 	_on_vsync_item_selected(settings.vsync)
 	_on_max_fps_item_selected(settings.max_fps)
-	
+	_on_volume_value_changed(volume)
+
 	quality_preset_dropdown.selected = settings.quality_preset
 	display_dropdown.selected = settings.display
 	window_mode_dropdown.selected = settings.window_mode
@@ -128,6 +139,7 @@ func load_settings(settings: Dictionary) -> void:
 	volumetric_lighting_dropdown.selected = settings.volumetric_lighting_quality
 	vsync_dropdown.selected = settings.vsync
 	max_fps_dropdown.selected = settings.max_fps
+	volume_slider.value = volume
 
 func _on_display_selector_item_selected(index:int) -> void:
 	DisplayServer.window_set_current_screen(index)
@@ -303,6 +315,17 @@ func _on_exit_pressed() -> void:
 	input.grab_focus()
 
 func _on_graphics_preset_item_selected(index:int) -> void:
+	var outputRes: Vector2i     = DisplayServer.window_get_size()
+	var defaultRenderRes: float = 1
+	if outputRes.y <= 1080:
+		defaultRenderRes = 0.8
+	elif outputRes.y <= 1440 and outputRes.y > 1080:
+		defaultRenderRes = 0.7
+	elif outputRes.y <= 2160 and outputRes.y > 1440:
+		defaultRenderRes = 0.57
+	else:
+		defaultRenderRes = 0.5
+	
 	quality_preset_value = index
 	if index == 0:
 		var ultra_settings_dict: Dictionary = {
@@ -339,7 +362,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 	elif index == 2:
 		var medium_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 0.85,
+			"render_resolution" : defaultRenderRes,
 			"window_mode" : window_mode,
 			"quality_preset" : 2,
 			"upscaling_quality" : 1,
@@ -355,7 +378,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 	elif index == 3:
 		var low_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 0.67,
+			"render_resolution" : defaultRenderRes,
 			"window_mode" : window_mode,
 			"quality_preset" : 3,
 			"upscaling_quality" : 1,
@@ -371,7 +394,7 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 	elif index == 4:
 		var very_low_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
-			"render_resolution" : 0.4,
+			"render_resolution" : 0.33,
 			"window_mode" : window_mode,
 			"quality_preset" : 4,
 			"upscaling_quality" : 1,
@@ -407,4 +430,11 @@ func _on_max_fps_item_selected(index:int) -> void:
 		Engine.set_max_fps(60)
 	elif index == 3:
 		Engine.set_max_fps(30)
+	save_settings()
+
+	
+
+func _on_volume_value_changed(value:float) -> void:
+	volume_value = value
+	AudioServer.set_bus_volume_db(0, linear_to_db(value/25))
 	save_settings()
