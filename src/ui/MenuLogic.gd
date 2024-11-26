@@ -25,6 +25,7 @@ func _ready() -> void:
 	print_text.visible_characters = 0
 	
 	if pause_mode:
+		get_node("ComputerThinkingSound").queue_free()
 		background.color.a = 0.66
 		player = get_tree().get_root().get_node("Node3D/Player")
 		close_prompt.visible = true

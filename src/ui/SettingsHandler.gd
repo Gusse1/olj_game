@@ -37,7 +37,7 @@ var default_settings_dict: Dictionary = {
 	"display" : DisplayServer.window_get_current_screen(),
 	"render_resolution" : 0.67,
 	"window_mode" : window_mode,
-	"quality_preset" : 2,
+	"quality_preset" : 3,
 	"upscaling_quality" : 2,
 	"lighting_quality" : 2,
 	"anti_aliasing" : 4,
@@ -60,7 +60,7 @@ func _ready() -> void:
 	
 	if not FileAccess.file_exists("user://settings.save"):
 		_on_window_mode_item_selected(1)
-		_on_graphics_preset_item_selected(2)
+		_on_graphics_preset_item_selected(3)
 
 	load_settings_from_file()
 	
@@ -327,12 +327,12 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 		defaultRenderRes = 0.5
 	
 	quality_preset_value = index
-	if index == 0:
+	if index == 1:
 		var ultra_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
 			"render_resolution" : 1,
 			"window_mode" : window_mode,
-			"quality_preset" : 0,
+			"quality_preset" : 1,
 			"upscaling_quality" : 0,
 			"lighting_quality" : 0,
 			"anti_aliasing" : 2,
@@ -343,12 +343,12 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"max_fps" : 0
 		}
 		load_settings(ultra_settings_dict)
-	elif index == 1:
+	elif index == 2:
 		var high_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
 			"render_resolution" : 1,
 			"window_mode" : window_mode,
-			"quality_preset" : 1,
+			"quality_preset" : 2,
 			"upscaling_quality" : 0,
 			"lighting_quality" : 1,
 			"anti_aliasing" : 3,
@@ -359,12 +359,12 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"max_fps" : 0
 		}
 		load_settings(high_settings_dict)
-	elif index == 2:
+	elif index == 3:
 		var medium_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
 			"render_resolution" : defaultRenderRes,
 			"window_mode" : window_mode,
-			"quality_preset" : 2,
+			"quality_preset" : 3,
 			"upscaling_quality" : 1,
 			"lighting_quality" : 2,
 			"anti_aliasing" : 3,
@@ -375,12 +375,12 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"max_fps" : 0
 	   }
 		load_settings(medium_settings_dict)
-	elif index == 3:
+	elif index == 4:
 		var low_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
 			"render_resolution" : defaultRenderRes,
 			"window_mode" : window_mode,
-			"quality_preset" : 3,
+			"quality_preset" : 4,
 			"upscaling_quality" : 1,
 			"lighting_quality" : 3,
 			"anti_aliasing" : 4,
@@ -391,12 +391,12 @@ func _on_graphics_preset_item_selected(index:int) -> void:
 			"max_fps" : 0
 		}
 		load_settings(low_settings_dict)
-	elif index == 4:
+	elif index == 5:
 		var very_low_settings_dict: Dictionary = {
 			"display" : DisplayServer.window_get_current_screen(),
 			"render_resolution" : 0.33,
 			"window_mode" : window_mode,
-			"quality_preset" : 4,
+			"quality_preset" : 5,
 			"upscaling_quality" : 1,
 			"lighting_quality" : 4,
 			"anti_aliasing" : 4,
