@@ -18,7 +18,6 @@ func interact() -> void:
 	boat_interact.process_mode = PROCESS_MODE_INHERIT
 	boat_interact.visible = true
 	note_manager.activate_note("Fridge_Note")
-	print_debug("Interacted with fridge note")
 	directive_manager.next_directive()
 	
 	get_parent().visible = false

@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/idle.gd" id="3_xe000"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/jump.gd" id="4_1lr3q"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/walk.gd" id="5_bwgwe"]
-[ext_resource type="Script" path="res://src/gameplay/player_actions/IsLooking.gd" id="5_nx840"]
 [ext_resource type="PackedScene" uid="uid://bwqp0ltjmjncm" path="res://addons/shader_precompiler/ShaderPrecompiler.tscn" id="5_xop1c"]
 [ext_resource type="Script" path="res://src/gameplay/player_actions/InteractionManager.gd" id="6_602ne"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/sprint.gd" id="6_b4xrx"]
@@ -3321,6 +3320,12 @@ clearcoat_roughness = 0.0
 height = 2.4108
 radius = 0.287766
 
+[sub_resource type="GDScript" id="GDScript_fb8of"]
+script/source = "extends CollisionShape3D
+
+signal looking_at_area(area)
+"
+
 [sub_resource type="Theme" id="Theme_31w8t"]
 default_font = ExtResource("17_7kdk6")
 default_font_size = 50
@@ -3542,7 +3547,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 
 [node name="DetectorShape" type="CollisionShape3D" parent="CameraPivot/DetectorCylinder/PlayerArea"]
 shape = SubResource("CylinderShape3D_mtp61")
-script = ExtResource("5_nx840")
+script = SubResource("GDScript_fb8of")
 
 [node name="Raycast" type="RayCast3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.175092, 1.51041e-08)

@@ -6,7 +6,4 @@ var directive_manager: RichTextLabel
 func _ready() -> void:
 	directive_manager = get_tree().get_root().get_node("Node3D/Player/UserInterface/InGameUI/DirectiveTitle")
 	directive_manager.skip_to_directive(2)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	

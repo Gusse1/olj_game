@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cg6mc7ledtlc7"]
 
 [ext_resource type="Script" path="res://src/misc/Spirit.gd" id="1_4f1ol"]
-[ext_resource type="Script" path="res://src/misc/SpiritAnimations.gd" id="1_j88ib"]
 
 [sub_resource type="Animation" id="Animation_eqlc4"]
 length = 0.001
@@ -29,6 +28,20 @@ _data = {
 "spirit_idle": SubResource("Animation_33j80")
 }
 
+[sub_resource type="GDScript" id="GDScript_mrjf0"]
+script/source = "extends AnimationPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#play(\"spirit_idle\")
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [sub_resource type="FogMaterial" id="FogMaterial_yycgx"]
 density = 8.0
 albedo = Color(0, 0.615686, 0.619608, 1)
@@ -44,7 +57,7 @@ libraries = {
 "": SubResource("AnimationLibrary_m1a7x")
 }
 speed_scale = 0.25
-script = ExtResource("1_j88ib")
+script = SubResource("GDScript_mrjf0")
 
 [node name="FogVolume" type="FogVolume" parent="."]
 shape = 0

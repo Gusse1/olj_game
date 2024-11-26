@@ -53,7 +53,6 @@ func _process(delta: float) -> void:
 			sun.light_energy = new_sun_intensity
 			
 			if time_since_boat_in_motion >= 46:
-				print_debug("Transition_finished")
 				get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	
 
