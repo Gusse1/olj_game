@@ -16,7 +16,7 @@ config/version="1.0"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.980392, 0.839216, 0.647059, 1)
-config/icon="res://icon.svg"
+config/icon="res://assets/textures/special/olj_icon.png"
 
 [display]
 
