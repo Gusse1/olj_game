@@ -1,4 +1,4 @@
-extends "res://src/gameplay/Event.gd"
+extends "res://src/gameplay/events/Event.gd"
 
 @onready var boat: Node3D = $"../.."
 @export var environment: Environment

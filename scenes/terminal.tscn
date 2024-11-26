@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://dvyjckasvqbfu"]
 
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="1_g52nw"]
-[ext_resource type="Script" path="res://src/gameplay/TerminalLogic.gd" id="1_id5ji"]
+[ext_resource type="Script" path="res://src/gameplay/player_actions/TerminalLogic.gd" id="1_id5ji"]
 [ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="3_23c4l"]
-[ext_resource type="Script" path="res://src/gameplay/FileHandler.gd" id="4_2mk35"]
+[ext_resource type="Script" path="res://src/gameplay/player_actions/FileHandler.gd" id="4_2mk35"]
 [ext_resource type="Texture2D" uid="uid://dk2n75e5r5giq" path="res://assets/images/1902.png" id="4_ujyq3"]
 [ext_resource type="Texture2D" uid="uid://cl22tc1h5wwre" path="res://assets/images/1903.png" id="6_qfccg"]
 [ext_resource type="Texture2D" uid="uid://curjedwux1l5p" path="res://assets/images/1910.png" id="7_iw8to"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cg6mc7ledtlc7"]
 
 [ext_resource type="Script" path="res://src/misc/Spirit.gd" id="1_4f1ol"]
-[ext_resource type="Script" path="res://src/gameplay/SpiritAnimations.gd" id="1_j88ib"]
+[ext_resource type="Script" path="res://src/misc/SpiritAnimations.gd" id="1_j88ib"]
 
 [sub_resource type="Animation" id="Animation_eqlc4"]
 length = 0.001

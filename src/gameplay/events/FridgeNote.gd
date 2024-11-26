@@ -1,4 +1,4 @@
-extends "res://src/gameplay/Event.gd"
+extends "res://src/gameplay/events/Event.gd"
 
 @export var boat_interact: Node3D
 

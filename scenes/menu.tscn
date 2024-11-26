@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://src/ui/MenuLogic.gd" id="1_mlcvl"]
 [ext_resource type="FontFile" uid="uid://cgrup1wbbgame" path="res://assets/fonts/VT323-Regular.ttf" id="2_hsm5d"]
 [ext_resource type="Script" path="res://src/ui/TextAnimation.gd" id="3_371gw"]
-[ext_resource type="Script" path="res://src/ui/SettingsHandler.gd" id="3_rfvrh"]
+[ext_resource type="Script" path="res://src/settings/SettingsHandler.gd" id="3_rfvrh"]
 [ext_resource type="Script" path="res://src/ui/FPS.gd" id="5_mm5ul"]
-[ext_resource type="Script" path="res://src/ui/SettingsExplainer.gd" id="5_mx7co"]
+[ext_resource type="Script" path="res://src/settings/SettingsExplainer.gd" id="5_mx7co"]
 [ext_resource type="AudioStream" uid="uid://ctx87wt442q8y" path="res://assets/audio/570733__martian__computer-hard-drive-access-fan-click.wav" id="7_mmdbb"]
 [ext_resource type="Script" path="res://src/audio/AudioLooper.gd" id="8_7w35e"]
 

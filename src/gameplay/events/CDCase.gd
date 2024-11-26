@@ -1,4 +1,4 @@
-extends "res://src/gameplay/Event.gd"
+extends "res://src/gameplay/events/Event.gd"
 
 @export var original_situation: Node3D
 @export var new_situation: Node3D
