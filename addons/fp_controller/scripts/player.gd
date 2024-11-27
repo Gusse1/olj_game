@@ -154,11 +154,9 @@ func _handle_camera_motion() -> void:
 
 func check_climbable() -> bool:
 	if crouch_raycast.is_colliding():
-		print_debug("Crouch raycast hit")
 		return false
 	
 	if not bottom_raycast.is_colliding() && not middle_raycast.is_colliding() && not top_raycast.is_colliding():
-		print_debug(bottom_raycast.is_colliding(), middle_raycast.is_colliding(), top_raycast.is_colliding())
 		return false
 	
 	var climb_point = surface_raycast.get_collision_point()

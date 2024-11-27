@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dlbkch6iuy8gn"]
+[gd_scene load_steps=63 format=3 uid="uid://dlbkch6iuy8gn"]
 
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player.gd" id="1_5ras8"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/smooth_camera.gd" id="2_1py82"]
@@ -13,9 +13,6 @@
 [ext_resource type="Script" path="res://src/gameplay/player_actions/InteractionManager.gd" id="6_602ne"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/sprint.gd" id="6_b4xrx"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/fall.gd" id="7_dv6ye"]
-[ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/crouch.gd" id="9_yxb0u"]
-[ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/climb.gd" id="10_o7gmx"]
-[ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/grab.gd" id="11_gkc45"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/slide.gd" id="12_bqyfq"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_ui.gd" id="12_d7xi0"]
 [ext_resource type="Script" path="res://addons/fp_controller/scripts/player_move_state/stride.gd" id="13_oc5oa"]
@@ -3579,15 +3576,6 @@ script = ExtResource("6_b4xrx")
 [node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("audio_manager")]
 script = ExtResource("7_dv6ye")
 audio_manager = NodePath("../../AudioManager")
-
-[node name="Crouch" type="Node" parent="StateMachine"]
-script = ExtResource("9_yxb0u")
-
-[node name="Climb" type="Node" parent="StateMachine"]
-script = ExtResource("10_o7gmx")
-
-[node name="Grab" type="Node" parent="StateMachine"]
-script = ExtResource("11_gkc45")
 
 [node name="Slide" type="Node" parent="StateMachine"]
 script = ExtResource("12_bqyfq")
