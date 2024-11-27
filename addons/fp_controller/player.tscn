@@ -4038,6 +4038,21 @@ autowrap_mode = 2
 shortcut_keys_enabled = false
 text_direction = 1
 
+[node name="JumpTutorial" type="RichTextLabel" parent="UserInterface/TutorialUI"]
+visible = false
+clip_contents = false
+offset_right = 1864.0
+offset_bottom = 100.0
+theme = SubResource("Theme_bup6e")
+theme_override_colors/default_color = Color(0, 0.556863, 0, 1)
+bbcode_enabled = true
+text = "Press SPACEBAR to jump"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+shortcut_keys_enabled = false
+text_direction = 1
+
 [node name="NoteViewer" type="ColorRect" parent="UserInterface"]
 visible = false
 layout_mode = 1
