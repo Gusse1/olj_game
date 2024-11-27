@@ -3425,12 +3425,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2, -0.75)
 target_position = Vector3(0.4, 2.08165e-12, 2.08165e-12)
 
 [node name="Flashlight" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.989044, 0.14762, 0, -0.14762, 0.989044, -0.0989468, 1.46846, 0.11152)
+transform = Transform3D(1, 0, 0, 0, 0.989044, 0.14762, 0, -0.14762, 0.989044, -0.0989468, 1.71269, 0.140248)
 visible = false
 light_color = Color(0.980392, 0.839216, 0.647059, 1)
 light_energy = 2.7
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 7.0
+shadow_enabled = true
 spot_range = 30.2736
 spot_angle = 52.7174
 script = ExtResource("2_ng64c")
@@ -4041,6 +4042,7 @@ text_direction = 1
 [node name="JumpTutorial" type="RichTextLabel" parent="UserInterface/TutorialUI"]
 visible = false
 clip_contents = false
+layout_mode = 0
 offset_right = 1864.0
 offset_bottom = 100.0
 theme = SubResource("Theme_bup6e")
