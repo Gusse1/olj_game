@@ -1,6 +1,7 @@
 # One Last Job
 An atmospheric first person adventure game about a robot doing one last delivery before the end of the world.
-![image](https://github.com/user-attachments/assets/86b4deee-079a-4724-8584-20419e3d9a20)
+![Screenshot 2024-11-26 210041](https://github.com/user-attachments/assets/eae11b0a-86f2-4be2-8b6f-f5e1e4bd7a26)
+
 
 ## Repository
 This repository houses the Godot project for the game "One Last Job" (downloadable from here https://mikaelgustafsson.itch.io/one-last-job).
